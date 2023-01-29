@@ -1,0 +1,105 @@
+{% extends 'admin/base_template.html' %}
+{% load static %}
+{% load get_item %}
+
+{% block title %} Новый язык {% endblock %}
+
+
+{% block page_title %} Добавить язык {% endblock %}
+
+
+{% block nav_ol %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Главная</a></li>
+    <li class="breadcrumb-item ">
+        <a href="{% url 'admin_list' %}">Модераторы</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
+        Создать
+    </li>
+</ol>
+{% endblock %}
+
+{% block content_width %} class="col-11" {% endblock %}
+
+
+{% block content %}
+<div class="card mt-3">
+    <div class="card-bodyb p-5">
+        <form method="POST" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            <input type="hidden" name="dropzone-key" value="{{ dropzone_key }}">
+            <input type="hidden" name="id" value="{{ object.id }}">
+            <input type="hidden" name="url" value="{{ request.get_full_path }}">
+
+
+            <div class="form-group">
+                <!-- Label  -->
+                <label class="form-label">
+                    Ф.И.О
+                </label>
+                <br>
+                <!-- Input -->
+                <input type="text" name="name" class="form-control" {% if full_name %} value="{{ full_name }}" {% endif %} placeholder="Ф.И.О" maxlength="255" id="id_name">
+                <div class="invalid-feedback">
+                    {{ form.errors.name }}
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <!-- Label  -->
+                <label class="form-label">
+                    Имя пользователя
+                </label>
+                <br>
+                <!-- Input -->
+                <input type="text" name="username" {% if object.username %} value="{{ object.username }}" {% endif %}
+                    {% if form.errors.username %} class="form-control is-invalid" {% else %} class="form-control" {% endif %}" placeholder="Имя пользователя" maxlength="255" id="id_code" required>
+                <div class="invalid-feedback">
+                    {{ form.errors.username }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <!-- Label  -->
+                <label class="form-label">
+                    Пароль
+                </label>
+                <br>
+                <!-- Input -->
+                <input type="password" name="password1" {% if form.errors.password1 %} class="form-control is-invalid" {% else %} class="form-control" {% endif %} placeholder="Пароль" maxlength="255" id="id_code" {% if not object %} required {% endif %}>
+                <div class="invalid-feedback">
+                    {{ form.errors.password1 }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <!-- Label  -->
+                <label class="form-label">
+                    Подтверждение пароля
+                </label>
+                <br>
+                <!-- Input -->
+                <input type="password" name="password2" {% if form.errors.password2 %} class="form-control is-invalid" {% else %} class="form-control" {% endif %} placeholder="Подтверждение пароля" maxlength="255" id="id_code" {% if not object %} required {% endif %}>
+                <div class="invalid-feedback">
+                    {{ form.errors.password2 }}
+                </div>
+            </div>
+
+            <div class="btn-box text-end">
+                <a href="{{ request.get_full_path }}" class="btn btn-secondary">
+                    Отменить
+                </a>
+                <button type="submit" class="btn w-60 btn-primary">
+                    Сохранить
+                </button>
+            </div>
+            <!-- Buttons -->
+
+
+        </form>
+    </div>
+</div>
+<!-- Form -->
+{% endblock %}

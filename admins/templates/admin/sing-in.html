@@ -1,0 +1,112 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc." />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'assets/favicon/favicon.ico' %}" type="image/x-icon" />
+
+    <!-- Map CSS -->
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" />
+
+    <!-- Libs CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/libs.bundle.css' %}" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/theme.bundle.css' %}" />
+
+    <!-- Title -->
+    <title>Dashkit</title>
+</head>
+
+<body class="d-flex align-items-center bg-auth border-top border-top-2 border-primary">
+
+    <!-- CONTENT
+    ================================================== -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-5 col-xl-4 my-5">
+
+                <!-- Heading -->
+                <h1 class="display-4 text-center mb-3">
+                    Sign in
+                </h1>
+
+                <!-- Subheading -->
+                <p class="text-muted text-center mb-5">
+                    Free access to our dashboard.
+                </p>
+
+                <!-- Form -->
+                <form method="post">
+                    {% csrf_token %}
+
+                    <!-- Email address -->
+                    <div class="form-group">
+
+                        <!-- Label -->
+                        <label class="form-label">
+                            Username
+                        </label>
+
+                        <!-- Input -->
+                        <input type="text" name="username" class="form-control" placeholder="name@address.com">
+
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+
+                                <!-- Label -->
+                                <label class="form-label">
+                                    Password
+                                </label>
+
+                            </div>
+                        </div> <!-- / .row -->
+
+                        <!-- Input group -->
+                        <div class="input-group input-group-merge">
+
+                            <!-- Input -->
+                            <input class="form-control" name="password" type="password" placeholder="Enter your password">
+
+                            <!-- Icon -->
+                            <span class="input-group-text">
+                                <i class="fe fe-eye"></i>
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="btn btn-lg w-100 btn-primary mb-3">
+                        Sign in
+                    </button>
+                </form>
+
+            </div>
+        </div> <!-- / .row -->
+    </div> <!-- / .container -->
+
+    <!-- JAVASCRIPT -->
+    <!-- Map JS -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+    <!-- Vendor JS -->
+    <script src="{% static 'assets/js/vendor.bundle.js' %}"></script>
+
+    <!-- Theme JS -->
+    <script src="{% static 'assets/js/theme.bundle.js' %}"></script>
+
+</body>
+
+</html>

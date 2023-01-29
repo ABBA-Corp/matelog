@@ -1,0 +1,269 @@
+{% extends 'admin/base_template.html' %}
+{% load static %}
+{% load get_item %}
+
+
+{% block title %} Новая статья {% endblock %}
+
+
+{% block page_title %} Напишите новую статью {% endblock %}
+
+{% block nav_ol %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Главная</a></li>
+        <li class="breadcrumb-item ">
+            <a href="{% url 'articles_list' %}">Статьи</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
+            Добавление
+        </li>
+    </ol>
+{% endblock %}
+
+{% block content_width %} class="col-12" {% endblock %}
+
+
+{% block content %}    
+    <form class="row" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="dropzone-key" value="{{ dropzone_key }}">
+        <input type="hidden" name="id" value="{{ object.id }}">
+        <input type="hidden" name="url" value="{{ request.get_full_path }}">
+        <div class="col-12 col-xl-8">
+            <div class="card mt-3">
+                <div class="crd-header p-4 pb-0">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        {% for lang in langs %}
+                            {% if lang == langs.first %}
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link px-3 py-2 active" id="tab_{{ lang.id }}" data-bs-toggle="tab" data-bs-target="#{{ lang.code }}"
+                                        type="button" role="tab" aria-controls="{{ lang.code }}" aria-selected="true">{{ lang.name }}</button>
+                                </li>
+                            {% else %}
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link px-3 py-2" id="tab_{{ lang.id }}" data-bs-toggle="tab" data-bs-target="#{{ lang.code }}" type="button"
+                                        role="tab" aria-controls="{{ lang.code }}" aria-selected="false">{{ lang.name }}</button>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            
+                <div class="card-body p-5 pt-4">
+                    <div class="tab-content" id="myTabContent">
+                        {% for lang in langs %}
+                            {% if lang == langs.first %}
+                                <div class="tab-pane fade show active" id="{{ lang.code }}" role="tabpanel" aria-labelledby="{{ lang.code }}">
+                            {% else %}
+                                <div class="tab-pane fade" id="{{ lang.code }}" role="tabpanel" aria-labelledby="{{ lang.code }}">
+                            {% endif %}
+                                
+                                <!-- Project name -->
+                                    <div class="form-group">
+                                        <!-- Label  -->
+                                        <label class="form-label">
+                                            Заголовок
+                                        </label>
+                                        <br>
+                                        <!-- Input -->
+                                        <input type="text" name="title#{{ lang.code }}" class="form-control" {% if object and object.title|get_item:lang.code %} value="{{ object.title|get_item:lang.code }}" {% endif %}>
+                                    </div>
+                                    <div class="form-group">
+                                    
+                                        <!-- Label  -->
+                                        <label class="form-label">
+                                            Подзаголовок
+                                        </label>
+                                        <br>
+                                        <!-- Input -->
+                                        <input type="text" name="subtitle#{{ lang.code }}" {% if object and object.subtitle|get_item:lang.code %} value="{{ object.subtitle|get_item:lang.code }}" {% endif %} class="form-control">
+                                    
+                                    </div>
+                                <!-- Project description -->
+                                    <div class="form-group">
+                
+                                        <!-- Label -->
+                                        <label class="form-label mb-1">
+                                            Текст
+                                        </label>
+                                        <br>
+                                        <!-- Textarea -->
+                                        <textarea class="editor" name="body#{{ lang.code }}" placeholder="Text">{% if object and object.body|get_item:lang.code %} {{ object.body|get_item:lang.code }} {% endif %}</textarea>
+                
+                                    </div>
+                                    <div class="col-12">
+                                        <h2 class="">SEO теги</h2>
+                                        <hr>
+                                        <div class="form-group">
+                                            <label for="meta_desc" class="form-label">Мета описание</label>
+                                            <input type="text" class="form-control " name="meta_tags#{{ lang.code }}" {% if object.meta_field and object.meta_field.meta_tags|get_item:lang.code %} value="{{ object.meta_field.meta_tags|get_item:lang.code }}" {% endif %} id="meta_desc" placeholder="Мета описание">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="meta_keywords" class="form-label">Мета ключи</label>
+                                            <input type="text" class="form-control " name="meta_keys#{{ lang.code }}" {% if object.meta_field and object.meta_field.meta_keys|get_item:lang.code %} value="{{ object.meta_field.meta_keys|get_item:lang.code }}" {% endif %} id="meta_keywords" placeholder="Мета ключи">
+                                        </div>
+                                    </div>
+                                </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-4">
+            <div class="card mt-3">
+                <div class="card-body p-4">
+                    <div class="form-group">
+                        <!-- Label  -->
+                        <label class="form-label">
+                            Дата
+                        </label>
+                        <br>
+                        <!-- Input -->
+                        <input type="text" name="created_date" {% if object.created_date %} value="{{ object.get_format_data }}" {% endif %} class="form-control" id="date-input"  data-flatpickr='{"dateFormat": "Y-m-d"}'>
+                    </div>
+
+
+                    <div class="form-group">
+                        <!-- Label  -->
+                        <label class="form-label">
+                            Категории
+                        </label>
+                        <br>
+                        <!-- Input -->
+                        <select class="form-control mb-4" data-choices='{"removeItemButton": true}' name="categories[]" multiple>
+                            {% for ctg in categories %}
+                                {% if object and ctg in object.category.all %}
+                                <option value="{{ ctg.id }}" selected>{{ ctg.name|get_item:lang.code }}</option>
+                                {% else %}
+                                <option value="{{ ctg.id }}">{{ ctg.name|get_item:lang.code }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+
+
+                    <!-- Project cover -->
+                    <div class="form-group">
+                    
+                        <!-- Label  -->
+                        <label class="form-label mb-1">
+                            Обложка статьи
+                        </label>
+
+                        {% if object %}
+                            <input type="hidden" id="id" value="{{ object.id }}">
+                        {% else %}
+                            <input type="hidden" id="id" value="None">
+                        {% endif %}
+                    
+                        <!-- Dropzone -->
+                        <div class="dropzone dropzone-multiple border-0" data-max="1" data-delete="/admin/images/delete" data-url="/admin/images/save" data-key="{{ dropzone_key }}">
+                            <!-- Fallback -->
+                            <div class="dz-preview d-none"></div>
+                            <div class="fallback">
+                                <div class="custom-file">
+                                    <input type="file" name="file" class="form-control" id="customFileUploadMultiple">
+                                    <label class="form-label" for="customFileUploadMultiple">Choose file</label>
+                                </div>
+                            </div>
+                        
+                            <!-- Preview -->
+                            <div class="dz-preview-container" id="article-image" style="padding: 0;">
+                                {% if object %}
+                                    <div class="dz-preview dz-processing dz-complete dz-image-preview d-none" style="position: relative; margin: 0;">
+                                        <div class="dz-image">
+                                            <img data-dz-thumbnail="" src="" alt="">
+                                        </div>
+                                        <div class="dz-details">
+                                            <div class="dz-filename"><span data-dz-name=""></span></div>
+                                        </div>
+                                        <a class="dz-remove" data-file="" data-dz-remove>Удалить</a>
+                                    </div>
+                                    {% if object.image %}
+                                        <div class="dz-preview dz-processing dz-complete dz-image-preview" style="position: relative;">
+                                            <div class="dz-image">
+                                                <img data-dz-thumbnail="" src="{{ object.image.ten.url }}" alt="{{ object.image }}">
+                                            </div>
+                                            <div class="dz-details">
+                                                <div class="dz-filename"><span data-dz-name="">{{ object.image }}</span></div>
+                                            </div>
+                                            <a class="dz-remove" onclick="var result = confirm('Want to delete?');if (result){submit_form('delete-form{{ object.id }}')}"  data-dz-remove>Удалить</a>
+                                            <div action="{% url 'del_article_img' %}" id="delete-form{{ object.id }}" method="post">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="item_id" value="{{ object.id }}">
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% else %}
+                                    {% for img in images %}
+                                        <div class="dz-preview dz-processing dz-complete dz-image-preview">
+                                            <div class="dz-image">
+                                                <img data-dz-thumbnail="" src="/media/{{ img.name }}" alt="{{ img.name }}">
+                                            </div>
+                                            <div class="dz-details">
+                                                <div class="dz-filename"><span data-dz-name="">{{ img.name }}</span></div>
+                                            </div>
+                                            <a class="dz-remove" data-file="{{ img }}" onclick="var result = confirm('Want to delete?');if (result){submit_form('delete-form{{ img.id }}')}" data-dz-remove>Удалить</a>
+                                            <div action="{% url 'del-img' %}" id="delete-form{{ img.id }}" method="post">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="url" value="{{ request.get_full_path }}">
+                                                <input type="hidden" name="key" value="{{ dropzone_key }}">
+                                                <input type="hidden" name="file" value="{{ img.name }}">
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-12 col-xl-2">
+                            <div class="form-check form-switch">
+                                <input type="checkbox" name="active" class="form-check-input" id="id_active" checked>
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Active</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="btn-box text-end">
+                        <a href="#" class="btn w-30 btn-secondary">
+                            Отменить
+                        </a>
+                        <input type="submit" href="#" class="btn w-40 btn-primary" value="Сохранить">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Form -->
+    
+    
+    
+    <!-- JAVASCRIPT -->
+    <script>
+        for(let txt of document.querySelectorAll('.editor')) {
+            CKEDITOR.replace(txt)        
+        }
+
+        function dateNow() {
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+
+            today = yyyy + '-' + mm + '-' + dd;
+
+            return today
+        }
+
+        document.getElementById("date-input").placeholder = dateNow()
+    </script>
+
+    <!-- Map JS -->
+    
+    <!-- Vendor JS -->
+{% endblock %}

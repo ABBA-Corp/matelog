@@ -1,0 +1,104 @@
+{% extends 'admin/base_template.html' %}
+{% load static %}
+{% load get_item %}
+
+{% block title %} Новый язык {% endblock %}
+
+
+{% block page_title %} Добавить язык {% endblock %}
+
+{% block form_start %} <form method="post" enctype="application/x-www-form-urlencoded"> {% endblock %}
+
+{% block page_btn %}
+<div class="col-auto">
+    <!-- Buttons -->
+    <a href="{{ request.path }}" class="btn btn-danger ms-2">
+        Отмена
+    </a>
+    <button type="submit" class="btn btn-success ms-2">
+        Применить
+    </button>
+</div>
+{% endblock %}
+
+
+{% block nav_ol %}
+<ol class="breadcrumb top-nav-scrl">
+    <li class="breadcrumb-item"><a href="/">Главная</a></li>
+    <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
+        Настройки Форм
+    </li>
+</ol>
+{% endblock %}
+
+{% block content_width %} class="col-12" {% endblock %}
+
+
+{% block content %}
+<!-- Tab content -->
+<!-- Card -->
+<div class="row long_carusel" method="post">
+    {% csrf_token %}
+    {% for model in models %}
+        <div class="col-4">
+            <div class="card" id="contactsList">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h2 class="mb-0 mt-2">{{ model.title }}</h2>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {% for field in model.fields %}
+                    <div class="form-group">
+                        <label class="form-label">
+                            {{ field }}
+                        </label>
+                        <div class="row">
+                        {% if model.name in object.inputs.keys and field in set_fields|get_item:model.name %}
+                            {% for item in object.inputs|get_item:model.name %}
+                                {% if item.field == field %}
+                                    <div class="col-9">
+                                        <input type="text" name='{"model": "{{ model.name }}", "field": "{{ field }}", "type": "label"}' placeholder="Label"
+                                            value="{{ item.label }}" class="form-control">
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" name='{"model": "{{ model.name }}", "field": "{{ field }}", "type": "bool"}'
+                                                type="checkbox" id="flexSwitchCheckDefault" checked>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            <div class="col-9">
+                                <input type="text" name='{"model": "{{ model.name }}", "field": "{{ field }}", "type": "label"}' placeholder="Label"
+                                    value="Field" class="form-control">
+                            </div>
+                            <div class="col-3">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" name='{"model": "{{ model.name }}", "field": "{{ field }}", "type": "bool"}'
+                                        type="checkbox" id="flexSwitchCheckDefault">
+                                </div>
+                            </div>
+                        {% endif %}
+                        </div>
+                        <!-- Input -->
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+<!-- JAVASCRIPT -->
+<!-- Map JS -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+<script src="{% static 'assets/js/settings.js' %}"></script>
+<!-- Vendor JS -->
+{% endblock %}
+
+
+{% block form_end %} </form> {% endblock %}
+

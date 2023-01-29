@@ -1,0 +1,173 @@
+{% extends 'admin/base_template.html' %}
+{% load static %}
+{% load get_item %}
+
+{% block title %} Общие данные {% endblock %}
+
+
+{% block page_title %} Общие данные {% endblock %}
+
+
+{% block nav_ol %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Главная</a></li>
+    <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
+        Общие данные
+    </li>
+</ol>
+{% endblock %}
+
+{% block content_width %} class="col-12" {% endblock %}
+
+
+{% block content %}
+<form class="row" action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="hidden" name="url" value="{{ request.get_full_path }}">
+    <div class="col-12 col-xl-8">
+        <div class="card mt-3">
+            <div class="crd-header p-4 pb-0">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    {% for lang in langs %}
+                    {% if lang == langs.first %}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link px-3 py-2 active" id="tab_{{ lang.id }}" data-bs-toggle="tab"
+                            data-bs-target="#{{ lang.code }}" type="button" role="tab" aria-controls="{{ lang.code }}"
+                            aria-selected="true">{{ lang.name }}</button>
+                    </li>
+                    {% else %}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link px-3 py-2" id="tab_{{ lang.id }}" data-bs-toggle="tab"
+                            data-bs-target="#{{ lang.code }}" type="button" role="tab" aria-controls="{{ lang.code }}"
+                            aria-selected="false">{{ lang.name }}</button>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="card-body p-5 pt-4">
+                <div class="tab-content" id="myTabContent">
+                    {% for lang in langs %}
+                        {% if lang == langs.first %}
+                            <div class="tab-pane fade show active" id="{{ lang.code }}" role="tabpanel"
+                                aria-labelledby="{{ lang.code }}">
+                        {% else %}
+                            <div class="tab-pane fade" id="{{ lang.code }}" role="tabpanel"
+                                aria-labelledby="{{ lang.code }}">
+                        {% endif %}
+                            <!-- Project name -->
+                            <div class="form-group">
+                                <!-- Label  -->
+                                <label class="form-label">
+                                    Заголовок(первый)
+                                </label>
+                                <br>
+                                <!-- Input -->
+                                <input type="text" name="title_one#{{ lang.code }}" {% if object.title_one and object.title_one|get_item:lang.code %} value="{{ object.title_one|get_item:lang.code }}" {% endif %} class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <!-- Label  -->
+                                <label class="form-label">
+                                    Заголовок(второй)
+                                </label>
+                                <br>
+                                <!-- Input -->
+                                <input type="text" name="title_second#{{ lang.code }}" {% if object.title_second and object.title_one|get_item:lang.code %}
+                                    value="{{ object.title_second|get_item:lang.code }}" {% endif %} class="form-control">
+                            </div>
+
+                            <!-- Project description -->
+                            <div class="form-group">
+
+                                <!-- Label -->
+                                <label class="form-label mb-1">
+                                    Описание(первое)
+                                </label>
+                                <br>
+                                <!-- Textarea -->
+                                <textarea class="editor" name="text_first#{{ lang.code }}" placeholder="Text">{% if object.text_first and object.text_first|get_item:lang.code %} {{ object.text_first|get_item:lang.code }} {% endif %}</textarea>
+
+                            </div>
+
+                            <div class="form-group">
+                            
+                                <!-- Label -->
+                                <label class="form-label mb-1">
+                                    Описание(второе)
+                                </label>
+                                <br>
+                                <!-- Textarea -->
+                                <textarea class="editor" name="text_second#{{ lang.code }}" placeholder="Text">{% if object.text_second and object.text_second|get_item:lang.code %} {{ object.text_second|get_item:lang.code }} {% endif %}</textarea>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="btn-box text-end">
+                        <a href="#" class="btn w-30 btn-secondary">
+                            Отменить
+                        </a>
+                        <input type="submit" href="#" class="btn w-40 btn-primary" value="Сохранить">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-xl-4">
+        <div class="card mt-3">
+            <div class="card-body p-4">
+                <div class="form-group">
+                    <!-- Dropzone -->
+                    <label for="dropzone" class="form-label">Видео</label>
+                    <!-- Dropzone -->
+                    <div class="dropzone dropzone-multiple border-0" data-max="1" data-delete="{% url 'del_about_video' %}"
+                        data-url="{% url 'set_about_video' %}" data-key="about_us">
+                        <!-- Fallback -->
+                        <div class="dz-preview d-none"></div>
+                        <div class="fallback">
+                            <div class="custom-file">
+                                <input type="file" name="file" class="form-control" id="customFileUploadMultiple">
+                                <label class="form-label" for="customFileUploadMultiple">Choose file</label>
+                            </div>
+                        </div>
+                
+                        <!-- Preview -->
+                        <div class="dz-preview-container" id="logo1" style="padding: 0;">
+                            {% if object.video %}
+                            <div class="dz-preview dz-processing dz-complete dz-image-preview" style="position: relative;">
+                                <div class="dz-image">
+                                    <video data-dz-thumbnail="" src="{{ object.video.url }}" alt="{{ object.video }}"></video>
+                                </div>
+                                <div class="dz-details">
+                                    <div class="dz-filename" style="overflow: hidden;"><span data-dz-name="">{{ object.video }}</span></div>
+                                </div>
+                                <a class="dz-remove" data-file="{{ img.id }}"
+                                    onclick="var result = confirm('Want to delete?');if (result){submit_form('delete-form-about-us')}"
+                                    data-dz-remove>Удалить</a>
+                                    <div action="{% url 'del_about_video' %}" id="delete-form-about-us" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="url" value="{{ request.get_full_path }}">
+                                        <input type="hidden" name="key" value="logo1">
+                                    </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- Form -->
+
+
+
+<!-- JAVASCRIPT -->
+<script>
+    for (let txt of document.querySelectorAll('.editor')) {
+        CKEDITOR.replace(txt)
+    }
+</script>
+
+<!-- Vendor JS -->
+{% endblock %}

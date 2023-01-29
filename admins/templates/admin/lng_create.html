@@ -1,0 +1,166 @@
+{% extends 'admin/base_template.html' %}
+{% load static %}
+{% load get_item %}
+
+{% block title %} Новый язык {% endblock %}
+
+
+{% block page_title %} Добавить язык {% endblock %}
+
+
+{% block nav_ol %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Главная</a></li>
+        <li class="breadcrumb-item ">
+            <a href="{% url 'langs_list' %}">Языки</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
+            Создать
+        </li>
+    </ol>
+{% endblock %}
+
+{% block content_width %} class="col-11" {% endblock %}
+
+
+{% block content %}
+    <div class="card mt-3">
+        <div class="card-bodyb p-5">
+            <form method="POST" enctype="multipart/form-data" action="">
+                {% csrf_token %}
+                <input type="hidden" name="dropzone-key" value="{{ dropzone_key }}">
+                <input type="hidden" name="id" value="{{ object.id }}">
+                <input type="hidden" name="url" value="{{ request.get_full_path }}">
+
+                <div class="form-group">
+                    <!-- Label  -->
+                    <label class="form-label">
+                        Название
+                    </label>
+                    <br>
+                    <!-- Input -->
+                    <input type="text" name="name" class="form-control" {% if object.name %} value="{{ object.name }}" {% endif %} placeholder="Название..." maxlength="255" id="id_name" required>
+                </div>
+
+                <div class="form-group">
+                    <!-- Label  -->
+                    <label class="form-label">
+                        Код
+                    </label>
+                    <br>
+                    <!-- Input -->
+                    <input type="text" name="code" {% if object.code %} value="{{ object.code }}" {% endif %}  class="form-control" placeholder="Код" maxlength="255" id="id_code" required>
+                </div>
+
+                <!-- Project cover -->
+                <div class="form-group">
+                
+                    <!-- Label  -->
+                    <label class="form-label mb-1">
+                        Иконка языка
+                    </label>
+                
+                    {% if object %}
+                    <input type="hidden" id="id" value="{{ object.id }}">
+                    {% else %}
+                    <input type="hidden" id="id" value="None">
+                    {% endif %}
+                    
+                    <!-- Dropzone -->
+                    <div class="dropzone dropzone-multiple border-0" data-delete="/admin/images/delete" data-url="/admin/images/save" data-max="1" data-key="{{ dropzone_key }}" data-url="/admin/images/save" data-max="5">
+                        <!-- Fallback -->
+                        <div class="dz-preview d-none"></div>
+                        <div class="fallback">
+                            <div class="custom-file">
+                                <input type="file" name="file" class="form-control" id="customFileUploadMultiple">
+                                <label class="form-label" for="customFileUploadMultiple">Choose file</label>
+                            </div>
+                        </div>
+                    
+                        <!-- Preview -->
+                        <div class="dz-preview-container" id="lang-icon" style="padding: 0;">
+                            {% if object %}
+                            <div class="dz-preview dz-processing dz-complete dz-image-preview d-none">
+                                <div class="dz-image">
+                                    <img data-dz-thumbnail="" src="" alt="">
+                                </div>
+                                <div class="dz-details">
+                                    <div class="dz-filename"><span data-dz-name=""></span></div>
+                                </div>
+                                <a class="dz-remove" data-file="" data-dz-remove>Удалить</a>
+                            </div>
+                            {% if object.icon %}
+                                <div class="dz-preview dz-processing dz-complete dz-image-preview" style="position: relative;">
+                                    <div class="dz-image">
+                                        <img data-dz-thumbnail="" src="{{ object.icon.url }}" alt="{{ object.icon }}">
+                                    </div>
+                                    <div class="dz-details">
+                                        <div class="dz-filename"><span data-dz-name="">{{ object.icon }}</span></div>
+                                    </div>
+                                    <a class="dz-remove" data-file="{{ img.id }}"
+                                        onclick="var result = confirm('Want to delete?');if (result){submit_form('delete-form{{ img.id }}')}"
+                                        data-dz-remove>Удалить</a>
+                                    <div action="{% url 'lang_icon_del' %}" id="delete-form{{ img.id }}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="url" value="{{ request.get_full_path }}">
+                                        <input type="hidden" name="item_id" value="{{ object.id }}">
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% else %}
+                            {% for img in images %}
+                            <div class="dz-preview dz-processing dz-complete dz-image-preview">
+                                <div class="dz-image">
+                                    <img data-dz-thumbnail="" src="/media/{{ img|get_item:'name' }}" alt="{{ img }}">
+                                </div>
+                                <div class="dz-details">
+                                    <div class="dz-filename"><span data-dz-name="">{{ img.name }}</span></div>
+                                </div>
+                                <a class="dz-remove" data-file="{{ img }}"
+                                    onclick="var result = confirm('Want to delete?');if (result){submit_form('delete-form{{ img.id }}')}"
+                                    data-dz-remove>Удалить</a>
+                                <div action="{% url 'del-img' %}" id="delete-form{{ img.id }}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="url" value="{{ request.get_full_path }}">
+                                    <input type="hidden" name="key" value="{{ dropzone_key }}">
+                                    <input type="hidden" name="file" value="{{ img.name }}">
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12 col-xl-2">
+                        <div class="form-check form-switch">
+                            {{ form.active }}
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Active</label>
+                        </div> 
+                    </div>
+                    <div class="col-12 col-xl-2">
+                        <div class="form-check form-switch">
+                            {{ form.default }}
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Default</label>
+                        </div>                    
+                    </div>
+                </div>
+
+                <div class="btn-box text-end">
+                    <a href="{{ request.get_full_path }}" class="btn btn-secondary">
+                        Отменить
+                    </a>
+                    <button type="submit" class="btn w-60 btn-primary">
+                        Сохранить
+                    </button>
+                </div>
+                <!-- Buttons -->
+    
+    
+            </form>
+        </div>
+    </div>
+    <!-- Form -->
+{% endblock %}

@@ -1,0 +1,167 @@
+{% extends 'admin/base_template.html' %}
+{% load static %}
+{% load get_item %}
+{% load range %}
+
+{% block title %} Новый язык {% endblock %}
+
+
+{% block page_title %} Переводы {% endblock %}
+
+{% block nav_ol %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Главная</a></li>
+    <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
+        Переводы
+    </li>
+</ol>
+{% endblock %}
+
+{% block content_width %} class="col-12" {% endblock %}
+
+
+{% block content %}
+<!-- Tab content -->
+<!-- Card -->
+<form method="post" class="card"
+    data-list='{"valueNames": ["item-name", "item-title", "item-email", "item-phone", "item-score", "item-company"]}'
+    id="contactsList">
+    {% csrf_token %}
+    <input type="hidden" name="item_count" {% if len %} value="{{ len }}" {% else %} value="{{ object.translations.count }}" {% endif %}>
+    <div class="card-header" style="padding-top: 15px; box-sizing: content-box; padding-bottom: 15px;">
+        <div class="btns d-flex justify-content-end">
+            <a href="" class="btn btn-danger me-3">Отмена</a>
+            <button type="submit" class="btn btn-success">Сохранить</button>
+        </div>
+    </div>
+    <div class="table-responsive" style="padding: 20px;">
+        <table class="table table-sm table-hover table-nowrap card-table">
+            <thead>
+                <tr>
+                    <th style="width:120px;">
+                        <a class="list-sort text-muted">#</a>
+                    </th>
+                    <th style="width:240px;">
+                        <span class="list-sort text-muted">Ключ</span>
+                    </th>
+                    {% for lang in langs %}
+                    <th style="width:200px;">
+                        <a class="list-sort text-muted" href="#">Значение({{ lang.code }})</a>
+                    </th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody class="list fs-base" id="translations-list">
+                {% for item, i in translations.pairs %}
+                <tr>
+                    <td>
+                        <span class="item-title translation-id">{{ i }}</span>
+                    </td>
+                    <td>
+                        <div class="input-group input-group-merge input-group-reverse">
+                            <input  class="form-control" name='key[{{ i }}]' placeholder="Ключ..." type="text" aria-label="Input group reverse"
+                                aria-describedby="inputGroupReverse" value="{{ item.key }}">
+                            <div class="input-group-text" id="inputGroupReverse">
+                                <span class="item-title" id="group-key-name">{{ item.group.sub_text }}.</span>
+                            </div>
+                        </div>
+                    </td>
+                    {% for lang in langs %}
+                    <td>
+                        {% if item.value|get_item:lang.code %}
+                            <input type="text" name="value[{{ i }}][{{ lang.code }}]" class="form-control" value="{{ item.value|get_item:lang.code }}" placeholder="{{ lang.code }}..." maxlength="255" {% if lang.default %} required {% endif %}>
+                        {% else %}
+                            <input type="text" name="value[{{ i }}][{{ lang.code }}]" class="form-control" placeholder="{{ lang.code }}..." maxlength="255"  {% if lang.default %} required {% endif %}>
+                        {% endif %}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+
+                {% for item, i in new_objects.pairs %}
+                    <tr>
+                        <td>
+                            <span class="item-title translation-id">{{ item.id }}</span>
+                        </td>
+                        <td>
+                            <div class="input-group input-group-merge input-group-reverse">
+                                <input class="form-control" name='key[{{ item.id }}]' placeholder="Ключ..." type="text"
+                                    aria-label="Input group reverse" aria-describedby="inputGroupReverse" value="{{ item.key }}">
+                                <div class="input-group-text" id="inputGroupReverse">
+                                    <span class="item-title" id="group-key-name">{{ object.sub_text }}.</span>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback" style="display: block;">
+                                {% if key_errors and key_errors|get_item:i %}
+                                    <p>{{ key_errors|get_item:i }}</p>
+                                {% endif %}
+                            </div>
+                        </td>
+                        {% for val in item.values %}
+                        <td>
+                            <input type="text" name="{{ val.key }}" class="form-control" placeholder="{{ lang.code }}..."
+                                maxlength="255" value="{{ val.value }}" required>
+                            <div class="invalid-feedback" style="display: block;">
+                                {% if lng_errors and lng_errors|get_item:i and val.lng == val.def_lang %}
+                                    <p>{{ lng_errors|get_item:i }}</p>
+                                {% endif %}
+                            </div>
+                        </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+
+                {{ lng_errors }}
+            </tbody>
+        </table>
+        <button id="add_item" type="button" class="btn btn-info w-100 my-4">Добавить еще</button>
+    </div>
+</form>
+<!-- / .main-content -->
+<table class="d-none">
+    <tbody id="for_new_items">
+        <tr>
+            <td>
+                <span class="item-title translation-id">
+                    {% if object %}
+                        {{ object.translations.count }}
+                    {% elif len %}
+                        {{ len }}
+                    {% endif %}
+                    </span>
+            </td>
+            <td>
+                <div class="input-group input-group-merge input-group-reverse">
+                    <input class="form-control translate-key-inp" name='key' placeholder="Ключ..." type="text" aria-label="Input group reverse"
+                        aria-describedby="inputGroupReverse">
+                    <div class="input-group-text" id="inputGroupReverse">
+                        <span class="item-title" id="group-key-name">{{ object.sub_text }}.</span>
+                    </div>
+                </div>
+            </td>
+            {% for lang in langs %}
+                <td>
+                    <input type="text" name="value" data-lang="{{ lang.code }}" class="form-control lang-val" placeholder="{{ lang.code }}..."
+                        maxlength="255">
+                </td>
+            {% endfor %}
+        </tr>        
+    </tbody>
+
+</table>
+<!-- JAVASCRIPT -->
+<script>
+    for(let item of document.querySelectorAll(".group-link")) {
+        if(item.href == window.location) {
+            item.classList.remove('bg-transparent')
+            item.classList.remove('text-info')
+        }
+    }
+
+</script>
+<!-- Map JS -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+<script src="{% static 'assets/js/edit_translation.js' %}"></script>
+
+<!-- Vendor JS -->
+{% endblock %}
