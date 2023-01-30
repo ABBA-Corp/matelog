@@ -217,9 +217,9 @@ class ArticleCreateView(CreateView):
             sess_images = request.session.get(key)
 
             if sess_images and len(sess_images) > 0:
-                image = [it['name'] for it in request.session.get(key) if it['id'] == ''][0]
+                image = [it for it in request.session.get(key) if it['id'] == ''][0]
             
-                article.image = image
+                article.image = image['name']
                 article.save()
                 request.session.get(key).remove(image)
                 request.session.modified = True
