@@ -1,3 +1,4 @@
+import string
 from .models import Articles, Languages, Translations, TranlsationGroups, StaticInformation, AdminInputs
 import datetime
 from django.db.models import Q
@@ -5,6 +6,7 @@ import json
 from django.apps import apps
 from django.core.paginator import Paginator
 from django.http import JsonResponse, QueryDict
+import re
 from django.core.files.storage import default_storage
 
 # get request.data in JSON
@@ -178,3 +180,12 @@ def is_valid_field(data, field):
         return False
 
     return val != ''
+
+
+
+# clean text
+def clean_text(str):
+    for char in string.punctuation:
+        str = str.replace(char, ' ')
+
+    return str.replace(' ', '')

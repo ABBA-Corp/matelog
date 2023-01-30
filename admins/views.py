@@ -186,7 +186,7 @@ class ArticleCreateView(CreateView):
 
         
         if self.request.session.get(context['dropzone_key']):
-            context['images'] = list({'name': it['name'], 'id': str(it['name']).replace('/', '').replace('.', '')} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
+            context['images'] = list({'name': it['name'], 'id': clean_text(it['name'])} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
 
         return context
 
@@ -867,7 +867,7 @@ class AddArticleCtg(CreateView):
         context['images'] = []
 
         if self.request.session.get(context['dropzone_key']):
-            context['images'] = list({'name': it['name'], 'id': str(it['name']).replace('/', '').replace('.', '')} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
+            context['images'] = list({'name': it['name'], 'id': clean_text(it['name'])} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
 
         return context
 
@@ -1265,7 +1265,7 @@ class ServiceCreate(CreateView):
         context['images'] = []
 
         if self.request.session.get(context['dropzone_key']):
-            context['images'] = list({'name': it['name'], 'id': str(it['name']).replace('/', '').replace('.', '')} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
+            context['images'] = list({'name': it['name'], 'id': clean_text(str(it['name']))} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
 
         return context
 
