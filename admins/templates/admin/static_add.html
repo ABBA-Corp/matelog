@@ -61,7 +61,13 @@
                                 <br>
                                 <!-- Input -->
                                 <input type="text" name="title#{{ lang.code }}" {% if object.title and object.title|get_item:lang.code %} value="{{ object.title|get_item:lang.code }}" {% endif %} class="form-control"  {% if lang.default %}  required {% endif %}>
-
+                                {% if lang.default %}
+                                <div class="invalid-feedback" style="display: block;">
+                                    {% if error %}
+                                    {{ error }}
+                                    {% endif %}
+                                </div>
+                                {% endif %}
                             </div>
 
                             <div class="form-group">

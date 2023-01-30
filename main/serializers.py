@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from admins.models import Services, Articles, ArticleImages, StaticInformation, AboutUs, Languages, Translations
+from admins.models import Services, Articles, ArticleImages, StaticInformation, AboutUs, Languages, Translations, MetaTags
 from easy_thumbnails.templatetags.thumbnail import thumbnail_url
 
 
@@ -29,6 +29,17 @@ class JsonFieldSerializer(serializers.Serializer):
         return data
 
 
+# meta serializer
+class MetaFieldSerializer(serializers.ModelSerializer):
+    meta_keys = JsonFieldSerializer()
+    meta_tags = JsonFieldSerializer()
+
+    class Meta:
+        model = MetaTags
+        exclude = ['id']
+
+
+
 # articles
 class ArticleSerializer(serializers.ModelSerializer):
     title = JsonFieldSerializer()
@@ -50,7 +61,7 @@ class ServiceSerializer(serializers.ModelSerializer):
     sub_title = JsonFieldSerializer()
     deckription = JsonFieldSerializer()
     image = ThumbnailSerializer(alias='prod_photo')
-
+    meta_field = MetaFieldSerializer()
 
     class Meta:
         model = Services

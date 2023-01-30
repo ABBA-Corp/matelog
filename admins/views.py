@@ -202,7 +202,7 @@ class ArticleCreateView(CreateView):
         data = self.get_context_data()
 
         if not is_valid_field(data_dict, 'title'):
-            data['error'] = 'This title is required.'
+            data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
         try:
@@ -216,7 +216,7 @@ class ArticleCreateView(CreateView):
             key = self.model._meta.verbose_name
             sess_images = request.session.get(key)
 
-            if sess_images and len(sess_images) > 0:
+            if sess_images and len([it for it in request.session.get(key) if it['id'] == '']) > 0:
                 image = [it for it in request.session.get(key) if it['id'] == ''][0]
             
                 article.image = image['name']
@@ -261,8 +261,8 @@ class ArticlesList(ListView):
 
         context['q'] = self.request.GET.get('q')
         context['lang'] = Languages.objects.filter(default=True).first()
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 1)
-        context['page_obj'] = paginate(self.get_queryset(), self.request, 1)
+        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
 
         return context
@@ -294,7 +294,7 @@ class ArticleUpdate(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(ArticleUpdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.all().order_by("default")
+        context['langs'] = Languages.objects.all().order_by("-default")
         context['lang'] = Languages.objects.filter(default=True).first()
         context['fields'] = get_model_fields(self.model)
         context['categories'] = ArticleCategories.objects.all()
@@ -303,9 +303,17 @@ class ArticleUpdate(UpdateView):
         return context
 
     def post(self, request, *args, **kwargs):
+        context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, request)
         url = request.POST.get("url")
         key = self.model._meta.verbose_name
+
+        data = self.get_context_data()
+        if not is_valid_field(data_dict, 'title'):
+            data['error'] = 'This field is required.'
+            return render(request, self.template_name, data)
+
+
         try:
             file = [it for it in request.session.get(key, []) if it['id'] == str(self.get_object().id)][0]
         except:
@@ -475,7 +483,7 @@ class StaticUpdate(UpdateView):
 
         data = self.get_context_data()
         if is_valid_field(data_dict, 'title') == False:
-            data['error_title'] = 'This title is required'
+            data['error_title'] = 'This field is required'
             return redirect(request, self.template_name, data)
 
         for attr, value in data_dict.items():
@@ -873,12 +881,19 @@ class AddArticleCtg(CreateView):
 
 
     def post(self, request, *args, **kwargs):
+        context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, self.request)
         try:
             data_dict['parent'] = ArticleCategories.objects.get(id=int(data_dict.get('parent')))
         except:
             if data_dict.get("parent"):
                 del data_dict['parent']
+
+        data = self.get_context_data()
+        if not is_valid_field(data_dict, 'name'):
+            data['error'] = 'This field is required.'
+            return render(request, self.template_name, data)
+
 
         art_ctg = ArticleCategories(**data_dict)
         art_ctg.save()
@@ -916,6 +931,7 @@ class ArticleCtgEdit(UpdateView):
 
 
     def post(self, request, *args, **kwargs):
+        context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, self.request)
         key = self.model._meta.verbose_name
         try:
@@ -928,6 +944,12 @@ class ArticleCtgEdit(UpdateView):
         except:
             if data_dict.get("parent"):
                 del data_dict['parent']
+
+        data = self.get_context_data()
+        if not is_valid_field(data_dict, 'name'):
+            data['error'] = 'This field is required.'
+            return render(request, self.template_name, data)
+
 
         instance = self.get_object()
 
@@ -1120,9 +1142,16 @@ class AboutUsView(UpdateView):
 
 
     def post(self, request, *args, **kwargs):
+        context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, request)
         instance = self.get_object()
         url = request.POST.get("url")
+
+        data = self.get_context_data()
+        if not is_valid_field(data_dict, 'title_one'):
+            data['error'] = 'This field is required.'
+            return render(request, self.template_name, data)
+
 
         for attr, value in data_dict.items():
             setattr(instance, attr, value)
@@ -1201,6 +1230,7 @@ class ServicesUpdate(UpdateView):
         return context
 
     def post(self, request, *args, **kwargs):
+        context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, request)
         url = request.POST.get("url")
         key = self.model._meta.verbose_name
@@ -1214,6 +1244,12 @@ class ServicesUpdate(UpdateView):
             file = [it for it in request.session.get(key, []) if it['id'] == str(self.get_object().id)][0]
         except:
             file = None
+
+
+        data = self.get_context_data()
+        if not is_valid_field(data_dict, 'title'):
+            data['error'] = 'This field is required.'
+            return render(request, self.template_name, data)
 
 
         try:
@@ -1270,6 +1306,7 @@ class ServiceCreate(CreateView):
         return context
 
     def post(self, request, *args, **kwargs):
+        context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, request)
         key = self.model._meta.verbose_name
         parent_id = request.POST.get('parent')
@@ -1277,6 +1314,11 @@ class ServiceCreate(CreateView):
             data_dict['parent'] = Services.objects.get(id=int(parent_id))
         except:
             pass
+
+        data = self.get_context_data()
+        if not is_valid_field(data_dict, 'title_one'):
+            data['error'] = 'This field is required.'
+            return render(request, self.template_name, data)
 
         try:
             instance = Services(**data_dict)
@@ -1374,10 +1416,6 @@ class AdminCreate(CreateView):
         new_user.save()
 
         return redirect('admin_list')
-
-    def form_invalid(self, form):
-        print(form.errors)
-        return super().form_invalid(form)
 
 
 # admin udate
