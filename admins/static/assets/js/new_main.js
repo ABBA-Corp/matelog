@@ -16,6 +16,8 @@ function submit_form(id) {
 }
 
 
+
+
 function form_submit_in_table(id) {
     console.log(id)
     let form = $(`#${id}`)
@@ -40,8 +42,29 @@ function copy(that) {
     document.execCommand('copy', false);
     inp.remove();
 
+    $.notify.addStyle('foo', {
+        html:
+            "<div>" +
+            "<div class='clearfix'>" +
+            "<div class='title' data-notify-html='title'/>" +
+            "<div class='buttons'>" +
+            "<button class='no'>Cancel</button>" +
+            "<button class='yes' data-notify-text='button'></button>" +
+            "</div>" +
+            "</div>" +
+            "</div>"
+    });
 
+
+    $.notify({
+        title: 'Success'
+    }, {
+        style: 'foo',
+        clickToHide: false,
+        autoHide: false,
+    });
 }
+
 
 
 $('.dropzone').each((i, e) => {
