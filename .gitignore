@@ -1,0 +1,3 @@
+pychache/
+*.pyc
+db.sqlite3
