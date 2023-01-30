@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import views, generics
-from .serializers import ArticleSerializer, ServiceSerializer, AboutUsSerializer, StaticInformationSerializer, TranslationSerializer
+from .serializers import ArticleSerializer, ServiceSerializer, AboutUsSerializer, StaticInformationSerializer, TranslationSerializer, LangsSerializer
 from admins.models import Articles, Languages, Translations, Services, AboutUs, StaticInformation
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
@@ -74,3 +74,10 @@ class TranslationsView(views.APIView):
         translations = Translations.objects.all()
         serializer = TranslationSerializer(translations, context={'request': request})
         return Response(serializer.data)
+
+
+# langs list
+class LangsList(generics.ListAPIView):
+    queryset = Languages.objects.filter(active=True)
+    serializer_class = LangsSerializer
+    pagination_class = BasePagination

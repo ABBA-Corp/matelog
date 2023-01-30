@@ -9,5 +9,6 @@ urlpatterns = [
     path("services/<int:pk>", views.ServicesDetailView.as_view()),
     path('about_us', views.AboutUsView.as_view()),
     path("static_infos", views.StaticInfView.as_view()),
-    path("translations", views.TranslationsView.as_view())
+    path("translations", views.TranslationsView.as_view()),
+    path('languages', views.LangsList.as_view())
 ]

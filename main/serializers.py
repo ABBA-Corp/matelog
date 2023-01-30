@@ -104,3 +104,11 @@ class TranslationSerializer(serializers.Serializer):
 
         return data
 
+
+
+
+# langs serializer
+class LangsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Languages
+        fields = '__all__'
