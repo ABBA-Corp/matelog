@@ -11,7 +11,7 @@ class CustomCorsMiddleware:
         # the view (and later middleware) are called.
 
         response = self.get_response(request)
-        response["Access-Control-Allow-Origin"] = "*"
+        response["Access-Control-Allow-Origin"] = "http://localhost:3000"
         response["Access-Control-Allow-Headers"] = "multipart/form-data"
         response['Access-Control-Allow-Methods'] = "GET, HEAD, PUT, PATCH, POST, DELETE"
 
