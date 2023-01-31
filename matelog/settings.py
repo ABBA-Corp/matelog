@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-_3vm*3!l@^-#i92ci1me%nu5@ub9!4_s2sqo#i88ygo1aotop%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://localhost:3000',
-                 'https://meta-logistic.vercel.app', '.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -158,17 +157,11 @@ DATE_FORMAT = {'Y.m.d'}
 
 
 # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'https://meta-logistic.vercel.app'
-]  # If this is used, then not need to use `CORS_ALLOW_ALL_ORIGINS = True`
-CORS_ALLOWED_ORIGIN_REGEXES = [
-    'http://localhost:3000',
-    'https://meta-logistic.vercel.app'
-]
+CORS_ORIGIN_ALLOW_ALL = False
 
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:5000', 'https://meta-logistic.vercel.app'
+)
 
 # rest
 REST_FRAMEWORK = {
