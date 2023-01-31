@@ -10,9 +10,15 @@ class ThumbnailSerializer(serializers.ImageField):
 
     def to_representation(self, instance):
         url = thumbnail_url(instance, self.alias)
+
+        if url == '':
+            return None
+
         request = self.context.get('request', None)
         if request is not None:
             return request.build_absolute_uri(url)
+
+
         return url
 
 
