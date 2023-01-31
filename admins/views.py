@@ -175,6 +175,7 @@ class ArticleCreateView(CreateView):
     model = Articles
     template_name = 'admin/new_article.html'
     fields = "__all__"
+    success_url = 'articles_list'
 
     def get_context_data(self, **kwargs):
         context = super(ArticleCreateView, self).get_context_data(**kwargs)
@@ -286,6 +287,7 @@ class ArticleUpdate(UpdateView):
     model = Articles
     fields = '__all__'
     template_name = 'admin/new_article.html'
+    success_url = 'articles_list'
     
     def get(self, request, *args, **kwargs):
         if request.user != self.get_object().author:
@@ -739,6 +741,7 @@ class TranslationGroupUdpate(UpdateView):
     model = TranlsationGroups
     template_name = 'admin/translation_edit.html'
     fields = '__all__'
+    success_url = '/admin/translations'
 
     def get_context_data(self, **kwargs):
         context = super(TranslationGroupUdpate, self).get_context_data(**kwargs)
@@ -864,6 +867,7 @@ class AddArticleCtg(CreateView):
     model = ArticleCategories
     fields = '__all__'
     template_name = 'admin/article_ctg_form.html'
+    success_url = '/admin/article_categories'
 
 
     def get_context_data(self, **kwargs):
@@ -919,6 +923,7 @@ class ArticleCtgEdit(UpdateView):
     model = ArticleCategories
     fields = "__all__"
     template_name = 'admin/article_ctg_form.html'
+    success_url = '/admin/article_categories'
 
     def get_context_data(self, **kwargs):
         context = super(ArticleCtgEdit, self).get_context_data(**kwargs)
@@ -1292,6 +1297,7 @@ class ServicesUpdate(UpdateView):
 class ServiceCreate(CreateView):
     model = Services
     fields = "__all__"
+    success_url = '/admin/sevices'
     template_name = 'admin/services_form.html'
 
     def get_context_data(self, **kwargs):
