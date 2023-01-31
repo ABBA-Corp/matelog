@@ -186,16 +186,17 @@ REST_FRAMEWORK = {
 
 
 # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-]  
-
-
-CORS_ORIGIN_WHITELIST = ['*']
-
-# If this is used, then not need to use `CORS_ALLOW_ALL_ORIGINS = True`
-CORS_ALLOWED_ORIGIN_REGEXES = [
-    'http://localhost:3000',
+    "http://localhost:3000",
 ]
+
+
+#CORS_ALLOW_HEADERS = default_headers + (
+#    'Access-Control-Allow-Headers',
+#    'Access-Control-Allow-Credentials',
+#    'Access-Control-Allow-Origin',
+#)
+
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
