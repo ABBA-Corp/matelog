@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 
 
 urlpatterns = [
-    path('', views.home),
+    path('', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.home)),
     path('articles', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.ArticlesList.as_view()), name='articles_list'),
     path('articles/create', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.ArticleCreateView.as_view()), name='articles_create'),
     path('articles/<int:pk>/edit', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.ArticleUpdate.as_view()), name='articles_edit'),
