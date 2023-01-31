@@ -1218,6 +1218,7 @@ class ServicesList(ListView):
 class ServicesUpdate(UpdateView):
     model = Services
     fields = '__all__'
+    success_url = '/admin/services'
     template_name = 'admin/services_form.html'
 
     def get_context_data(self, **kwargs):
@@ -1247,7 +1248,7 @@ class ServicesUpdate(UpdateView):
 
 
         data = self.get_context_data()
-        if not is_valid_field(data_dict, 'title'):
+        if not is_valid_field(data_dict, 'title_one'):
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
