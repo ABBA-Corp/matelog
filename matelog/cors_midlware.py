@@ -7,11 +7,13 @@ class CustomCorsMiddleware(MiddlewareMixin):
         # One-time configuration and initialization.
 
     def process_request(self, request):
+        request.META['HTTP_CUSTOM_HEADER'] = "CUSTOM VALUE"
         # Code to be executed for each request before
         # the view (and later middleware) are called.
 
         response = self.get_response(request)
         response["Access-Control-Allow-Origin"] = "*"
+        response["Access-Control-Allow-Headers"] = "*"
 
         print(response.headers)
 
