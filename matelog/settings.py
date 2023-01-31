@@ -157,7 +157,9 @@ DATE_FORMAT = {'Y.m.d'}
 
 
 # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
-CORS_ALLOWED_ORIGINS = ['*']
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
 
 
 #CORS_ALLOW_HEADERS = default_headers + (
@@ -186,9 +188,6 @@ REST_FRAMEWORK = {
 
 
 # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
-#CORS_ALLOWED_ORIGINS = [
-#    "http://localhost:3000",
-#]
 
 
 #CORS_ALLOW_HEADERS = default_headers + (
@@ -197,6 +196,3 @@ REST_FRAMEWORK = {
 #    'Access-Control-Allow-Origin',
 #)
 
-
-CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_ALLOW_ALL = True
