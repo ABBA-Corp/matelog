@@ -186,7 +186,7 @@ CROSS_ORIGIN_ALLOWED_METHODS = set([
 ])
 # The headers which should be allowed.
 # Default: []
-CROSS_ORIGIN_ALLOWED_HEADERS = set([])
+CROSS_ORIGIN_ALLOWED_HEADERS = set(["Access-Control-Allow-Methods", "Access-Control-Allow-Headers"])
 # A value for Access-Control-Max-Age. Note: only set if
 # Access-Control-Allow-Methods or Access-Control-Allow-Headers is
 # also being set.
