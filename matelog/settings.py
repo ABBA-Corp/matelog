@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'matelog.cors_midlware.CrossOriginAccessControlMiddleware',
+    'matelog.cors_midlware.CustomCorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -168,30 +168,6 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
-
-
-# Should any 'localhost' origin be allowed? Useful during
-# development. Default: False
-CROSS_ORIGIN_ALLOW_LOCALHOST = DEBUG
-# The origins which should be allowed, by exact match.
-# Default: []
-CROSS_ORIGIN_ALLOWED_ORIGINS = set(["http://localhost:3000"])
-# Should credentials (cookies, HTTP auth) should be allowed from
-# allowed origins?
-CROSS_ORIGIN_ALLOW_CREDENTIALS = True
-# The methods which should be allowed.
-# Default: []
-CROSS_ORIGIN_ALLOWED_METHODS = set([
-    "GET", "POST", "PUT", "DELETE", "OPTIONS",
-])
-# The headers which should be allowed.
-# Default: []
-CROSS_ORIGIN_ALLOWED_HEADERS = set(["Access-Control-Allow-Methods", "Access-Control-Allow-Headers"])
-# A value for Access-Control-Max-Age. Note: only set if
-# Access-Control-Allow-Methods or Access-Control-Allow-Headers is
-# also being set.
-# Default: None
-CROSS_ORIGIN_MAX_AGE = 60 * 60 * 48
 
 # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 #CORS_ALLOWED_ORIGINS = [
