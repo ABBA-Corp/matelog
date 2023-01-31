@@ -188,6 +188,7 @@ REST_FRAMEWORK = {
 # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "http://localhost:5000",
 ]
 
 
