@@ -41,6 +41,15 @@ INSTALLED_APPS = [
     'ckeditor_uploader', 'easy_thumbnails', 'admins'
 ]
 
+
+# If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:5000', 'https://meta-logistic.vercel.app'
+)
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -155,13 +164,6 @@ LOGIN_REDIRECT_URL = '/admin/'
 # date format
 DATE_FORMAT = {'Y.m.d'}
 
-
-# If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
-CORS_ORIGIN_ALLOW_ALL = False
-
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:5000', 'https://meta-logistic.vercel.app'
-)
 
 # rest
 REST_FRAMEWORK = {
