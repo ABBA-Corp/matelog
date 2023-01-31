@@ -12,7 +12,7 @@ class CustomCorsMiddleware:
 
         response = self.get_response(request)
         response["Access-Control-Allow-Origin"] = "https://meta-logistic.vercel.app"
-        response["Access-Control-Allow-Headers"] = "multipart/form-data, https://meta-logistic.vercel.app, ru"
+        response["Access-Control-Allow-Headers"] = "multipart/form-data, Access-Control-Allow-Origin, ru"
         response['Access-Control-Allow-Methods'] = "GET, HEAD, PUT, PATCH, POST, DELETE"
         response["Access-Control-Allow-Credentials"] = 'https://meta-logistic.vercel.app'
 
