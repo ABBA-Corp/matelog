@@ -186,13 +186,3 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
-
-# If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
-
-
-#CORS_ALLOW_HEADERS = default_headers + (
-#    'Access-Control-Allow-Headers',
-#    'Access-Control-Allow-Credentials',
-#    'Access-Control-Allow-Origin',
-#)
-
