@@ -11,6 +11,8 @@ class CustomCorsMiddleware:
         response["Access-Control-Allow-Origin"] = "*"
         response["Access-Control-Allow-Headers"] = "*"
 
+        print(response)
+
         # Code to be executed for each request/response after
         # the view is called.
 
