@@ -12,7 +12,7 @@ class CustomCorsMiddleware:
 
         response = self.get_response(request)
         response["Access-Control-Allow-Origin"] = "*"
-        response["Access-Control-Allow-Headers"] = "Content-Type, Access-Control-Allow-Origin, xxx"
+        response["Access-Control-Allow-Headers"] = "multipart/form-data"
         response['Access-Control-Allow-Methods'] = "GET, HEAD, PUT, PATCH, POST, DELETE"
 
         print(response.headers)
