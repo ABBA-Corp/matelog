@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-_3vm*3!l@^-#i92ci1me%nu5@ub9!4_s2sqo#i88ygo1aotop%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['http://localhost:3000',
+                 'https://meta-logistic.vercel.app', '.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
