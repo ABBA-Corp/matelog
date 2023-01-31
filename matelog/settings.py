@@ -43,11 +43,20 @@ INSTALLED_APPS = [
 
 
 # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:5000', 'https://meta-logistic.vercel.app'
-)
+
+#CORS_ALLOW_HEADERS = default_headers + (
+#    'Access-Control-Allow-Headers',
+#    'Access-Control-Allow-Credentials',
+#    'Access-Control-Allow-Origin',
+#)
+
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 MIDDLEWARE = [
