@@ -157,9 +157,7 @@ DATE_FORMAT = {'Y.m.d'}
 
 
 # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
+CORS_ALLOWED_ORIGINS = ['*']
 
 
 #CORS_ALLOW_HEADERS = default_headers + (
