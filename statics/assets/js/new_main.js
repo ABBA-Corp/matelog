@@ -15,20 +15,6 @@ function submit_form(id) {
 
 }
 
-
-$.ajax({
-    url: 'https://metalogistics.pythonanywhere.com/api/translations',
-    datatype: 'json',
-    type: 'GET',
-    success: (data) => {
-        console.log(data)
-    }
-
-})
-
-
-
-
 function form_submit_in_table(id) {
     console.log(id)
     let form = $(`#${id}`)

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import StaticInformation, ImageGalery, VideoGalery, TranlsationGroups, Articles, Languages, Translations, FAQ, AdminInputs, ArticleCategories, ArticleImages, Services, MetaTags
+from django.contrib.auth.models import Permission
 # Register your models here.
 
 
@@ -17,3 +18,4 @@ admin.site.register(ArticleCategories)
 admin.site.register(ArticleImages)
 admin.site.register(Services)
 admin.site.register(MetaTags)
+admin.site.register(Permission)
