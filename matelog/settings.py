@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-_3vm*3!l@^-#i92ci1me%nu5@ub9!4_s2sqo#i88ygo1aotop%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -186,9 +186,9 @@ REST_FRAMEWORK = {
 
 
 # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
+#CORS_ALLOWED_ORIGINS = [
+#    "http://localhost:3000",
+#]
 
 
 #CORS_ALLOW_HEADERS = default_headers + (
