@@ -25,7 +25,7 @@ class ThumbnailSerializer(serializers.ImageField):
 # field lang serializer
 class JsonFieldSerializer(serializers.Serializer): 
     def to_representation(self, instance):
-        language = self.context['request'].headers.get('Language')
+        language = self.context['request'].headers.get('LNG1')
 
         if not language:
             language = Languages.objects.filter(default=True).first().code
