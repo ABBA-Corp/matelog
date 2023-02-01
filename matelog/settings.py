@@ -151,6 +151,8 @@ THUMBNAIL_ALIASES = {
 
 
 LOGIN_REDIRECT_URL = '/admin/'
+LOGOUT_REDIRECT_URL = '/admin/login'
+
 
 
 # date format
@@ -184,7 +186,7 @@ REST_FRAMEWORK = {
 
 #CORS_ALLOW_CREDENTIALS = True
 #CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_HEADERS = "*"
-CORS_ORIGIN_WHITELIST = [
-    'http://127.0.0.1:5173', "http://localhost:3000"
-]
+#CORS_ALLOW_HEADERS = "*"
+#CORS_ORIGIN_WHITELIST = [
+#    'http://127.0.0.1:5173', "http://localhost:3000"
+#]

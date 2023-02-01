@@ -8,7 +8,7 @@ import datetime
 from django.db.models import Q
 import json
 from django.apps import apps
-from django.http import JsonResponse, QueryDict
+from django.http import JsonResponse, QueryDict, HttpResponseRedirect
 from django.core.files.storage import default_storage
 from .utils import *
 from django.core.paginator import Paginator
@@ -18,6 +18,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from main.models import Cars, CarMarks
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth import logout
 # Create your views here.
 
 # home admin
@@ -1499,3 +1500,10 @@ class CarsList(ListView):
 
         return context
 
+
+
+# logout
+def logout_view(request):
+    logout(request)
+
+    return HttpResponseRedirect('/restrictedpage')
