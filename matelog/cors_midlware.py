@@ -16,7 +16,7 @@ class CustomCorsMiddleware:
         response['Access-Control-Allow-Methods'] = "GET, HEAD, PUT, PATCH, POST, DELETE"
         response["Access-Control-Allow-Credentials"] = '*'
 
-        print(response.headers)
+        print(response)
 
         # Code to be executed for each request/response after
         # the view is called.
