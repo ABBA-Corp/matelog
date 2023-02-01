@@ -43,9 +43,9 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    'matelog.cors_midlware.CustomCorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'matelog.cors_midlware.CustomCorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
