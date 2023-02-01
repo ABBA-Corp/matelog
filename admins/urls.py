@@ -2,7 +2,6 @@ from django.urls import path, include
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.contrib.auth.views import logout
 
 
 
