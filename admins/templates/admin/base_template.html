@@ -185,7 +185,10 @@
     
                         <!-- Menu -->
                         <div class="dropdown-menu" aria-labelledby="sidebarIconCopy">
-                            <a href="{% url 'logout' %}" class="dropdown-item">Выйти</a>
+                            <form id="logout-form" method="post" action="{% url 'logout_url' %}">
+                                {% csrf_token %}
+                                <button type="submit">Выйти</button>
+                            </form>
                         </div>
     
                     </div>

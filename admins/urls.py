@@ -52,7 +52,7 @@ urlpatterns = [
         template_name='admin/sing-in.html',
         success_url='/admin/',
     ), name = 'login_admin'),
-    path('logout', views.logout, name='logout'),
+    path('logout', views.logout_view, name='logout_url'),
     path('admins', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.AdminsList.as_view()), name='admin_list'),
     path("admins/create", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.AdminCreate.as_view()), name='admins_create'),
     path("admins/<int:pk>/edit", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.AdminUpdate.as_view()), name='admins_edit'),

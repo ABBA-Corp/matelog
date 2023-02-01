@@ -1506,4 +1506,4 @@ class CarsList(ListView):
 def logout_view(request):
     logout(request)
 
-    return HttpResponseRedirect('/restrictedpage')
+    return redirect('login_admin')
