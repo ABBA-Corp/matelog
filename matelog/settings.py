@@ -199,7 +199,7 @@ CORS_ALLOW_HEADERS = [
     'user-agent',
     'x-csrftoken',
     'x-requested-with',
-    'LNG1'
+    'Language'
 ]
 
 #CORS_ORIGIN_WHITELIST = [
