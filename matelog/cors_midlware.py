@@ -12,7 +12,7 @@ class CustomCorsMiddleware:
         
         response = self.get_response(request)
         response["Access-Control-Allow-Origin"] = "http://localhost:3000"
-        response["Access-Control-Allow-Headers"] = 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, LNG1, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+        response["Access-Control-Allow-Headers"] = 'Content-Type, LNG1'
         response['Access-Control-Allow-Methods'] = "GET, HEAD, PUT, PATCH, POST, DELETE"
         response["Access-Control-Allow-Credentials"] = 'true'
 
