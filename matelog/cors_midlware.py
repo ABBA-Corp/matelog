@@ -11,7 +11,7 @@ class CustomCorsMiddleware:
         # the view (and later middleware) are called.
 
         response = self.get_response(request)
-        response["Access-Control-Allow-Origin"] = "https://meta-logistic.vercel.app"
+        response["Access-Control-Allow-Origin"] = "https://meta-logistic.vercel.app, http://localhost:3000"
         response["Access-Control-Allow-Headers"] = "application/json"
         response['Access-Control-Allow-Methods'] = "GET, HEAD, PUT, PATCH, POST, DELETE"
         response["Access-Control-Allow-Credentials"] = 'true'
