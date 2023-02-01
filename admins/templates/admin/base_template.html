@@ -185,9 +185,9 @@
     
                         <!-- Menu -->
                         <div class="dropdown-menu" aria-labelledby="sidebarIconCopy">
-                            <form id="logout-form" method="post" action="{% url 'logout_url' %}">
+                            <form id="logout-form" method="post" action="/admin-panel/logout">
                                 {% csrf_token %}
-                                <button type="submit">Выйти</button>
+                                <button type="submit" class="dropdown-item">Выйти</button>
                             </form>
                         </div>
     
