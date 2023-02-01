@@ -12,7 +12,7 @@ class CustomCorsMiddleware:
 
         response = self.get_response(request)
         response["Access-Control-Allow-Origin"] = "https://meta-logistic.vercel.app"
-        response["Access-Control-Allow-Headers"] = "application/json"
+        response["Access-Control-Allow-Headers"] = "X-CSRF-Token, X-Requested-With,language, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
         response['Access-Control-Allow-Methods'] = "GET, HEAD, PUT, PATCH, POST, DELETE"
         response["Access-Control-Allow-Credentials"] = 'true'
 
