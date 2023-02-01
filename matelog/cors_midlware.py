@@ -10,11 +10,9 @@ class CustomCorsMiddleware:
         # Code to be executed for each request before
         # the view (and later middleware) are called.
         
-        print(request.build_absolute_url(request.path))
-
         response = self.get_response(request)
         response["Access-Control-Allow-Origin"] = "http://localhost:3000"
-        response["Access-Control-Allow-Headers"] = "application/json"
+        response["Access-Control-Allow-Headers"] = "application/json,"
         response['Access-Control-Allow-Methods'] = "GET, HEAD, PUT, PATCH, POST, DELETE"
         response["Access-Control-Allow-Credentials"] = 'true'
 
