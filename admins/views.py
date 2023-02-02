@@ -1333,6 +1333,7 @@ class ServiceCreate(CreateView):
             return render(request, self.template_name, data)
 
         else:
+            print('else1')
             try:
                 instance = Services(**data_dict)
                 instance.full_clean()
