@@ -1244,6 +1244,14 @@ class ServicesUpdate(UpdateView):
         url = request.POST.get("url")
         key = self.model._meta.verbose_name
         parent_id = request.POST.get('parent')
+
+        
+        data = self.get_context_data()
+        if is_valid_field(data_dict, 'title') == False:
+            data['error'] = 'This field is required.'
+            return render(request, self.template_name, data)
+
+
         try:
             data_dict['parent'] = Services.objects.get(id=int(parent_id))
         except:
@@ -1253,13 +1261,6 @@ class ServicesUpdate(UpdateView):
             file = [it for it in request.session.get(key, []) if it['id'] == str(self.get_object().id)][0]
         except:
             file = None
-
-
-        data = self.get_context_data()
-        if is_valid_field(data_dict, 'title') == False:
-            data['error'] = 'This field is required.'
-            return render(request, self.template_name, data)
-
 
         try:
             instance = self.get_object()
@@ -1322,46 +1323,44 @@ class ServiceCreate(CreateView):
 
         data = self.get_context_data()
         print(is_valid_field(data_dict, 'title') == False)
+
         if is_valid_field(data_dict, 'title') == False:
             print("if1")
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
-        else:
-            parent_id = request.POST.get('parent')
-            try:
-                data_dict['parent'] = Services.objects.get(id=int(parent_id))
-            except:
-                pass
-            print('else1')
-            try:
-                instance = Services(**data_dict)
-                instance.full_clean()
-                instance.save()
 
-                sess_images = request.session.get(key)
+        parent_id = request.POST.get('parent')
+        try:
+            data_dict['parent'] = Services.objects.get(id=int(parent_id))
+        except:
+            pass
+        print('else1')
+        instance = Services(**data_dict)
+        instance.full_clean()
+        instance.save()
 
-                if sess_images and len([it for it in sess_images if it['id'] == '']) > 0:
-                    image = [it for it in sess_images if it['id'] == ''][0]
-                    instance.image = image['name']
-                    instance.save()
-                    request.session.get(key).remove(image)
-                    request.session.modified = True
+        sess_images = request.session.get(key)
 
-                meta_dict = serialize_request(MetaTags, request)
-                try:
-                    meta = MetaTags(**meta_dict)
-                    meta.full_clean()
-                    meta.save()
-                    instance.meta_field = meta
-                    instance.save()
-                except:
-                    pass
+        if sess_images and len([it for it in sess_images if it['id'] == '']) > 0:
+            image = [it for it in sess_images if it['id'] == ''][0]
+            instance.image = image['name']
+            instance.save()
+            request.session.get(key).remove(image)
+            request.session.modified = True
 
-            except ValidationError:
-                print(ValidationError)
+        meta_dict = serialize_request(MetaTags, request)
+        try:
+            meta = MetaTags(**meta_dict)
+            meta.full_clean()
+            meta.save()
+            instance.meta_field = meta
+            instance.save()
+        except:
+            pass
 
-            return redirect('services')  # redirect("")
+
+        return redirect('services')  # redirect("")
 
 
 
