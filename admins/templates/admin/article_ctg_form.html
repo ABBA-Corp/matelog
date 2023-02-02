@@ -61,28 +61,24 @@
                                 aria-labelledby="{{ lang.code }}">
                         {% endif %}
 
-                            {% for field in fields %}
-                                {% if field.field == 'name' %}
-                                <!-- Project name -->
-                                    <div class="form-group">
-                                        <!-- Label  -->
-                                        <label class="form-label">
-                                            {{ field.label }}
-                                        </label>
-                                        <br>
-                                        <!-- Input -->
-                                        <input type="text" name="name#{{ lang.code }}" class="form-control" 
-                                        {% if object and object.name|get_item:lang.code %} value="{{ object.name|get_item:lang.code }}" {% endif %}>
-                                        {% if lang.default %}
-                                        <div class="invalid-feedback" style="display: block;">
-                                            {% if error %}
-                                            {{ error }}
-                                            {% endif %}
-                                        </div>
-                                        {% endif %}
-                                    </div>
+                            <!-- Project name -->
+                            <div class="form-group">
+                                <!-- Label  -->
+                                <label {% if lang.default %} class="form-label required" {% else %} class="form-label" {% endif %}>
+                                    Заголовок
+                                </label>
+                                <br>
+                                <!-- Input -->
+                                <input type="text" name="name#{{ lang.code }}" class="form-control" 
+                                {% if object and object.name|get_item:lang.code %} value="{{ object.name|get_item:lang.code }}" {% endif %}>
+                                {% if lang.default %}
+                                <div class="invalid-feedback" style="display: block;">
+                                    {% if error %}
+                                        {{ error }}
+                                    {% endif %}
+                                </div>
                                 {% endif %}
-                            {% endfor %}
+                            </div>
                         </div>
                         {% endfor %}
                         {% for field in fields %}
