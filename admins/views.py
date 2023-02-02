@@ -896,7 +896,7 @@ class AddArticleCtg(CreateView):
                 del data_dict['parent']
 
         data = self.get_context_data()
-        if not is_valid_field(data_dict, 'name'):
+        if is_valid_field(data_dict, 'name') == False:
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
@@ -953,7 +953,7 @@ class ArticleCtgEdit(UpdateView):
                 del data_dict['parent']
 
         data = self.get_context_data()
-        if not is_valid_field(data_dict, 'name'):
+        if is_valid_field(data_dict, 'name') == False:
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
@@ -1157,7 +1157,6 @@ class AboutUsView(UpdateView):
 
         data = self.get_context_data()
         if is_valid_field(data_dict, 'title_one') == False:
-            data['object'] = self.get_object()
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
@@ -1167,6 +1166,8 @@ class AboutUsView(UpdateView):
         instance.save()
 
         return redirect('home')
+
+
 
 # delete about us video
 def delete_about_video(request):
