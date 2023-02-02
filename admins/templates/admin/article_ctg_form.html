@@ -81,28 +81,24 @@
                             </div>
                         </div>
                         {% endfor %}
-                        {% for field in fields %}
-                            {% if field.field == 'parent' %}
-                            <div class="form-group">
-                                <!-- Label  -->
-                                <label class="form-label">
-                                    {{ field.label }}
-                                </label>
-                                <br>
-                                <!-- Input -->
-                                <select class="form-select mb-3" name="parent">
-                                    <option value="">-----</option>
-                                    {% for ctg in categories %}
-                                        {% if object and object.parent == ctg %}
-                                        <option value="{{ ctg.id }}" selected>{{ ctg.name|get_item:lang.code }}</option>
-                                        {% else %}
-                                        <option value="{{ ctg.id }}">{{ ctg.name|get_item:lang.code }}</option>
-                                        {% endif %}
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            {% endif %}
-                        {% endfor %}
+                        <div class="form-group">
+                            <!-- Label  -->
+                            <label class="form-label">
+                                {{ field.label }}
+                            </label>
+                            <br>
+                            <!-- Input -->
+                            <select class="form-select mb-3" name="parent">
+                                <option value="">-----</option>
+                                {% for ctg in categories %}
+                                    {% if object and object.parent == ctg %}
+                                    <option value="{{ ctg.id }}" selected>{{ ctg.name|get_item:lang.code }}</option>
+                                    {% else %}
+                                    <option value="{{ ctg.id }}">{{ ctg.name|get_item:lang.code }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
                         
                         <div class="form-group">
                         
