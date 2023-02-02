@@ -77,11 +77,9 @@
                                 </label>
                                 <br>
                                 <!-- Input -->
-                                <input type="text" name="subtitle#{{ lang.code }}" {% if object.subtitle and object.subtitle|get_item:lang.code %}
-                                    value="{{ object.subtitle|get_item:lang.code }}" {% endif %} class="form-control">
+                                <input type="text" name="subtitle#{{ lang.code }}" {% if object.subtitle and object.subtitle|get_item:lang.code %} value="{{ object.subtitle|get_item:lang.code }}" {% endif %} class="form-control">
                             
                             </div>
-                            {{ object }}
 
                             <!-- Project description -->
                             <div class="form-group">
