@@ -887,7 +887,7 @@ class AddArticleCtg(CreateView):
 
 
     def post(self, request, *args, **kwargs):
-        #context = super().post(request, *args, **kwargs)
+        context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, request)
         some = request.POST.get("parent")
 
