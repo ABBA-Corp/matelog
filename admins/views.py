@@ -868,7 +868,7 @@ class AddArticleCtg(CreateView):
     model = ArticleCategories
     template_name = 'admin/article_ctg_form.html'
     fields = '__all__'
-    success_url = '/admin/article_categories'
+    success_url = 'article_ctg_list'
 
 
     def get_context_data(self, **kwargs):
@@ -886,37 +886,40 @@ class AddArticleCtg(CreateView):
         return context
 
 
+    def form_valid(self, form):
+        return None
+
+
     def post(self, request, *args, **kwargs):
-        #context = super().post(request, *args, **kwargs)
+        context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, request)
-        some = request.POST.get("parent")
+        parent = request.POST.get('parent')
 
-        data = self.get_context_data(**kwargs)
-        #data = {}
 
-        print('999', is_valid_field(data_dict, 'name') == False)
+        data = self.get_context_data()
+        data['parent'] = parent
 
         if is_valid_field(data_dict, 'name') == False:
             data['error'] = 'This field is required.'
-            return render(request, template_name=self.template_name, context=data)
-
-
-        try:
-            art_ctg = ArticleCategories(**data_dict)
-            art_ctg.save()
-
-            key = self.model._meta.verbose_name
-            sess_images = request.session.get(key)
-
-            if sess_images and len(sess_images) > 0:
-                image = [it for it in request.session.get(key) if it['id'] == ''][0]
-            
-                art_ctg.image = image['name']
+            return render(request, self.template_name, data)
+        else:
+            try:
+                art_ctg = ArticleCategories(**data_dict)
+                art_ctg.full_clean()
                 art_ctg.save()
-                request.session.get(key).remove(image)
-                request.session.modified = True
-        except:
-            pass
+
+                key = self.model._meta.verbose_name
+                sess_images = request.session.get(key)
+
+                if sess_images and len([it for it in request.session.get(key) if it['id'] == '']) > 0:
+                    image = [it for it in request.session.get(key) if it['id'] == ''][0]
+                
+                    art_ctg.image = image['name']
+                    art_ctg.save()
+                    request.session.get(key).remove(image)
+                    request.session.modified = True
+            except:
+                pass
         
 
 
@@ -939,6 +942,10 @@ class ArticleCtgEdit(UpdateView):
         context['dropzone_key'] = self.model._meta.verbose_name
 
         return context
+
+
+    def form_valid(self, form):
+        return None
 
 
     def post(self, request, *args, **kwargs):
@@ -1136,6 +1143,8 @@ class AboutUsView(UpdateView):
     template_name = 'admin/about_us.html'
     success_url = '/admin/home'
 
+    def form_valid(self, form):
+        return None
 
     def get_object(self):
         try:
@@ -1244,6 +1253,10 @@ class ServicesUpdate(UpdateView):
 
         return context
 
+    
+    def form_valid(self, form):
+        return None
+
     def post(self, request, *args, **kwargs):
         context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, request)
@@ -1321,6 +1334,9 @@ class ServiceCreate(CreateView):
             context['images'] = list({'name': it['name'], 'id': clean_text(str(it['name']))} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
 
         return context
+
+    def form_valid(self, form):
+        return None
 
     def post(self, request, *args, **kwargs):
         context = super().post(request, *args, **kwargs)
