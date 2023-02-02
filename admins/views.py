@@ -1319,11 +1319,6 @@ class ServiceCreate(CreateView):
         context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, request)
         key = self.model._meta.verbose_name
-        parent_id = request.POST.get('parent')
-        try:
-            data_dict['parent'] = Services.objects.get(id=int(parent_id))
-        except:
-            pass
 
         data = self.get_context_data()
         print(is_valid_field(data_dict, 'title') == False)
@@ -1333,6 +1328,11 @@ class ServiceCreate(CreateView):
             return render(request, self.template_name, data)
 
         else:
+            parent_id = request.POST.get('parent')
+            try:
+                data_dict['parent'] = Services.objects.get(id=int(parent_id))
+            except:
+                pass
             print('else1')
             try:
                 instance = Services(**data_dict)
