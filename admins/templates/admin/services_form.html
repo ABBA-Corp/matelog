@@ -137,7 +137,9 @@
                                 {% if object and object.parent == serv %}
                                     <option value="{{ serv.id }}" selected>{{ serv.title|get_item:lang.code }}</option>
                                 {% else %}
-                                    <option value="{{ serv.id }}">{{ serv.title|get_item:lang.code }}</option>
+                                    {% if serv.title %}
+                                        <option value="{{ serv.id }}">{{ serv.title|get_item:lang.code }}</option>
+                                    {% endif %}
                                 {% endif %}
                             {% endfor %}
                         </select>

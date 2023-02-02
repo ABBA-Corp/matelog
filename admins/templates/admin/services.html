@@ -110,13 +110,15 @@
                                     <img class="avatar-img rounded-circle" src="{% static 'src/img/default.png' %}" alt="...">
                                 {% endif %}
                             </div>
-                            {{ obj.title|get_item:lang.code }}
+                            {% if obj.title %}
+                                {{ obj.title|get_item:lang.code }}
+                            {% endif %}
                             </p>
                         </td>
                         <td>
                             <!-- Text -->
-                            {% if obj.parent %}
-                            <span class="item-title">{{ obj.parent.title|get_item:lang.code }}</span>
+                            {% if obj.parent and obj.parent.title %}
+                                <span class="item-title">{{ obj.parent.title|get_item:lang.code }}</span>
                             {% endif %}
                         </td>
                         <td>
