@@ -887,11 +887,12 @@ class AddArticleCtg(CreateView):
 
 
     def post(self, request, *args, **kwargs):
-        context = super().post(request, *args, **kwargs)
+        #context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, request)
         some = request.POST.get("parent")
 
-        data = self.get_context_data()
+        #data = self.get_context_data()
+        data = {}
 
         print('999', is_valid_field(data_dict, 'name') == False)
 
