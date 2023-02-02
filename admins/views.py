@@ -893,13 +893,9 @@ class AddArticleCtg(CreateView):
 
         data = self.get_context_data()
 
-        print('999', is_valid_field(data_dict, 'name'))
+        print('999', is_valid_field(data_dict, 'name') == False)
 
-        if is_valid_field(data_dict, 'name') == False:
-            data['error'] = 'This field is required.'
-            return render(request, template_name=self.template_name, context=data)
-        else:
-
+        if is_valid_field(data_dict, 'name'):
             try:
                 art_ctg = ArticleCategories(**data_dict)
                 art_ctg.save()
@@ -916,6 +912,9 @@ class AddArticleCtg(CreateView):
                     request.session.modified = True
             except:
                 pass
+        else:
+            data['error'] = 'This field is required.'
+            return render(request, template_name=self.template_name, context=data)
 
 
         return redirect('article_ctg_list')
