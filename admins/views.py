@@ -487,6 +487,7 @@ class StaticUpdate(UpdateView):
 
         data = self.get_context_data()
         if is_valid_field(data_dict, 'title') == False:
+            data['object'] = self.get_object()
             data['error_title'] = 'This field is required'
             return render(request, self.template_name, data)
 
