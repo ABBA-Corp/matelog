@@ -866,15 +866,15 @@ class ArticleCtgList(ListView):
 # add article ctg
 class AddArticleCtg(CreateView):
     model = ArticleCategories
-    fields = '__all__'
     template_name = 'admin/article_ctg_form.html'
+    fields = '__all__'
     success_url = '/admin/article_categories'
 
 
     def get_context_data(self, **kwargs):
         context = super(AddArticleCtg, self).get_context_data(**kwargs)
         context['langs'] = Languages.objects.all().order_by('-default')
-        #context['categories'] = ArticleCategories.objects.all()
+        context['categories'] = ArticleCategories.objects.all()
         context['fields'] = get_model_fields(self.model)
         context['lang'] = Languages.objects.filter(default=True).first()
         context['dropzone_key'] = self.model._meta.verbose_name
@@ -887,11 +887,11 @@ class AddArticleCtg(CreateView):
 
 
     def post(self, request, *args, **kwargs):
-        #context = super().post(request, *args, **kwargs)
+        context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, request)
+        some = request.POST.get("parent")
 
-
-        #data = self.get_context_data()
+        data = self.get_context_data()
         data = {}
 
         print('999', is_valid_field(data_dict, 'name') == False)
