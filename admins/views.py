@@ -460,7 +460,7 @@ class StaticUpdate(UpdateView):
     model = StaticInformation
     fields = "__all__"
     template_name = 'admin/static_add.html'
-    success_url = '/admin/static_info'
+    success_url = '/admin/'
 
     def get_object(self):
         try:
@@ -487,15 +487,14 @@ class StaticUpdate(UpdateView):
 
         data = self.get_context_data()
         if is_valid_field(data_dict, 'title') == False:
-            data['object'] = self.get_object()
             data['error'] = 'This field is required'
             return render(request, self.template_name, data)
+        else:
+            for attr, value in data_dict.items():
+                setattr(instance, attr, value)
+            instance.save()
 
-        for attr, value in data_dict.items():
-            setattr(instance, attr, value)
-        instance.save()
-
-        return redirect('static_info')
+        return redirect('home')
 
 
 def class_list():
@@ -1157,10 +1156,9 @@ class AboutUsView(UpdateView):
         url = request.POST.get("url")
 
         data = self.get_context_data()
-        if not is_valid_field(data_dict, 'title_one'):
+        if is_valid_field(data_dict, 'title_one') == False:
             data['object'] = self.get_object()
             data['error'] = 'This field is required.'
-            print(data)
             return render(request, self.template_name, data)
 
 
@@ -1168,7 +1166,7 @@ class AboutUsView(UpdateView):
             setattr(instance, attr, value)
         instance.save()
 
-        return redirect(url)
+        return redirect('home')
 
 # delete about us video
 def delete_about_video(request):
