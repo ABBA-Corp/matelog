@@ -1326,8 +1326,9 @@ class ServiceCreate(CreateView):
             pass
 
         data = self.get_context_data()
-        print(is_valid_field(data_dict, 'title'))
+        print(is_valid_field(data_dict, 'title') == False)
         if is_valid_field(data_dict, 'title') == False:
+            print("if1")
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
