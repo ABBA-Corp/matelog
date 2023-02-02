@@ -907,7 +907,7 @@ class AddArticleCtg(CreateView):
         key = self.model._meta.verbose_name
         sess_images = request.session.get(key)
 
-        if len(sess_images) > 0:
+        if sess_images and len(sess_images) > 0:
             image = [it for it in request.session.get(key) if it['id'] == ''][0]
         
             art_ctg.image = image['name']
