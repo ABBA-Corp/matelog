@@ -896,6 +896,7 @@ class AddArticleCtg(CreateView):
         print('999', is_valid_field(data_dict, 'name') == False)
 
         if is_valid_field(data_dict, 'name'):
+            print('if1')
             try:
                 art_ctg = ArticleCategories(**data_dict)
                 art_ctg.save()
@@ -913,6 +914,7 @@ class AddArticleCtg(CreateView):
             except:
                 pass
         else:
+            print("else1")
             data['error'] = 'This field is required.'
             return render(request, template_name=self.template_name, context=data)
 
