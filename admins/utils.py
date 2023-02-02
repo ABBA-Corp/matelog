@@ -179,6 +179,8 @@ def is_valid_field(data, field):
     except:
         return False
 
+    print(val != '')
+
     return val != ''
 
 

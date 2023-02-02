@@ -898,7 +898,7 @@ class AddArticleCtg(CreateView):
         data = self.get_context_data()
         if is_valid_field(data_dict, 'name') == False:
             data['error'] = 'This field is required.'
-            return render(request, self.template_name, data)
+            return render(request, template_name=self.template_name, context=data)
 
 
         art_ctg = ArticleCategories(**data_dict)
