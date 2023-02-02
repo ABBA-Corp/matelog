@@ -898,23 +898,24 @@ class AddArticleCtg(CreateView):
         if is_valid_field(data_dict, 'name') == False:
             data['error'] = 'This field is required.'
             return render(request, template_name=self.template_name, context=data)
+        else:
 
-        try:
-            art_ctg = ArticleCategories(**data_dict)
-            art_ctg.save()
-
-            key = self.model._meta.verbose_name
-            sess_images = request.session.get(key)
-
-            if sess_images and len(sess_images) > 0:
-                image = [it for it in request.session.get(key) if it['id'] == ''][0]
-            
-                art_ctg.image = image['name']
+            try:
+                art_ctg = ArticleCategories(**data_dict)
                 art_ctg.save()
-                request.session.get(key).remove(image)
-                request.session.modified = True
-        except:
-            pass
+
+                key = self.model._meta.verbose_name
+                sess_images = request.session.get(key)
+
+                if sess_images and len(sess_images) > 0:
+                    image = [it for it in request.session.get(key) if it['id'] == ''][0]
+                
+                    art_ctg.image = image['name']
+                    art_ctg.save()
+                    request.session.get(key).remove(image)
+                    request.session.modified = True
+            except:
+                pass
 
 
         return redirect('article_ctg_list')
