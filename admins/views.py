@@ -1131,7 +1131,7 @@ class AboutUsView(UpdateView):
     model = AboutUs
     fields = "__all__"
     template_name = 'admin/about_us.html'
-    success_url = '/admin/about_us'
+    success_url = '/admin/home'
 
 
     def get_object(self):
@@ -1158,7 +1158,9 @@ class AboutUsView(UpdateView):
 
         data = self.get_context_data()
         if not is_valid_field(data_dict, 'title_one'):
+            data['object'] = self.get_object()
             data['error'] = 'This field is required.'
+            print(data)
             return render(request, self.template_name, data)
 
 
