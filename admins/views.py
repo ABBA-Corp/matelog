@@ -888,10 +888,12 @@ class AddArticleCtg(CreateView):
 
     def post(self, request, *args, **kwargs):
         context = super().post(request, *args, **kwargs)
-        data_dict = serialize_request(self.model, self.request)
+        data_dict = serialize_request(self.model, request)
 
 
         data = self.get_context_data()
+
+        print(is_valid_field(data_dict, 'name'))
 
         if is_valid_field(data_dict, 'name') == False:
             data['error'] = 'This field is required.'
