@@ -1130,6 +1130,7 @@ class AboutUsView(UpdateView):
     model = AboutUs
     fields = "__all__"
     template_name = 'admin/about_us.html'
+    success_url = '/admin/about_us'
 
 
     def get_object(self):
