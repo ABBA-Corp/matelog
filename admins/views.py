@@ -1331,34 +1331,35 @@ class ServiceCreate(CreateView):
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
-        try:
-            instance = Services(**data_dict)
-            instance.full_clean()
-            instance.save()
-
-            sess_images = request.session.get(key)
-
-            if sess_images and len([it for it in sess_images if it['id'] == '']) > 0:
-                image = [it for it in sess_images if it['id'] == ''][0]
-                instance.image = image['name']
-                instance.save()
-                request.session.get(key).remove(image)
-                request.session.modified = True
-
-            meta_dict = serialize_request(MetaTags, request)
+        else:
             try:
-                meta = MetaTags(**meta_dict)
-                meta.full_clean()
-                meta.save()
-                instance.meta_field = meta
+                instance = Services(**data_dict)
+                instance.full_clean()
                 instance.save()
-            except:
-                pass
 
-        except ValidationError:
-            print(ValidationError)
+                sess_images = request.session.get(key)
 
-        return redirect('services')  # redirect("")
+                if sess_images and len([it for it in sess_images if it['id'] == '']) > 0:
+                    image = [it for it in sess_images if it['id'] == ''][0]
+                    instance.image = image['name']
+                    instance.save()
+                    request.session.get(key).remove(image)
+                    request.session.modified = True
+
+                meta_dict = serialize_request(MetaTags, request)
+                try:
+                    meta = MetaTags(**meta_dict)
+                    meta.full_clean()
+                    meta.save()
+                    instance.meta_field = meta
+                    instance.save()
+                except:
+                    pass
+
+            except ValidationError:
+                print(ValidationError)
+
+            return redirect('services')  # redirect("")
 
 
 
