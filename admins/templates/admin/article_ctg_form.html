@@ -69,8 +69,7 @@
                                 </label>
                                 <br>
                                 <!-- Input -->
-                                <input type="text" name="name#{{ lang.code }}" class="form-control">
-                                {% if object and object.name|get_item:lang.code %} value="{{ object.name|get_item:lang.code }}" {% endif %}>
+                                <input type="text" name="name#{{ lang.code }}" class="form-control" {% if object and object.name|get_item:lang.code %} value="{{ object.name|get_item:lang.code }}" {% endif %}>
                                 {% if lang.default %}
                                 <div class="invalid-feedback" style="display: block;">
                                     {% if error %}
