@@ -889,14 +889,10 @@ class AddArticleCtg(CreateView):
     def post(self, request, *args, **kwargs):
         context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, self.request)
-        try:
-            data_dict['parent'] = ArticleCategories.objects.get(id=int(data_dict.get('parent')))
-        except:
-            if data_dict.get("parent"):
-                del data_dict['parent']
+
 
         data = self.get_context_data()
-        
+
         if is_valid_field(data_dict, 'name') == False:
             data['error'] = 'This field is required.'
             return render(request, template_name=self.template_name, context=data)
