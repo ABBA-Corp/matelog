@@ -893,7 +893,7 @@ class AddArticleCtg(CreateView):
 
         data = self.get_context_data()
 
-        print(is_valid_field(data_dict, 'name'))
+        print('999', is_valid_field(data_dict, 'name'))
 
         if is_valid_field(data_dict, 'name') == False:
             data['error'] = 'This field is required.'
