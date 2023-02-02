@@ -204,7 +204,7 @@ class ArticleCreateView(CreateView):
         
         data = self.get_context_data()
 
-        if not is_valid_field(data_dict, 'title'):
+        if is_valid_field(data_dict, 'title') == False:
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
@@ -313,7 +313,7 @@ class ArticleUpdate(UpdateView):
         key = self.model._meta.verbose_name
 
         data = self.get_context_data()
-        if not is_valid_field(data_dict, 'title'):
+        if is_valid_field(data_dict, 'title') == False:
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
@@ -1255,7 +1255,7 @@ class ServicesUpdate(UpdateView):
 
 
         data = self.get_context_data()
-        if not is_valid_field(data_dict, 'title'):
+        if is_valid_field(data_dict, 'title') == False:
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
@@ -1325,7 +1325,7 @@ class ServiceCreate(CreateView):
             pass
 
         data = self.get_context_data()
-        if not is_valid_field(data_dict, 'title'):
+        if is_valid_field(data_dict, 'title') == False:
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
