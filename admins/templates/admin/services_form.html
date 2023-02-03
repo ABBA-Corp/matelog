@@ -58,8 +58,8 @@
                         <div class="tab-pane fade show active" id="{{ lang.code }}" role="tabpanel"
                             aria-labelledby="{{ lang.code }}">
                         {% else %}
-                            <div class="tab-pane fade" id="{{ lang.code }}" role="tabpanel"
-                                aria-labelledby="{{ lang.code }}">
+                        <div class="tab-pane fade" id="{{ lang.code }}" role="tabpanel"
+                            aria-labelledby="{{ lang.code }}">
                         {% endif %}
                             <!-- Project name -->
                             <div class="form-group">
@@ -73,7 +73,7 @@
                                 {% if lang.default %}
                                 <div class="invalid-feedback" style="display: block;">
                                     {% if error %}
-                                    {{ error }}
+                                        {{ error }}
                                     {% endif %}
                                 </div>
                                 {% endif %}
