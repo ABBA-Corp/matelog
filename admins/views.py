@@ -1184,6 +1184,7 @@ class AboutUsView(UpdateView):
         data = self.get_context_data()
         if is_valid_field(data_dict, 'title_one') == False:
             data['error'] = 'This field is required.'
+            data['object'] = self.get_object()
             return render(request, self.template_name, data)
 
 
