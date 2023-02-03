@@ -1295,33 +1295,30 @@ class ServicesUpdate(UpdateView):
         except:
             file = None
 
-        try:
-            instance = self.get_object()
+        instance = self.get_object()
 
-            for attr, value in data_dict.items():
-                setattr(instance, attr, value)
+        for attr, value in data_dict.items():
+            setattr(instance, attr, value)
 
+        instance.save()
+
+        if file:
+            instance.image = file['name']
+            for it in request.session.get(key):
+                if it['id'] == str(self.get_object().id):
+                    try:
+                        request.session.get(key).remove(it)
+                        request.session.modified = True
+                    except:
+                        pass
             instance.save()
 
-            if file:
-                instance.image = file['name']
-                for it in request.session.get(key):
-                    if it['id'] == str(self.get_object().id):
-                        try:
-                            request.session.get(key).remove(it)
-                            request.session.modified = True
-                        except:
-                            pass
-                instance.save()
-
-            meta_dict = serialize_request(MetaTags, request)
-            try:
-                for attr, value in meta_dict.items():
-                    if str(attr) != 'id':
-                        setattr(instance.meta_field, attr, value)
-                instance.meta_field.save()
-            except:
-                pass
+        meta_dict = serialize_request(MetaTags, request)
+        try:
+            for attr, value in meta_dict.items():
+                if str(attr) != 'id':
+                    setattr(instance.meta_field, attr, value)
+            instance.meta_field.save()
         except:
             pass
 
