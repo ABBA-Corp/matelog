@@ -1279,7 +1279,6 @@ class ServicesUpdate(UpdateView):
 
         
         data = self.get_context_data()
-        print(is_valid_field(data_dict, 'title'))
         if is_valid_field(data_dict, 'title') == False:
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
