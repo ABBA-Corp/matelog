@@ -1280,7 +1280,7 @@ class ServicesUpdate(UpdateView):
         
         data = self.get_context_data()
         if is_valid_field(data_dict, 'title') == False:
-            data['object'] = self.get_object()
+            data['request_post'] = data_dict
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
@@ -1360,6 +1360,7 @@ class ServiceCreate(CreateView):
         if is_valid_field(data_dict, 'title') == False:
             print("if1")
             data['error'] = 'This field is required.'
+            data['request_post'] = data_dict
             return render(request, self.template_name, data)
 
 

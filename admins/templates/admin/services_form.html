@@ -69,7 +69,12 @@
                                 </label>
                                 <br>
                                 <!-- Input -->
-                                <input type="text" name="title#{{ lang.code }}" class="form-control" {% if object and object.title|get_item:lang.code %} value="{{ object.title|get_item:lang.code }}" {% endif %}>
+                                <input type="text" name="title#{{ lang.code }}" class="form-control" 
+                                    {% if object and object.title|get_item:lang.code %} 
+                                        value="{{ object.title|get_item:lang.code }}"  
+                                    {% elif request_post and request_post|get_item:'title' %} 
+                                        value="{{ request_post|get_item:'title'|get_item:lang.code }}"  
+                                    {% endif %}>
                                 {% if lang.default %}
                                 <div class="invalid-feedback" style="display: block;">
                                     {% if error %}
@@ -86,8 +91,12 @@
                                 </label>
                                 <br>
                                 <!-- Input -->
-                                <input type="text" name="sub_title#{{ lang.code }}" {% if object and object.sub_title|get_item:lang.code %}
-                                    value="{{ object.sub_title|get_item:lang.code }}" {% endif %} class="form-control">
+                                <input type="text" name="sub_title#{{ lang.code }}" 
+                                {% if object and object.sub_title|get_item:lang.code %} 
+                                    value="{{ object.sub_title|get_item:lang.code }}" 
+                                {% elif request_post and request_post|get_item:'sub_title' %} 
+                                    value="{{ request_post|get_item:'sub_title'|get_item:lang.code }}" 
+                                {% endif %} class="form-control">
 
                             </div>
                             <!-- Project description -->
@@ -99,7 +108,13 @@
                                 </label>
                                 <br>
                                 <!-- Textarea -->
-                                <textarea class="editor" name="deckription#{{ lang.code }}" {% if object and object.deckription|get_item:lang.code %} value="{{ object.deckription|get_item:lang.code }}" {% endif %} placeholder="Text"></textarea>
+                                <textarea class="editor" name="deckription#{{ lang.code }}" placeholder="Text">
+                                    {% if object and object.deckription|get_item:lang.code %} 
+                                        {{ object.deckription|get_item:lang.code }}
+                                    {% elif request_post and request_post|get_item:'deckription' %}
+                                        {{ request_post|get_item:'deckription'|get_item:lang.code }}
+                                    {% endif %}
+                                </textarea>
 
                             </div>
 
