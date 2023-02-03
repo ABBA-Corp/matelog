@@ -1266,7 +1266,6 @@ class ServicesUpdate(UpdateView):
         context['dropzone_key'] = self.model._meta.verbose_name
 
         return context
-
     
     def form_valid(self, form):
         return None
@@ -1280,6 +1279,7 @@ class ServicesUpdate(UpdateView):
 
         
         data = self.get_context_data()
+        print(is_valid_field(data_dict, 'title'))
         if is_valid_field(data_dict, 'title') == False:
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
