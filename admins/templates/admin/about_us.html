@@ -64,7 +64,12 @@
                                 </label>
                                 <br>
                                 <!-- Input -->
-                                <input type="text" name="title_one#{{ lang.code }}" {% if object.title_one and object.title_one|get_item:lang.code %} value="{{ object.title_one|get_item:lang.code }}" {% endif %} class="form-control">
+                                <input type="text" name="title_one#{{ lang.code }}" 
+                                {% if object.title_one and object.title_one|get_item:lang.code %} 
+                                    value="{{ object.title_one|get_item:lang.code }}" 
+                                 {% elif request_post and request_post|get_item:'title_one' %} 
+                                    value="{{ request_post|get_item:'title_one'|get_item:lang.code }}"     
+                                {% endif %} class="form-control">
                                 {% if lang.default %}
                                 <div class="invalid-feedback" style="display: block;">
                                     {% if error %}
@@ -81,8 +86,12 @@
                                 </label>
                                 <br>
                                 <!-- Input -->
-                                <input type="text" name="title_second#{{ lang.code }}" {% if object.title_second and object.title_one|get_item:lang.code %}
-                                    value="{{ object.title_second|get_item:lang.code }}" {% endif %} class="form-control">
+                                <input type="text" name="title_second#{{ lang.code }}" 
+                                {% if object.title_second and object.title_second|get_item:lang.code %}
+                                    value="{{ object.title_second|get_item:lang.code }}" 
+                                {% elif request_post and request_post|get_item:'title_second' %} 
+                                    value="{{ request_post|get_item:'title_second'|get_item:lang.code }}"     
+                                {% endif %} class="form-control">
                             </div>
 
                             <!-- Project description -->
@@ -94,8 +103,13 @@
                                 </label>
                                 <br>
                                 <!-- Textarea -->
-                                <textarea class="editor" name="text_first#{{ lang.code }}" placeholder="Text">{% if object.text_first and object.text_first|get_item:lang.code %} {{ object.text_first|get_item:lang.code }} {% endif %}</textarea>
-
+                                <textarea class="editor" name="text_first#{{ lang.code }}" placeholder="Text">
+                                    {% if object.text_first and object.text_first|get_item:lang.code %} 
+                                        {{ object.text_first|get_item:lang.code }} 
+                                    {% elif request_post and request_post|get_item:'text_first' %}
+                                        {{ request_post|get_item:'text_first'|get_item:lang.code }}
+                                    {% endif %}
+                                </textarea>
                             </div>
 
                             <div class="form-group">
@@ -106,7 +120,13 @@
                                 </label>
                                 <br>
                                 <!-- Textarea -->
-                                <textarea class="editor" name="text_second#{{ lang.code }}" placeholder="Text">{% if object.text_second and object.text_second|get_item:lang.code %} {{ object.text_second|get_item:lang.code }} {% endif %}</textarea>
+                                <textarea class="editor" name="text_second#{{ lang.code }}" placeholder="Text">
+                                    {% if object.text_second and object.text_second|get_item:lang.code %} 
+                                        {{ object.text_second|get_item:lang.code }} 
+                                    {% elif request_post and request_post|get_item:'text_second' %}
+                                        {{ request_post|get_item:'text_second'|get_item:lang.code }}
+                                    {% endif %}
+                                </textarea>
                             </div>
                         </div>
                     {% endfor %}

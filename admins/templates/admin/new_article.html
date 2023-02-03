@@ -66,7 +66,12 @@
                                         </label>
                                         <br>
                                         <!-- Input -->
-                                        <input type="text" name="title#{{ lang.code }}" class="form-control" {% if object and object.title|get_item:lang.code %} value="{{ object.title|get_item:lang.code }}" {% endif %}>
+                                        <input type="text" name="title#{{ lang.code }}" class="form-control" 
+                                        {% if object and object.title|get_item:lang.code %} 
+                                            value="{{ object.title|get_item:lang.code }}" 
+                                        {% elif request_post and request_post|get_item:'title' %} 
+                                            value="{{ request_post|get_item:'title'|get_item:lang.code }}"     
+                                        {% endif %}>
                                         {% if lang.default %}
                                             <div class="invalid-feedback" style="display: block;">
                                                 {% if error %}
@@ -83,7 +88,12 @@
                                         </label>
                                         <br>
                                         <!-- Input -->
-                                        <input type="text" name="subtitle#{{ lang.code }}" {% if object and object.subtitle|get_item:lang.code %} value="{{ object.subtitle|get_item:lang.code }}" {% endif %} class="form-control">
+                                        <input type="text" name="subtitle#{{ lang.code }}" 
+                                        {% if object and object.subtitle|get_item:lang.code %} 
+                                            value="{{ object.subtitle|get_item:lang.code }}"                                 
+                                        {% elif request_post and request_post|get_item:'subtitle' %} 
+                                            value="{{ request_post|get_item:'subtitle'|get_item:lang.code }}"     
+                                        {% endif %} class="form-control">
                                     
                                     </div>
                                 <!-- Project description -->
@@ -94,7 +104,12 @@
                                         </label>
                                         <br>
                                         <!-- Textarea -->
-                                        <textarea class="editor" name="body#{{ lang.code }}" placeholder="Text">{% if object and object.body|get_item:lang.code %} {{ object.body|get_item:lang.code }} {% endif %}</textarea>
+                                        <textarea class="editor" name="body#{{ lang.code }}" placeholder="Text">
+                                            {% if object and object.body|get_item:lang.code %} 
+                                                {{ object.body|get_item:lang.code }} 
+                                            {% elif request_post and request_post|get_item:'body' %}
+                                                {{ request_post|get_item:'body'|get_item:lang.code }}
+                                            {% endif %}</textarea>
                 
                                     </div>
                                     <div class="col-12">
@@ -125,7 +140,12 @@
                         </label>
                         <br>
                         <!-- Input -->
-                        <input type="text" name="created_date" {% if object.created_date %} value="{{ object.get_format_data }}" {% endif %} class="form-control" id="date-input"  data-flatpickr='{"dateFormat": "Y-m-d"}'>
+                        <input type="text" name="created_date" 
+                        {% if object.created_date %} 
+                            value="{{ object.get_format_data }}" 
+                        {% elif request_post and request_post|get_item:'created_date' %} 
+                            value="{{ request_post|get_item:'created_date'|get_item:lang.code }}"     
+                        {% endif %} class="form-control" id="date-input"  data-flatpickr='{"dateFormat": "Y-m-d"}'>
                     </div>
 
 
@@ -139,7 +159,9 @@
                         <select class="form-control mb-4" data-choices='{"removeItemButton": true}' name="categories[]" multiple>
                             {% for ctg in categories %}
                                 {% if object and ctg in object.category.all %}
-                                <option value="{{ ctg.id }}" selected>{{ ctg.name|get_item:lang.code }}</option>
+                                    <option value="{{ ctg.id }}" selected>{{ ctg.name|get_item:lang.code }}</option>
+                                {% elif request_post and ctg.id in request_post|get_item:'categories' %}
+                                    <option value="{{ ctg.id }}" selected>{{ ctg.name|get_item:lang.code }}</option>
                                 {% else %}
                                 <option value="{{ ctg.id }}">{{ ctg.name|get_item:lang.code }}</option>
                                 {% endif %}

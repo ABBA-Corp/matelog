@@ -69,7 +69,12 @@
                                 </label>
                                 <br>
                                 <!-- Input -->
-                                <input type="text" name="name#{{ lang.code }}" class="form-control" {% if object and object.name|get_item:lang.code %} value="{{ object.name|get_item:lang.code }}" {% endif %}>
+                                <input type="text" name="name#{{ lang.code }}" class="form-control" 
+                                {% if object and object.name|get_item:lang.code %} 
+                                    value="{{ object.name|get_item:lang.code }}" 
+                                 {% elif request_post and request_post|get_item:'title' %} 
+                                    value="{{ request_post|get_item:'title'|get_item:lang.code }}"     
+                                {% endif %}>
                                 {% if lang.default %}
                                 <div class="invalid-feedback" style="display: block;">
                                     {% if error %}
@@ -91,6 +96,8 @@
                                 <option value="">-----</option>
                                 {% for ctg in categories %}
                                     {% if object and object.parent == ctg %}
+                                    <option value="{{ ctg.id }}" selected>{{ ctg.name|get_item:lang.code }}</option>
+                                    {% elif request_post and request_post|get_item:'parent' == ctg.id %}
                                     <option value="{{ ctg.id }}" selected>{{ ctg.name|get_item:lang.code }}</option>
                                     {% else %}
                                     <option value="{{ ctg.id }}">{{ ctg.name|get_item:lang.code }}</option>

@@ -204,10 +204,12 @@ class ArticleCreateView(CreateView):
         data_dict['author'] = request.user
         key = request.POST.get('dropzone-key')
         categories = request.POST.getlist('categories[]')
+        data_dict['categories'] = categories
         
         data = self.get_context_data()
 
         if is_valid_field(data_dict, 'title') == False:
+            data['request_post'] = data_dict
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
@@ -317,6 +319,7 @@ class ArticleUpdate(UpdateView):
 
         data = self.get_context_data()
         if is_valid_field(data_dict, 'title') == False:
+            data['request_post'] = data_dict
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
@@ -493,7 +496,7 @@ class StaticUpdate(UpdateView):
 
         data = self.get_context_data()
         if is_valid_field(data_dict, 'title') == False:
-            data['object'] = self.get_object()
+            data['request_post'] = data_dict
             data['error'] = 'This field is required'
             return render(request, self.template_name, data)
         else:
@@ -907,6 +910,7 @@ class AddArticleCtg(CreateView):
         data['parent'] = parent
 
         if is_valid_field(data_dict, 'name') == False:
+            data['request_post'] = data_dict
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
         else:
@@ -972,6 +976,7 @@ class ArticleCtgEdit(UpdateView):
 
         data = self.get_context_data()
         if is_valid_field(data_dict, 'name') == False:
+            data['request_post'] = data_dict
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
@@ -1184,7 +1189,7 @@ class AboutUsView(UpdateView):
         data = self.get_context_data()
         if is_valid_field(data_dict, 'title_one') == False:
             data['error'] = 'This field is required.'
-            data['object'] = self.get_object()
+            data['request_post'] = data_dict
             return render(request, self.template_name, data)
 
 
@@ -1355,7 +1360,6 @@ class ServiceCreate(CreateView):
         key = self.model._meta.verbose_name
 
         data = self.get_context_data()
-        print(is_valid_field(data_dict, 'title') == False)
 
         if is_valid_field(data_dict, 'title') == False:
             print("if1")
