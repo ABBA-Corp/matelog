@@ -479,6 +479,9 @@ class StaticUpdate(UpdateView):
 
         return context
 
+    def form_valid(self, form):
+        return None
+
     
     def post(self, request, *args, **kwargs):
         context = super().post(request, *args, **kwargs)
