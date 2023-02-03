@@ -144,7 +144,7 @@
                         {% if object.created_date %} 
                             value="{{ object.get_format_data }}" 
                         {% elif request_post and request_post|get_item:'created_date' %} 
-                            value="{{ request_post|get_item:'created_date'|get_item:lang.code }}"     
+                            value="{{ request_post|get_item:'created_date' }}"     
                         {% endif %} class="form-control" id="date-input"  data-flatpickr='{"dateFormat": "Y-m-d"}'>
                     </div>
 
