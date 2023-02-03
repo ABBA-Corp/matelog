@@ -193,6 +193,9 @@ class ArticleCreateView(CreateView):
 
         return context
 
+    def form_valid(self, form):
+        return None
+
 
     def post(self, request, *args, **kwargs):
         context = super().post(request, *args, **kwargs)
@@ -1106,6 +1109,9 @@ class EventsCreate(CreateView):
 
         return context
 
+    def form_valid(self, form):
+        return None
+
     def post(self, request, *args, **kwargs):
         data_dict = serialize_request(self.model, request)
         event = Events(**data_dict)
@@ -1125,6 +1131,9 @@ class EventsUpdate(UpdateView):
         context['langs'] = Languages.objects.all().order_by('-default')
 
         return context
+
+    def form_valid(self, form):
+        return None
 
 
     def post(self, request, *args, **kwargs):
