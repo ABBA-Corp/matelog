@@ -12,7 +12,7 @@ urlpatterns = [
     path('articles/<int:pk>/edit', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.ArticleUpdate.as_view()), name='articles_edit'),
     path("article/delete", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.del_article), name='del_article'),
     path('langs', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.LangsList.as_view()), name='langs_list'),
-    path('langs/create', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.LngCreateView.as_view()), name='create_lang'),
+    #path('langs/create', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.LngCreateView.as_view()), name='create_lang'),
     path('langs/<int:pk>/edit', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.LangsUpdate.as_view()), name='lang_update'),
     path('langs/delete', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.delete_langs), name='lang_del'),
     path("site_infos", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.StaticUpdate.as_view()), name='static_info'),
