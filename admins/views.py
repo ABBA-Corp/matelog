@@ -90,7 +90,7 @@ def save_images(request):
 
 # del lang icon
 def del_lang_icon(request):
-    id = request.POST.get("id")
+    id = request.POST.get("item_id")
     url = request.POST.get('url')
     try:
         Languages.objects.get(id=int(id)).icon.delete()
