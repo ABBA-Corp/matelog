@@ -378,7 +378,7 @@ class LangsList(ListView):
     template_name = 'admin/lang_list.html'
 
     def get_queryset(self):
-        queryset = Languages.objects.filter(active=True).order_by('default')
+        queryset = Languages.objects.all().order_by('-default')
         query = self.request.GET.get("q")
         if query == '':
             query = None
@@ -390,8 +390,8 @@ class LangsList(ListView):
     def get_context_data(self, **kwargs):
         context = super(LangsList, self).get_context_data(**kwargs)
         context['q'] = self.request.GET.get("q")
-        context['langs'] = get_lst_data(self.get_queryset(), self.request, 1)
-        context['page_obj'] = paginate(self.get_queryset(), self.request, 1)
+        context['langs'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
 
         return context
