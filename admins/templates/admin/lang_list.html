@@ -75,10 +75,13 @@
                                         <a class="list-sort text-muted" data-sort="item-name" href="#">Name</a>
                                     </th>
                                     <th>
-                                        <a class="list-sort text-muted" data-sort="item-title" href="#">Code</a>
+                                        <a class="list-sort text-muted" href="#">Code</a>
                                     </th>
                                     <th>
-                                        <span class="text-muted" data-sort="item-title">Default</span>
+                                        <span class="text-muted">Default</span>
+                                    </th>
+                                    <th>
+                                        <span class="text-muted">Active</span>
                                     </th>
                                     <th>
                                         <p class="text-muted mb-0">Icon</p>
@@ -111,6 +114,13 @@
                                         <td>
                                             {% if lang.default %}
                                                 <span class="badge bg-success-soft">Default</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if lang.active %}
+                                            <span class="badge bg-success-soft">Active</span>
+                                            {% else %}
+                                            <span class="badge bg-danger-soft">Inactive</span>
                                             {% endif %}
                                         </td>
                                         <td>
