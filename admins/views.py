@@ -16,7 +16,7 @@ from .serializers import TranslationSerializer
 from rest_framework.response import Response
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
-from main.models import Cars, CarMarks
+from main.models import CarsModel, CarMarks
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth import logout
 # Create your views here.
@@ -1521,10 +1521,10 @@ def delete_article_image(request):
 
 # cars
 class CarsList(ListView):
-    model = Cars
+    model = CarsModel
 
     def get_queryset(self):
-        queryset = Cars.objects.filter(is_superuser=True)
+        queryset = CarsModel.objects.filter(is_superuser=True)
         query = self.request.GET.get("q")
 
         if query == '':
