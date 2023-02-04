@@ -306,7 +306,7 @@ class ArticleUpdate(UpdateView):
         context['langs'] = Languages.objects.filter(active=True).order_by("-default")
         context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
         context['fields'] = get_model_fields(self.model)
-        context['categories'] = ArticleCategories.objects.all()
+        context['categories'] = ArticleCategories.objects.exclude(id=self.get_object().id).exclude(id__in=[it.id for it in self.get_object().children.all()])
         context['dropzone_key'] = self.model._meta.verbose_name
 
         return context
@@ -1266,7 +1266,7 @@ class ServicesUpdate(UpdateView):
     def get_context_data(self, **kwargs):
         context = super(ServicesUpdate, self).get_context_data(**kwargs)
         context['langs'] = Languages.objects.filter(active=True).order_by('-default')
-        context['sevices'] = Services.objects.exclude(id=self.get_object().id)
+        context['sevices'] = Services.objects.exclude(id=self.get_object().id).exclude(id__in=[it.id for it in self.get_object().children.all()])
         context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
         context['dropzone_key'] = self.model._meta.verbose_name
 

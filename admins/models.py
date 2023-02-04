@@ -88,7 +88,7 @@ class VideoGalleryVideos(models.Model):
 # article categories
 class ArticleCategories(models.Model):
     name = models.JSONField('Заголовок', blank=True, null=True)
-    parent = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, related_name='children')
     image = ThumbnailerImageField(upload_to='article_group_image', blank=True, null=True)
 
     class Meta:
@@ -235,7 +235,7 @@ class Services(models.Model):
     deckription = models.JSONField('Deckription', blank=True, null=True)
     image = ThumbnailerImageField(upload_to='service_images', blank=True, null=True)
     order = models.PositiveIntegerField('Order', blank=True, null=True)
-    parent = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, related_name='children')
     meta_field = models.ForeignKey(MetaTags, on_delete=models.CASCADE, blank=True, null=True)
 
 
