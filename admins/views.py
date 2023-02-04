@@ -628,7 +628,7 @@ class TranslationList(ListView):
         context['url'] = search_pagination(self.request)
 
         # pagination
-        page_obj = paginate(self.get_queryset(), self.request, 1)
+        page_obj = paginate(self.get_queryset(), self.request, 20)
         context['page_obj'] = page_obj
 
         lst_one = page_obj
@@ -864,9 +864,9 @@ class ArticleCtgList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ArticleCtgList, self).get_context_data(**kwargs)
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 10)
+        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
         context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
-        context['page_obj'] = paginate(self.get_queryset(), self.request, 10)
+        context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
 
         return context
@@ -1028,8 +1028,8 @@ class FAQlist(ListView):
         queryset = search(query, queryset, ['answer', 'question'])
 
     
-        context['objects'] = get_lst_data(queryset, self.request, 1)
-        context['page_obj'] = paginate(self.get_queryset(), self.request, 1)
+        context['objects'] = get_lst_data(queryset, self.request, 20)
+        context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
 
         return context
@@ -1096,9 +1096,9 @@ class EventsList(ListView):
     def get_context_data(self, **kwargs):
         context = super(EventsList, self).get_context_data(**kwargs)
         context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
-        context['page_obj'] = paginate(self.get_queryset(), self.request, 1)
+        context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 1)
+        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
 
         return context
 
@@ -1248,8 +1248,8 @@ class ServicesList(ListView):
 
         context['q'] = self.request.GET.get('q')
         context['lang'] = Languages.objects.filter(default=True).first()
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 1)
-        context['page_obj'] = paginate(self.get_queryset(), self.request, 1)
+        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
 
         return context
@@ -1436,8 +1436,8 @@ class AdminsList(ListView):
 
         context['q'] = self.request.GET.get('q')
         context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 1)
-        context['page_obj'] = paginate(self.get_queryset(), self.request, 1)
+        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
 
         return context
@@ -1537,8 +1537,8 @@ class CarsList(ListView):
     def get_context_data(self, **kwargs):
         context = super(AdminsList, self).get_context_data(**kwargs)
 
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 1)
-        context['page_obj'] = paginate(self.get_queryset(), self.request, 1)
+        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
 
         return context
