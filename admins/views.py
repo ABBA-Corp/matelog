@@ -180,7 +180,7 @@ class ArticleCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(ArticleCreateView, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.all().order_by('-default')
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
         context['fields'] = get_model_fields(self.model)
         context['categories'] = ArticleCategories.objects.all()
@@ -268,7 +268,7 @@ class ArticlesList(ListView):
         context = super(ArticlesList, self).get_context_data(**kwargs)
 
         context['q'] = self.request.GET.get('q')
-        context['lang'] = Languages.objects.filter(default=True).first()
+        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
         context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
@@ -303,8 +303,8 @@ class ArticleUpdate(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(ArticleUpdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.all().order_by("-default")
-        context['lang'] = Languages.objects.filter(default=True).first()
+        context['langs'] = Languages.objects.filter(active=True).order_by("-default")
+        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
         context['fields'] = get_model_fields(self.model)
         context['categories'] = ArticleCategories.objects.all()
         context['dropzone_key'] = self.model._meta.verbose_name
@@ -378,7 +378,7 @@ class LangsList(ListView):
     template_name = 'admin/lang_list.html'
 
     def get_queryset(self):
-        queryset = Languages.objects.all().order_by('default')
+        queryset = Languages.objects.filter(active=True).order_by('default')
         query = self.request.GET.get("q")
         if query == '':
             query = None
@@ -624,7 +624,7 @@ class TranslationList(ListView):
     def get_context_data(self, **kwargs):
         context = super(TranslationList, self).get_context_data(**kwargs)
         context['groups'] = TranlsationGroups.objects.all()
-        context['langs'] = Languages.objects.all().order_by('-default')
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
         context['url'] = search_pagination(self.request)
 
         # pagination
@@ -648,7 +648,7 @@ class TranslationGroupDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(TranslationGroupDetail, self).get_context_data(**kwargs)
         context['groups'] = TranlsationGroups.objects.all()
-        context['langs'] = Languages.objects.all().order_by('-default')
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
         lst_one = self.get_object().translations.order_by('-id')
 
         # search
@@ -681,7 +681,7 @@ def translation_update(request):
 
     elif request.method == 'POST':
         data = serialize_request(Translations, request)
-        lang = Languages.objects.filter(default=True).first()
+        lang = Languages.objects.filter(active=True).filter(default=True).first()
 
         print(data.get('value').get(lang.code, ''))
         if data.get('value').get(lang.code, '') == '':
@@ -757,8 +757,8 @@ class TranslationGroupUdpate(UpdateView):
     def get_context_data(self, **kwargs):
         context = super(TranslationGroupUdpate, self).get_context_data(**kwargs)
         context['groups'] = TranlsationGroups.objects.all()
-        context['langs'] = Languages.objects.all().order_by('-default')
-        context['lng'] = Languages.objects.filter(default=True).first()
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['lng'] = Languages.objects.filter(active=True).filter(default=True).first()
         lst_one = self.get_object().translations.all()
 
 
@@ -773,8 +773,8 @@ class TranslationGroupUdpate(UpdateView):
     
     def post(self, request, *args, **kwargs):
         transls = list(self.get_object().translations.all())
-        langs = Languages.objects.all().order_by('-default')
-        lang = Languages.objects.filter(default=True).first()
+        langs = Languages.objects.filter(active=True).order_by('-default')
+        lang = Languages.objects.filter(active=True).filter(default=True).first()
         items_count = request.POST.get("item_count")
 
 
@@ -865,7 +865,7 @@ class ArticleCtgList(ListView):
     def get_context_data(self, **kwargs):
         context = super(ArticleCtgList, self).get_context_data(**kwargs)
         context['objects'] = get_lst_data(self.get_queryset(), self.request, 10)
-        context['lang'] = Languages.objects.filter(default=True).first()
+        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
         context['page_obj'] = paginate(self.get_queryset(), self.request, 10)
         context['url'] = search_pagination(self.request)
 
@@ -883,10 +883,10 @@ class AddArticleCtg(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(AddArticleCtg, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.all().order_by('-default')
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
         context['categories'] = ArticleCategories.objects.all()
         context['fields'] = get_model_fields(self.model)
-        context['lang'] = Languages.objects.filter(default=True).first()
+        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
         context['dropzone_key'] = self.model._meta.verbose_name
         context['images'] = []
 
@@ -946,10 +946,10 @@ class ArticleCtgEdit(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(ArticleCtgEdit, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.all().order_by('-default')
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
         context['categories'] = ArticleCategories.objects.exclude(id=self.get_object().id)
         context['fields'] = get_model_fields(self.model)
-        context['lang'] = Languages.objects.filter(default=True).first()
+        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
         context['dropzone_key'] = self.model._meta.verbose_name
 
         return context
@@ -1019,8 +1019,8 @@ class FAQlist(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(FAQlist, self).get_context_data(**kwargs)
-        context['lang'] = Languages.objects.filter(default=True)
-        langs = Languages.objects.all().order_by('-default')
+        context['lang'] = Languages.objects.filter(active=True).filter(default=True)
+        langs = Languages.objects.filter(active=True).order_by('-default')
         queryset = self.get_queryset()
         
         
@@ -1043,7 +1043,7 @@ class FAQcreate(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(FAQcreate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.all().order_by('-default')
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
 
         return context
 
@@ -1064,7 +1064,7 @@ class FAQupdate(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(FAQupdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.all().order_by('-default')
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
 
         return context
 
@@ -1095,7 +1095,7 @@ class EventsList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(EventsList, self).get_context_data(**kwargs)
-        context['lang'] = Languages.objects.filter(default=True).first()
+        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
         context['page_obj'] = paginate(self.get_queryset(), self.request, 1)
         context['url'] = search_pagination(self.request)
         context['objects'] = get_lst_data(self.get_queryset(), self.request, 1)
@@ -1133,7 +1133,7 @@ class EventsUpdate(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(EventsUpdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.all().order_by('-default')
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
 
         return context
 
@@ -1175,7 +1175,7 @@ class AboutUsView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(AboutUsView, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.all().order_by('-default')
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
 
         return context
 
@@ -1265,9 +1265,9 @@ class ServicesUpdate(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(ServicesUpdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.all().order_by('-default')
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
         context['sevices'] = Services.objects.exclude(id=self.get_object().id)
-        context['lang'] = Languages.objects.filter(default=True).first()
+        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
         context['dropzone_key'] = self.model._meta.verbose_name
 
         return context
@@ -1340,9 +1340,9 @@ class ServiceCreate(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(ServiceCreate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.all().order_by('-default')
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
         context['sevices'] = Services.objects.all()
-        context['lang'] = Languages.objects.filter(default=True).first()
+        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
         context['dropzone_key'] = self.model._meta.verbose_name
         context['images'] = []
 
@@ -1435,7 +1435,7 @@ class AdminsList(ListView):
         context = super(AdminsList, self).get_context_data(**kwargs)
 
         context['q'] = self.request.GET.get('q')
-        context['lang'] = Languages.objects.filter(default=True).first()
+        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
         context['objects'] = get_lst_data(self.get_queryset(), self.request, 1)
         context['page_obj'] = paginate(self.get_queryset(), self.request, 1)
         context['url'] = search_pagination(self.request)
@@ -1488,6 +1488,7 @@ class AdminUpdate(UpdateView):
             context['full_name'] += self.get_object().last_name
 
         return context
+
 
     def form_valid(self, form):
         user = form.save()

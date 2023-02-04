@@ -9,7 +9,7 @@ class CarMarks(models.Model):
 
 
 # cars
-class Cars(models.Model):
+class CarsModel(models.Model):
     mark = models.ForeignKey(CarMarks, on_delete=models.CASCADE)
     name = models.CharField("Name", max_length=255)
     year = models.CharField("Год выпуска", blank=True, null=True, max_length=4)

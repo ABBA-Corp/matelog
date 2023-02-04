@@ -81,3 +81,5 @@ class LangsList(generics.ListAPIView):
     queryset = Languages.objects.filter(active=True)
     serializer_class = LangsSerializer
     pagination_class = BasePagination
+
+
