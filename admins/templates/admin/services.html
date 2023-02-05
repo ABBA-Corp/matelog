@@ -41,7 +41,6 @@
     <div class="card-header">
         <div class="row align-items-center">
             <div class="col">
-
                 <!-- Form -->
                 <form method="get">
                     <div class="d-flex">
@@ -60,22 +59,10 @@
             </div>
         </div> <!-- / .row -->
     </div>
-    <form action="{% url 'del_alot' %}" method="post">
-        {% csrf_token %}
-        <input type="hidden" name="model_name" value="Services">
-        <input type="hidden" name="app_name" value="admins">
-        <input type="hidden" name="id[]">
-        <div class="table-responsive">
+        <div class="table-responsive" style="padding: 20px;">
             <table class="table table-sm table-hover table-nowrap card-table">
                 <thead>
                     <tr>
-                        <th style="width: 60px;">
-                            <!-- Checkbox -->
-                            <div class="form-check mb-n2">
-                                <input class="form-check-input list-checkbox-all" id="listCheckboxAll" type="checkbox">
-                                <label class="form-check-label" for="listCheckboxAll"></label>
-                            </div>
-                        </th>
                         <th>
                             <a class="list-sort text-muted" data-sort="item-name">ID</a>
                         </th>
@@ -91,14 +78,6 @@
                 <tbody class="list fs-base">
                     {% for obj, i in objects.pairs %}
                     <tr>
-                        <td>
-                            <!-- Checkbox -->
-                            <div class="form-check">
-                                <input class="form-check-input list-checkbox" name="id[{{ obj.id }}]"
-                                    id="listCheckboxOne{{ obj.id }}" type="checkbox">
-                                <label class="form-check-label" for="listCheckboxOne"></label>
-                            </div>
-                        </td>
                         <td>
                             <a class="item-title" href="{% url 'services_update' obj.id %}">{{ i }}</a>
                         </td>
@@ -133,8 +112,8 @@
                                     style="display: none;">
                                     {% csrf_token %}
                                     <input type="hidden" name="item_id" value="{{ obj.id }}">
-                                    <input type="hidden" name="model_name" value="Services">
-                                    <input type="hidden" name="app_name" value="admins">
+                                    <input type="hidden" name="model_name_del" value="Services">
+                                    <input type="hidden" name="app_name_del" value="admins">
                                     <input type="hidden" name="url" value="{{ request.get_full_path }}">
                                 </div>
                             </div>
@@ -199,7 +178,7 @@
                     </div>
                     <div class="col-auto me-n3">
                         <!-- Button -->
-                        <button type="submit" class="btn btn-sm btn-white-20">
+                        <button class="btn btn-sm btn-white-20">
                             Delete
                         </button>
 
@@ -212,7 +191,6 @@
             </div>
 
         </div>
-    </form>
 </div>
 
 

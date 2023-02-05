@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 # telephone nbm validator
 
 class MetaTags(models.Model):
-    meta_tags = models.JSONField('Meta tags', blank=True, null=True)
+    meta_deck = models.JSONField('Meta desk', blank=True, null=True)
     meta_keys = models.JSONField('Meta keys', blank=True, null=True)
 
 
@@ -105,6 +105,7 @@ class Articles(models.Model):
     created_date = models.DateField()
     active = models.BooleanField(default=True)
     category = models.ManyToManyField(ArticleCategories, blank=True, null=True, related_name='articles')
+    meta = models.ForeignKey(MetaTags, on_delete=models.CASCADE, blank=True, null=True)
 
 
     def get_format_data(self):

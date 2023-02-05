@@ -117,11 +117,11 @@
                                         <hr>
                                         <div class="form-group">
                                             <label for="meta_desc" class="form-label">Мета описание</label>
-                                            <input type="text" class="form-control " name="meta_tags#{{ lang.code }}" {% if object.meta_field and object.meta_field.meta_tags|get_item:lang.code %} value="{{ object.meta_field.meta_tags|get_item:lang.code }}" {% endif %} id="meta_desc" placeholder="Мета описание">
+                                            <input type="text" class="form-control " name="meta_deck#{{ lang.code }}" {% if object.meta and object.meta.meta_deck|get_item:lang.code %} value="{{ object.meta.meta_deck|get_item:lang.code }}" {% endif %} id="meta_desc" placeholder="Мета описание">
                                         </div>
                                         <div class="form-group">
                                             <label for="meta_keywords" class="form-label">Мета ключи</label>
-                                            <input type="text" class="form-control " name="meta_keys#{{ lang.code }}" {% if object.meta_field and object.meta_field.meta_keys|get_item:lang.code %} value="{{ object.meta_field.meta_keys|get_item:lang.code }}" {% endif %} id="meta_keywords" placeholder="Мета ключи">
+                                            <input type="text" class="form-control " name="meta_keys#{{ lang.code }}" {% if object.meta and object.meta.meta_keys|get_item:lang.code %} value="{{ object.meta.meta_keys|get_item:lang.code }}" {% endif %} id="meta_keywords" placeholder="Мета ключи">
                                         </div>
                                     </div>
                                 </div>

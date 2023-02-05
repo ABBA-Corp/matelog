@@ -151,6 +151,8 @@
                             {% for serv in sevices %}
                                 {% if object and object.parent == serv %}
                                     <option value="{{ serv.id }}" selected>{{ serv.title|get_item:lang.code }}</option>
+                                {% elif request_post and request_post|get_item:'parent' == serv.id %}
+                                    <option value="{{ serv.id }}" selected>{{ serv.name|get_item:lang.code }}</option>
                                 {% else %}
                                     {% if serv.title %}
                                         <option value="{{ serv.id }}">{{ serv.title|get_item:lang.code }}</option>

@@ -56,5 +56,14 @@ urlpatterns = [
     path('admins', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.AdminsList.as_view()), name='admin_list'),
     path("admins/create", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.AdminCreate.as_view()), name='admins_create'),
     path("admins/<int:pk>/edit", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.AdminUpdate.as_view()), name='admins_edit'),
-    path("delete_article_image", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.delete_article_image), name='del_article_img')
+    path("delete_article_image", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.delete_article_image), name='del_article_img'),
+    path('car_makes', views.CarMarkList.as_view(), name='car_makes_list'),
+    path("car_makes/create", views.CarMarkCreate.as_view(), name='car_makes_create'),
+    path("car_makes/<int:pk>/edit", views.CarMarkEdit.as_view(), name='car_makes_edit'),
+    path('car_models', views.CarsModelList.as_view(), name='car_models'),
+    path("car_models/create", views.CarModelCreate.as_view(), name='car_models_create'),
+    path("car_models/<int:pk>/edit", views.CarModelEdit.as_view(), name="car_models_edit"),
+    path("city", views.CityList.as_view(), name='city_list'),
+    path('city/create', views.CityCreate.as_view(), name='city_create'),
+    path("city/<int:pk>/edit", views.CityEdit.as_view(), name='city_edit')
 ]

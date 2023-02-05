@@ -57,7 +57,7 @@
             </div>
         </div> <!-- / .row -->
     </div>
-    <div class="table-responsive">
+    <div class="table-responsive" style="padding: 20px;">
         <table class="table table-sm table-hover table-nowrap card-table">
             <thead>
                 <tr>
@@ -97,8 +97,8 @@
                                 {% csrf_token %}
                                 <input type="hidden" name="item_id" value="{{ obj.id }}">
                                 <input type="hidden" name="url" value="{{ request.get_full_path }}">\
-                                <input type="hidden" name="app_name" value="auth">
-                                <input type="hidden" name="model_name" value="User">
+                                <input type="hidden" name="app_name_del" value="auth">
+                                <input type="hidden" name="model_name_del" value="User">
                             </form>
                         </div>
                     </td>

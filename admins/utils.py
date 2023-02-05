@@ -16,6 +16,9 @@ def serialize_request(model, request):
     data_dict = {}
 
     for field in model._meta.fields:
+        if field.name == 'id':
+            continue
+
         field_dict = {}
         if str(field.get_internal_type()) == 'JSONField':
             for key in request.POST:
@@ -123,8 +126,14 @@ def get_lst_data(queryset, request, number):
 
 
 # search
-def search(query, queryset, fields: list, model):
-    langs = Languages.objects.all()
+def search(request, queryset, fields: list, model):
+    query = request.GET.get("q")
+
+    if query == '':
+        query = None
+
+
+    langs = Languages.objects.filter(active=True)
     endlist = list()
 
     if query is None:
@@ -188,3 +197,15 @@ def clean_text(str):
         str = str.replace(char, ' ')
 
     return str.replace(' ', '')
+
+
+
+# requeired field errors
+def required_field_validate(fields: list, data):
+    error = {}
+
+    for field in fields:
+        if field not in data:
+            error[field] = 'This field is reuqired'
+
+    return error
