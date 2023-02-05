@@ -96,7 +96,7 @@ def del_lang_icon(request):
     id = request.POST.get("item_id")
     url = request.POST.get('url')
     try:
-        Languages.objects.get(id=int(id)).icon.delete()
+        Languages.objects.get(id=int(id)).icon.delete(save=False)
     except:
         pass
 
@@ -109,7 +109,7 @@ def delete_article_group_img(request):
     id = request.POST.get('item_id')
 
     try:
-        ArticleCategories.objects.get(id=int(id)).image.delete()
+        ArticleCategories.objects.get(id=int(id)).image.delete(save=False)
     except:
         return JsonResponse("error", safe=False)
 
@@ -1200,7 +1200,7 @@ class AboutUsView(UpdateView):
 def delete_about_video(request):
     try:
         model = AboutUs.objects.get(id=1)
-        model.video.delete()
+        model.video.delete(save=False)
     except:
         return JsonResponse("error", safe=False)
 
@@ -1396,7 +1396,7 @@ def del_sev_image(request):
     id = request.POST.get('item_id')
 
     try:
-        Services.objects.get(id=int(id)).image.delete()
+        Services.objects.get(id=int(id)).image.delete(save=False)
     except:
         JsonResponse({'detail': 'error'})
 
@@ -1497,7 +1497,7 @@ def delete_article_image(request):
     id = request.POST.get("item_id")
 
     try:
-        Articles.objects.get(id=int(id)).image.delete()
+        Articles.objects.get(id=int(id)).image.delete(save=False)
     except:
         return JsonResponse({'detail': 'error'})
 

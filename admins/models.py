@@ -4,6 +4,8 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator, FileExtensionValidator
 import re
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save, post_delete
+from django.dispatch import receiver
 # telephone nbm validator
 
 class MetaTags(models.Model):
@@ -111,10 +113,17 @@ class Articles(models.Model):
     def get_format_data(self):
         return str(self.created_date.year) + '-' + str(self.created_date.month) + '-' + str(self.created_date.day)
 
-    
-
     class Meta:
         verbose_name = 'articles'
+
+
+@receiver(post_delete, sender=Articles)
+def article_delete_image(sender, instance, *args, **kwargs):
+    """ Clean Old Image file """
+    try:
+        instance.image.delete(save=False)
+    except:
+        pass
 
 
 
@@ -142,6 +151,14 @@ class Languages(models.Model):
     class Meta:
         verbose_name = 'lang'
 
+
+@receiver(post_delete, sender=Languages)
+def lang_save_image(sender, instance, *args, **kwargs):
+    """ Clean Old Image file """
+    try:
+        instance.icon.delete(save=False)
+    except:
+        pass
 
 
 # translation groups
@@ -240,5 +257,12 @@ class Services(models.Model):
     meta_field = models.ForeignKey(MetaTags, on_delete=models.CASCADE, blank=True, null=True)
 
 
+@receiver(post_delete, sender=Services)
+def post_save_image(sender, instance, *args, **kwargs):
+    """ Clean Old Image file """
+    try:
+        instance.image.delete(save=False)
+    except:
+        pass
 
 
