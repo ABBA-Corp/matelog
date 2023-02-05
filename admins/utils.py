@@ -118,7 +118,19 @@ def paginate(queryset, request, number):
 # get lst data
 def get_lst_data(queryset, request, number):
     lst_one = paginate(queryset, request, number)
-    lst_two = range(1, len(queryset) + 1)
+    page = request.GET.get('page')
+
+    if page is None or int(page) == 1:
+        lst_two = range(1, number + 1)
+    else:
+        start = (int(page) - 1) * number
+        end = int(page) * number
+
+        if end > len(queryset):
+            end = len(queryset)
+
+        lst_two = range(start, end + 1)
+
 
     return dict(pairs=zip(lst_one, lst_two))
 

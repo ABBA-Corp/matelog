@@ -46,33 +46,6 @@
                 <img src="{% static 'assets/img/logo.svg' %}" class="navbar-brand-img mx-auto" alt="...">
             </a>
     
-            <!-- User (xs) -->
-            <div class="navbar-user d-md-none">
-    
-                <!-- Dropdown -->
-                <div class="dropdown">
-    
-                    <!-- Toggle -->
-                    <a href="#" id="sidebarIcon" class="dropdown-toggle" role="button" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <div class="avatar avatar-sm avatar-online">
-                            <img src="{% static 'assets/img/avatars/profiles/avatar-1.jpg' %}" class="avatar-img rounded-circle"
-                                alt="...">
-                        </div>
-                    </a>
-    
-                    <!-- Menu -->
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="sidebarIcon">
-                        <a href="./profile-posts.html" class="dropdown-item">Profile</a>
-                        <a href="./account-general.html" class="dropdown-item">Settings</a>
-                        <hr class="dropdown-divider">
-                        <a href="./sign-in.html" class="dropdown-item">Logout</a>
-                    </div>
-    
-                </div>
-    
-            </div>
-    
             <!-- Collapse -->
             <div class="collapse navbar-collapse" id="sidebarCollapse">
     
@@ -106,12 +79,52 @@
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <a href="{% url 'articles_list' %}" class="nav-link" role="button"
-                                        aria-expanded="false" aria-controls="sidebarAccount">
+                                        aria-expanded="false" aria-controls="sidebarPages">
                                         Посты
                                     </a>
                                     <a href="{% url 'article_ctg_list' %}" class="nav-link" role="button" aria-expanded="false"
-                                        aria-controls="sidebarAccount">
+                                        aria-controls="sidebarPages">
                                         Категории постов
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#sidebarLocation" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                            aria-controls="sidebarLocation">
+                            <i class="fe fe-map-pin"></i> Локации
+                        </a>
+                        <div class="collapse" id="sidebarLocation">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{% url 'states_list' %}" class="nav-link" role="button" aria-expanded="false"
+                                        aria-controls="sidebarLocation">
+                                        Штаты
+                                    </a>
+                                    <a href="{% url 'city_list' %}" class="nav-link" role="button" aria-expanded="false"
+                                        aria-controls="sidebarLocation">
+                                        Города
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#sidebarVehicle" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                            aria-controls="sidebarVehicle">
+                            <i class="fe fe-truck"></i> Транспорт
+                        </a>
+                        <div class="collapse" id="sidebarVehicle">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{% url 'car_makes_list' %}" class="nav-link" role="button" aria-expanded="false"
+                                        aria-controls="sidebarVehicle">
+                                        Марки
+                                    </a>
+                                    <a href="{% url 'car_models' %}" class="nav-link" role="button" aria-expanded="false"
+                                        aria-controls="sidebarVehicle">
+                                        Модели
                                     </a>
                                 </li>
                             </ul>
@@ -122,10 +135,9 @@
                             <i class="fe fe-grid"></i> Услуги
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link " href="{% url 'about_us' %}">
-                            <i class="fe fe-grid"></i> О Нас
+                            <i class="fe fe-book-open"></i> О Нас
                         </a>
                     </li>
                     <!-- Divider -->
@@ -134,7 +146,7 @@
                     <li class="nav-item">
                         <a class="nav-link collapsed" href="#settingsPages" data-bs-toggle="collapse" role="button" aria-expanded="false"
                             aria-controls="sidebarPages">
-                            <i class="fe fe-file"></i> Настройки сайта
+                            <i class="fe fe-settings"></i> Настройки сайта
                         </a>
                         <div class="collapse" id="settingsPages">
                             <ul class="nav nav-sm flex-column">
@@ -165,21 +177,13 @@
                 <!-- User (md) -->
                 <div class="navbar-user d-none d-md-flex" id="sidebarUser">
     
-                    <!-- Icon -->
-                    <a class="navbar-user-link" data-bs-toggle="offcanvas" href="#sidebarOffcanvasActivity"
-                        aria-controls="sidebarOffcanvasActivity">
-                        <span class="icon">
-                            <i class="fe fe-bell"></i>
-                        </span>
-                    </a>
-    
                     <!-- Dropup -->
                     <div class="dropup">
     
                         <!-- Toggle -->
                         <a href="#" id="sidebarIconCopy" class="dropdown-toggle" role="button" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            <div class="avatar avatar-sm avatar-online">
+                            <div class="avatar avatar-sm">
                             </div>
                         </a>
     
@@ -192,14 +196,6 @@
                         </div>
     
                     </div>
-    
-                    <!-- Icon -->
-                    <a class="navbar-user-link" data-bs-toggle="offcanvas" href="#sidebarOffcanvasSearch"
-                        aria-controls="sidebarOffcanvasSearch">
-                        <span class="icon">
-                            <i class="fe fe-search"></i>
-                        </span>
-                    </a>
     
                 </div>
     
@@ -244,6 +240,21 @@
         </div>
     </div>
 
+    <script>
+        $(document).ready(() => {
+            $('.nav-link').each((i, e) => {
+                if(e.href == window.location.href) {
+                    $(e).addClass('active')
+    
+                    let parent = $(e).parent().parent().parent()
+                    if($(parent).hasClass('collapse')) {
+                        console.log($(parent))
+                        $(parent).collapse('show')
+                    }
+                }
+            })
+        })
+    </script>
     <!-- JAVASCRIPT -->
     <script src="{% static 'src/js/notify.min.js' %}"></script>
     <script src="{% static 'assets/js/new_main.js' %}"></script>

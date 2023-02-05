@@ -1,0 +1,193 @@
+{% extends 'admin/base_template.html' %}
+{% load static %}
+{% load get_item %}
+
+
+{% block title %} Штаты {% endblock %}
+
+
+{% block page_title %} Штаты {% endblock %}
+
+{% block page_btn %}
+<div class="col-auto">
+    <!-- Navigation (button group) -->
+
+    <!-- Buttons -->
+    <a href="{% url 'states_create' %}" class="btn btn-primary ms-2">
+        Добавить
+    </a>
+
+</div>
+{% endblock %}
+
+{% block nav_ol %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+    <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
+        Штаты
+    </li>
+</ol>
+{% endblock %}
+
+{% block content_width %} class="col-12" {% endblock %}
+
+
+{% block content %}
+<!-- Tab content -->
+<!-- Card -->
+<div class="card"
+    data-list='{"valueNames": ["item-name", "item-title", "item-email", "item-phone", "item-score", "item-company"]}'
+    id="contactsList">
+    <div class="card-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <!-- Form -->
+                <form method="get">
+                    <div class="d-flex">
+                        <div class="input-group input-group-flush input-group-merge input-group-reverse"
+                            style="width: 200px;">
+                            <input class="form-control" name="q" type="search" placeholder="Search" {% if request.GET.q %} value="{{ request.GET.q }}" {% endif %}>
+                            <span class="input-group-text">
+                                <i class="fe fe-search"></i>
+                            </span>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Искать</button>
+                    </div>
+                </form>
+            </div>
+        </div> <!-- / .row -->
+    </div>
+    <div class="table-responsive" style="padding:20px;">
+        <table class="table table-sm table-hover table-nowrap card-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a class="list-sort text-muted" data-sort="item-name">ID</a>
+                    </th>
+                    <th>
+                        <a class="list-sort text-muted" data-sort="item-name" href="#">Название</a>
+                    </th>
+                    <th>
+                        <a class="list-sort text-muted" data-sort="item-name" href="#">Код</a>
+                    </th>
+                    <th style="width: 200px;"></th>
+                </tr>
+            </thead>
+            <tbody class="list fs-base">
+                {% for obj, i in objects.pairs %}
+                <tr>
+                    <td>
+                        <a class="item-title" href="{% url 'state_edit' obj.id %}">{{ i }}</a>
+                    </td>
+                    <td>
+                        <p class="item-phone text-reset">
+                            {{ obj.name|get_item:lang.code }}
+                        </p>
+                    </td>
+                    <td>
+                        <p class="item-phone text-reset">
+                            {{ obj.code }}
+                        </p>
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-end">
+                            <a href="{% url 'state_edit' obj.id %}" class="btn btn-sm btn-info"><i
+                                    class="fe fe-edit-2"></i></a>
+                            <a class="btn btn-sm btn-danger ms-3"
+                                onclick="var result = confirm('Want to delete?');if (result){form_submit_in_table('delete-form{{ obj.id }}')}"><i
+                                    class="fe fe-trash"></i></a>
+                            <div action="{% url 'delete' %}" id="delete-form{{ obj.id }}" method="POST"
+                                style="display: none;">
+                                {% csrf_token %}
+                                <input type="hidden" name="item_id" value="{{ obj.id }}">
+                                <input type="hidden" name="model_name_del" value="States">
+                                <input type="hidden" name="app_name_del" value="main">
+                                <input type="hidden" name="url" value="{{ request.get_full_path }}">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+
+        <!-- Pagination (prev) -->
+        <ul class="pagination pagination-tabs card-pagination">
+            <li class="page-item">
+                <a class="page-link ps-0 pe-4 border-end" {% if page_obj.has_previous %}
+                    href="{{ url }}page={{ page_obj.previous_page_number }}" {% else %} href="#" {% endif %}>
+                    <i class="fe fe-arrow-left me-1"></i> Prev
+                </a>
+            </li>
+        </ul>
+
+        <!-- Pagination -->
+        <ul class="pagination pagination-tabs card-pagination">
+            {% for i in page_obj.paginator.page_range %}
+            {% if i == page_obj.number %}
+            <li class="active">
+                <a class="page" href="{{ url }}page={{ i }}" data-i="1" data-page="10">{{ i }}</a>
+            </li>
+            {% else %}
+            <li>
+                <a class="page" href="{{ url }}page={{ i }}" data-i="1" data-page="10">{{ i }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+
+
+
+        <!-- Pagination (next) -->
+        <ul class="pagination pagination-tabs card-pagination">
+            <li class="page-item">
+                <a class="page-link ps-4 pe-0 border-start" {% if page_obj.has_next %}
+                    href="{{ url }}page={{ page_obj.next_page_number }}" {% else %} href="#" {% endif %}>
+                    Next <i class="fe fe-arrow-right ms-1"></i>
+                </a>
+            </li>
+        </ul>
+
+
+        <!-- Alert -->
+        <div class="list-alert alert alert-dark alert-dismissible border fade" role="alert">
+
+            <!-- Content -->
+            <div class="row align-items-center">
+                <div class="col">
+
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                        <input class="form-check-input" id="listAlertCheckbox" type="checkbox" checked disabled>
+                        <label class="form-check-label text-white" for="listAlertCheckbox">
+                            <span class="list-alert-count">0</span> deal(s)
+                        </label>
+                    </div>
+
+                </div>
+                <div class="col-auto me-n3">
+                    <!-- Button -->
+                    <button type="submit" class="btn btn-sm btn-white-20">
+                        Delete
+                    </button>
+
+                </div>
+            </div> <!-- / .row -->
+
+            <!-- Close -->
+            <button type="button" class="list-alert-close btn-close" aria-label="Close"></button>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<!-- Map JS -->
+
+<!-- Vendor JS -->
+{% endblock %}`

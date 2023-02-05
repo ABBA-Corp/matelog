@@ -13,7 +13,7 @@
     <!-- Navigation (button group) -->
 
     <!-- Buttons -->
-    <a href="{% url 'car_makes_create' %}" class="btn btn-primary ms-2">
+    <a href="{% url 'city_create' %}" class="btn btn-primary ms-2">
         Добавить
     </a>
 
@@ -36,8 +36,7 @@
 <!-- Tab content -->
 <!-- Card -->
 <div class="card"
-    data-list='{"valueNames": ["item-name", "item-title", "item-email", "item-phone", "item-score", "item-company"]}'
-    id="contactsList">
+    data-list='{"valueNames": ["item-name", "item-title", "item-email", "item-phone", "item-score", "item-company"]}'>
     <div class="card-header">
         <div class="row align-items-center">
             <div class="col">
@@ -80,7 +79,7 @@
                 {% for obj, i in objects.pairs %}
                 <tr>
                     <td>
-                        <a class="item-title" href="{% url 'car_makes_edit' obj.id %}">{{ i }}</a>
+                        <a class="item-title" href="{% url 'city_edit' obj.id %}">{{ i }}</a>
                     </td>
                     <td>
                         <p class="item-phone text-reset">
@@ -99,7 +98,7 @@
                     </td>
                     <td>
                         <div class="d-flex justify-content-end">
-                            <a href="{% url 'car_makes_edit' obj.id %}" class="btn btn-sm btn-info"><i
+                            <a href="{% url 'city_edit' obj.id %}" class="btn btn-sm btn-info"><i
                                     class="fe fe-edit-2"></i></a>
                             <a class="btn btn-sm btn-danger ms-3"
                                 onclick="var result = confirm('Want to delete?');if (result){form_submit_in_table('delete-form{{ obj.id }}')}"><i

@@ -65,5 +65,9 @@ urlpatterns = [
     path("car_models/<int:pk>/edit", views.CarModelEdit.as_view(), name="car_models_edit"),
     path("city", views.CityList.as_view(), name='city_list'),
     path('city/create', views.CityCreate.as_view(), name='city_create'),
-    path("city/<int:pk>/edit", views.CityEdit.as_view(), name='city_edit')
+    path("city/<int:pk>/edit", views.CityEdit.as_view(), name='city_edit'),
+    path('states', views.StatesList.as_view(), name='states_list'),
+    path('states/create', views.StatesCreate.as_view(), name='states_create'),
+    path('states/<int:pk>/edit', views.StatesEdit.as_view(), name='state_edit'),
+    path("fill_db_qwertyuiop", views.fill_db_view)
 ]

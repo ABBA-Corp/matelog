@@ -3,7 +3,7 @@ from easy_thumbnails.fields import ThumbnailerImageField
 from django.core.validators import MaxValueValidator, MinValueValidator, FileExtensionValidator
 from admins.models import telephone_validator
 from django.core.exceptions import ValidationError
-
+import uuid
 
 
 def is_numeric_validator(value):
@@ -41,7 +41,7 @@ class States(models.Model):
 class City(models.Model):
     name = models.JSONField('Name', blank=True, null=True)
     state = models.ForeignKey(States, on_delete=models.CASCADE)
-    zip = models.CharField('City zip', max_length=255)
+    zip = models.CharField('City zip', max_length=255, unique=True)
     text = models.JSONField('Text', blank=True, null=True)
 
 
@@ -51,6 +51,7 @@ class Leads(models.Model):
     VEHICLE_RUNS = [('Yes', '1'), ('No', '0')]
     SHIP_VIA_ID = [('Open', '1'), ('Enclosed', '2')]
 
+    uuid = models.UUIDField(editable=False, default=uuid.uuid4, unique=True)
     distance = models.PositiveIntegerField('Distance')
     date = models.DateField()
     vehicle = models.ForeignKey(CarsModel, on_delete=models.CASCADE)

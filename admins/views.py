@@ -19,6 +19,7 @@ from django.contrib.auth.models import User
 from main.models import CarsModel, CarMarks, States, City, Leads
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth import logout
+import os
 # Create your views here.
 
 # home admin
@@ -1735,6 +1736,7 @@ class CarMarkEdit(UpdateView):
 # states list
 class StatesList(ListView):
     model = States
+    template_name = 'admin\states.html'
 
     def get_queryset(self):
         queryset = States.objects.all()
@@ -1743,7 +1745,7 @@ class StatesList(ListView):
         return queryset
 
     def get_context_data(self, **kwargs):
-        context = super(AdminsList, self).get_context_data(**kwargs)
+        context = super(StatesList, self).get_context_data(**kwargs)
 
         context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
@@ -1757,6 +1759,7 @@ class StatesList(ListView):
 class StatesCreate(CreateView):
     model = States
     fields = '__all__'
+    template_name = 'admin\states_form.html'
 
 
     def get_context_data(self, **kwargs):
@@ -1774,11 +1777,18 @@ class StatesCreate(CreateView):
         data_dict = serialize_request(self.model, request)
         data = self.get_context_data()
 
+        code = data_dict.get('code')
+        codes = [str(it.code).lower() for it in States.objects.all()]
 
-        if data_dict.get('code') is None:
+        if code is None:
             data['request_post'] = data_dict
             data['code_error'] = 'This field is required.'
             return render(request, self.template_name, data)
+        elif str(code).lower() in codes:
+            data['request_post'] = data_dict
+            data['code_error'] = 'This code is already in use.'
+            return render(request, self.template_name, data)
+
 
         if is_valid_field(data_dict, 'name') == False:
             data['request_post'] = data_dict
@@ -1792,13 +1802,14 @@ class StatesCreate(CreateView):
         except:
             pass
 
-        return None
+        return redirect('states_list')
 
 
 # states edit
 class StatesEdit(UpdateView):
     model = States
     fields = '__all__'
+    template_name = 'admin\states_form.html'
 
     def get_context_data(self, **kwargs):
         context = super(StatesEdit, self).get_context_data(**kwargs)
@@ -1815,9 +1826,16 @@ class StatesEdit(UpdateView):
         data_dict = serialize_request(self.model, self.request)
         data = self.get_context_data()
 
-        if data_dict.get('code') is None:
+        code = data_dict.get('code')
+        codes = [str(it.code).lower() for it in States.objects.all()]
+        
+        if code is None:
             data['request_post'] = data_dict
             data['code_error'] = 'This field is required.'
+            return render(request, self.template_name, data)
+        elif str(code).lower() in codes:
+            data['request_post'] = data_dict
+            data['code_error'] = 'This code is already in use.'
             return render(request, self.template_name, data)
 
         if is_valid_field(data_dict, 'name') == False:
@@ -1832,7 +1850,7 @@ class StatesEdit(UpdateView):
 
         instance.save()
 
-        return redirect('/')
+        return redirect('states_list')
 
 
 # city list
@@ -1871,6 +1889,10 @@ class CityCreate(CreateView):
 
         return context
 
+    def form_valid(self, form):
+        return None
+
+
     def post(self, request, *args, **kwargs):
         context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, request)
@@ -1906,7 +1928,7 @@ class CityCreate(CreateView):
         except:
             pass
 
-        return None
+        return redirect('city_list')
 
 
 # city edit
@@ -1923,6 +1945,10 @@ class CityEdit(UpdateView):
         context['states'] = States.objects.all()
 
         return context
+
+    
+    def form_valid(self, form):
+        return None
 
 
     def post(self, request, *args, **kwargs):
@@ -1960,7 +1986,7 @@ class CityEdit(UpdateView):
 
         instance.save()
 
-        return redirect('/')
+        return redirect('city_list')
 
 
 # leads list
@@ -1968,13 +1994,13 @@ class LeadsList(ListView):
     model = Leads
 
     def get_queryset(self):
-        queryset = City.objects.all()
+        queryset = Leads.objects.all()
         queryset = search(self.request, queryset, ['name'], self.model)
 
         return queryset
 
     def get_context_data(self, **kwargs):
-        context = super(CityList, self).get_context_data(**kwargs)
+        context = super(LeadsList, self).get_context_data(**kwargs)
 
         context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
@@ -1982,6 +2008,49 @@ class LeadsList(ListView):
         context['url'] = search_pagination(self.request)
 
         return context
+
+
+
+# fill db view
+def fill_db_view(request):
+    if request.method == 'POST':
+        if 'CITY' in request.POST:
+            with open('admins/static/json/USCities.json') as f:
+                j = json.load(f)
+                zips = [str(it.zip) for it in City.objects.all()]
+
+                for it in j:
+                    try:
+                        if str(it["zip_code"]).lower() not in zips:
+                            state = States.objects.get(code=it['state'])
+                            city = City.objects.create(
+                                name = {"en": it["city"]},
+                                state = state,
+                                zip = it["zip_code"]
+                            )
+                            city.save()
+                    except:
+                        pass
+
+        elif 'STATES' in request.POST:
+            with open('admins/static/json/states_titlecase.json') as f:
+                j = json.load(f)
+                codes = [str(it.code).lower() for it in States.objects.all()]
+                
+                for it in j:
+                    try:
+                        if str(it["abbreviation"]).lower() not in codes:
+                            state = States.objects.create(
+                                name={"en": it['name']},
+                                code=it['abbreviation']
+                            )
+                            state.save()
+                    except:
+                        pass
+
+
+    return render(request, 'admin/fiil_db.html')
+
 
 
 
