@@ -159,3 +159,13 @@ class StateSerializer(serializers.ModelSerializer):
     class Meta:
         model = States
         fields = '__all__'
+
+
+# city serializer
+class CitySerializer(serializers.ModelSerializer):
+    name = JsonFieldSerializer()
+    text = JsonFieldSerializer()
+
+    class Meta:
+        model = City
+        fields = "__all__"
