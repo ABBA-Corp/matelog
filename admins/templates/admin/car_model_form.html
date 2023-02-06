@@ -114,26 +114,6 @@
                         <div class="form-group">
                             <!-- Label  -->
                             <label class="form-label required">
-                                Год выпуска
-                            </label>
-                            <br>
-                            <!-- Input -->
-                            <input type="text" name="year" class="form-control" 
-                            {% if object %} 
-                                value="{{ object.year }}" 
-                            {% elif request_post and request_post|get_item:'year' %} 
-                                value="{{ request_post|get_item:'year' }}" 
-                            {% endif %}>
-                            <div class="invalid-feedback" style="display: block;">
-                                {% if year_error %}
-                                {{ year_error }}
-                                {% endif %}
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <!-- Label  -->
-                            <label class="form-label required">
                                 Тип транспорта
                             </label>
                             <br>

@@ -71,9 +71,6 @@
                         <a class="list-sort text-muted" data-sort="item-name" href="#">Марка</a>
                     </th>
                     <th>
-                        <a class="list-sort text-muted" data-sort="item-name" href="#">Год выпуска</a>
-                    </th>
-                    <th>
                         <a class="list-sort text-muted" data-sort="item-name" href="#">Тип транспорта</a>
                     </th>
                     <th style="width: 200px;"></th>
@@ -97,11 +94,6 @@
                             {% if obj.mark.name|get_item:lang.code %}
                                 {{ obj.mark.name|get_item:lang.code }}
                             {% endif %}
-                        </p>
-                    </td>
-                    <td>
-                        <p class="item-phone text-reset">
-                            {{ obj.year }}
                         </p>
                     </td>
                     <td>
