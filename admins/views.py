@@ -1507,7 +1507,7 @@ def delete_article_image(request):
 # cars
 class CarsModelList(ListView):
     model = CarsModel
-    template_name = 'admin\car_model_list.html'
+    template_name = 'admin/car_model_list.html'
 
     def get_queryset(self):
         queryset = CarsModel.objects.all()
@@ -1528,7 +1528,7 @@ class CarsModelList(ListView):
 class CarModelCreate(CreateView):
     model = CarsModel
     fields = "__all__"
-    template_name = 'admin\car_model_form.html'
+    template_name = 'admin/car_model_form.html'
 
     def get_context_data(self, **kwargs):
         context = super(CarModelCreate, self).get_context_data(**kwargs)
@@ -1585,7 +1585,7 @@ class CarModelCreate(CreateView):
 class CarModelEdit(UpdateView):
     model = CarsModel
     fields = "__all__"
-    template_name = 'admin\car_model_form.html'
+    template_name = 'admin/car_model_form.html'
 
     def get_context_data(self, **kwargs):
         context = super(CarModelEdit, self).get_context_data(**kwargs)
