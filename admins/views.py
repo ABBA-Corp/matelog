@@ -678,14 +678,14 @@ def translation_update(request):
 
     elif request.method == 'POST':
         data = serialize_request(Translations, request)
+        id = request.POST.get("id")
         lang = Languages.objects.filter(active=True).filter(default=True).first()
 
-        print(data.get('value').get(lang.code, ''))
         if data.get('value').get(lang.code, '') == '':
             return JsonResponse({'lng_error': 'This language is required'})
         
         #try:
-        translation = Translations.objects.get(id=int(data['id']))
+        translation = Translations.objects.get(id=int(id))
         key = data.get('key', '')
 
         if translation.key == '':
