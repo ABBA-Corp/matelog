@@ -476,7 +476,7 @@ class StaticUpdate(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(StaticUpdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.all().order_by('-default')
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
         context['dropzone_key'] = self.model._meta.verbose_name
 
 
