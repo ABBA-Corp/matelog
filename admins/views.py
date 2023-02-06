@@ -2038,7 +2038,7 @@ def fill_db_view(request):
                         pass
 
         elif 'STATES' in request.POST:
-            with open('statics/json/states_titlecase.json') as f:
+            with open('admins/static/json/states_titlecase.json') as f:
                 j = json.load(f)
                 codes = [str(it.code).lower() for it in States.objects.all()]
                 
