@@ -10,5 +10,7 @@ urlpatterns = [
     path('about_us', views.AboutUsView.as_view()),
     path("static_infos", views.StaticInfView.as_view()),
     path("translations", views.TranslationsView.as_view()),
-    path('languages', views.LangsList.as_view())
+    path('languages', views.LangsList.as_view()),
+    path("car_makes", views.CarMarkList.as_view()),
+    path("car_models", views.CarModelsList.as_view())
 ]

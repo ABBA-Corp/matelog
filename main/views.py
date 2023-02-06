@@ -4,6 +4,8 @@ from .serializers import ArticleSerializer, ServiceSerializer, AboutUsSerializer
 from admins.models import Articles, Languages, Translations, Services, AboutUs, StaticInformation
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
+from .models import CarMarks, CarsModel, States, City
+from .serializers import CarMarkSerializer, CarModelSerializer
 # Create your views here.
 
 # pagination
@@ -83,3 +85,30 @@ class LangsList(generics.ListAPIView):
     pagination_class = BasePagination
 
 
+
+# car mark list
+class CarMarkList(generics.ListAPIView):
+    queryset = CarMarks.objects.all()
+    serializer_class = CarMarkSerializer
+    pagination_class = BasePagination
+
+
+# car models list
+class CarModelsList(generics.ListAPIView):
+    serializer_class = CarModelSerializer
+    pagination_class = BasePagination
+
+    def get_queryset(self):
+        queryset = CarsModel.objects.all()
+        mark = self.request.data.get('make', '')
+
+        if mark != '':
+            queryset = queryset.filter(mark=mark)
+
+        return queryset
+
+
+
+
+
+    

@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from admins.models import Services, Articles, ArticleImages, StaticInformation, AboutUs, Languages, Translations, MetaTags
 from easy_thumbnails.templatetags.thumbnail import thumbnail_url
-
+from .models import CarMarks, CarsModel, City, States
 
 class ThumbnailSerializer(serializers.ImageField):
     def __init__(self, alias, *args, **kwargs):
@@ -129,4 +129,25 @@ class TranslationSerializer(serializers.Serializer):
 class LangsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Languages
+        fields = '__all__'
+
+
+
+# car mark serializer
+class CarMarkSerializer(serializers.ModelSerializer):
+    name = JsonFieldSerializer()
+
+    class Meta:
+        model = CarMarks
+        fields = "__all__"
+
+
+
+# car model serializer
+class CarModelSerializer(serializers.ModelSerializer):
+    mark = CarMarkSerializer()
+    name = JsonFieldSerializer()
+
+    class Meta:
+        model = CarsModel
         fields = '__all__'
