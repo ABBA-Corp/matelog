@@ -1736,7 +1736,7 @@ class CarMarkEdit(UpdateView):
 # states list
 class StatesList(ListView):
     model = States
-    template_name = 'admin\states.html'
+    template_name = 'admin/states.html'
 
     def get_queryset(self):
         queryset = States.objects.all()
@@ -1759,7 +1759,7 @@ class StatesList(ListView):
 class StatesCreate(CreateView):
     model = States
     fields = '__all__'
-    template_name = 'admin\states_form.html'
+    template_name = 'admin/states_form.html'
 
 
     def get_context_data(self, **kwargs):
@@ -1809,7 +1809,7 @@ class StatesCreate(CreateView):
 class StatesEdit(UpdateView):
     model = States
     fields = '__all__'
-    template_name = 'admin\states_form.html'
+    template_name = 'admin/states_form.html'
 
     def get_context_data(self, **kwargs):
         context = super(StatesEdit, self).get_context_data(**kwargs)
