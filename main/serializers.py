@@ -165,6 +165,7 @@ class StateSerializer(serializers.ModelSerializer):
 class CitySerializer(serializers.ModelSerializer):
     name = JsonFieldSerializer()
     text = JsonFieldSerializer()
+    state = StateSerializer()
 
     class Meta:
         model = City
