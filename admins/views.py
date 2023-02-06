@@ -501,7 +501,7 @@ class StaticUpdate(UpdateView):
                 setattr(instance, attr, value)
             instance.save()
 
-        return redirect('home')
+        return redirect('static_info')
 
 
 def class_list():
@@ -1154,7 +1154,7 @@ class AboutUsView(UpdateView):
     model = AboutUs
     fields = "__all__"
     template_name = 'admin/about_us.html'
-    success_url = '/admin/home'
+    success_url = '/admin/about_us'
 
     def form_valid(self, form):
         return None
@@ -1192,7 +1192,7 @@ class AboutUsView(UpdateView):
             setattr(instance, attr, value)
         instance.save()
 
-        return redirect('home')
+        return redirect('about_us')
 
 
 
