@@ -690,7 +690,8 @@ def translation_update(request):
 
             if translation.key == '':
                 return JsonResponse({'key_error': 'Key is required'})
-            elif str(key) in [str(it.key) for it in Translations.objects.exclude(id=translation.id)]:
+            
+            if str(key) in [str(it.key) for it in Translations.objects.exclude(id=translation.id)]:
                 return JsonResponse({'key_error': 'Key is already in use'})
             
             translation.key = key
@@ -698,7 +699,7 @@ def translation_update(request):
             translation.full_clean()
             translation.save()
         except:
-            return JsonResponse('some error')
+            return JsonResponse('some error', safe=False)
 
         serializer = TranslationSerializer(translation)
 
