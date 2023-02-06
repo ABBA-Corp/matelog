@@ -684,18 +684,18 @@ def translation_update(request):
         if data.get('value').get(lang.code, '') == '':
             return JsonResponse({'lng_error': 'This language is required'})
         
-        try:
-            translation = Translations.objects.get(id=int(data['id']))
-            translation.key = data.get('key', '')
+        #try:
+        translation = Translations.objects.get(id=int(data['id']))
+        translation.key = data.get('key', '')
 
-            if translation.key == '':
-                return JsonResponse({'key_error': 'Key is required'})
+        if translation.key == '':
+            return JsonResponse({'key_error': 'Key is required'})
 
-            translation.value = data['value']
-            translation.full_clean()
-            translation.save()
-        except:
-            return JsonResponse({'key_error': 'Key already in use'})
+        translation.value = data['value']
+        translation.full_clean()
+        translation.save()
+        #except:
+            #pass
 
         serializer = TranslationSerializer(translation)
 
