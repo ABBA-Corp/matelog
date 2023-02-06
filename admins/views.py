@@ -2020,7 +2020,7 @@ class LeadsList(ListView):
 def fill_db_view(request):
     if request.method == 'POST':
         if 'CITY' in request.POST:
-            with open('admins/static/json/USCities.json') as f:
+            with open('/home/metalogistics/matelog/admins/static/json/states_titlecase.json') as f:
                 j = json.load(f)
                 zips = [str(it.zip) for it in City.objects.all()]
 
@@ -2038,7 +2038,7 @@ def fill_db_view(request):
                         pass
 
         elif 'STATES' in request.POST:
-            with open('/static/json/states_titlecase.json') as f:
+            with open('admins\static\json\states_titlecase.json') as f:
                 j = json.load(f)
                 codes = [str(it.code).lower() for it in States.objects.all()]
                 
