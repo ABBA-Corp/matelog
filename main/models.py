@@ -40,15 +40,15 @@ class States(models.Model):
 class City(models.Model):
     name = models.JSONField('Name', blank=True, null=True)
     state = models.ForeignKey(States, on_delete=models.CASCADE)
-    zip = models.CharField('City zip', max_length=255, unique=True)
+    zip = models.CharField('City zip', max_length=5, unique=True)
     text = models.JSONField('Text', blank=True, null=True)
 
 
 
 # lead
 class Leads(models.Model):
-    VEHICLE_RUNS = [('Yes', '1'), ('No', '0')]
-    SHIP_VIA_ID = [('Open', '1'), ('Enclosed', '2')]
+    VEHICLE_RUNS = [('1', 'Yes'), ('0', 'No')]
+    SHIP_VIA_ID = [('1', '1'), ('2', '2')]
 
     uuid = models.UUIDField(editable=False, default=uuid.uuid4, unique=True)
     distance = models.PositiveIntegerField('Distance', blank=True, null=True)
@@ -58,7 +58,11 @@ class Leads(models.Model):
     ship_to = models.ForeignKey(City, on_delete=models.CASCADE, related_name='ship_to_orders')
     vehicle_runs = models.CharField('Vehicle Runs', max_length=255, choices=VEHICLE_RUNS)
     ship_via_id = models.CharField('Ship via id', max_length=255, choices=SHIP_VIA_ID)
-    price = models.FloatField('Price', validators=[MinValueValidator(1)])
+    price = models.FloatField('Price', validators=[MinValueValidator(1)], blank=True, null=True)
     email = models.EmailField('Email')
     nbm = models.CharField('Nbm', blank=True, null=True, max_length=10, validators=[is_numeric_validator])
     #service_type = models.ForeignKey()
+
+
+    def format_date(self):
+        return f'{self.date.month}/{self.date.day}/{self.date.year}'

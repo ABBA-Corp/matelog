@@ -5,7 +5,11 @@ from admins.models import Articles, Languages, Translations, Services, AboutUs, 
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from .models import CarMarks, CarsModel, States, City, Leads
-from .serializers import CarMarkSerializer, CarModelSerializer, CitySerializer, StateSerializer, LeadsSerialzier
+import requests
+import json
+from django.conf import settings
+from django.core.mail import EmailMessage
+from .serializers import CarMarkSerializer, CarModelSerializer, CitySerializer, StateSerializer, LeadsCreateSerialzier, LeadsViewSerializer
 # Create your views here.
 
 # pagination
@@ -145,10 +149,33 @@ class CityList(generics.ListAPIView):
 # lead create
 class LeadCreate(generics.CreateAPIView):
     queryset = Leads.objects.all()
-    serializer_class = LeadsSerialzier
-    
+    serializer_class = LeadsCreateSerialzier
+
 
     def perform_create(self, serializer):
-        lead = super().perform_create(serializer)
+        lead = serializer.save()
+
+        email = EmailMessage(
+            'Hello',
+            'Body goes here',
+            'dadamuhames@gmail.com',
+            ['msd2007msd02@gmail.com'],
+        )
+        email.send()
 
         return lead
+
+
+# leads detail view
+class LeadDetailView(generics.RetrieveAPIView):
+    queryset = Leads.objects.all()
+    lookup_field = 'uuid'
+    serializer_class = LeadsViewSerializer
+
+
+# lead update view
+class LeadUpdateView(generics.UpdateAPIView):
+    queryset = Leads.objects.all()
+    lookup_field = 'uuid'
+    serializer_class = LeadsCreateSerialzier
+

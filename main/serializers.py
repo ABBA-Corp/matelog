@@ -2,6 +2,8 @@ from rest_framework import serializers
 from admins.models import Services, Articles, ArticleImages, StaticInformation, AboutUs, Languages, Translations, MetaTags
 from easy_thumbnails.templatetags.thumbnail import thumbnail_url
 from .models import CarMarks, CarsModel, City, States, Leads
+from django.conf import settings
+import requests
 
 class ThumbnailSerializer(serializers.ImageField):
     def __init__(self, alias, *args, **kwargs):
@@ -174,11 +176,45 @@ class CitySerializer(serializers.ModelSerializer):
 
 
 # lead serializer
-class LeadsSerialzier(serializers.ModelSerializer):
+class LeadsCreateSerialzier(serializers.ModelSerializer):
     distance = serializers.IntegerField(required=False)
 
     class Meta:
         model = Leads
         fields = '__all__'
         read_only_fields = ['price']
+
+
+    
+    def save(self, **kwargs):
+        lead = super().save(**kwargs)
+        url = 'https://ml.msgplane.com/api/rest/get/price/'
+
+        params = {
+            'api_key': settings.SRM_API_KEY,
+            "pickup_zip": lead.ship_from.zip,
+            "dropoff_zip": lead.ship_to.zip,
+            "estimated_ship_date": str(lead.format_date()),
+            "vehicle_type": lead.vehicle.vehicle_type,
+            "ship_via_id": lead.ship_via_id,
+            "vehicle_runs": lead.vehicle_runs
+        }
+
+        price_request = requests.get(url=url, params=params).json()
+        lead.price = price_request.get('1')
+        lead.save()
         
+        return lead
+        
+
+# lead view serializer
+class LeadsViewSerializer(serializers.ModelSerializer):
+    ship_from = CitySerializer()
+    ship_to = CitySerializer()
+    vehicle = CarModelSerializer()
+
+    class Meta:
+        model = Leads
+        exclude = ['uuid']
+
+

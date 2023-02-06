@@ -205,3 +205,18 @@ CORS_ALLOW_HEADERS = [
 #CORS_ORIGIN_WHITELIST = [
 #    'http://127.0.0.1:5173', "http://localhost:3000"
 #]
+
+
+SRM_API_KEY = '74523oetiheutimlnutihh3948509htuiuotmjbrnthdoei84ml'
+
+
+
+# for email
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = 'dadamuhames@gmail.com'
+EMAIL_HOST_PASSWORD = 'scsdtusaadmbkohd'
