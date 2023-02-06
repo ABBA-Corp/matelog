@@ -2020,22 +2020,22 @@ class LeadsList(ListView):
 def fill_db_view(request):
     if request.method == 'POST':
         if 'CITY' in request.POST:
-            with open('admins/static/json/USCities.json') as f:
+            with open('/home/metalogistics/matelog/admins/static/json/USCities.json') as f:
                 j = json.load(f)
                 zips = [str(it.zip) for it in City.objects.all()]
 
-                for it in j:
-                    try:
-                        if str(it["zip_code"]).lower() not in zips:
-                            state = States.objects.get(code=it['state'])
-                            city = City.objects.create(
-                                name = {"en": it["city"]},
-                                state = state,
-                                zip = it["zip_code"]
-                            )
-                            city.save()
-                    except:
-                        pass
+                #for it in j:
+                #    try:
+                #        if str(it["zip_code"]).lower() not in zips:
+                #            state = States.objects.get(code=it['state'])
+                #            city = City.objects.create(
+                #                name = {"en": it["city"]},
+                #                state = state,
+                #                zip = it["zip_code"]
+                #            )
+                #            city.save()
+                #    except:
+                #        pass
 
         elif 'STATES' in request.POST:
             with open('/home/metalogistics/matelog/admins/static/json/states_titlecase.json') as f:
