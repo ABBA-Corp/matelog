@@ -93,7 +93,6 @@
                             <br>
                             <!-- Input -->
                             <select class="form-select mb-3" name="mark" data-choices required>
-                                <option value="">-----</option>
                                 {% for mark in marks %}
                                     {% if object and object.mark == mark %}
                                         <option value="{{ mark.id }}" selected>{{ mark.name|get_item:lang.code }}</option>
