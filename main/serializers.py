@@ -151,3 +151,11 @@ class CarModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = CarsModel
         fields = '__all__'
+
+
+# state serializer
+class StateSerializer(serializers.ModelSerializer):
+    name = JsonFieldSerializer()
+    class Meta:
+        model = States
+        fields = '__all__'

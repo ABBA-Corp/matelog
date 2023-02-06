@@ -1819,7 +1819,7 @@ class StatesEdit(UpdateView):
         data = self.get_context_data()
 
         code = data_dict.get('code')
-        codes = [str(it.code).lower() for it in States.objects.all()]
+        codes = [str(it.code).lower() for it in States.objects.exclude(id=self.get_object().id)]
         
         if code is None:
             data['request_post'] = data_dict
