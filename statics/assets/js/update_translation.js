@@ -56,7 +56,7 @@ $(document).on('submit', '#translation-update-form', (e) => {
             console.log('success')
             let itemBlock = $(`tr[data-id=${data.id}]`)
 
-            $(itemBlock).find('.transl-key').val(`${data.group}.${data.key}`)
+            $(itemBlock).find('.transl-key').html(`${data.group}.${data.key}`)
 
             for(let key in data.value) {
                 $(itemBlock).find(`span[data-lang=${key}]`).html(data.value[String(key)])
