@@ -51,7 +51,7 @@ class Leads(models.Model):
     SHIP_VIA_ID = [('Open', '1'), ('Enclosed', '2')]
 
     uuid = models.UUIDField(editable=False, default=uuid.uuid4, unique=True)
-    distance = models.PositiveIntegerField('Distance')
+    distance = models.PositiveIntegerField('Distance', blank=True, null=True)
     date = models.DateField()
     vehicle = models.ForeignKey(CarsModel, on_delete=models.CASCADE)
     ship_from = models.ForeignKey(City, on_delete=models.CASCADE, related_name='ship_from_order')
@@ -62,5 +62,3 @@ class Leads(models.Model):
     email = models.EmailField('Email')
     nbm = models.CharField('Nbm', blank=True, null=True, max_length=10, validators=[is_numeric_validator])
     #service_type = models.ForeignKey()
-
-

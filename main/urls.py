@@ -14,5 +14,6 @@ urlpatterns = [
     path("car_makes", views.CarMarkList.as_view()),
     path("car_models", views.CarModelsList.as_view()),
     path("states", views.StatesList.as_view()),
-    path('cities', views.CityList.as_view())
+    path('cities', views.CityList.as_view()),
+    path("leads/create", views.LeadCreate.as_view())
 ]

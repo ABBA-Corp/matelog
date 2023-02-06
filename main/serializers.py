@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from admins.models import Services, Articles, ArticleImages, StaticInformation, AboutUs, Languages, Translations, MetaTags
 from easy_thumbnails.templatetags.thumbnail import thumbnail_url
-from .models import CarMarks, CarsModel, City, States
+from .models import CarMarks, CarsModel, City, States, Leads
 
 class ThumbnailSerializer(serializers.ImageField):
     def __init__(self, alias, *args, **kwargs):
@@ -170,3 +170,15 @@ class CitySerializer(serializers.ModelSerializer):
     class Meta:
         model = City
         fields = "__all__"
+
+
+
+# lead serializer
+class LeadsSerialzier(serializers.ModelSerializer):
+    distance = serializers.IntegerField(required=False)
+
+    class Meta:
+        model = Leads
+        fields = '__all__'
+        read_only_fields = ['price']
+        

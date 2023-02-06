@@ -4,8 +4,8 @@ from .serializers import ArticleSerializer, ServiceSerializer, AboutUsSerializer
 from admins.models import Articles, Languages, Translations, Services, AboutUs, StaticInformation
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
-from .models import CarMarks, CarsModel, States, City
-from .serializers import CarMarkSerializer, CarModelSerializer, CitySerializer, StateSerializer
+from .models import CarMarks, CarsModel, States, City, Leads
+from .serializers import CarMarkSerializer, CarModelSerializer, CitySerializer, StateSerializer, LeadsSerialzier
 # Create your views here.
 
 # pagination
@@ -138,3 +138,17 @@ class CityList(generics.ListAPIView):
                 pass
         
         return queryset
+
+
+
+
+# lead create
+class LeadCreate(generics.CreateAPIView):
+    queryset = Leads.objects.all()
+    serializer_class = LeadsSerialzier
+    
+
+    def perform_create(self, serializer):
+        lead = super().perform_create(serializer)
+
+        return lead
