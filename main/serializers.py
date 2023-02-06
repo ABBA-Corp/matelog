@@ -54,6 +54,7 @@ class ArticleSerializer(serializers.ModelSerializer):
     created_date = serializers.DateField(format="%Y.%m.%d")
     image = ThumbnailSerializer(alias='prod_photo')
     author = serializers.ReadOnlyField(source='author.username')
+    meta = MetaFieldSerializer()
 
     class Meta:
         model = Articles
