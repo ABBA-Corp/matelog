@@ -1888,6 +1888,7 @@ class CityCreate(CreateView):
     def post(self, request, *args, **kwargs):
         context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, request)
+        zip_codes = [it.zip for it in City.objects.all()]
         state_id = request.POST.get('state')
         data = self.get_context_data()
 
@@ -1910,6 +1911,13 @@ class CityCreate(CreateView):
             data['request_post'] = data_dict
             data['zip_error'] = 'This field is required.'
             return render(request, self.template_name, data)
+
+        
+        if data_dict.get('zip') in zip_codes:
+            data['request_post'] = data_dict
+            data['zip_error'] = 'This zip code is already in use.'
+            return render(request, self.template_name, data)
+
 
         data_dict['state'] = state
 
@@ -1947,12 +1955,18 @@ class CityEdit(UpdateView):
         context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, self.request)
         state_id = request.POST.get('state')
+        zip_codes = [it.zip for it in City.objects.exclude(id=self.get_object().id)]
         data = self.get_context_data()
 
         try:
             state = States.objects.get(id=int(state_id))
         except:
             state = None
+
+        if is_valid_field(data_dict, 'name') == False:
+            data['request_post'] = data_dict
+            data['error'] = 'This field is required.'
+            return render(request, self.template_name, data)
 
         if state is None:
             data['request_post'] = data_dict
@@ -1964,10 +1978,9 @@ class CityEdit(UpdateView):
             data['zip_error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
-
-        if is_valid_field(data_dict, 'name') == False:
+        if data_dict.get('zip') in zip_codes:
             data['request_post'] = data_dict
-            data['error'] = 'This field is required.'
+            data['zip_error'] = 'This zip code is already in use.'
             return render(request, self.template_name, data)
 
         instance = self.get_object()
