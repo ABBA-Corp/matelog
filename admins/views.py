@@ -698,7 +698,7 @@ def translation_update(request):
             translation.full_clean()
             translation.save()
         except:
-            pass
+            return JsonResponse('some error')
 
         serializer = TranslationSerializer(translation)
 
