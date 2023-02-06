@@ -28,7 +28,6 @@ class CarsModel(models.Model):
     mark = models.ForeignKey(CarMarks, on_delete=models.CASCADE, related_name='cars')
     name = models.JSONField("Name", blank=True, null=True, max_length=255)
     vehicle_type = models.CharField('Vehicle type', max_length=255, choices=VEHICLE_TYPES, default='Car')
-    year = models.CharField("Год выпуска", max_length=4)
 
 
 # states

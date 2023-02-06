@@ -1563,12 +1563,6 @@ class CarModelCreate(CreateView):
             data['name_error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
-        year = data_dict.get("year")
-        if year is None or (year and str(year).isnumeric() is False) or (year and len(str(year)) != 4):
-            data['request_post'] = data_dict
-            data['year_error'] = 'This field is required and should be numeric and 4 chars length'
-            return render(request, self.template_name, data)
-
         data_dict['mark'] = mark
 
         try:
@@ -1619,12 +1613,6 @@ class CarModelEdit(UpdateView):
         if is_valid_field(data_dict, 'name') == False:
             data['request_post'] = data_dict
             data['name_error'] = 'This field is required.'
-            return render(request, self.template_name, data)
-        
-        year = data_dict.get("year")
-        if year is None or (year and str(year).isnumeric() is False) or (year and len(str(year)) != 4):
-            data['request_post'] = data_dict
-            data['year_error'] = 'This field is required and should be numeric and 4 chars length'
             return render(request, self.template_name, data)
 
         instance = self.get_object()

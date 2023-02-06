@@ -91,7 +91,7 @@
                             </label>
                             <br>
                             <!-- Input -->
-                            <select class="form-select mb-3" name="state" required>
+                            <select class="form-select mb-3" name="state" data-choices required>
                                 <option value="">-----</option>
                                 {% for state in states %}
                                     {% if object and object.state == state %}
