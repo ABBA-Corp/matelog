@@ -690,7 +690,7 @@ def translation_update(request):
 
             if translation.key == '':
                 return JsonResponse({'key_error': 'Key is required'})
-            elif translation.key in [it.key for it in Translations.objects.exclude(id=translation.id)]:
+            elif str(key) in [str(it.key) for it in Translations.objects.exclude(id=translation.id)]:
                 return JsonResponse({'key_error': 'Key is already in use'})
             
             translation.key = key
