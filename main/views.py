@@ -100,7 +100,7 @@ class CarModelsList(generics.ListAPIView):
 
     def get_queryset(self):
         queryset = CarsModel.objects.all()
-        mark_id = self.request.data.get('make', '')
+        mark_id = self.request.GET.get('make', '')
 
         if mark_id != '':
             try:
