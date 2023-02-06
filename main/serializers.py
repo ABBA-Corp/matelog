@@ -38,7 +38,7 @@ class JsonFieldSerializer(serializers.Serializer):
 # meta serializer
 class MetaFieldSerializer(serializers.ModelSerializer):
     meta_keys = JsonFieldSerializer()
-    meta_tags = JsonFieldSerializer()
+    meta_deck = JsonFieldSerializer()
 
     class Meta:
         model = MetaTags
