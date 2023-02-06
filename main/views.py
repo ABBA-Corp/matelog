@@ -5,7 +5,7 @@ from admins.models import Articles, Languages, Translations, Services, AboutUs, 
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from .models import CarMarks, CarsModel, States, City
-from .serializers import CarMarkSerializer, CarModelSerializer
+from .serializers import CarMarkSerializer, CarModelSerializer, CitySerializer, StateSerializer
 # Create your views here.
 
 # pagination
@@ -114,5 +114,27 @@ class CarModelsList(generics.ListAPIView):
 
 
 
+# state view
+class StatesList(generics.ListAPIView):
+    queryset = States.objects.all()
+    serializer_class = StateSerializer
+    pagination_class = BasePagination
 
-    
+
+# city list
+class CityList(generics.ListAPIView):
+    serializer_class  = CitySerializer
+    pagination_class = BasePagination
+
+    def get_queryset(self):
+        queryset = City.objects.all()
+        state_id = self.request.GET.get('state', '')
+
+        if state_id != '':
+            try:
+                state = States.objects.get(id=int(state_id))
+                queryset = queryset.filter(state=state)
+            except:
+                pass
+        
+        return queryset
