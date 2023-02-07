@@ -212,7 +212,7 @@ class LeadsCreateSerialzier(serializers.ModelSerializer):
             "vehicle_runs": lead.vehicle_runs
         }
 
-        price_request = requests.get(url=url, params=params).json()
+        price_request = requests.get(url=url, params=params, verify=False).json()
         lead.price = price_request.get('1')
         lead.save()
         
