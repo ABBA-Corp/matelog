@@ -207,7 +207,7 @@ class ApplicationCreateView(generics.CreateAPIView):
     def post(self, request, *args, **kwargs):
         lead_id = self.request.data.get('lead')
         try:
-            Leads.objects.get(uuid=lead_id)
+            Leads.objects.get(id=lead_id)
         except:
             return Response({'error': 'Lead id is invalid'})
 
