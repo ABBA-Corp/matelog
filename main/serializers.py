@@ -1,3 +1,5 @@
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from rest_framework import serializers
 from admins.models import Services, Articles, ArticleImages, StaticInformation, AboutUs, Languages, Translations, MetaTags
 from easy_thumbnails.templatetags.thumbnail import thumbnail_url
@@ -202,6 +204,15 @@ class LeadsCreateSerialzier(serializers.ModelSerializer):
         lead = super().save(**kwargs)
         url = 'https://ml.msgplane.com/api/rest/get/price/'
 
+        import requests
+
+
+        session = requests.Session()
+        retry = Retry(connect=3, backoff_factor=0.5)
+        adapter = HTTPAdapter(max_retries=retry)
+        session.mount('http://', adapter)
+        session.mount('https://', adapter)
+
         params = {
             'api_key': settings.SRM_API_KEY,
             "pickup_zip": lead.ship_from.zip,
@@ -212,11 +223,8 @@ class LeadsCreateSerialzier(serializers.ModelSerializer):
             "vehicle_runs": lead.vehicle_runs
         }
 
-        proxies = {
-            "http": 'https://ml.msgplane.com'
-        }
 
-        price_request = requests.get(url=url, params=params, proxies=proxies).json()
+        price_request = session.get(url=url, params=params).json()
         lead.price = price_request.get('1')
         lead.save()
         
