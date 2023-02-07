@@ -101,6 +101,7 @@ class Applications(models.Model):
     first_name = models.CharField('first name', max_length=255)
     last_name = models.CharField('last name', max_length=255)
     status = models.CharField("Status", max_length=255, choices=STATUS, default='Accepted') # this
+    car_year = models.CharField('Car year', max_length=4)
 
     def get_full_name(self):
         return self.first_name + ' ' + self.last_name
