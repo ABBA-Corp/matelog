@@ -212,7 +212,11 @@ class LeadsCreateSerialzier(serializers.ModelSerializer):
             "vehicle_runs": lead.vehicle_runs
         }
 
-        price_request = requests.get(url=url, params=params, verify=False).json()
+        proxies = {
+            'https://ml.msgplane.com'
+        }
+
+        price_request = requests.get(url=url, params=params, proxies=proxies).json()
         lead.price = price_request.get('1')
         lead.save()
         
