@@ -67,7 +67,6 @@ class Leads(models.Model):
     price_first_tarif = models.FloatField('Price', validators=[MinValueValidator(1)], blank=True, null=True)
     price_second_tarif = models.FloatField('Price', validators=[MinValueValidator(1)], blank=True, null=True)
     email = models.EmailField('Email')
-    car_year = models.CharField('Car year', max_length=4)
     nbm = models.CharField('Nbm', blank=True, null=True, max_length=10, validators=[is_numeric_validator])
     #service_type = models.ForeignKey()
 
@@ -101,7 +100,7 @@ class Applications(models.Model):
     first_name = models.CharField('first name', max_length=255)
     last_name = models.CharField('last name', max_length=255)
     status = models.CharField("Status", max_length=255, choices=STATUS, default='Accepted') # this
-    car_year = models.CharField('Car year', max_length=4)
+
 
     def get_full_name(self):
         return self.first_name + ' ' + self.last_name
