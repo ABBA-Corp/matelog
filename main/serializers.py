@@ -229,7 +229,7 @@ class LeadsCreateSerialzier(serializers.ModelSerializer):
 class ApplicationNbmSerializer(serializers.ModelSerializer):
     class Meta:
         model = AplicationNbm
-        fields = '__all__'
+        exclude = ['application']
 
 
 # aplication serializer
