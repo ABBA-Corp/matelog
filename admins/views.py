@@ -2038,6 +2038,11 @@ class ApplicationsList(ListView):
         return context
 
 
+# application update
+class ApplicationUpdate(UpdateView):
+    pass
+
+
 
 # fill db view
 def fill_db_view(request):

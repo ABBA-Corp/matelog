@@ -109,7 +109,6 @@ class Applications(models.Model):
         price = self.price
         if not self.price:
             price = 0
-        
 
         if self.tarif == '1':
             return price + 200

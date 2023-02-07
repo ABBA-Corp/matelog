@@ -248,7 +248,39 @@ class AplicationViewSerializer(serializers.ModelSerializer):
 class ApplicationCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Applications
-        exclude = ['price']
+        fields = '__all__'
+        extra_kwrgs = {
+            'price': {"required": False},
+            'distance': {"required": False},
+            'ship_from': {"required": False},
+            'ship_to': {"required": False},
+            'vehicle': {"required": False},
+            'date': {"required": False},
+            'vehicle_runs': {"required": False},
+            'ship_via_id': {"required": False},
+            'email': {"required": False}
+        }
+
+    def create(self, validated_data):
+        request = self.context.get('request')
+        lead_id = request.data.get('lead')
+        lead = Leads.objects.get(uuid=lead_id)
+
+        validated_data['distance'] = lead.distance
+        validated_data['ship_from'] = lead.ship_from.id
+        validated_data['ship_to'] = lead.ship_to.id
+        validated_data['vehicle'] = lead.vehicle.id
+        validated_data['date'] = lead.date
+        validated_data['vehicle_runs'] = lead.vehicle_runs
+        validated_data['ship_via_id'] = lead.ship_via_id
+        validated_data['email'] = lead.email
+
+        if validated_data['tarif'] == '1':
+            validated_data['price'] = float(lead.price_first_tarif)
+        elif validated_data['tarif'] == '2':
+            validated_data['price'] = float(lead.price_second_tarif)
+    
+        return super().create(validated_data)
 
     def to_representation(self, instance):
         serializers = AplicationViewSerializer(instance, context={'request': self.context.get('request')})

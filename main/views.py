@@ -199,6 +199,18 @@ class ApplicationCreateView(generics.CreateAPIView):
             for nbm in nbms:
                 AplicationNbm(application=apl, nbm=nbm).save()
 
+            
+
         return apl
+
+
+    def post(self, request, *args, **kwargs):
+        lead_id = self.request.data.get('lead')
+        try:
+            Leads.objects.get(uuid=lead_id)
+        except:
+            return Response({'error': 'Lead id is invalid'})
+
+        return super().post(request, *args, **kwargs)
 
 
