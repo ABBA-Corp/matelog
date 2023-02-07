@@ -16,7 +16,7 @@ from .serializers import TranslationSerializer
 from rest_framework.response import Response
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
-from main.models import CarsModel, CarMarks, States, City, Leads
+from main.models import CarsModel, CarMarks, States, City, Leads, Applications
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth import logout
 import os
@@ -2015,6 +2015,29 @@ class LeadsList(ListView):
         return context
 
 
+# applicatins list
+class ApplicationsList(ListView):
+    model = Applications
+    template_name = 'admin/applications_list.html'
+
+
+    def get_queryset(self):
+        queryset = Applications.objects.all()
+        queryset = search(self.request, queryset, ['name'], self.model)
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(ApplicationsList, self).get_context_data(**kwargs)
+
+        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
+        context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
+        context['url'] = search_pagination(self.request)
+
+        return context
+
+
 
 # fill db view
 def fill_db_view(request):
@@ -2065,3 +2088,7 @@ def logout_view(request):
     logout(request)
 
     return redirect('login_admin')
+
+
+
+# 

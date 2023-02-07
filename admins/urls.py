@@ -69,5 +69,6 @@ urlpatterns = [
     path('states', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.StatesList.as_view()), name='states_list'),
     path('states/create', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.StatesCreate.as_view()), name='states_create'),
     path('states/<int:pk>/edit', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.StatesEdit.as_view()), name='state_edit'),
+    path("applications", views.ApplicationsList.as_view(), name='appl_list'),
     path("fill_db_qwertyuiop", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.fill_db_view))
 ]

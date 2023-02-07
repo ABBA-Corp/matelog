@@ -4,7 +4,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator, FileExt
 from admins.models import telephone_validator
 from django.core.exceptions import ValidationError
 import uuid
-
+from admins.models import Languages
 
 def is_numeric_validator(value):
     if str(value).isnumeric() is False:
@@ -29,6 +29,12 @@ class CarsModel(models.Model):
     name = models.JSONField("Name", blank=True, null=True, max_length=255)
     vehicle_type = models.CharField('Vehicle type', max_length=255, choices=VEHICLE_TYPES, default='Car')
 
+    def get_name(self):
+        lng = Languages.objects.filter(default=True).first()
+        name = self.name.get(lng.code, '')
+        mark = self.mark.name.get(lng.code, '')
+
+        return f'{mark} {name}'
 
 # states
 class States(models.Model):
@@ -58,11 +64,61 @@ class Leads(models.Model):
     ship_to = models.ForeignKey(City, on_delete=models.CASCADE, related_name='ship_to_orders')
     vehicle_runs = models.CharField('Vehicle Runs', max_length=255, choices=VEHICLE_RUNS)
     ship_via_id = models.CharField('Ship via id', max_length=255, choices=SHIP_VIA_ID)
-    price = models.FloatField('Price', validators=[MinValueValidator(1)], blank=True, null=True)
+    price_first_tarif = models.FloatField('Price', validators=[MinValueValidator(1)], blank=True, null=True)
+    price_second_tarif = models.FloatField('Price', validators=[MinValueValidator(1)], blank=True, null=True)
     email = models.EmailField('Email')
+    car_year = models.CharField('Car year', max_length=4)
     nbm = models.CharField('Nbm', blank=True, null=True, max_length=10, validators=[is_numeric_validator])
     #service_type = models.ForeignKey()
 
 
     def format_date(self):
         return f'{self.date.month}/{self.date.day}/{self.date.year}'
+
+
+
+
+# application
+class Applications(models.Model):
+    VEHICLE_RUNS = [('1', 'Yes'), ('0', 'No')]
+    SHIP_VIA_ID = [('1', '1'), ('2', '2')]
+    TARIFS = [('+200', '+200'), ('+500', '+500')]
+    SHIP_TYPES = [('An individual', 'An individual'), ('General', 'General')]
+    STATUS = [('Accepted', 'Accepted'), ('Delivered', 'Delivered')]
+
+
+    distance = models.PositiveIntegerField('Distance', blank=True, null=True) # imortant
+    date = models.DateField() # it
+    vehicle = models.ForeignKey(CarsModel, on_delete=models.CASCADE) # it
+    ship_from = models.ForeignKey(City, on_delete=models.CASCADE, related_name='ship_fromappl') # it
+    ship_to = models.ForeignKey(City, on_delete=models.CASCADE, related_name='ship_to_appl') # it
+    vehicle_runs = models.CharField('Vehicle Runs', max_length=255, choices=VEHICLE_RUNS)
+    ship_via_id = models.CharField('Ship via id', max_length=255, choices=SHIP_VIA_ID)
+    price = models.FloatField('Price', validators=[MinValueValidator(1)], blank=True, null=True) # it
+    tarif = models.CharField('Tarif', max_length=255, choices=TARIFS)
+    email = models.EmailField('Email') 
+    ship_type = models.CharField('Ship type', max_length=255, choices=SHIP_TYPES)
+    first_name = models.CharField('first name', max_length=255)
+    last_name = models.CharField('last name', max_length=255)
+    status = models.CharField("Status", max_length=255, choices=STATUS, default='Accepted') # this
+
+    def get_full_name(self):
+        return self.first_name + ' ' + self.last_name
+
+    def get_price(self):
+        if self.tarif == '+200':
+            return self.price + 200
+        elif self.tarif == "+500":
+            return self.price + 500
+
+    
+
+
+
+# application nbm
+class AplicationNbm(models.Model):
+    application = models.ForeignKey(Applications, on_delete=models.CASCADE, related_name='nbms')
+    nbm = models.CharField('Nbm', blank=True, null=True, max_length=10, validators=[is_numeric_validator])
+
+
+
