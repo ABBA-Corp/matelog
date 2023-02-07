@@ -8,8 +8,9 @@ from .models import CarMarks, CarsModel, States, City, Leads
 import requests
 import json
 from django.conf import settings
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, EmailMultiAlternatives
 from .serializers import CarMarkSerializer, CarModelSerializer, CitySerializer, StateSerializer, LeadsCreateSerialzier, LeadsViewSerializer
+from django.template.loader import get_template
 # Create your views here.
 
 # pagination
@@ -155,13 +156,17 @@ class LeadCreate(generics.CreateAPIView):
     def perform_create(self, serializer):
         lead = serializer.save()
 
-        email = EmailMessage(
-            'Hello',
-            'Body goes here',
-            settings.EMAIL_HOST_USER,
-            ['msd2007msd02@gmail.com'],
-        )
-        email.send()
+        html_templ = get_template('email.html')
+
+
+        subject = 'hello'
+        text_content = 'some'
+        html_content = html_templ.render()
+        msg = EmailMultiAlternatives(
+            subject, text_content, settings.EMAIL_HOST_USER, [lead.email])
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
+
 
         return lead
 
