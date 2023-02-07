@@ -175,6 +175,18 @@ class CitySerializer(serializers.ModelSerializer):
 
 
 
+
+# lead view serializer
+class LeadsViewSerializer(serializers.ModelSerializer):
+    ship_from = CitySerializer()
+    ship_to = CitySerializer()
+    vehicle = CarModelSerializer()
+
+    class Meta:
+        model = Leads
+        fields = "__all__"
+
+
 # lead serializer
 class LeadsCreateSerialzier(serializers.ModelSerializer):
     distance = serializers.IntegerField(required=False)
@@ -205,16 +217,11 @@ class LeadsCreateSerialzier(serializers.ModelSerializer):
         lead.save()
         
         return lead
+
+    def to_representation(self, instance):
+        serializer = LeadsViewSerializer(instance, context={'request': self.context.get('request')})
+
+        return serializer.data
         
-
-# lead view serializer
-class LeadsViewSerializer(serializers.ModelSerializer):
-    ship_from = CitySerializer()
-    ship_to = CitySerializer()
-    vehicle = CarModelSerializer()
-
-    class Meta:
-        model = Leads
-        exclude = ['uuid']
 
 

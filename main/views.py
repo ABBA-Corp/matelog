@@ -158,7 +158,7 @@ class LeadCreate(generics.CreateAPIView):
         email = EmailMessage(
             'Hello',
             'Body goes here',
-            'dadamuhames@gmail.com',
+            settings.EMAIL_HOST_USER,
             ['msd2007msd02@gmail.com'],
         )
         email.send()
