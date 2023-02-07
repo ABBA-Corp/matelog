@@ -251,5 +251,5 @@ class ApplicationCreateSerializer(serializers.ModelSerializer):
         exclude = ['price']
 
     def to_representation(self, instance):
-        serializers = AplicationViewSerializer(instance)
+        serializers = AplicationViewSerializer(instance, context={'request': self.context.get('request')})
         return serializers.data
