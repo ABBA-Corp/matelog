@@ -249,7 +249,7 @@ class ApplicationCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Applications
         fields = '__all__'
-        extra_kwrgs = {
+        extra_kwargs = {
             'price': {"required": False},
             'distance': {"required": False},
             'ship_from': {"required": False},
