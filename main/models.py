@@ -106,10 +106,15 @@ class Applications(models.Model):
         return self.first_name + ' ' + self.last_name
 
     def get_price(self):
+        price = self.price
+        if not self.price:
+            price = 0
+        
+
         if self.tarif == '1':
-            return self.price + 200
+            return price + 200
         elif self.tarif == "2":
-            return self.price + 500
+            return price + 500
 
     
 
