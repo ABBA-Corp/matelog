@@ -4,12 +4,12 @@ from .serializers import ArticleSerializer, ServiceSerializer, AboutUsSerializer
 from admins.models import Articles, Languages, Translations, Services, AboutUs, StaticInformation
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
-from .models import CarMarks, CarsModel, States, City, Leads
+from .models import CarMarks, CarsModel, States, City, Leads, Applications, AplicationNbm
 import requests
 import json
 from django.conf import settings
 from django.core.mail import EmailMessage, EmailMultiAlternatives
-from .serializers import CarMarkSerializer, CarModelSerializer, CitySerializer, StateSerializer, LeadsCreateSerialzier, LeadsViewSerializer
+from .serializers import CarMarkSerializer, CarModelSerializer, CitySerializer, StateSerializer, LeadsCreateSerialzier, LeadsViewSerializer, ApplicationCreateSerializer
 from django.template.loader import get_template
 # Create your views here.
 
@@ -183,4 +183,22 @@ class LeadUpdateView(generics.UpdateAPIView):
     queryset = Leads.objects.all()
     lookup_field = 'uuid'
     serializer_class = LeadsCreateSerialzier
+
+
+
+# aplication create view
+class ApplicationCreateView(generics.CreateAPIView):
+    queryset = Applications.objects.all()
+    serializer_class = ApplicationCreateSerializer
+
+    def perform_create(self, serializer):
+        if serializer.is_valid():
+            apl = serializer.save()
+            nbms = list(self.request.data.get('nbms', []))
+
+            for nbm in nbms:
+                AplicationNbm(application=apl, nbm=nbm).save()
+
+        return apl
+
 

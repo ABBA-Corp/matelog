@@ -17,5 +17,6 @@ urlpatterns = [
     path('cities', views.CityList.as_view()),
     path("leads/create", views.LeadCreate.as_view()),
     path("leads/<uuid:uuid>", views.LeadDetailView.as_view()),
-    path('leads/<uuid:uuid>/edit', views.LeadUpdateView.as_view())
+    path('leads/<uuid:uuid>/edit', views.LeadUpdateView.as_view()),
+    path("applications/create", views.ApplicationCreateView.as_view())
 ]

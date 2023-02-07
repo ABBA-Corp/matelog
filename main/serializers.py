@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from admins.models import Services, Articles, ArticleImages, StaticInformation, AboutUs, Languages, Translations, MetaTags
 from easy_thumbnails.templatetags.thumbnail import thumbnail_url
-from .models import CarMarks, CarsModel, City, States, Leads
+from .models import CarMarks, CarsModel, City, States, Leads, Applications, AplicationNbm
 from django.conf import settings
 import requests
 
@@ -225,3 +225,31 @@ class LeadsCreateSerialzier(serializers.ModelSerializer):
         
 
 
+# application nbm serializer
+class ApplicationNbmSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AplicationNbm
+        fields = '__all__'
+
+
+# aplication serializer
+class AplicationViewSerializer(serializers.ModelSerializer):
+    vehicle = CarModelSerializer()
+    ship_from = CitySerializer()
+    ship_to = CitySerializer()
+    nbms = ApplicationNbmSerializer()
+    
+    class Meta:
+        model = Applications
+        fields = '__all__'
+
+
+# aplication create serializer
+class ApplicationCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Applications
+        exclude = ['price', 'nbms']
+
+    def to_representation(self, instance):
+        serializers = AplicationViewSerializer(instance)
+        return serializers.data

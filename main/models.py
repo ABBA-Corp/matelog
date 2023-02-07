@@ -82,7 +82,7 @@ class Leads(models.Model):
 class Applications(models.Model):
     VEHICLE_RUNS = [('1', 'Yes'), ('0', 'No')]
     SHIP_VIA_ID = [('1', '1'), ('2', '2')]
-    TARIFS = [('+200', '+200'), ('+500', '+500')]
+    TARIFS = [('1', '1'), ('2', '2')]
     SHIP_TYPES = [('An individual', 'An individual'), ('General', 'General')]
     STATUS = [('Accepted', 'Accepted'), ('Delivered', 'Delivered')]
 
@@ -106,9 +106,9 @@ class Applications(models.Model):
         return self.first_name + ' ' + self.last_name
 
     def get_price(self):
-        if self.tarif == '+200':
+        if self.tarif == '1':
             return self.price + 200
-        elif self.tarif == "+500":
+        elif self.tarif == "2":
             return self.price + 500
 
     
