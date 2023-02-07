@@ -248,7 +248,7 @@ class AplicationViewSerializer(serializers.ModelSerializer):
 class ApplicationCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Applications
-        exclude = ['price', 'nbms']
+        exclude = ['price']
 
     def to_representation(self, instance):
         serializers = AplicationViewSerializer(instance)
