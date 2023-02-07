@@ -264,7 +264,7 @@ class ApplicationCreateSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         request = self.context.get('request')
         lead_id = request.data.get('lead')
-        lead = Leads.objects.get(uuid=lead_id)
+        lead = Leads.objects.get(id=lead_id)
 
         validated_data['distance'] = lead.distance
         validated_data['ship_from'] = lead.ship_from.id
