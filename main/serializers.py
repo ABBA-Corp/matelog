@@ -267,9 +267,9 @@ class ApplicationCreateSerializer(serializers.ModelSerializer):
         lead = Leads.objects.get(id=lead_id)
 
         validated_data['distance'] = lead.distance
-        validated_data['ship_from'] = lead.ship_from.id
-        validated_data['ship_to'] = lead.ship_to.id
-        validated_data['vehicle'] = lead.vehicle.id
+        validated_data['ship_from'] = lead.ship_from
+        validated_data['ship_to'] = lead.ship_to
+        validated_data['vehicle'] = lead.vehicle
         validated_data['date'] = lead.date
         validated_data['vehicle_runs'] = lead.vehicle_runs
         validated_data['ship_via_id'] = lead.ship_via_id
