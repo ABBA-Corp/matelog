@@ -1,0 +1,43 @@
+name: Production Django deploy Matelog
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: GIT pulling from github repository
+      uses: appleboy/scp-action@master
+      env:
+        HOST: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      with:
+        source: "."
+        target: "/home/backend/matelog"
+
+    - name: Command using from script
+      uses: appleboy/ssh-action@master
+      env:
+        DJANGO_SETTINGS_MODULE: "matelog.production"
+      with:
+        host: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        envs: DJANGO_SETTINGS_MODULE
+        script_stop: true
+        script: |
+          git --work-tree=/home/backend/matelog --git-dir=/home/backend/matelog/.git clean -f .
+          /home/backend/matelog/venv/bin/pip install -r /home/backend/matelog/production.txt
+          /home/backend/matelog/venv/bin/python /home/backend/matelog/manage_prod.py migrate
+          systemctl restart matelog.service
+          sh /home/devops/matelog_back.sh "${{ github.event.head_commit.message }}"
