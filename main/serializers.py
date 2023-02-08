@@ -174,6 +174,35 @@ class CitySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        
+        params = {
+            "zip": "77707",
+            "key": "17o8dysaCDrgvlc"
+        }
+
+        coord_request = requests.get('https://api.promaptools.com/service/us/zip-lat-lng/get/', params=params).json()
+        lat = coord_request.get("output")[0].get('latitude')
+        lon = coord_request.get("output")[0].get("longitude")
+
+        iframe = f"""<iframe width="100%" height="300" allowfullscreen="allowfullscreen" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border: 0px;" class="lazyLoad isLoaded" src="https://maps.google.com/maps?q={ lat },{ lon }&hl=es&z=14&amp;output=embed"></iframe>"""
+        data['iframe'] = iframe
+
+        return data
+
+
+# city simple srializer
+class CitySimpleSerializer(serializers.ModelSerializer):
+    name = JsonFieldSerializer()
+    text = JsonFieldSerializer()
+    state = StateSerializer()
+
+    class Meta:
+        model = City
+        fields = "__all__"
+
+
 
 
 # lead view serializer
@@ -211,10 +240,14 @@ class LeadsCreateSerialzier(serializers.ModelSerializer):
             "ship_via_id": lead.ship_via_id,
             "vehicle_runs": lead.vehicle_runs
         }
-        #price_request = requests.get(url=url, params=params).json()
-        #lead.price_first_tarif = float(price_request.get('1', 0)) + 200
-        #lead.price_second_tarif = float(price_request.get('1', 0)) + 200
-        #lead.save()
+        price_request = requests.get(url=url, params=params).json()
+
+        if not price_request:
+            price_request = {}
+
+        lead.price_first_tarif = float(price_request.get('1', 0)) + 200
+        lead.price_second_tarif = float(price_request.get('1', 0)) + 500
+        lead.save()
         
         return lead
 
@@ -235,7 +268,7 @@ class ApplicationNbmSerializer(serializers.ModelSerializer):
 # aplication serializer
 class AplicationViewSerializer(serializers.ModelSerializer):
     vehicle = CarModelSerializer()
-    ship_from = CitySerializer()
+    ship_from = CitySimpleSerializer()
     ship_to = CitySerializer()
     nbms = ApplicationNbmSerializer()
     

@@ -2,6 +2,7 @@ from .models import Articles, Languages, TranlsationGroups, Translations, Static
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from main.models import Applications
 
 
 
@@ -88,3 +89,35 @@ class UserForm(UserCreationForm):
             raise forms.ValidationError(
                 ('Passwords don\'t match.'), code='Invalid')
         return cd['password2']
+
+
+# application form
+class ApplicationForm(forms.ModelForm):
+    class Meta:
+        model = Applications
+        fields = '__all__'
+
+        widgets = {
+            'vehicle': forms.Select(attrs={
+                "class": "form-select mb-3",
+                'data-choices': '',
+            }),
+            'tarif': forms.Select(attrs={
+                "class": "form-select mb-3",
+            }),
+            'ship_type': forms.Select(attrs={
+                "class": "form-select mb-3",
+            }),
+            'status': forms.Select(attrs={
+                "class": "form-select mb-3",
+            }),
+            'ship_via_id': forms.Select(attrs={
+                "class": "form-select mb-3",
+            }),
+            'vehicle_runs': forms.Select(attrs={
+                "class": "form-select mb-3",
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control'
+            })
+        }

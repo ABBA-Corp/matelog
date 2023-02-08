@@ -1,0 +1,193 @@
+{% extends 'admin/base_template.html' %}
+{% load static %}
+{% load get_item %}
+{% load str %}
+
+
+{% block title %} Марка машин {% endblock %}
+
+
+{% block page_title %} Добавить новый город {% endblock %}
+
+{% block nav_ol %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+    <li class="breadcrumb-item ">
+        <a href="{% url 'city_list' %}">Города</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
+        Добавление
+    </li>
+</ol>
+{% endblock %}
+
+{% block content_width %} class="col-12" {% endblock %}
+
+
+{% block content %}
+<form class="row" action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="hidden" name="url" value="{{ request.get_full_path }}">
+    <div class="col-12 col-xl-8">
+        <div class="card mt-3">
+            <div class="card-body p-5 pt-4">
+                <div class="tab-content" id="myTabContent">
+
+
+                    <div class="form-group">
+                        <!-- Label  -->
+                        <label class="form-label">
+                            Точка A
+                        </label>
+                        <br>
+                        <!-- Input -->
+                        <select class="form-select mb-3" name="ship_from" data-choices required>
+                            <option value="">-----</option>
+                            {% for city in cities %}
+                                {% if object and object.ship_from == city %}
+                                    <option value="{{ city.id }}" selected>{{ city.name|get_item:lang.code }} {{ city.state.code }} {{ city.zip }}</option>
+                                {% else %}
+                                    <option value="{{ state.id }}">{{ city.name|get_item:lang.code }} {{ city.state.code }} {{ city.zip }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <!-- Label  -->
+                        <label class="form-label">
+                            Точка B
+                        </label>
+                        <br>
+                        <!-- Input -->
+                        <select class="form-select mb-3" name="ship_to" data-choices required>
+                            <option value="">-----</option>
+                            {% for city in cities %}
+                                {% if object and object.ship_to == city %}
+                                    <option value="{{ city.id }}" selected>{{ city.name|get_item:lang.code }} {{ city.state.code }} {{ city.zip }} </option>
+                                {% else %}
+                                    <option value="{{ state.id }}">{{ city.name|get_item:lang.code }} {{ city.state.code }} {{ city.zip }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Label  -->
+                        <label class="form-label">
+                            Транспорт
+                        </label>
+                        <br>
+                        <!-- Input -->
+                        {{ form.vehicle }}
+                        <div class="invalid-feedback" style="display: block;">{{ form.errors.vehicle }}</div>
+                    </div>
+                    <!-- Project name -->
+                    <div class="form-group">
+                        <!-- Label  -->
+                        <label class="form-label">
+                            Тариф
+                        </label>
+                        <br>
+                        <!-- Input -->
+                        {{ form.tarif }}
+                        {% if lang.default %}
+                        <div class="invalid-feedback" style="display: block;">
+                            {{ form.tarif.error }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <!-- Label  -->
+                        <label class="form-label required">
+                            Тип доставки
+                        </label>
+                        <br>
+                        <!-- Input -->
+                        {{ form.ship_type }}
+                        <div class="invalid-feedback" style="display: block;">{{ form.errors.ship_type }}</div>
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Label  -->
+                        <label class="form-label required">
+                            Статус
+                        </label>
+                        <br>
+                        <!-- Input -->
+                        {{ form.status }}
+                        <div class="invalid-feedback" style="display: block;">
+                            {{ form.errors.status }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Label  -->
+                        <label class="form-label required">
+                            Vehicle runs
+                        </label>
+                        <br>
+                        <!-- Input -->
+                        {{ form.vehicle_runs }}
+                        <div class="invalid-feedback" style="display: block;">
+                            {{ form.errors.vehicle_runs }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <!-- Label  -->
+                        <label class="form-label required">
+                            Доставка
+                        </label>
+                        <br>
+                        <!-- Input -->
+                        {{ form.ship_via_id }}
+                        <div class="invalid-feedback" style="display: block;">
+                            {{ form.errors.ship_via_id }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Label -->
+                        <label class="form-label mb-1">
+                            Email
+                        </label>
+                        <br>
+                        <!-- Textarea -->
+                        {{ form.email }}
+                        <textarea class="editor" name="text#{{ lang.code }}" placeholder="Text">
+                            {% if object and object.text|get_item:lang.code %} 
+                                {{ object.text|get_item:lang.code }} 
+                            {% elif request_post and request_post|get_item:'text' %}
+                                {{ request_post|get_item:'text'|get_item:lang.code }}
+                            {% endif %}</textarea>
+
+                    </div>
+
+                    <div class="btn-box text-end">
+                        <a href="{{ request.get_full_path }}" class="btn btn-secondary">
+                            Отменить
+                        </a>
+                        <button type="submit" class="btn w-60 btn-primary">
+                            Сохранить
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- Form -->
+
+
+
+<!-- JAVASCRIPT -->
+<script>
+    for (let txt of document.querySelectorAll('.editor')) {
+        CKEDITOR.replace(txt)
+    }
+</script>
+
+<!-- Map JS -->
+
+<!-- Vendor JS -->
+{% endblock %}

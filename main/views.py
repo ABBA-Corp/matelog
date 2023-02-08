@@ -9,7 +9,7 @@ import requests
 import json
 from django.conf import settings
 from django.core.mail import EmailMessage, EmailMultiAlternatives
-from .serializers import CarMarkSerializer, CarModelSerializer, CitySerializer, StateSerializer, LeadsCreateSerialzier, LeadsViewSerializer, ApplicationCreateSerializer
+from .serializers import CarMarkSerializer, CarModelSerializer, CitySimpleSerializer, CitySerializer, StateSerializer, LeadsCreateSerialzier, LeadsViewSerializer, ApplicationCreateSerializer
 from django.template.loader import get_template
 # Create your views here.
 
@@ -128,7 +128,7 @@ class StatesList(generics.ListAPIView):
 
 # city list
 class CityList(generics.ListAPIView):
-    serializer_class  = CitySerializer
+    serializer_class  = CitySimpleSerializer
     pagination_class = BasePagination
 
     def get_queryset(self):
@@ -143,6 +143,12 @@ class CityList(generics.ListAPIView):
                 pass
         
         return queryset
+
+
+# city detail
+class CityDetailView(generics.RetrieveAPIView):
+    serializer_class = CitySerializer
+    queryset = City.objects.all()
 
 
 
@@ -165,7 +171,7 @@ class LeadCreate(generics.CreateAPIView):
         msg = EmailMultiAlternatives(
             subject, text_content, settings.EMAIL_HOST_USER, [lead.email])
         msg.attach_alternative(html_content, "text/html")
-        msg.send()
+        #msg.send()
 
 
         return lead

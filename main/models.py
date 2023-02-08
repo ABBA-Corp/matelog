@@ -29,12 +29,15 @@ class CarsModel(models.Model):
     name = models.JSONField("Name", blank=True, null=True, max_length=255)
     vehicle_type = models.CharField('Vehicle type', max_length=255, choices=VEHICLE_TYPES, default='Car')
 
-    def get_name(self):
-        lng = Languages.objects.filter(default=True).first()
-        name = self.name.get(lng.code, '')
-        mark = self.mark.name.get(lng.code, '')
+    def __str__(self):
+        try:
+            lng = Languages.objects.filter(default=True).first()
+            name = self.name.get(lng.code, '')
+            mark = self.mark.name.get(lng.code, '')
 
-        return f'{mark} {name}'
+            return f'{mark} {name}'
+        except:
+            return 'Car'
 
 # states
 class States(models.Model):
@@ -68,6 +71,7 @@ class Leads(models.Model):
     price_second_tarif = models.FloatField('Price', validators=[MinValueValidator(1)], blank=True, null=True)
     email = models.EmailField('Email')
     nbm = models.CharField('Nbm', blank=True, null=True, max_length=10, validators=[is_numeric_validator])
+    car_year = models.CharField("Car year", max_length=4, validators=[is_numeric_validator])
     #service_type = models.ForeignKey()
 
 
@@ -80,8 +84,8 @@ class Leads(models.Model):
 # application
 class Applications(models.Model):
     VEHICLE_RUNS = [('1', 'Yes'), ('0', 'No')]
-    SHIP_VIA_ID = [('1', '1'), ('2', '2')]
-    TARIFS = [('1', '1'), ('2', '2')]
+    SHIP_VIA_ID = [('1', 'Open'), ('2', 'Enclosed')]
+    TARIFS = [('1', '500$ tarif'), ('2', '200$ tarif')]
     SHIP_TYPES = [('An individual', 'An individual'), ('General', 'General')]
     STATUS = [('Accepted', 'Accepted'), ('Delivered', 'Delivered')]
 
@@ -99,7 +103,10 @@ class Applications(models.Model):
     ship_type = models.CharField('Ship type', max_length=255, choices=SHIP_TYPES)
     first_name = models.CharField('first name', max_length=255)
     last_name = models.CharField('last name', max_length=255)
+    car_year = models.CharField("Car year", max_length=4, validators=[is_numeric_validator])
     status = models.CharField("Status", max_length=255, choices=STATUS, default='Accepted') # this
+    adres = models.CharField('Adres', max_length=255)
+    deckription = models.TextField('Deskription', blank=True, null=True)
 
 
     def get_full_name(self):

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, FormView
 from .models import Articles, Languages, Translations, TranlsationGroups, StaticInformation, AdminInputs, ArticleCategories, FAQ, ArticleImages
 from .models import Events, EventImages, ImageGalery, VideoGalery, AboutUs, Services, MetaTags, telephone_validator
-from .forms import LngForm, UserForm
+from .forms import LngForm, UserForm, ApplicationForm
 from django.core.exceptions import ValidationError
 import datetime
 from django.db.models import Q
@@ -2038,9 +2038,33 @@ class ApplicationsList(ListView):
         return context
 
 
+class ApplicationDetailView(DetailView):
+    model = Applications
+    template_name = 'admin/application_form.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ApplicationDetailView, self).get_context_data(**kwargs)
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['lang'] = Languages.objects.filter(default=True).first()
+
+        return context
+
+
 # application update
 class ApplicationUpdate(UpdateView):
-    pass
+    model = Applications
+    form_class = ApplicationForm
+    template_name = 'admin/application_form.html'
+
+
+    def get_context_data(self, **kwargs):
+        context = super(ApplicationUpdate, self).get_context_data(**kwargs)
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['lang'] = Languages.objects.filter(default=True).first()
+        context['cities'] = City.objects.all()
+
+        return context
+
 
 
 
