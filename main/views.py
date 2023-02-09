@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import views, generics
 from .serializers import ArticleSerializer, ServiceSerializer, AboutUsSerializer, StaticInformationSerializer, TranslationSerializer, LangsSerializer
-from admins.models import Articles, Languages, Translations, Services, AboutUs, StaticInformation
+from admins.models import Articles, Languages, Translations, Services, AboutUs, StaticInformation, Reviews
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from .models import CarMarks, CarsModel, States, City, Leads, Applications, AplicationNbm
@@ -9,7 +9,7 @@ import requests
 import json
 from django.conf import settings
 from django.core.mail import EmailMessage, EmailMultiAlternatives
-from .serializers import CarMarkSerializer, CarModelSerializer, CitySimpleSerializer, CitySerializer, StateSerializer, LeadsCreateSerialzier, LeadsViewSerializer, ApplicationCreateSerializer
+from .serializers import CarMarkSerializer, CarModelSerializer, CitySimpleSerializer, CitySerializer, StateSerializer, LeadsCreateSerialzier, LeadsViewSerializer, ApplicationCreateSerializer, ReviewSerializer
 from django.template.loader import get_template
 # Create your views here.
 
@@ -220,3 +220,8 @@ class ApplicationCreateView(generics.CreateAPIView):
         return super().post(request, *args, **kwargs)
 
 
+# reviews list
+class ReviewList(generics.ListAPIView):
+    queryset = Reviews.objects.filter(active=True)
+    serializer_class = ReviewSerializer
+    pagination_class = BasePagination

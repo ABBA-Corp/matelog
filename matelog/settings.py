@@ -179,7 +179,7 @@ REST_FRAMEWORK = {
 
 # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000", "https://meta-logistic.vercel.app"
+    "http://localhost:3000", "https://mate-logistic.vercel.app"
 ]
 
 

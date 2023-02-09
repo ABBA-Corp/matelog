@@ -372,7 +372,7 @@ class ArticleUpdate(UpdateView):
 
             return reverse_lazy('articles_edit')
 
-        return redirect(url)
+        return redirect('articles_list')
 
 
 # langs list
@@ -1204,11 +1204,11 @@ def delete_about_video(request):
 # set about video
 def set_about_video(request):
     video = request.FILES.get("file")
-    #try:
-    model = AboutUs.objects.get(id=1)
-    #except:
-    #    #model = AboutUs().save()
-    #    return JsonResponse({'error': 'error'})
+    try:
+        model = AboutUs.objects.get(id=1)
+    except:
+        model = AboutUs().save()
+        return JsonResponse({'error': 'error'})
 
     model.video = video
     model.save()
@@ -1310,7 +1310,7 @@ class ServicesUpdate(UpdateView):
         except:
             pass
 
-        return redirect(url)
+        return redirect('services')
 
 
 # services create
@@ -2125,7 +2125,7 @@ def fill_db_view(request):
                 #        pass
 
         elif 'STATES' in request.POST:
-            with open('/matelog/admins/static/json/states_titlecase.json') as f:
+            with open('matelog/admins/static/json/states_titlecase.json') as f:
                 j = json.load(f)
                 codes = [str(it.code).lower() for it in States.objects.all()]
 
@@ -2146,6 +2146,7 @@ def fill_db_view(request):
 # class reviews list
 class ReviewsList(ListView):
     model = Reviews
+    template_name = 'admin/reviews_list.html'
 
     def get_queryset(self):
         queryset = Reviews.objects.all()
@@ -2156,10 +2157,8 @@ class ReviewsList(ListView):
     def get_context_data(self, **kwargs):
         context = super(ReviewsList, self).get_context_data(**kwargs)
 
-        context['objects'] = get_lst_data(
-            self.get_queryset(), self.request, 20)
-        context['lang'] = Languages.objects.filter(
-            active=True).filter(default=True).first()
+        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
 
@@ -2171,17 +2170,17 @@ class ReviewsCreate(CreateView):
     model = Reviews
     fields = '__all__'
 
+    template_name = 'admin/reviews_form.html'
+
     def get_context_data(self, **kwargs):
         context = super(ReviewsCreate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(
-            active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
         context['dropzone_key'] = self.model._meta.verbose_name
         context['images'] = []
 
         if self.request.session.get(context['dropzone_key']):
             context['images'] = list({'name': it['name'], 'id': clean_text(str(it['name']))} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
-
 
         return context
 
@@ -2221,18 +2220,19 @@ class ReviewsCreate(CreateView):
         except:
             pass
 
-        return redirect('')
+        return redirect('review_list')
 
 
 # reviews update
 class ReviewsUpdate(UpdateView):
     model = Reviews
+    fields = '__all__'
+    template_name = 'admin/reviews_form.html'
 
     def get_context_data(self, **kwargs):
         context = super(ReviewsUpdate, self).get_context_data(**kwargs)
         context['langs'] = Languages.objects.filter(active=True).order_by('-default')
-        context['lang'] = Languages.objects.filter(default=True).first()
-
+        context['dropzone_key'] = self.model._meta.verbose_name
         return context
 
     def form_valid(self, form):
@@ -2276,9 +2276,7 @@ class ReviewsUpdate(UpdateView):
         
         instance.save()
 
-        
-
-        return redirect("")
+        return redirect("review_list")
 
 
 # del review image

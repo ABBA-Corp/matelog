@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from admins.models import Services, Articles, ArticleImages, StaticInformation, AboutUs, Languages, Translations, MetaTags
+from admins.models import Services, Articles, ArticleImages, StaticInformation, AboutUs, Languages, Translations, MetaTags, Reviews
 from easy_thumbnails.templatetags.thumbnail import thumbnail_url
 from .models import CarMarks, CarsModel, City, States, Leads, Applications, AplicationNbm
 from django.conf import settings
@@ -320,3 +320,14 @@ class ApplicationCreateSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         serializers = AplicationViewSerializer(instance, context={'request': self.context.get('request')})
         return serializers.data
+
+
+# reviews serializer
+class ReviewSerializer(serializers.ModelSerializer):
+    title = JsonFieldSerializer()
+    text = JsonFieldSerializer()
+    image = ThumbnailSerializer(alias='avatar')
+
+    class Meta:
+        model = Reviews
+        fields = '__all__'
