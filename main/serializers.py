@@ -309,9 +309,11 @@ class ApplicationCreateSerializer(serializers.ModelSerializer):
         validated_data['email'] = lead.email
 
         if validated_data['tarif'] == '1':
-            validated_data['price'] = float(lead.price_first_tarif)
+            validated_data['price'] = float(lead.price_first_tarif) - 200
+            validated_data['final_price'] = float(lead.price_first_tarif)
         elif validated_data['tarif'] == '2':
-            validated_data['price'] = float(lead.price_second_tarif)
+            validated_data['price'] = float(lead.price_second_tarif) - 500
+            validated_data['final_price'] = float(lead.price_second_tarif)
     
         return super().create(validated_data)
 

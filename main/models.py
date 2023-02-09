@@ -94,7 +94,7 @@ class Applications(models.Model):
     SHIP_VIA_ID = [('1', 'Open'), ('2', 'Enclosed')]
     TARIFS = [('1', '500$ tarif'), ('2', '200$ tarif')]
     SHIP_TYPES = [('An individual', 'An individual'), ('General', 'General')]
-    STATUS = [('Accepted', 'Accepted'), ('Delivered', 'Delivered')]
+    STATUS = [('Accepted', 'Accepted'), ('Delivered', 'Delivered'), ('Canseled', 'Canseled')]
 
     distance = models.PositiveIntegerField(
         'Distance', blank=True, null=True)  # imortant
@@ -108,8 +108,7 @@ class Applications(models.Model):
         'Vehicle Runs', max_length=255, choices=VEHICLE_RUNS)
     ship_via_id = models.CharField(
         'Ship via id', max_length=255, choices=SHIP_VIA_ID)
-    price = models.FloatField(
-        'Price', validators=[MinValueValidator(1)], blank=True, null=True)  # it
+    price = models.FloatField('Price', validators=[MinValueValidator(1)], blank=True, null=True)  # it
     tarif = models.CharField('Tarif', max_length=255, choices=TARIFS)
     email = models.EmailField('Email')
     ship_type = models.CharField(
@@ -122,19 +121,10 @@ class Applications(models.Model):
                               choices=STATUS, default='Accepted')  # this
     adres = models.CharField('Adres', max_length=255)
     deckription = models.TextField('Deskription', blank=True, null=True)
+    final_price = models.FloatField('Final Price', validators=[MinValueValidator(1)], blank=True, null=True)
 
     def get_full_name(self):
         return self.first_name + ' ' + self.last_name
-
-    def get_price(self):
-        price = self.price
-        if not self.price:
-            price = 0
-
-        if self.tarif == '1':
-            return price + 200
-        elif self.tarif == "2":
-            return price + 500
 
     def get_format_data(self):
         return str(self.date.year) + '-' + str(self.date.month) + '-' + str(self.date.day)

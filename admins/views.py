@@ -20,6 +20,8 @@ from main.models import CarsModel, CarMarks, States, City, Leads, Applications
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth import logout
 import os
+from django.conf import settings
+import requests
 # Create your views here.
 
 # home admin
@@ -2063,7 +2065,30 @@ class ApplicationUpdate(UpdateView):
 
     def form_valid(self, form):
         apl = form.save()
-        # !!!!!!!!
+        url = 'https://ml.msgplane.com/api/rest/get/price/'
+
+        params = {
+            'api_key': settings.SRM_API_KEY,
+            "pickup_zip": apl.ship_from.zip,
+            "dropoff_zip": apl.ship_to.zip,
+            "estimated_ship_date": str(apl.get_format_date()),
+            "vehicle_type": apl.vehicle.vehicle_type,
+            "ship_via_id": apl.ship_via_id,
+            "vehicle_runs": apl.vehicle_runs
+        }
+        price_request = requests.get(url=url, params=params).json()
+
+        if not price_request:
+            price_request = {}
+
+        apl.price = float(price_request.get('1', 0))
+
+        if apl.tarif == '1':
+            apl.final_price = float(price_request.get('1', 0)) + 200
+        elif apl.tarif == '2':
+            apl.final_price = float(price_request.get('1', 0)) + 500
+
+        
 
         return apl
 
