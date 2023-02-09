@@ -2125,7 +2125,7 @@ def fill_db_view(request):
                 #        pass
 
         elif 'STATES' in request.POST:
-            with open('/home/metalogistics/matelog/admins/static/json/states_titlecase.json') as f:
+            with open('/matelog/admins/static/json/states_titlecase.json') as f:
                 j = json.load(f)
                 codes = [str(it.code).lower() for it in States.objects.all()]
 
@@ -2230,8 +2230,7 @@ class ReviewsUpdate(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(ReviewsUpdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(
-            active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
 
         return context

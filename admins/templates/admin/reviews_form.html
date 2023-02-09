@@ -34,32 +34,35 @@
 
             <div class="form-group">
                 <!-- Label  -->
-                <label class="form-label">
-                    Название
+                <label {% if lang.default %} class="form-label required" {% else %} class="form-label" {% endif %}>
+                    Заголовок
                 </label>
                 <br>
                 <!-- Input -->
-                <input type="text" name="name" class="form-control" {% if object.name %} value="{{ object.name }}" {%
-                    endif %} placeholder="Название..." maxlength="255" id="id_name" required>
+                <input type="text" name="title#{{ lang.code }}" class="form-control" {% if object and object.title|get_item:lang.code %} value="{{ object.title|get_item:lang.code }}" {% elif request_post and request_post|get_item:'title' %} value="{{ request_post|get_item:'title'|get_item:lang.code }}" {% endif %}>
+                {% if title_error %}
+                <div class="invalid-feedback" style="display: block;">
+                    {{ title_error }}
+                </div>
+                {% endif %}
             </div>
 
             <div class="form-group">
                 <!-- Label  -->
                 <label class="form-label">
-                    Код
+                    Текст
                 </label>
                 <br>
                 <!-- Input -->
-                <input type="text" name="code" {% if object.code %} value="{{ object.code }}" {% endif %}
-                    class="form-control" placeholder="Код" maxlength="255" id="id_code" required>
+                <textarea class="editor" name="text#{{ lang.code }}" placeholder="Text">{% if object and object.text|get_item:lang.code %} {{ object.text|get_item:lang.code }} {% elif request_post and request_post|get_item:'text' %}{{ request_post|get_item:'text'|get_item:lang.code }}{% endif %}</textarea>
+                    {% if text_error %}<div class="invalid-feedback" style="display: block;">{{ text_error }}</div>{% endif %}
             </div>
 
             <!-- Project cover -->
             <div class="form-group">
-
                 <!-- Label  -->
                 <label class="form-label mb-1">
-                    Иконка языка
+                    Фото
                 </label>
 
                 {% if object %}
@@ -99,7 +102,7 @@
                                 <img data-dz-thumbnail="" src="{{ object.image.url }}" alt="{{ object.image }}">
                             </div>
                             <div class="dz-details">
-                                <div class="dz-filename"><span data-dz-name="">{{ object.icon }}</span></div>
+                                <div class="dz-filename"><span data-dz-name="">{{ object.image }}</span></div>
                             </div>
                             <a class="dz-remove" data-file="{{ img.id }}"
                                 onclick="var result = confirm('Want to delete?');if (result){submit_form('delete-form')}"
@@ -151,5 +154,11 @@
         </form>
     </div>
 </div>
+
+<script>
+    for (let txt of document.querySelectorAll('.editor')) {
+        CKEDITOR.replace(txt)
+    }
+</script>
 <!-- Form -->
 {% endblock %}

@@ -89,8 +89,7 @@
                     <div class="d-flex">
                         <div class="input-group input-group-flush input-group-merge input-group-reverse"
                             style="width: 200px;">
-                            <input class="form-control" name="q" type="search" placeholder="Search" {% if request.GET.q
-                                %} value="{{ request.GET.q }}" {% endif %}>
+                            <input class="form-control" name="q" type="search" placeholder="Search" {% if request.GET.q %} value="{{ request.GET.q }}" {% endif %}>
                             <span class="input-group-text">
                                 <i class="fe fe-search"></i>
                             </span>
