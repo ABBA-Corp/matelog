@@ -499,9 +499,14 @@ class StaticUpdate(UpdateView):
             data['error'] = 'This field is required'
             return render(request, self.template_name, data)
         else:
-            for attr, value in data_dict.items():
-                setattr(instance, attr, value)
-            instance.save()
+            try:
+                for attr, value in data_dict.items():
+                    setattr(instance, attr, value)
+                instance.save()
+            except:
+                data['request_post'] = data_dict
+                data['error_all'] = 'There is some errors'
+                return render(request, self.template_name, data)
 
         return redirect('static_info')
 

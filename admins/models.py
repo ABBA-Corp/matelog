@@ -37,7 +37,7 @@ class StaticInformation(models.Model):
     instagram = models.URLField("Ссылка на инстаграм", blank=True, null=True, max_length=255)
     facebook = models.URLField("Ссылка на фэйсбук", blank=True, null=True, max_length=255)
     youtube = models.URLField("Ютуб", blank=True, null=True, max_length=255)
-    nbm = models.CharField("Номер телефона", blank=True, null=True, max_length=13)
+    nbm = models.CharField("Номер телефона", blank=True, null=True, max_length=255)
     map = models.TextField('Iframe карты', blank=True, null=True)
     work_time = models.JSONField('Время работы', blank=True, null=True)
 

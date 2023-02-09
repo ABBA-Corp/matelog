@@ -45,6 +45,11 @@
             </div>
 
             <div class="card-body p-5 pt-4">
+                <div class="invalid-feedback" style="display: block;">
+                    {% if error_all %}
+                        {{ error_all }}
+                    {% endif %}
+                </div>
                 <div class="tab-content" id="myTabContent">
                         {% for lang in langs %}
                             {% if lang == langs.first %}
