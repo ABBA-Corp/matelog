@@ -8,18 +8,6 @@
 
 {% block page_title %} Заявки {% endblock %}
 
-{% block page_btn %}
-<div class="col-auto">
-    <!-- Navigation (button group) -->
-
-    <!-- Buttons -->
-    <a href="{% url 'car_models_create' %}" class="btn btn-primary ms-2">
-        Добавить
-    </a>
-
-</div>
-{% endblock %}
-
 {% block nav_ol %}
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
@@ -76,7 +64,7 @@
                 {% for obj, i in objects.pairs %}
                 <tr>
                     <td>
-                        <a class="item-title" href="{% url 'car_models_edit' obj.id %}">{{ i }}</a>
+                        <a class="item-title" href="{% url 'apl_view' obj.id %}">{{ i }}</a>
                     </td>
                     <td>
                         <p class="item-phone text-reset">
@@ -109,17 +97,17 @@
                     </td>-->
                     <td>
                         <p class="item-phone text-reset">
-                            {{ obj.price }}
+                            {{ obj.price }}$
                         </p>
                     </td>
                     <td>
-                        <p class="item-phone text-reset">
-                            {{ obj.get_price }}
+                        <p class="item-phone text-reset text-end">
+                            {{ obj.get_price }}$
                         </p>
                     </td>
                     <td>
                         <div class="d-flex justify-content-end">
-                            <a href="{% url 'car_models_edit' obj.id %}" class="btn btn-sm btn-info"><i
+                            <a href="{% url 'apl_edit' obj.id %}" class="btn btn-sm btn-info"><i
                                     class="fe fe-edit-2"></i></a>
                             <a class="btn btn-sm btn-danger ms-3"
                                 onclick="var result = confirm('Want to delete?');if (result){form_submit_in_table('delete-form{{ obj.id }}')}"><i

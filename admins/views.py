@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, FormView
 from .models import Articles, Languages, Translations, TranlsationGroups, StaticInformation, AdminInputs, ArticleCategories, FAQ, ArticleImages
-from .models import Events, EventImages, ImageGalery, VideoGalery, AboutUs, Services, MetaTags, telephone_validator
+from .models import Events, EventImages, ImageGalery, VideoGalery, AboutUs, Services, MetaTags, telephone_validator, Reviews
 from .forms import LngForm, UserForm, ApplicationForm
 from django.core.exceptions import ValidationError
 import datetime
@@ -23,6 +23,8 @@ import os
 # Create your views here.
 
 # home admin
+
+
 def home(request):
     return render(request, 'admin/base_template.html')
 
@@ -41,7 +43,6 @@ def delete_item(request):
         pass
 
     return redirect(url)
-
 
 
 def delete_alot(request):
@@ -63,9 +64,7 @@ def delete_alot(request):
     #except:
     #    pass
 
-
     return redirect(url)
-
 
 
 # save images
@@ -74,7 +73,7 @@ def save_images(request):
     if request.method == 'POST':
         key = request.POST.get("key")
         file = request.FILES.get('file')
-        id  = request.POST.get("id")
+        id = request.POST.get("id")
 
         request.session[key] = request.session.get(key, [])
         file_name = default_storage.save('dropzone/' + file.name, file)
@@ -83,12 +82,11 @@ def save_images(request):
             'id': id,
             'name': file_name
         }
-        
+
         request.session[key].append(data)
         request.session.modified = True
 
     return JsonResponse(file_name, safe=False)
-
 
 
 # del lang icon
@@ -99,7 +97,6 @@ def del_lang_icon(request):
         Languages.objects.get(id=int(id)).icon.delete(save=False)
     except:
         pass
-
 
     return redirect(url)
 
@@ -162,16 +159,14 @@ def delete_image(request):
     if request.method == 'POST':
         key = request.POST.get('key')
         file = request.POST.get("file")
-        
+
         if request.session.get(key):
             for it in request.session[key]:
                 if it['name'] == file:
                     request.session[key].remove(it)
                     request.session.modified = True
-        
 
     return redirect(request.META.get("HTTP_REFERER"))
-
 
 
 # articles create
@@ -183,31 +178,32 @@ class ArticleCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(ArticleCreateView, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
         context['fields'] = get_model_fields(self.model)
         context['categories'] = ArticleCategories.objects.all()
         context['dropzone_key'] = self.model._meta.verbose_name
         context['images'] = []
 
-        
         if self.request.session.get(context['dropzone_key']):
-            context['images'] = list({'name': it['name'], 'id': clean_text(it['name'])} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
+            context['images'] = list({'name': it['name'], 'id': clean_text(
+                it['name'])} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
 
         return context
 
     def form_valid(self, form):
         return None
 
-
     def post(self, request, *args, **kwargs):
         context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, request)
-        data_dict['created_date'] = data_dict.get('created_date', str(datetime.date.today()))
+        data_dict['created_date'] = data_dict.get(
+            'created_date', str(datetime.date.today()))
         data_dict['author'] = request.user
         key = request.POST.get('dropzone-key')
         categories = request.POST.getlist('categories[]')
-        
+
         data = self.get_context_data()
 
         if is_valid_field(data_dict, 'title') == False:
@@ -220,15 +216,17 @@ class ArticleCreateView(CreateView):
             article.full_clean()
             article.save()
             if categories:
-                ctg_queryset = [ArticleCategories.objects.get(id=int(it)) for it in categories]
+                ctg_queryset = [ArticleCategories.objects.get(
+                    id=int(it)) for it in categories]
                 article.category.set(ctg_queryset)
 
             key = self.model._meta.verbose_name
             sess_images = request.session.get(key)
 
             if sess_images and len([it for it in request.session.get(key) if it['id'] == '']) > 0:
-                image = [it for it in request.session.get(key) if it['id'] == ''][0]
-            
+                image = [it for it in request.session.get(
+                    key) if it['id'] == ''][0]
+
                 article.image = image['name']
                 article.save()
                 request.session.get(key).remove(image)
@@ -248,7 +246,7 @@ class ArticleCreateView(CreateView):
         except ValidationError:
             print(ValidationError)
 
-        return  redirect('articles_list')#redirect("")
+        return redirect('articles_list')  # redirect("")
 
 
 # articles list
@@ -258,15 +256,18 @@ class ArticlesList(ListView):
 
     def get_queryset(self):
         queryset = Articles.objects.all()
-        queryset = search(self.request, queryset, ['title', 'body'], self.model)
+        queryset = search(self.request, queryset, [
+                          'title', 'body'], self.model)
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super(ArticlesList, self).get_context_data(**kwargs)
 
         context['q'] = self.request.GET.get('q')
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
+        context['objects'] = get_lst_data(
+            self.get_queryset(), self.request, 20)
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
 
@@ -286,12 +287,14 @@ def del_article(request):
     return redirect(url)
 
 # article update
+
+
 class ArticleUpdate(UpdateView):
     model = Articles
     fields = '__all__'
     template_name = 'admin/new_article.html'
     success_url = 'articles_list'
-    
+
     def get(self, request, *args, **kwargs):
         if request.user != self.get_object().author:
             return redirect('articles_list')
@@ -300,8 +303,10 @@ class ArticleUpdate(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(ArticleUpdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by("-default")
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by("-default")
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
         context['fields'] = get_model_fields(self.model)
         context['categories'] = ArticleCategories.objects.all()
         context['dropzone_key'] = self.model._meta.verbose_name
@@ -320,29 +325,29 @@ class ArticleUpdate(UpdateView):
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
-
         try:
-            file = [it for it in request.session.get(key, []) if it['id'] == str(self.get_object().id)][0]
+            file = [it for it in request.session.get(
+                key, []) if it['id'] == str(self.get_object().id)][0]
         except:
             file = None
         categories = request.POST.getlist('categories[]')
 
-        
         try:
             instance = self.get_object()
 
-            for attr, value in data_dict.items(): 
+            for attr, value in data_dict.items():
                 setattr(instance, attr, value)
-            
+
             instance.save()
 
             if categories:
-                ctg_queryset = [ArticleCategories.objects.get(id=int(it)) for it in categories]
+                ctg_queryset = [ArticleCategories.objects.get(
+                    id=int(it)) for it in categories]
                 instance.category.set(ctg_queryset)
 
             if file:
                 instance.image = file['name']
-                for it in request.session.get(key): 
+                for it in request.session.get(key):
                     if it['id'] == str(self.get_object().id):
                         try:
                             request.session.get(key).remove(it)
@@ -381,7 +386,8 @@ class LangsList(ListView):
             query = None
 
         if query:
-            queryset = queryset.filter(Q(name__iregex=query) | Q(code__iregex=query))
+            queryset = queryset.filter(
+                Q(name__iregex=query) | Q(code__iregex=query))
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -401,21 +407,20 @@ class LngCreateView(CreateView):
     success_url = '/admin/langs'
     template_name = "admin/lng_create.html"
 
-        
     def form_valid(self, form):
         lang_save(form, self.request)
 
-
         return redirect('langs_list')
-        
+
     def get_context_data(self, **kwargs):
-        context = super(LngCreateView, self).get_context_data(**kwargs) 
+        context = super(LngCreateView, self).get_context_data(**kwargs)
         context['fields'] = get_model_fields(self.model)
         context['dropzone_key'] = self.model._meta.verbose_name
         context['images'] = []
 
         if self.request.session.get(context['dropzone_key']):
-            context['images'] = list({'name': it['name'], 'id': str(it['name']).replace('/', '').replace('.', '')} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
+            context['images'] = list({'name': it['name'], 'id': str(it['name']).replace(
+                '/', '').replace('.', '')} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
 
         return context
 
@@ -427,7 +432,6 @@ class LangsUpdate(UpdateView):
     success_url = '/admin/langs'
     template_name = "admin/lng_create.html"
 
-
     def get_context_data(self, **kwargs):
         context = super(LangsUpdate, self).get_context_data(**kwargs)
         context['fields'] = get_model_fields(self.model)
@@ -435,10 +439,8 @@ class LangsUpdate(UpdateView):
 
         return context
 
-
     def form_valid(self, form):
         lang_save(form, self.request)
-
 
         return redirect('langs_list')
 
@@ -457,7 +459,6 @@ def delete_langs(request):
         return redirect(url)
 
 
-
 # static update
 class StaticUpdate(UpdateView):
     model = StaticInformation
@@ -473,19 +474,17 @@ class StaticUpdate(UpdateView):
 
         return object
 
-
     def get_context_data(self, **kwargs):
         context = super(StaticUpdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         context['dropzone_key'] = self.model._meta.verbose_name
-
 
         return context
 
     def form_valid(self, form):
         return None
 
-    
     def post(self, request, *args, **kwargs):
         context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(StaticInformation, request)
@@ -510,11 +509,12 @@ def class_list():
     return my_app_models
 
 # form setting
+
+
 class FormSettings(UpdateView):
     model = AdminInputs
     template_name = 'admin/form_settings.html'
     fields = "__all__"
-
 
     def get_object(self):
         try:
@@ -523,7 +523,6 @@ class FormSettings(UpdateView):
             object = AdminInputs().save()
 
         return object
-
 
     def get_context_data(self, **kwargs):
         context = super(FormSettings, self).get_context_data(**kwargs)
@@ -535,7 +534,7 @@ class FormSettings(UpdateView):
             for key in model:
                 if model[key]._meta.verbose_name.title() != 'Admin Inputs':
                     data = {}
-                    data['title']= model[key].__name__
+                    data['title'] = model[key].__name__
                     data['name'] = model[key]._meta.verbose_name.title()
                     data['fields'] = []
 
@@ -551,16 +550,15 @@ class FormSettings(UpdateView):
                 data_list = []
                 for item in self.get_object().inputs[key]:
                     data_list.append(item['field'])
-                
+
                 settings_fields[key] = data_list
         except:
             pass
-        
+
         context['set_fields'] = settings_fields
         print(context['set_fields'])
 
         return context
-
 
     def post(self, request, *args, **kwargs):
         request_data = []
@@ -574,13 +572,12 @@ class FormSettings(UpdateView):
                 request_data.append(data)
             except:
                 pass
-        
+
         boolens = []
         for data in request_data:
             if data['key']['type'] == 'bool':
                 data_tuple = (data['key']['model'], data['key']['field'])
                 boolens.append(data_tuple)
-
 
         final_data = {}
         for data in request_data:
@@ -596,7 +593,7 @@ class FormSettings(UpdateView):
                     'label': data['value']
                 }
                 final_data[model_name].append(data_dict)
-            
+
         print(final_data)
         settings.inputs = final_data
         settings.save()
@@ -604,12 +601,11 @@ class FormSettings(UpdateView):
         return redirect(request.META.get("HTTP_REFERER"))
 
 
-
 # translations list
 class TranslationList(ListView):
     model = Translations
     template_name = 'admin/translation_list.html'
-    
+
     def get_queryset(self):
         queryset = Translations.objects.all()
         query = self.request.GET.get("q")
@@ -617,11 +613,11 @@ class TranslationList(ListView):
 
         return queryset
 
-    
     def get_context_data(self, **kwargs):
         context = super(TranslationList, self).get_context_data(**kwargs)
         context['groups'] = TranlsationGroups.objects.all()
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         context['url'] = search_pagination(self.request)
 
         # pagination
@@ -636,23 +632,23 @@ class TranslationList(ListView):
         return context
 
 
-
 # translation group
 class TranslationGroupDetail(DetailView):
     model = TranlsationGroups
     template_name = 'admin/translation_list.html'
 
     def get_context_data(self, **kwargs):
-        context = super(TranslationGroupDetail, self).get_context_data(**kwargs)
+        context = super(TranslationGroupDetail,
+                        self).get_context_data(**kwargs)
         context['groups'] = TranlsationGroups.objects.all()
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         lst_one = self.get_object().translations.order_by('-id')
 
         # search
         query = self.request.GET.get("q")
         lst_one = search_translation(query, lst_one)
 
-        
         # range
         lst_two = range(1, len(lst_one) + 1)
 
@@ -660,7 +656,6 @@ class TranslationGroupDetail(DetailView):
         context['translations'] = dict(pairs=zip(lst_one, lst_two))
 
         return context
-
 
 
 # transtion update
@@ -679,21 +674,22 @@ def translation_update(request):
     elif request.method == 'POST':
         data = serialize_request(Translations, request)
         id = request.POST.get("id")
-        lang = Languages.objects.filter(active=True).filter(default=True).first()
+        lang = Languages.objects.filter(
+            active=True).filter(default=True).first()
 
         if data.get('value').get(lang.code, '') == '':
             return JsonResponse({'lng_error': 'This language is required'})
-        
+
         try:
             translation = Translations.objects.get(id=int(id))
             key = data.get('key', '')
 
             if key == '':
                 return JsonResponse({'key_error': 'Key is required'})
-            
+
             if str(key) in [str(it.key) for it in Translations.objects.exclude(id=translation.id)]:
                 return JsonResponse({'key_error': 'Key is already in use'})
-            
+
             translation.key = key
             translation.value = data['value']
             translation.full_clean()
@@ -704,7 +700,6 @@ def translation_update(request):
         serializer = TranslationSerializer(translation)
 
         return JsonResponse(serializer.data)
-
 
 
 # translations delete
@@ -730,7 +725,6 @@ def add_trans_group(request):
             return JsonResponse({'key_error': 'Sub text is required'})
         elif (data_dict.get('sub_text'), ) in TranlsationGroups.objects.values_list('sub_text'):
             return JsonResponse({'key_error': 'This key is already in use'})
-        
 
         try:
             transl_group = TranlsationGroups(**data_dict)
@@ -747,7 +741,6 @@ def add_trans_group(request):
         return JsonResponse(data)
 
 
-
 # translation group udate
 class TranslationGroupUdpate(UpdateView):
     model = TranlsationGroups
@@ -756,12 +749,14 @@ class TranslationGroupUdpate(UpdateView):
     success_url = '/admin/translations'
 
     def get_context_data(self, **kwargs):
-        context = super(TranslationGroupUdpate, self).get_context_data(**kwargs)
+        context = super(TranslationGroupUdpate,
+                        self).get_context_data(**kwargs)
         context['groups'] = TranlsationGroups.objects.all()
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
-        context['lng'] = Languages.objects.filter(active=True).filter(default=True).first()
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
+        context['lng'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
         lst_one = self.get_object().translations.all()
-
 
         # range
         lst_two = range(1, len(lst_one) + 1)
@@ -771,13 +766,12 @@ class TranslationGroupUdpate(UpdateView):
 
         return context
 
-    
     def post(self, request, *args, **kwargs):
         transls = list(self.get_object().translations.all())
         langs = Languages.objects.filter(active=True).order_by('-default')
-        lang = Languages.objects.filter(active=True).filter(default=True).first()
+        lang = Languages.objects.filter(
+            active=True).filter(default=True).first()
         items_count = request.POST.get("item_count")
-
 
         data = []
         for l in range(1, int(items_count) + 1):
@@ -786,20 +780,18 @@ class TranslationGroupUdpate(UpdateView):
             new_data['key'] = request.POST[f'key[{l}]']
             new_data['values'] = []
             for lng in langs:
-                new_data['values'].append({'key': f'value[{l}][{lng.code}]', 'value': request.POST[f'value[{l}][{lng.code}]'], 'def_lang': lang.code, 'lng': lng.code})
-            
-            data.append(new_data)
+                new_data['values'].append(
+                    {'key': f'value[{l}][{lng.code}]', 'value': request.POST[f'value[{l}][{lng.code}]'], 'def_lang': lang.code, 'lng': lng.code})
 
+            data.append(new_data)
 
         print(data)
 
         objects = dict(pairs=zip(data, list(range(1, int(items_count) + 1))))
 
-
-
         for i in range(len(transls)):
             transls[i].key = request.POST.get(f'key[{i + 1}]', '')
-            
+
             if transls[i].key == '':
                 return render(request, template_name=self.template_name, context={'key_errors': {str(i+1): 'Key is required'},  'new_objects': objects, 'langs': langs, 'len': int(items_count) + 1})
 
@@ -810,7 +802,8 @@ class TranslationGroupUdpate(UpdateView):
 
             value_dict = {}
             for lang in langs:
-                value_dict[str(lang.code)] = request.POST[f'value[{i + 1}][{lang.code}]']
+                value_dict[str(lang.code)
+                           ] = request.POST[f'value[{i + 1}][{lang.code}]']
 
             transls[i].value = value_dict
             try:
@@ -819,7 +812,6 @@ class TranslationGroupUdpate(UpdateView):
             except:
                 return render(request, template_name=self.template_name, context={'key_errors': {str(i): 'Key is alredy in use'},  'new_objects': objects, 'langs': langs, 'len': items_count})
 
-                
         for i in range(len(transls) + 1, int(items_count) + 1):
             new_trans = Translations()
             data = {}
@@ -828,27 +820,24 @@ class TranslationGroupUdpate(UpdateView):
             if new_trans.key == '':
                 return render(request, template_name=self.template_name, context={'key_errors': {str(i): 'Key is required'},  'new_objects': objects, 'langs': langs, 'len': items_count})
 
-
             value_dict = {}
             in_default_lng = request.POST.get(f'value[{i}][{lang.code}]', '')
 
-            
             if in_default_lng == '':
                 return render(request, template_name=self.template_name, context={'lng_errors': {str(i): 'This language is required'}, 'new_objects': objects, 'langs': langs, 'len': items_count})
 
-
             for lang in langs:
-                value_dict[str(lang.code)] = request.POST[f'value[{i}][{lang.code}]']
-        
+                value_dict[str(lang.code)
+                           ] = request.POST[f'value[{i}][{lang.code}]']
+
             new_trans.value = value_dict
             new_trans.group = self.get_object()
-            
+
             try:
                 new_trans.full_clean()
                 new_trans.save()
             except:
                 return render(request, template_name=self.template_name, context={'key_errors': {str(i): 'Key is alredy in use'}, 'new_objects': objects, 'langs': langs, 'len': items_count})
-
 
         return redirect('transl_group_detail', pk=self.get_object().id)
 
@@ -857,20 +846,21 @@ class TranslationGroupUdpate(UpdateView):
 class ArticleCtgList(ListView):
     model = ArticleCategories
     template_name = 'admin/article_ctg.lst.html'
-    
+
     def get_queryset(self):
         queryset = super(ArticleCtgList, self).get_queryset()
         return search(self.request, queryset, ['name'], self.model)
 
     def get_context_data(self, **kwargs):
         context = super(ArticleCtgList, self).get_context_data(**kwargs)
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
+        context['objects'] = get_lst_data(
+            self.get_queryset(), self.request, 20)
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
 
         return context
-
 
 
 # add article ctg
@@ -880,35 +870,35 @@ class AddArticleCtg(CreateView):
     fields = '__all__'
     success_url = 'article_ctg_list'
 
-
     def get_context_data(self, **kwargs):
         context = super(AddArticleCtg, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         context['categories'] = ArticleCategories.objects.all()
         context['fields'] = get_model_fields(self.model)
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
         context['dropzone_key'] = self.model._meta.verbose_name
         context['images'] = []
 
         if self.request.session.get(context['dropzone_key']):
-            context['images'] = list({'name': it['name'], 'id': clean_text(it['name'])} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
+            context['images'] = list({'name': it['name'], 'id': clean_text(
+                it['name'])} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
 
         return context
 
-
     def form_valid(self, form):
         return None
-
 
     def post(self, request, *args, **kwargs):
         context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, request)
         parent = request.POST.get('parent')
 
-
         data = self.get_context_data()
         try:
-            data_dict['parent'] = ArticleCategories.objects.get(id=int(data_dict.get('parent')))
+            data_dict['parent'] = ArticleCategories.objects.get(
+                id=int(data_dict.get('parent')))
         except:
             if data_dict.get("parent"):
                 del data_dict['parent']
@@ -927,16 +917,15 @@ class AddArticleCtg(CreateView):
                 sess_images = request.session.get(key)
 
                 if sess_images and len([it for it in request.session.get(key) if it['id'] == '']) > 0:
-                    image = [it for it in request.session.get(key) if it['id'] == ''][0]
-                
+                    image = [it for it in request.session.get(
+                        key) if it['id'] == ''][0]
+
                     art_ctg.image = image['name']
                     art_ctg.save()
                     request.session.get(key).remove(image)
                     request.session.modified = True
             except:
                 pass
-        
-
 
         return redirect('article_ctg_list')
 
@@ -950,30 +939,33 @@ class ArticleCtgEdit(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(ArticleCtgEdit, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
-        context['categories'] = ArticleCategories.objects.exclude(id=self.get_object().id)
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
+        context['categories'] = ArticleCategories.objects.exclude(
+            id=self.get_object().id)
         context['fields'] = get_model_fields(self.model)
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
         context['dropzone_key'] = self.model._meta.verbose_name
 
         return context
 
-
     def form_valid(self, form):
         return None
-
 
     def post(self, request, *args, **kwargs):
         context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, self.request)
         key = self.model._meta.verbose_name
         try:
-            file = [it for it in request.session.get(key, []) if it['id'] == str(self.get_object().id)][0]
+            file = [it for it in request.session.get(
+                key, []) if it['id'] == str(self.get_object().id)][0]
         except:
             file = None
 
         try:
-            data_dict['parent'] = ArticleCategories.objects.get(id=int(data_dict.get('parent')))
+            data_dict['parent'] = ArticleCategories.objects.get(
+                id=int(data_dict.get('parent')))
         except:
             if data_dict.get("parent"):
                 del data_dict['parent']
@@ -984,7 +976,6 @@ class ArticleCtgEdit(UpdateView):
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
-
         instance = self.get_object()
 
         for attr, value in data_dict.items():
@@ -994,7 +985,7 @@ class ArticleCtgEdit(UpdateView):
 
         if file:
             instance.image = file['name']
-            for it in request.session.get(key): 
+            for it in request.session.get(key):
                 if it['id'] == str(self.get_object().id):
                     try:
                         request.session.get(key).remove(it)
@@ -1002,7 +993,7 @@ class ArticleCtgEdit(UpdateView):
                     except:
                         pass
             instance.save()
-        
+
         return redirect('article_ctg_list')
 
 
@@ -1023,17 +1014,16 @@ class FAQlist(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(FAQlist, self).get_context_data(**kwargs)
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True)
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True)
         queryset = self.get_queryset()
         queryset = search(self.request, queryset, ['answer', 'question'])
 
-    
         context['objects'] = get_lst_data(queryset, self.request, 20)
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
 
         return context
-
 
 
 # faq create
@@ -1043,16 +1033,15 @@ class FAQcreate(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(FAQcreate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
 
         return context
 
-    
     def post(self, request, *args, **kwargs):
         data_dict = serialize_request(self.model, request)
         faq = FAQ(**data_dict)
         faq.save()
-
 
         return redirect('/')
 
@@ -1064,10 +1053,10 @@ class FAQupdate(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(FAQupdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
 
         return context
-
 
     def post(self, request, *args, **kwargs):
         data_dict = serialize_request(self.model, request)
@@ -1080,13 +1069,10 @@ class FAQupdate(UpdateView):
         return redirect(request.META.get("HTTP_REFERER"))
 
 
-
-
 # event list
 class EventsList(ListView):
     model = Events
     paginate_by = 10
-
 
     def get_queryset(self):
         queryset = super(EventsList, self).get_queryset()
@@ -1094,10 +1080,12 @@ class EventsList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(EventsList, self).get_context_data(**kwargs)
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['objects'] = get_lst_data(
+            self.get_queryset(), self.request, 20)
 
         return context
 
@@ -1124,7 +1112,6 @@ class EventsCreate(CreateView):
         return redirect('/')
 
 
-
 # events update
 class EventsUpdate(UpdateView):
     model = Events
@@ -1132,13 +1119,13 @@ class EventsUpdate(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(EventsUpdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
 
         return context
 
     def form_valid(self, form):
         return None
-
 
     def post(self, request, *args, **kwargs):
         data_dict = serialize_request(self.model, request)
@@ -1148,9 +1135,7 @@ class EventsUpdate(UpdateView):
             setattr(instance, attr, value)
         instance.save()
 
-
         return redirect(request.META.get("HTTP_REFERER"))
-        
 
 
 # about us
@@ -1171,13 +1156,12 @@ class AboutUsView(UpdateView):
 
         return model
 
-
     def get_context_data(self, **kwargs):
         context = super(AboutUsView, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
 
         return context
-
 
     def post(self, request, *args, **kwargs):
         context = super().post(request, *args, **kwargs)
@@ -1191,13 +1175,11 @@ class AboutUsView(UpdateView):
             data['request_post'] = data_dict
             return render(request, self.template_name, data)
 
-
         for attr, value in data_dict.items():
             setattr(instance, attr, value)
         instance.save()
 
         return redirect('about_us')
-
 
 
 # delete about us video
@@ -1218,14 +1200,13 @@ def set_about_video(request):
         model = AboutUs.objects.get(id=1)
     except:
         model = AboutUs().save()
-    
+
     model.video = video
     model.save()
 
     return JsonResponse('success', safe=False)
 
 
-    
 # services list
 class ServicesList(ListView):
     model = Services
@@ -1233,8 +1214,9 @@ class ServicesList(ListView):
 
     def get_queryset(self):
         queryset = Services.objects.all()
-        queryset = search(self.request, queryset, ['title', 'deckription', 'sub_title'], self.model)
-        
+        queryset = search(self.request, queryset, [
+                          'title', 'deckription', 'sub_title'], self.model)
+
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -1242,13 +1224,13 @@ class ServicesList(ListView):
 
         context['q'] = self.request.GET.get('q')
         context['lang'] = Languages.objects.filter(default=True).first()
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['objects'] = get_lst_data(
+            self.get_queryset(), self.request, 20)
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
 
         return context
 
-    
 
 # services update
 class ServicesUpdate(UpdateView):
@@ -1259,13 +1241,16 @@ class ServicesUpdate(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(ServicesUpdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
-        context['sevices'] = Services.objects.exclude(id=self.get_object().id).exclude(id__in=[it.id for it in self.get_object().children.all()])
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
+        context['sevices'] = Services.objects.exclude(id=self.get_object().id).exclude(
+            id__in=[it.id for it in self.get_object().children.all()])
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
         context['dropzone_key'] = self.model._meta.verbose_name
 
         return context
-    
+
     def form_valid(self, form):
         return None
 
@@ -1276,13 +1261,11 @@ class ServicesUpdate(UpdateView):
         key = self.model._meta.verbose_name
         parent_id = request.POST.get('parent')
 
-        
         data = self.get_context_data()
         if is_valid_field(data_dict, 'title') == False:
             data['request_post'] = data_dict
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
-
 
         try:
             data_dict['parent'] = Services.objects.get(id=int(parent_id))
@@ -1290,7 +1273,8 @@ class ServicesUpdate(UpdateView):
             pass
 
         try:
-            file = [it for it in request.session.get(key, []) if it['id'] == str(self.get_object().id)][0]
+            file = [it for it in request.session.get(
+                key, []) if it['id'] == str(self.get_object().id)][0]
         except:
             file = None
 
@@ -1324,7 +1308,6 @@ class ServicesUpdate(UpdateView):
         return redirect(url)
 
 
-
 # services create
 class ServiceCreate(CreateView):
     model = Services
@@ -1334,14 +1317,17 @@ class ServiceCreate(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(ServiceCreate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         context['sevices'] = Services.objects.all()
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
         context['dropzone_key'] = self.model._meta.verbose_name
         context['images'] = []
 
         if self.request.session.get(context['dropzone_key']):
-            context['images'] = list({'name': it['name'], 'id': clean_text(str(it['name']))} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
+            context['images'] = list({'name': it['name'], 'id': clean_text(str(
+                it['name']))} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
 
         return context
 
@@ -1360,7 +1346,6 @@ class ServiceCreate(CreateView):
             data['error'] = 'This field is required.'
             data['request_post'] = data_dict
             return render(request, self.template_name, data)
-
 
         parent_id = request.POST.get('parent')
         try:
@@ -1391,9 +1376,7 @@ class ServiceCreate(CreateView):
         except:
             pass
 
-
         return redirect('services')  # redirect("")
-
 
 
 def del_sev_image(request):
@@ -1407,8 +1390,6 @@ def del_sev_image(request):
     return JsonResponse('success', safe=False)
 
 
-
-
 # super users list
 class AdminsList(ListView):
     model = User
@@ -1416,7 +1397,8 @@ class AdminsList(ListView):
 
     def get_queryset(self):
         queryset = User.objects.filter(is_superuser=True)
-        queryset = search(self.request, queryset, ['username', 'first_name', 'last_name'], self.model)
+        queryset = search(self.request, queryset, [
+                          'username', 'first_name', 'last_name'], self.model)
 
         return queryset
 
@@ -1424,15 +1406,15 @@ class AdminsList(ListView):
         context = super(AdminsList, self).get_context_data(**kwargs)
 
         context['q'] = self.request.GET.get('q')
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
+        context['objects'] = get_lst_data(
+            self.get_queryset(), self.request, 20)
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
 
         return context
 
-    
-    
 
 # super user create
 class AdminCreate(CreateView):
@@ -1463,8 +1445,7 @@ class AdminUpdate(UpdateView):
     model = User
     form_class = UserForm
     success_url = '/'
-    template_name = 'admin/moder_form.html'    
-
+    template_name = 'admin/moder_form.html'
 
     def get_context_data(self, **kwargs):
         context = super(AdminUpdate, self).get_context_data(**kwargs)
@@ -1472,12 +1453,11 @@ class AdminUpdate(UpdateView):
 
         if self.get_object().first_name:
             context['full_name'] = self.get_object().first_name
-        
+
         if self.get_object().last_name:
             context['full_name'] += self.get_object().last_name
 
         return context
-
 
     def form_valid(self, form):
         user = form.save()
@@ -1521,14 +1501,18 @@ class CarsModelList(ListView):
     def get_context_data(self, **kwargs):
         context = super(CarsModelList, self).get_context_data(**kwargs)
 
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['objects'] = get_lst_data(
+            self.get_queryset(), self.request, 20)
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
 
         return context
 
 # add car model
+
+
 class CarModelCreate(CreateView):
     model = CarsModel
     fields = "__all__"
@@ -1536,7 +1520,8 @@ class CarModelCreate(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(CarModelCreate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
         context['marks'] = CarMarks.objects.all()
         context['veh_types'] = ['Car', 'SUV', 'Pickup']
@@ -1561,7 +1546,7 @@ class CarModelCreate(CreateView):
             data['request_post'] = data_dict
             data['mark_error'] = 'This field is required.'
             return render(request, self.template_name, data)
-        
+
         if is_valid_field(data_dict, 'name') == False:
             data['request_post'] = data_dict
             data['name_error'] = 'This field is required.'
@@ -1575,7 +1560,7 @@ class CarModelCreate(CreateView):
             car_model.save()
         except ValidationError:
             print(ValidationError)
-            
+
         return redirect('car_models')
 
 
@@ -1587,7 +1572,8 @@ class CarModelEdit(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(CarModelEdit, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
         context['marks'] = CarMarks.objects.all()
         context['veh_types'] = ['Car', 'SUV', 'Pickup']
@@ -1607,7 +1593,7 @@ class CarModelEdit(UpdateView):
             mark = CarMarks.objects.get(id=int(mark_id))
         except:
             mark = None
-        
+
         if mark is None:
             data['request_post'] = data_dict
             data['mark_error'] = 'This field is required.'
@@ -1628,8 +1614,7 @@ class CarModelEdit(UpdateView):
         instance.save()
 
         return redirect('car_models')
-    
-    
+
 
 # car mark list
 class CarMarkList(ListView):
@@ -1645,10 +1630,12 @@ class CarMarkList(ListView):
     def get_context_data(self, **kwargs):
         context = super(CarMarkList, self).get_context_data(**kwargs)
 
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['objects'] = get_lst_data(
+            self.get_queryset(), self.request, 20)
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
 
         return context
 
@@ -1661,11 +1648,12 @@ class CarMarkCreate(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(CarMarkCreate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
 
         return context
-    
+
     def form_valid(self, form):
         return None
 
@@ -1697,11 +1685,12 @@ class CarMarkEdit(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(CarMarkEdit, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
 
         return context
-    
+
     def form_valid(self, form):
         return None
 
@@ -1739,9 +1728,11 @@ class StatesList(ListView):
     def get_context_data(self, **kwargs):
         context = super(StatesList, self).get_context_data(**kwargs)
 
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['objects'] = get_lst_data(
+            self.get_queryset(), self.request, 20)
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
         context['url'] = search_pagination(self.request)
 
         return context
@@ -1753,10 +1744,10 @@ class StatesCreate(CreateView):
     fields = '__all__'
     template_name = 'admin/states_form.html'
 
-
     def get_context_data(self, **kwargs):
         context = super(StatesCreate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
 
         return context
@@ -1781,7 +1772,6 @@ class StatesCreate(CreateView):
             data['code_error'] = 'This code is already in use.'
             return render(request, self.template_name, data)
 
-
         if is_valid_field(data_dict, 'name') == False:
             data['request_post'] = data_dict
             data['name_error'] = 'This field is required.'
@@ -1805,7 +1795,8 @@ class StatesEdit(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(StatesEdit, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
 
         return context
@@ -1819,8 +1810,9 @@ class StatesEdit(UpdateView):
         data = self.get_context_data()
 
         code = data_dict.get('code')
-        codes = [str(it.code).lower() for it in States.objects.exclude(id=self.get_object().id)]
-        
+        codes = [str(it.code).lower()
+                 for it in States.objects.exclude(id=self.get_object().id)]
+
         if code is None:
             data['request_post'] = data_dict
             data['code_error'] = 'This field is required.'
@@ -1859,9 +1851,11 @@ class CityList(ListView):
     def get_context_data(self, **kwargs):
         context = super(CityList, self).get_context_data(**kwargs)
 
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['objects'] = get_lst_data(
+            self.get_queryset(), self.request, 20)
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
         context['url'] = search_pagination(self.request)
 
         return context
@@ -1875,7 +1869,8 @@ class CityCreate(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(CityCreate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
         context['states'] = States.objects.all()
 
@@ -1883,7 +1878,6 @@ class CityCreate(CreateView):
 
     def form_valid(self, form):
         return None
-
 
     def post(self, request, *args, **kwargs):
         context = super().post(request, *args, **kwargs)
@@ -1912,12 +1906,10 @@ class CityCreate(CreateView):
             data['zip_error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
-        
         if data_dict.get('zip') in zip_codes:
             data['request_post'] = data_dict
             data['zip_error'] = 'This zip code is already in use.'
             return render(request, self.template_name, data)
-
 
         data_dict['state'] = state
 
@@ -1937,25 +1929,24 @@ class CityEdit(UpdateView):
     fields = '__all__'
     template_name = 'admin/city_form.html'
 
-
     def get_context_data(self, **kwargs):
         context = super(CityEdit, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
         context['states'] = States.objects.all()
 
         return context
 
-    
     def form_valid(self, form):
         return None
-
 
     def post(self, request, *args, **kwargs):
         context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(self.model, self.request)
         state_id = request.POST.get('state')
-        zip_codes = [it.zip for it in City.objects.exclude(id=self.get_object().id)]
+        zip_codes = [it.zip for it in City.objects.exclude(
+            id=self.get_object().id)]
         data = self.get_context_data()
 
         try:
@@ -2007,9 +1998,11 @@ class LeadsList(ListView):
     def get_context_data(self, **kwargs):
         context = super(LeadsList, self).get_context_data(**kwargs)
 
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['objects'] = get_lst_data(
+            self.get_queryset(), self.request, 20)
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
         context['url'] = search_pagination(self.request)
 
         return context
@@ -2020,7 +2013,6 @@ class ApplicationsList(ListView):
     model = Applications
     template_name = 'admin/applications_list.html'
 
-
     def get_queryset(self):
         queryset = Applications.objects.all()
         queryset = search(self.request, queryset, ['name'], self.model)
@@ -2030,8 +2022,10 @@ class ApplicationsList(ListView):
     def get_context_data(self, **kwargs):
         context = super(ApplicationsList, self).get_context_data(**kwargs)
 
-        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
-        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
+        context['objects'] = get_lst_data(
+            self.get_queryset(), self.request, 20)
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
         context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
         context['url'] = search_pagination(self.request)
 
@@ -2040,11 +2034,12 @@ class ApplicationsList(ListView):
 
 class ApplicationDetailView(DetailView):
     model = Applications
-    template_name = 'admin/application_form.html'
+    template_name = 'admin/application_view.html'
 
     def get_context_data(self, **kwargs):
         context = super(ApplicationDetailView, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
 
         return context
@@ -2054,18 +2049,32 @@ class ApplicationDetailView(DetailView):
 class ApplicationUpdate(UpdateView):
     model = Applications
     form_class = ApplicationForm
+    success_url = '/admin/applications'
     template_name = 'admin/application_form.html'
-
 
     def get_context_data(self, **kwargs):
         context = super(ApplicationUpdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
         context['cities'] = City.objects.all()
 
         return context
 
+    def form_valid(self, form):
+        apl = form.save()
+        # !!!!!!!!
 
+        return apl
+
+
+def delete_translation_group(request, pk):
+    try:
+        TranlsationGroups.objects.get(pk=int(pk)).delete()
+    except:
+        pass
+
+    return redirect('translation_list')
 
 
 # fill db view
@@ -2093,7 +2102,7 @@ def fill_db_view(request):
             with open('/home/metalogistics/matelog/admins/static/json/states_titlecase.json') as f:
                 j = json.load(f)
                 codes = [str(it.code).lower() for it in States.objects.all()]
-                
+
                 for it in j:
                     try:
                         if str(it["abbreviation"]).lower() not in codes:
@@ -2105,11 +2114,111 @@ def fill_db_view(request):
                     except:
                         pass
 
-
     return render(request, 'admin/fiil_db.html')
 
 
+# class reviews list
+class ReviewsList(ListView):
+    model = Reviews
 
+    def get_queryset(self):
+        queryset = Reviews.objects.all()
+        queryset = search(self.request, queryset, ['title'], self.model)
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(ReviewsList, self).get_context_data(**kwargs)
+
+        context['objects'] = get_lst_data(
+            self.get_queryset(), self.request, 20)
+        context['lang'] = Languages.objects.filter(
+            active=True).filter(default=True).first()
+        context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
+        context['url'] = search_pagination(self.request)
+
+        return context
+
+
+# reviews crete
+class ReviewsCreate(CreateView):
+    model = Reviews
+    fields = '__all__'
+
+    def get_context_data(self, **kwargs):
+        context = super(ReviewsCreate, self).get_context_data(**kwargs)
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
+        context['lang'] = Languages.objects.filter(default=True).first()
+
+        return context
+
+    def form_valid(self, form):
+        return None
+
+    def post(self, request, *args, **kwargs):
+        context = super().post(request, *args, **kwargs)
+        data_dict = serialize_request(self.model, request)
+        data = self.get_context_data()
+
+        if is_valid_field(data_dict, 'title') == False:
+            data['request_post'] = data_dict
+            data['title_error'] = 'This field is required.'
+            return render(request, self.template_name, data)
+
+        if is_valid_field(data_dict, 'text') == False:
+            data['request_post'] = data_dict
+            data['text_error'] = 'This field is required.'
+            return render(request, self.template_name, data)
+
+        try:
+            state = Reviews(**data_dict)
+            state.full_clean()
+            state.save()
+        except:
+            pass
+
+        return redirect('')
+
+
+# reviews update
+class ReviewsUpdate(UpdateView):
+    model = Reviews
+
+    def get_context_data(self, **kwargs):
+        context = super(ReviewsUpdate, self).get_context_data(**kwargs)
+        context['langs'] = Languages.objects.filter(
+            active=True).order_by('-default')
+        context['lang'] = Languages.objects.filter(default=True).first()
+
+        return context
+
+    def form_valid(self, form):
+        return None
+
+    def post(self, request, *args, **kwargs):
+        context = super().post(request, *args, **kwargs)
+        data_dict = serialize_request(self.model, request)
+        data = self.get_context_data()
+
+        if is_valid_field(data_dict, 'title') == False:
+            data['request_post'] = data_dict
+            data['title_error'] = 'This field is required.'
+            return render(request, self.template_name, data)
+
+        if is_valid_field(data_dict, 'text') == False:
+            data['request_post'] = data_dict
+            data['text_error'] = 'This field is required.'
+            return render(request, self.template_name, data)
+
+        instance = self.get_object()
+
+        for attr, value in data_dict.items():
+            setattr(instance, attr, value)
+
+        instance.save()
+
+        return redirect("")
 
 
 # logout
@@ -2119,5 +2228,4 @@ def logout_view(request):
     return redirect('login_admin')
 
 
-
-# 
+#

@@ -266,3 +266,9 @@ def post_save_image(sender, instance, *args, **kwargs):
         pass
 
 
+# reviews
+class Reviews(models.Model):
+    image = ThumbnailerImageField(upload_to='rev_image', blank=True, null=True)
+    title = models.JSONField("Title", blank=True, null=True)
+    text = models.JSONField('Text', blank=True, null=True)
+    active = models.BooleanField('Active', default=True)

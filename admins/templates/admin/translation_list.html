@@ -27,12 +27,12 @@
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
     {% if object %}
-        <li class="breadcrumb-item">
-            <a href="{% url 'translation_list' %}">Переводы</a> 
-        </li>
-        <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
-            {{ object.title }}
-        </li>
+    <li class="breadcrumb-item">
+        <a href="{% url 'translation_list' %}">Переводы</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
+        {{ object.title }}
+    </li>
     {% else %}
     <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
         Переводы
@@ -54,14 +54,26 @@
         <div class="card-body">
             <div class="links" id="group_links">
                 {% for group in groups %}
-                    <a href="{% url 'transl_group_detail' group.id %}" class="btn btn-info me-3 bg-transparent text-info group-link">{{ group.title }}</a>
+                <a href="{% url 'transl_group_detail' group.id %}"
+                    class="btn btn-info me-3 bg-transparent text-info group-link">{{ group.title }}</a>
                 {% endfor %}
             </div>
             {% if object %}
-            <a href="{% url 'transl_group_edit' object.id %}" class="d-flex p-1 mt-4"
-                style="width: max-content;text-decoration: underline;"><i
-                    class="fe fe-edit-2 d-flex align-items-center justify-content-center"
-                    style="width: 20px;height:20px"></i> редактировать</a>
+            <div class="row" style="width: 300px;">
+                <div class="col-6">
+                    <a href="{% url 'transl_group_edit' object.id %}" class="d-flex p-1 mt-4"
+                        style="width: max-content;text-decoration: underline;"><i
+                            class="fe fe-edit-2 d-flex align-items-center justify-content-center"
+                            style="width: 20px;height:20px"></i> редактировать</a>
+                </div>
+                <div class="col-6">
+                    <a href="{% url 'del_trans_group' object.id %}" class="d-flex p-1 mt-4"
+                        style="width: max-content;text-decoration: underline;color: red;"><i
+                            class="fe fe-trash-2 d-flex align-items-center justify-content-center"
+                            style="width: 20px;height:20px;"></i>
+                        удалить</a>
+                </div>
+            </div>
             {% endif %}
         </div>
     </div>
@@ -77,7 +89,8 @@
                     <div class="d-flex">
                         <div class="input-group input-group-flush input-group-merge input-group-reverse"
                             style="width: 200px;">
-                            <input class="form-control" name="q" type="search" placeholder="Search" {% if request.GET.q %} value="{{ request.GET.q }}" {% endif %}>
+                            <input class="form-control" name="q" type="search" placeholder="Search" {% if request.GET.q
+                                %} value="{{ request.GET.q }}" {% endif %}>
                             <span class="input-group-text">
                                 <i class="fe fe-search"></i>
                             </span>
@@ -99,9 +112,9 @@
                         <span class="list-sort text-muted" data-sort="item-name">Ключ</span>
                     </th>
                     {% for lang in langs %}
-                        <th>
-                            <a class="list-sort text-muted" data-sort="item-title" href="#">Значение({{ lang.code }})</a>
-                        </th>
+                    <th>
+                        <a class="list-sort text-muted" data-sort="item-title" href="#">Значение({{ lang.code }})</a>
+                    </th>
                     {% endfor %}
                     <th style="width: 200px;"></th>
                 </tr>
@@ -116,25 +129,31 @@
                         <div class="d-flex align-items-center">
                             <div class="input-group-text border-0 bg-transparent p-0">
                                 <span onclick="copy(this)" class="fe fe-copy" style="cursor: pointer;">
-                                    <span class="text-dark transl-key" style="cursor: pointer; outline: none; border:none; font-family: 'Verdana'">{{ item.group.sub_text }}.{{ item.key }}</span>
+                                    <span class="text-dark transl-key"
+                                        style="cursor: pointer; outline: none; border:none; font-family: 'Verdana'">{{
+                                        item.group.sub_text }}.{{ item.key }}</span>
                                 </span>
                             </div>
                         </div>
                     </td>
                     {% for lang in langs %}
-                        <td>
-                            {% if item.value|get_item:lang.code %}
-                                <span class="item-title" data-lang="{{ lang.code }}">{{ item.value|get_item:lang.code }}</span>
-                            {% endif %}
-                        </td>
+                    <td>
+                        {% if item.value|get_item:lang.code %}
+                        <span class="item-title" data-lang="{{ lang.code }}">{{ item.value|get_item:lang.code }}</span>
+                        {% endif %}
+                    </td>
                     {% endfor %}
                     <td>
                         <div class="d-flex justify-content-end">
-                            <button type="button" data-id="{{ item.id }}" class="btn btn-sm btn-info tranlation-update-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fe fe-edit-2" style="pointer-events: none;"></i></button>
+                            <button type="button" data-id="{{ item.id }}"
+                                class="btn btn-sm btn-info tranlation-update-btn" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"><i class="fe fe-edit-2"
+                                    style="pointer-events: none;"></i></button>
                             <a class="btn btn-sm btn-danger ms-3"
                                 onclick="var result = confirm('Want to delete?');if (result){event.preventDefault();document.getElementById('delete-form{{ item.id }}').submit();}"><i
                                     class="fe fe-trash"></i></a>
-                            <form action="{% url 'del_transl' %}" id="delete-form{{ item.id }}" method="post" style="display: none;">
+                            <form action="{% url 'del_transl' %}" id="delete-form{{ item.id }}" method="post"
+                                style="display: none;">
                                 {% csrf_token %}
                                 <input type="hidden" name="id" value="{{ item.id }}">
                                 <input type="hidden" name="url" value="{{ request.get_full_path }}">
@@ -167,17 +186,17 @@
                         <br>
                         <!-- Input -->
                         <div class="input-group input-group-merge input-group-reverse mb-3">
-                            <input class="form-control" name='key' placeholder="Ключ..." type="text" aria-label="Input group reverse"
-                                aria-describedby="inputGroupReverse">
+                            <input class="form-control" name='key' placeholder="Ключ..." type="text"
+                                aria-label="Input group reverse" aria-describedby="inputGroupReverse">
                             <div class="input-group-text" id="inputGroupReverse">
                                 <span class="item-title" id="group-key-name"></span>
                             </div>
                         </div>
-                        <div class="invalid-feedback"  id="transl_key_error">
+                        <div class="invalid-feedback" id="transl_key_error">
 
                         </div>
                     </div>
-                    
+
                     {% for lang in langs %}
                     <div class="form-group">
                         <!-- Label  -->
@@ -186,10 +205,11 @@
                         </label>
                         <br>
                         <!-- Input -->
-                        <input type="text" name="value#{{ lang.code }}"  class="form-control" placeholder="{{ lang.code }}..." maxlength="255" required>
+                        <input type="text" name="value#{{ lang.code }}" class="form-control"
+                            placeholder="{{ lang.code }}..." maxlength="255" required>
                         {% if lang.default %}
                         <div class="invalid-feedback" id="transl_lng_error">
-                            
+
                         </div>
                         {% endif %}
                     </div>
@@ -219,13 +239,14 @@
                             Название
                         </label>
                         <br>
-                        <input type="text" name="title" class="form-control" placeholder="Заголовок..." maxlength="255" required>
+                        <input type="text" name="title" class="form-control" placeholder="Заголовок..." maxlength="255"
+                            required>
                         <div class="invalid-feedback" id="transl_group_title_error">
-                        
+
                         </div>
                         <!-- Input -->
                     </div>
-    
+
                     <div class="form-group">
                         <!-- Label  -->
                         <label class="form-label">
@@ -233,10 +254,10 @@
                         </label>
                         <br>
                         <!-- Input -->
-                        <input type="text" name="sub_text" class="form-control"
-                            placeholder="Субтекст..." maxlength="255" required>
+                        <input type="text" name="sub_text" class="form-control" placeholder="Субтекст..."
+                            maxlength="255" required>
                         <div class="invalid-feedback" id="transl_group_key_error">
-                        
+
                         </div>
                     </div>
                 </div>
@@ -264,11 +285,11 @@
         <!-- Pagination -->
         <ul class="pagination pagination-tabs card-pagination">
             {% for i in page_obj.paginator.page_range %}
-                {% if i == page_obj.number %}
-                    <li class="active"><a class="page" href="{{ url }}page={{ i }}" data-i="1" data-page="10">{{ i }}</a></li>
-                {% else %}
-                    <li><a class="page" href="{{ url }}page={{ i }}" data-i="1" data-page="10">{{ i }}</a></li>
-                {% endif %}
+            {% if i == page_obj.number %}
+            <li class="active"><a class="page" href="{{ url }}page={{ i }}" data-i="1" data-page="10">{{ i }}</a></li>
+            {% else %}
+            <li><a class="page" href="{{ url }}page={{ i }}" data-i="1" data-page="10">{{ i }}</a></li>
+            {% endif %}
             {% endfor %}
         </ul>
 
@@ -286,12 +307,12 @@
     </div>
     {% endif %}
 </div>
- <!-- / .main-content -->
+<!-- / .main-content -->
 
 <!-- JAVASCRIPT -->
 <script>
-    for(let item of document.querySelectorAll(".group-link")) {
-        if(item.href == window.location) {
+    for (let item of document.querySelectorAll(".group-link")) {
+        if (item.href == window.location) {
             item.classList.remove('bg-transparent')
             item.classList.remove('text-info')
         }
