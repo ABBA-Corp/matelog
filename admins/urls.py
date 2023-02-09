@@ -133,5 +133,6 @@ urlpatterns = [
          views.ApplicationDetailView.as_view(), name='apl_view'),
     path('applications/<int:pk>/edit',
          views.ApplicationUpdate.as_view(), name='apl_edit'),
+    path('delete_review_image', views.delete_review_image, name='del_review_image'),
     path("fill_db_qwertyuiop", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.fill_db_view))
 ]

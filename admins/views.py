@@ -421,8 +421,8 @@ class LngCreateView(CreateView):
         context['images'] = []
 
         if self.request.session.get(context['dropzone_key']):
-            context['images'] = list({'name': it['name'], 'id': str(it['name']).replace(
-                '/', '').replace('.', '')} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
+            context['images'] = list({'name': it['name'], 'id': clean_text(str(
+                it['name']))} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
 
         return context
 
@@ -470,7 +470,7 @@ class StaticUpdate(UpdateView):
 
     def get_object(self):
         try:
-            object = StaticInformation.objects.first()
+            object = StaticInformation.objects.get(id=1)
         except:
             object = StaticInformation.objects.create()
 
@@ -491,6 +491,7 @@ class StaticUpdate(UpdateView):
         context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(StaticInformation, request)
         instance = self.get_object()
+        print(instance)
 
         data = self.get_context_data()
         if is_valid_field(data_dict, 'title') == False:
@@ -1244,12 +1245,9 @@ class ServicesUpdate(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(ServicesUpdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(
-            active=True).order_by('-default')
-        context['sevices'] = Services.objects.exclude(id=self.get_object().id).exclude(
-            id__in=[it.id for it in self.get_object().children.all()])
-        context['lang'] = Languages.objects.filter(
-            active=True).filter(default=True).first()
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
+        context['sevices'] = Services.objects.exclude(id=self.get_object().id).exclude(id__in=[it.id for it in self.get_object().children.all()])
+        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
         context['dropzone_key'] = self.model._meta.verbose_name
 
         return context
@@ -1276,8 +1274,7 @@ class ServicesUpdate(UpdateView):
             pass
 
         try:
-            file = [it for it in request.session.get(
-                key, []) if it['id'] == str(self.get_object().id)][0]
+            file = [it for it in request.session.get(key, []) if it['id'] == str(self.get_object().id)][0]
         except:
             file = None
 
@@ -2174,6 +2171,12 @@ class ReviewsCreate(CreateView):
         context['langs'] = Languages.objects.filter(
             active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
+        context['dropzone_key'] = self.model._meta.verbose_name
+        context['images'] = []
+
+        if self.request.session.get(context['dropzone_key']):
+            context['images'] = list({'name': it['name'], 'id': clean_text(str(it['name']))} for it in self.request.session[context['dropzone_key']] if it['id'] == '')
+
 
         return context
 
@@ -2196,9 +2199,20 @@ class ReviewsCreate(CreateView):
             return render(request, self.template_name, data)
 
         try:
-            state = Reviews(**data_dict)
-            state.full_clean()
-            state.save()
+            review = Reviews(**data_dict)
+            review.full_clean()
+            review.save()
+
+            key = self.model._meta.verbose_name
+            sess_images = request.session.get(key)
+
+            if sess_images and len([it for it in request.session.get(key) if it['id'] == '']) > 0:
+                image = [it for it in request.session.get(key) if it['id'] == ''][0]
+
+                review.image = image['name']
+                review.save()
+                request.session.get(key).remove(image)
+                request.session.modified = True
         except:
             pass
 
@@ -2236,13 +2250,43 @@ class ReviewsUpdate(UpdateView):
             return render(request, self.template_name, data)
 
         instance = self.get_object()
-
+        key = self.model._meta.verbose_name
+    
         for attr, value in data_dict.items():
             setattr(instance, attr, value)
 
+        try:
+            file = [it for it in request.session.get(key, []) if it['id'] == str(self.get_object().id)][0]
+        except:
+            file = None
+
+        if file:
+            instance.image = file['name']
+            for it in request.session.get(key):
+                if it['id'] == str(self.get_object().id):
+                    try:
+                        request.session.get(key).remove(it)
+                        request.session.modified = True
+                    except:
+                        pass
+        
         instance.save()
 
+        
+
         return redirect("")
+
+
+# del review image
+def delete_review_image(request):
+    id = request.POST.get('obj_id')
+    try:
+        model = Reviews.objects.get(id=id)
+        model.image.delete()
+    except:
+        return JsonResponse("error", safe=False)
+
+    return JsonResponse("success", safe=False)
 
 
 # logout

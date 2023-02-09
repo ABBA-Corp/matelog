@@ -100,13 +100,7 @@
                                 </label>
                                 <br>
                                 <!-- Textarea -->
-                                <textarea class="editor" name="deskription#{{ lang.code }}" placeholder="Text">
-                                    {% if object.deskription and object.deskription|get_item:lang.code %}
-                                        {{ object.deskription|get_item:lang.code}} 
-                                    {% elif request_post and request_post|get_item:'deskription' %}
-                                        {{ request_post|get_item:'deskription'|get_item:lang.code }}
-                                    {% endif %}</textarea>
-
+                                <textarea class="editor" name="deskription#{{ lang.code }}" placeholder="Text">{% if object.deskription and object.deskription|get_item:lang.code %}{{ object.deskription|get_item:lang.code}}{% elif request_post and request_post|get_item:'deskription' %}{{ request_post|get_item:'deskription'|get_item:lang.code }}{% endif %}</textarea>
                             </div>
 
                             <!-- Project description -->
@@ -118,13 +112,7 @@
                                 </label>
                                 <br>
                                 <!-- Textarea -->
-                                <textarea name="adres#{{ lang.code }}"  class="form-control" placeholder="Адрес">
-                                    {% if object.adres and object.adres|get_item:lang.code %}
-                                        {{ object.adres|get_item:lang.code }} 
-                                    {% elif request_post and request_post|get_item:'adres' %}
-                                        {{ request_post|get_item:'adres'|get_item:lang.code }}
-                                    {% endif %}</textarea>
-                            
+                                <textarea name="adres#{{ lang.code }}"  class="form-control" placeholder="Адрес">{% if object.adres and object.adres|get_item:lang.code %}{{ object.adres|get_item:lang.code }} {% elif request_post and request_post|get_item:'adres' %}{{ request_post|get_item:'adres'|get_item:lang.code }}{% endif %}</textarea>
                             </div>
 
                             <!-- Project description -->
@@ -136,14 +124,7 @@
                                 </label>
                                 <br>
                                 <!-- Textarea -->
-                                <textarea class="form-control" name="work_time#{{ lang.code }}" placeholder="HH:MM - HH:MM">
-                                    {% if object.work_time and object.work_time|get_item:lang.code %}
-                                        {{ object.work_time|get_item:lang.code }} 
-                                    {% elif request_post and request_post|get_item:'work_time' %}
-                                        {{ request_post|get_item:'work_time'|get_item:lang.code }}
-                                    {% endif %}
-                                </textarea>
-                            
+                                <textarea class="form-control" name="work_time#{{ lang.code }}" placeholder="HH:MM - HH:MM">{% if object.work_time and object.work_time|get_item:lang.code %}{{ object.work_time|get_item:lang.code }} {% elif request_post and request_post|get_item:'work_time' %}{{ request_post|get_item:'work_time'|get_item:lang.code }}{% endif %}</textarea>
                             </div>
                         </div>
                     {% endfor %}
