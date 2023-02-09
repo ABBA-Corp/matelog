@@ -91,12 +91,12 @@ def save_images(request):
     return JsonResponse(file_name, safe=False)
 
 
-# del lang icon
+# del lang icond
 def del_lang_icon(request):
     id = request.POST.get("item_id")
     url = request.POST.get('url')
     try:
-        Languages.objects.get(id=int(id)).icon.delete(save=False)
+        Languages.objects.get(id=int(id)).icon.delete()
     except:
         pass
 
