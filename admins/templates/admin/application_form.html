@@ -62,11 +62,9 @@
                             <option value="">-----</option>
                             {% for city in cities %}
                             {% if object and object.ship_from == city %}
-                            <option value="{{ city.id }}" selected>{{ city.name|get_item:lang.code }} {{ city.state.code
-                                }} {{ city.zip }}</option>
+                            <option value="{{ city.id }}" selected>{{ city.name|get_item:lang.code }} {{ city.state.code }} {{ city.zip }}</option>
                             {% else %}
-                            <option value="{{ city.id }}">{{ city.name|get_item:lang.code }} {{ city.state.code }} {{
-                                city.zip }}</option>
+                            <option value="{{ city.id }}">{{ city.name|get_item:lang.code }} {{ city.state.code }} {{ city.zip }}</option>
                             {% endif %}
                             {% endfor %}
                         </select>
@@ -82,11 +80,9 @@
                             <option value="">-----</option>
                             {% for city in cities %}
                             {% if object and object.ship_to == city %}
-                            <option value="{{ city.id }}" selected>{{ city.name|get_item:lang.code }} {{ city.state.code
-                                }} {{ city.zip }} </option>
+                            <option value="{{ city.id }}" selected>{{ city.name|get_item:lang.code }} {{ city.state.code }} {{ city.zip }} </option>
                             {% else %}
-                            <option value="{{ city.id }}">{{ city.name|get_item:lang.code }} {{ city.state.code }} {{
-                                city.zip }}</option>
+                            <option value="{{ city.id }}">{{ city.name|get_item:lang.code }} {{ city.state.code }} {{ city.zip }}</option>
                             {% endif %}
                             {% endfor %}
                         </select>
