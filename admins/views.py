@@ -108,7 +108,7 @@ def delete_article_group_img(request):
     id = request.POST.get('item_id')
 
     try:
-        ArticleCategories.objects.get(id=int(id)).image.delete(save=False)
+        ArticleCategories.objects.get(id=int(id)).image.delete()
     except:
         return JsonResponse("error", safe=False)
 
@@ -1188,7 +1188,7 @@ class AboutUsView(UpdateView):
 def delete_about_video(request):
     try:
         model = AboutUs.objects.get(id=1)
-        model.video.delete(save=False)
+        model.video.delete()
     except:
         return JsonResponse("error", safe=False)
 
@@ -1385,7 +1385,7 @@ def del_sev_image(request):
     id = request.POST.get('item_id')
 
     try:
-        Services.objects.get(id=int(id)).image.delete(save=False)
+        Services.objects.get(id=int(id)).image.delete()
     except:
         JsonResponse({'detail': 'error'})
 
@@ -1483,7 +1483,7 @@ def delete_article_image(request):
     id = request.POST.get("item_id")
 
     try:
-        Articles.objects.get(id=int(id)).image.delete(save=False)
+        Articles.objects.get(id=int(id)).image.delete()
     except:
         return JsonResponse({'detail': 'error'})
 
