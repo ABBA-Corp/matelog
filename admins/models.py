@@ -152,13 +152,7 @@ class Languages(models.Model):
         verbose_name = 'lang'
 
 
-@receiver(post_delete, sender=Languages)
-def lang_save_image(sender, instance, *args, **kwargs):
-    """ Clean Old Image file """
-    try:
-        instance.icon.delete(save=False)
-    except:
-        pass
+
 
 
 # translation groups
