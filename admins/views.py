@@ -2088,8 +2088,6 @@ class ApplicationUpdate(UpdateView):
         elif apl.tarif == '2':
             apl.final_price = float(price_request.get('1', 0)) + 500
 
-        
-
         return apl
 
 
