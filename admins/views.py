@@ -1198,10 +1198,11 @@ def delete_about_video(request):
 # set about video
 def set_about_video(request):
     video = request.FILES.get("file")
-    try:
-        model = AboutUs.objects.get(id=1)
-    except:
-        model = AboutUs().save()
+    #try:
+    model = AboutUs.objects.get(id=1)
+    #except:
+    #    #model = AboutUs().save()
+    #    return JsonResponse({'error': 'error'})
 
     model.video = video
     model.save()
