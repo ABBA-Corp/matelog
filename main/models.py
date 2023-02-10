@@ -130,7 +130,7 @@ class AplicationNbm(models.Model):
 class ShortApplication(models.Model):
     STATUS = [('На рассмотрении', "На рассмотрении"), ("Рассмотрено", "Рассмотрено"), ("Отклонено", "Отклонено")]
 
-    nbm = models.CharField('Nbm', blank=True, null=True, max_length=10, validators=[is_numeric_validator])
+    nbm = models.CharField('Nbm', max_length=10, validators=[is_numeric_validator])
     status = models.CharField('Status', default='На рассмотрении', max_length=255, choices=STATUS)
 
     

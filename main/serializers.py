@@ -222,6 +222,7 @@ class LeadsViewSerializer(serializers.ModelSerializer):
     ship_from = CitySerializer()
     ship_to = CitySerializer()
     vehicle = CarModelSerializer()
+    date = serializers.DateField(format="%d/%m/%Y")
 
     class Meta:
         model = Leads
