@@ -162,7 +162,7 @@ LOGOUT_REDIRECT_URL = '/admin/login'
 
 
 # date format
-DATE_FORMAT = {'Y.m.d'}
+DATE_FORMAT = {'Y.m.d', 'd/m/Y'}
 
 
 # rest
@@ -172,7 +172,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'DATE_INPUT_FORMATS': [("%Y.%m.%d"), ],
+    'DATE_INPUT_FORMATS': [("%Y.%m.%d"), ("%d/%m/%Y")],
     'PAGE_SIZE': 10,
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
