@@ -16,7 +16,7 @@ from .serializers import TranslationSerializer
 from rest_framework.response import Response
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
-from main.models import CarsModel, CarMarks, States, City, Leads, Applications
+from main.models import CarsModel, CarMarks, States, City, Leads, Applications, ShortApplication
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth import logout
 import os
@@ -1856,9 +1856,8 @@ class CityList(ListView):
     def get_context_data(self, **kwargs):
         context = super(CityList, self).get_context_data(**kwargs)
 
-        context['objects'] = get_lst_data(
-            self.get_queryset(), self.request, 20)
-        context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
+        context['objects'] = get_lst_data(self.get_queryset(), self.request, 30)
+        context['page_obj'] = paginate(self.get_queryset(), self.request, 30)
         context['lang'] = Languages.objects.filter(
             active=True).filter(default=True).first()
         context['url'] = search_pagination(self.request)
@@ -2125,20 +2124,19 @@ def fill_db_view(request):
                 #        pass
 
         elif 'STATES' in request.POST:
-            with open('matelog/admins/static/json/states_titlecase.json') as f:
-                j = json.load(f)
-                codes = [str(it.code).lower() for it in States.objects.all()]
+            j = requests.get('https://raw.githubusercontent.com/ABBA-Corp/matelog/master/admins/static/json/states_titlecase.json').json()
+            codes = [str(it.code).lower() for it in States.objects.all()]
 
-                for it in j:
-                    try:
-                        if str(it["abbreviation"]).lower() not in codes:
-                            state = States.objects.create(
-                                name={"en": it['name']},
-                                code=it['abbreviation']
-                            )
-                            state.save()
-                    except:
-                        pass
+            for it in j:
+                try:
+                    if str(it["abbreviation"]).lower() not in codes:
+                        state = States.objects.create(
+                            name={"en": it['name']},
+                            code=it['abbreviation']
+                        )
+                        state.save()
+                except:
+                    pass
 
     return render(request, 'admin/fiil_db.html')
 
@@ -2277,6 +2275,44 @@ class ReviewsUpdate(UpdateView):
         instance.save()
 
         return redirect("review_list")
+
+
+# quic applications
+class ShortApplicationList(ListView):
+    model = ShortApplication
+    template_name = 'admin/short_apls.html'
+
+    def get_queryset(self):
+        queryset = ShortApplication.objects.all()
+        queryset = search(self.request, queryset, ['status'], self.model)
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(ShortApplicationList, self).get_context_data(**kwargs)
+
+        context['objects'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
+        context['url'] = search_pagination(self.request)
+
+        return context
+
+
+# short application update
+class ShortApplicationUpdate(UpdateView):
+    model = ShortApplication
+    fields = ['nbm', 'status']
+    template_name = 'admin/short_apl_edit.html'
+    success_url = '/admin/quick_applications'
+
+
+    def get_context_data(self, **kwargs):
+        context = super(ShortApplicationUpdate, self).get_context_data(**kwargs)
+        context['statuses'] = ["На рассмотрении", "Рассмотрено", "Отклонено"]
+
+        return context
+
+
 
 
 # del review image

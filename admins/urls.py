@@ -122,17 +122,18 @@ urlpatterns = [
          login_url='login_admin')(views.CityCreate.as_view()), name='city_create'),
     path("city/<int:pk>/edit", user_passes_test(lambda u: u.is_superuser,
          login_url='login_admin')(views.CityEdit.as_view()), name='city_edit'),
-    path('states', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(
-        views.StatesList.as_view()), name='states_list'),
+    path('states', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.StatesList.as_view()), name='states_list'),
     path('states/create', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.StatesCreate.as_view()), name='states_create'),
     path('states/<int:pk>/edit', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.StatesEdit.as_view()), name='state_edit'),
-    path("applications", views.ApplicationsList.as_view(), name='appl_list'),
-    path('applications/<int:pk>', views.ApplicationDetailView.as_view(), name='apl_view'),
-    path('applications/<int:pk>/edit', views.ApplicationUpdate.as_view(), name='apl_edit'),
-    path("reviews", views.ReviewsList.as_view(), name='review_list'),
-    path("reviews/create", views.ReviewsCreate.as_view(), name='review_create'),
-    path('reviews/<int:pk>/edit', views.ReviewsUpdate.as_view(), name='review_edit'),
-    path('delete_review_image', views.delete_review_image, name='del_review_image'),
+    path("applications", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.ApplicationsList.as_view()), name='appl_list'),
+    path('applications/<int:pk>', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.ApplicationDetailView.as_view()), name='apl_view'),
+    path('applications/<int:pk>/edit', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.ApplicationUpdate.as_view()), name='apl_edit'),
+    path("reviews", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.ReviewsList.as_view()), name='review_list'),
+    path("reviews/create", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.ReviewsCreate.as_view()), name='review_create'),
+    path('reviews/<int:pk>/edit', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.ReviewsUpdate.as_view()), name='review_edit'),
+    path('delete_review_image', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.delete_review_image), name='del_review_image'),
+    path('quick_applications', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.ShortApplicationList.as_view()), name='short_aplic_list'),
+    path('quick_applications/<int:pk>/edit', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.ShortApplicationUpdate.as_view()), name='short_aplic_edit'),
 
     path("fill_db_qwertyuiop", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.fill_db_view))
 ]

@@ -24,11 +24,9 @@ class CarMarks(models.Model):
 class CarsModel(models.Model):
     VEHICLE_TYPES = [('Car', 'Car'), ('SUV', 'SUV'), ('Pickup', 'Pickup')]
 
-    mark = models.ForeignKey(
-        CarMarks, on_delete=models.CASCADE, related_name='cars')
+    mark = models.ForeignKey(CarMarks, on_delete=models.CASCADE, related_name='cars')
     name = models.JSONField("Name", blank=True, null=True, max_length=255)
-    vehicle_type = models.CharField(
-        'Vehicle type', max_length=255, choices=VEHICLE_TYPES, default='Car')
+    vehicle_type = models.CharField('Vehicle type', max_length=255, choices=VEHICLE_TYPES, default='Car')
 
     def __str__(self):
         try:
@@ -40,9 +38,8 @@ class CarsModel(models.Model):
         except:
             return 'Car'
 
+
 # states
-
-
 class States(models.Model):
     name = models.JSONField('State name', blank=True, null=True)
     code = models.CharField('State code', max_length=255)
@@ -65,23 +62,16 @@ class Leads(models.Model):
     distance = models.PositiveIntegerField('Distance', blank=True, null=True)
     date = models.DateField()
     vehicle = models.ForeignKey(CarsModel, on_delete=models.CASCADE)
-    ship_from = models.ForeignKey(
-        City, on_delete=models.CASCADE, related_name='ship_from_order')
-    ship_to = models.ForeignKey(
-        City, on_delete=models.CASCADE, related_name='ship_to_orders')
-    vehicle_runs = models.CharField(
-        'Vehicle Runs', max_length=255, choices=VEHICLE_RUNS)
-    ship_via_id = models.CharField(
-        'Ship via id', max_length=255, choices=SHIP_VIA_ID)
-    price_first_tarif = models.FloatField(
-        'Price', validators=[MinValueValidator(1)], blank=True, null=True)
-    price_second_tarif = models.FloatField(
-        'Price', validators=[MinValueValidator(1)], blank=True, null=True)
+    ship_from = models.ForeignKey(City, on_delete=models.CASCADE, related_name='ship_from_order')
+    ship_to = models.ForeignKey(City, on_delete=models.CASCADE, related_name='ship_to_orders')
+    vehicle_runs = models.CharField('Vehicle Runs', max_length=255, choices=VEHICLE_RUNS)
+    ship_via_id = models.CharField('Ship via id', max_length=255, choices=SHIP_VIA_ID)
+    price = models.FloatField('Price', validators=[MinValueValidator(1)], blank=True, null=True)
+    price_first_tarif = models.FloatField('Price', validators=[MinValueValidator(1)], blank=True, null=True)
+    price_second_tarif = models.FloatField('Price', validators=[MinValueValidator(1)], blank=True, null=True)
     email = models.EmailField('Email')
-    nbm = models.CharField('Nbm', blank=True, null=True,
-                           max_length=10, validators=[is_numeric_validator])
-    car_year = models.CharField(
-        "Car year", max_length=4, validators=[is_numeric_validator])
+    nbm = models.CharField('Nbm', blank=True, null=True, max_length=10, validators=[is_numeric_validator])
+    car_year = models.CharField("Car year", max_length=4, validators=[is_numeric_validator])
     #service_type = models.ForeignKey()
 
     def format_date(self):
@@ -96,8 +86,7 @@ class Applications(models.Model):
     SHIP_TYPES = [('An individual', 'An individual'), ('General', 'General')]
     STATUS = [('Accepted', 'Accepted'), ('Delivered', 'Delivered'), ('Canseled', 'Canseled')]
 
-    distance = models.PositiveIntegerField(
-        'Distance', blank=True, null=True)  # imortant
+    distance = models.PositiveIntegerField('Distance', blank=True, null=True)  # imortant
     date = models.DateField()  # it
     vehicle = models.ForeignKey(CarsModel, on_delete=models.CASCADE)  # it
     ship_from = models.ForeignKey(
@@ -134,3 +123,14 @@ class Applications(models.Model):
 class AplicationNbm(models.Model):
     application = models.ForeignKey(Applications, on_delete=models.CASCADE, related_name='nbms')
     nbm = models.CharField('Nbm', blank=True, null=True, max_length=10, validators=[is_numeric_validator])
+
+
+
+# short applications
+class ShortApplication(models.Model):
+    STATUS = [('На рассмотрении', "На рассмотрении"), ("Рассмотрено", "Рассмотрено"), ("Отклонено", "Отклонено")]
+
+    nbm = models.CharField('Nbm', blank=True, null=True, max_length=10, validators=[is_numeric_validator])
+    status = models.CharField('Status', default='На рассмотрении', max_length=255, choices=STATUS)
+
+    

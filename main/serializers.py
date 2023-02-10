@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from admins.models import Services, Articles, ArticleImages, StaticInformation, AboutUs, Languages, Translations, MetaTags, Reviews
 from easy_thumbnails.templatetags.thumbnail import thumbnail_url
-from .models import CarMarks, CarsModel, City, States, Leads, Applications, AplicationNbm
+from .models import CarMarks, CarsModel, City, States, Leads, Applications, AplicationNbm, ShortApplication
 from django.conf import settings
 import requests
 
@@ -163,6 +163,20 @@ class StateSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+# get city coordinates by zip
+def get_coordinates(city):
+    coord_params = {
+        "zip": city.zip,
+        "key": "17o8dysaCDrgvlc"
+    }
+
+    coord_request = requests.get('https://api.promaptools.com/service/us/zip-lat-lng/get/', params=coord_params).json()
+    lat = coord_request.get("output")[0].get('latitude')
+    lon = coord_request.get("output")[0].get("longitude")
+
+    return (lat, lon)
+
+
 # city serializer
 class CitySerializer(serializers.ModelSerializer):
     name = JsonFieldSerializer()
@@ -178,15 +192,13 @@ class CitySerializer(serializers.ModelSerializer):
         data = super().to_representation(instance)
         
         params = {
-            "zip": "77707",
+            "zip": instance.zip,
             "key": "17o8dysaCDrgvlc"
         }
 
-        coord_request = requests.get('https://api.promaptools.com/service/us/zip-lat-lng/get/', params=params).json()
-        lat = coord_request.get("output")[0].get('latitude')
-        lon = coord_request.get("output")[0].get("longitude")
+        coord_request = get_coordinates(instance)
 
-        iframe = f"""<iframe width="100%" height="300" allowfullscreen="allowfullscreen" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border: 0px;" class="lazyLoad isLoaded" src="https://maps.google.com/maps?q={ lat },{ lon }&hl=es&z=14&amp;output=embed"></iframe>"""
+        iframe = f"""<iframe width="100%" height="300" allowfullscreen="allowfullscreen" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border: 0px;" class="lazyLoad isLoaded" src="https://maps.google.com/maps?q={ coord_request[0] },{ coord_request[1] }&hl=es&z=14&amp;output=embed"></iframe>"""
         data['iframe'] = iframe
 
         return data
@@ -223,7 +235,7 @@ class LeadsCreateSerialzier(serializers.ModelSerializer):
     class Meta:
         model = Leads
         fields = '__all__'
-        read_only_fields = ['price']
+        read_only_fields = ['price', 'price_first_tarif ', 'price_second_tarif']
 
 
     
@@ -245,8 +257,13 @@ class LeadsCreateSerialzier(serializers.ModelSerializer):
         if not price_request:
             price_request = {}
 
+        lead.price = float(price_request.get('1', 0))
         lead.price_first_tarif = float(price_request.get('1', 0)) + 200
         lead.price_second_tarif = float(price_request.get('1', 0)) + 500
+
+        point_a = get_coordinates(lead.ship_to)
+        point_b = get_coordinates(lead.ship_from)
+
         lead.save()
         
         return lead
@@ -307,12 +324,11 @@ class ApplicationCreateSerializer(serializers.ModelSerializer):
         validated_data['vehicle_runs'] = lead.vehicle_runs
         validated_data['ship_via_id'] = lead.ship_via_id
         validated_data['email'] = lead.email
+        validated_data['price'] = float(lead.price)
 
         if validated_data['tarif'] == '1':
-            validated_data['price'] = float(lead.price_first_tarif) - 200
             validated_data['final_price'] = float(lead.price_first_tarif)
         elif validated_data['tarif'] == '2':
-            validated_data['price'] = float(lead.price_second_tarif) - 500
             validated_data['final_price'] = float(lead.price_second_tarif)
     
         return super().create(validated_data)
@@ -330,4 +346,12 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Reviews
+        fields = '__all__'
+
+
+
+# short application serializer
+class ShortApplicationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShortApplication
         fields = '__all__'

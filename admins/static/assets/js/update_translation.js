@@ -14,6 +14,8 @@ $(document).on('click', '.tranlation-update-btn', (e) => {
         success: (data) => {
             console.log(data.value)
             let form = $('#translation-update-form')
+            $("#transl_group_title_error").html('')
+            $('#transl_group_key_error').html('')
             $('#exampleModalLabel').html(`${data.group}.${data.key}`)
             $(form).find("[name='id']").val(data.id)
             $(form).find('#group-key-name').html(data.group + '.')

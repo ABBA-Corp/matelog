@@ -1,0 +1,82 @@
+{% extends 'admin/base_template.html' %}
+{% load static %}
+{% load get_item %}
+
+{% block title %} Короткие Заявки {% endblock %}
+
+
+{% block page_title %} Короткие Заявки {% endblock %}
+
+
+{% block nav_ol %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+    <li class="breadcrumb-item ">
+        <a href="{% url 'short_aplic_list' %}">Короткие Заявки</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
+        Создать
+    </li>
+</ol>
+{% endblock %}
+
+{% block content_width %} class="col-11" {% endblock %}
+
+
+{% block content %}
+<div class="card mt-3">
+    <div class="card-bodyb p-5">
+        <form method="POST" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            <input type="hidden" name="dropzone-key" value="{{ dropzone_key }}">
+            <input type="hidden" name="id" value="{{ object.id }}">
+            <input type="hidden" name="url" value="{{ request.get_full_path }}">
+
+            <div class="form-group">
+                <!-- Label  -->
+                <label class="form-label required">
+                    Номер
+                </label>
+                <br>
+                <!-- Input -->
+                <input type="text" name="nbm" class="form-control" {% if object.nbm %} value="{{ object.nbm }}" {% endif %} placeholder="Название..." maxlength="255" id="id_name" required>
+                <div class="invalid-feedback" style="display: block;">{{ form.errors.nbm }}</div>
+            </div>
+
+            <div class="form-group">
+                <!-- Label  -->
+                <label class="form-label required">
+                    Статус
+                </label>
+                <br>
+                <!-- Input -->
+                <select class="form-select mb-3" name="status" required>
+                    <option value="">-----</option>
+                    {% for status in statuses %}
+                        {% if status == object.status %}
+                            <option value="{{ status }}" selected>{{ status }}</option>
+                        {% else %}
+                            <option value="{{ status }}">{{ status }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <div class="invalid-feedback" style="display: block;">{{ form.errors.status }}</div>
+            </div>
+
+
+            <div class="btn-box text-end">
+                <a href="{{ request.get_full_path }}" class="btn btn-secondary">
+                    Отменить
+                </a>
+                <button type="submit" class="btn w-60 btn-primary">
+                    Сохранить
+                </button>
+            </div>
+            <!-- Buttons -->
+
+
+        </form>
+    </div>
+</div>
+<!-- Form -->
+{% endblock %}

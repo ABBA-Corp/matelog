@@ -123,7 +123,7 @@ def get_lst_data(queryset, request, number):
     if page is None or int(page) == 1:
         lst_two = range(1, number + 1)
     else:
-        start = (int(page) - 1) * number
+        start = (int(page) - 1) * number + 1
         end = int(page) * number
 
         if end > len(queryset):

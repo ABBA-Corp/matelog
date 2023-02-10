@@ -4,12 +4,12 @@ from .serializers import ArticleSerializer, ServiceSerializer, AboutUsSerializer
 from admins.models import Articles, Languages, Translations, Services, AboutUs, StaticInformation, Reviews
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
-from .models import CarMarks, CarsModel, States, City, Leads, Applications, AplicationNbm
+from .models import CarMarks, CarsModel, States, City, Leads, Applications, AplicationNbm, ShortApplication
 import requests
 import json
 from django.conf import settings
 from django.core.mail import EmailMessage, EmailMultiAlternatives
-from .serializers import CarMarkSerializer, CarModelSerializer, CitySimpleSerializer, CitySerializer, StateSerializer, LeadsCreateSerialzier, LeadsViewSerializer, ApplicationCreateSerializer, ReviewSerializer
+from .serializers import CarMarkSerializer, CarModelSerializer, CitySimpleSerializer, CitySerializer, StateSerializer, LeadsCreateSerialzier, LeadsViewSerializer, ApplicationCreateSerializer, ReviewSerializer, ShortApplicationSerializer
 from django.template.loader import get_template
 # Create your views here.
 
@@ -168,8 +168,7 @@ class LeadCreate(generics.CreateAPIView):
         subject = 'hello'
         text_content = 'some'
         html_content = html_templ.render()
-        msg = EmailMultiAlternatives(
-            subject, text_content, settings.EMAIL_HOST_USER, [lead.email])
+        msg = EmailMultiAlternatives(subject, text_content, settings.EMAIL_HOST_USER, [lead.email])
         msg.attach_alternative(html_content, "text/html")
         #msg.send()
 
@@ -225,3 +224,11 @@ class ReviewList(generics.ListAPIView):
     queryset = Reviews.objects.filter(active=True)
     serializer_class = ReviewSerializer
     pagination_class = BasePagination
+
+
+# create short application view
+class ShortAplicationView(generics.CreateAPIView):
+    queryset = ShortApplication.objects.all()
+    serializer_class = ShortApplicationSerializer
+    fields = '__all__'
+

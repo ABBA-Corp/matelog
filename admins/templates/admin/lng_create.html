@@ -34,22 +34,24 @@
 
                 <div class="form-group">
                     <!-- Label  -->
-                    <label class="form-label">
+                    <label class="form-label required">
                         Название
                     </label>
                     <br>
                     <!-- Input -->
                     <input type="text" name="name" class="form-control" {% if object.name %} value="{{ object.name }}" {% endif %} placeholder="Название..." maxlength="255" id="id_name" required>
+                    <div class="invalid-feedback" style="display: block;">{{ form.errors.name }}</div>
                 </div>
 
                 <div class="form-group">
                     <!-- Label  -->
-                    <label class="form-label">
+                    <label class="form-label required">
                         Код
                     </label>
                     <br>
                     <!-- Input -->
                     <input type="text" name="code" {% if object.code %} value="{{ object.code }}" {% endif %}  class="form-control" placeholder="Код" maxlength="255" id="id_code" required>
+                    <div class="invalid-feedback" style="display: block;">{{ form.errors.code }}</div>
                 </div>
 
                 <!-- Project cover -->
