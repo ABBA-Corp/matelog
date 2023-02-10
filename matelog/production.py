@@ -151,7 +151,17 @@ sentry_sdk.init(
 # SPECTACULAR_SETTINGS["SERVERS"] = [ # noqa F405
 #     {"url": url, "description": "Server for {}".format(url)} for url in ALLOWED_HOSTS
 # ]
-REST_FRAMEWORK = {"DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",)} # noqa F405
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'DATE_INPUT_FORMATS': [("%Y.%m.%d"), ("%d/%m/%Y")],
+    'PAGE_SIZE': 10,
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
+#REST_FRAMEWORK = {"DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",)} # noqa F405
 TIME_ZONE = "Asia/Tashkent"
 LANGUAGE_CODE = 'ru-RU'
 CSRF_TRUSTED_ORIGINS = ['https://ba06-31-148-161-224.eu.ngrok.io'] # TODO: CHANGE 
