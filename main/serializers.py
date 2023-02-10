@@ -232,6 +232,7 @@ class LeadsViewSerializer(serializers.ModelSerializer):
 # lead serializer
 class LeadsCreateSerialzier(serializers.ModelSerializer):
     distance = serializers.IntegerField(required=False)
+    date = serializers.DateField(format="%d/%m/%Y")
 
     class Meta:
         model = Leads
