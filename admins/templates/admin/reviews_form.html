@@ -84,89 +84,88 @@
                             <textarea class="editor" name="text#{{ lang.code }}" placeholder="Text" required>{% if object and object.text|get_item:lang.code %} {{ object.text|get_item:lang.code }} {% elif request_post and request_post|get_item:'text' %}{{ request_post|get_item:'text'|get_item:lang.code }}{% endif %}</textarea>
                             {% if text_error %}<div class="invalid-feedback" style="display: block;">{{ text_error }}</div>{% endif %}
                         </div>
-
-                        <!-- Project cover -->
-                        <div class="form-group">
-                            <!-- Label  -->
-                            <label class="form-label mb-1">
-                                Фото
-                            </label>
-
-                            {% if object %}
-                                <input type="hidden" id="id" value="{{ object.id }}">
-                            {% else %}
-                                <input type="hidden" id="id" value="None">
-                            {% endif %}
-
-                            <!-- Dropzone -->
-                            <div class="dropzone dropzone-multiple border-0" data-delete="/admin/images/delete"
-                                data-url="/admin/images/save" data-max="1" data-key="{{ dropzone_key }}">
-                                <!-- Fallback -->
-                                <div class="dz-preview d-none"></div>
-                                <div class="fallback">
-                                    <div class="custom-file">
-                                        <input type="file" name="file" class="form-control" id="customFileUploadMultiple">
-                                        <label class="form-label" for="customFileUploadMultiple">Choose file</label>
-                                    </div>
-                                </div>
-
-                                <!-- Preview -->
-                                <div class="dz-preview-container" id="lang-icon" style="padding: 0;">
-                                    {% if object %}
-                                    <div class="dz-preview dz-processing dz-complete dz-image-preview d-none">
-                                        <div class="dz-image">
-                                            <img data-dz-thumbnail="" src="" alt="">
-                                        </div>
-                                        <div class="dz-details">
-                                            <div class="dz-filename"><span data-dz-name=""></span></div>
-                                        </div>
-                                        <a class="dz-remove" data-file="" data-dz-remove>Удалить</a>
-                                    </div>
-                                    {% if object.image %}
-                                    <div class="dz-preview dz-processing dz-complete dz-image-preview" style="position: relative;">
-                                        <div class="dz-image">
-                                            <img data-dz-thumbnail="" src="{{ object.image.url }}" alt="{{ object.image }}">
-                                        </div>
-                                        <div class="dz-details">
-                                            <div class="dz-filename"><span data-dz-name="">{{ object.image }}</span></div>
-                                        </div>
-                                        <a class="dz-remove" data-file="{{ img.id }}"
-                                            onclick="var result = confirm('Want to delete?');if (result){submit_form('delete-form')}"
-                                            data-dz-remove>Удалить</a>
-                                        <div action="{% url 'del_review_image' %}" id="delete-form" method="post">
-                                            {% csrf_token %}
-                                            <input type="hidden" name="url" value="{{ request.get_full_path }}">
-                                            <input type="hidden" name="obj_id" value="{{ object.id }}">
-                                        </div>
-                                    </div>
-                                    {% endif %}
-                                    {% else %}
-                                    {% for img in images %}
-                                    <div class="dz-preview dz-processing dz-complete dz-image-preview">
-                                        <div class="dz-image">
-                                            <img data-dz-thumbnail="" src="/media/{{ img|get_item:'name' }}" alt="{{ img }}">
-                                        </div>
-                                        <div class="dz-details">
-                                            <div class="dz-filename"><span data-dz-name="">{{ img.name }}</span></div>
-                                        </div>
-                                        <a class="dz-remove" data-file="{{ img }}"
-                                            onclick="var result = confirm('Want to delete?');if (result){submit_form('delete-form{{ img.id }}')}"
-                                            data-dz-remove>Удалить</a>
-                                        <div action="{% url 'del-img' %}" id="delete-form{{ img.id }}" method="post">
-                                            {% csrf_token %}
-                                            <input type="hidden" name="url" value="{{ request.get_full_path }}">
-                                            <input type="hidden" name="key" value="{{ dropzone_key }}">
-                                            <input type="hidden" name="file" value="{{ img.name }}">
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                    {% endif %}
-                                </div>
-
-                            </div>
-                        </div>
                     </div>
                 {% endfor %}
+                <!-- Project cover -->
+                <div class="form-group">
+                    <!-- Label  -->
+                    <label class="form-label mb-1">
+                        Фото
+                    </label>
+                
+                    {% if object %}
+                    <input type="hidden" id="id" value="{{ object.id }}">
+                    {% else %}
+                    <input type="hidden" id="id" value="None">
+                    {% endif %}
+                
+                    <!-- Dropzone -->
+                    <div class="dropzone dropzone-multiple border-0" data-delete="/admin/images/delete" data-url="/admin/images/save"
+                        data-max="1" data-key="{{ dropzone_key }}">
+                        <!-- Fallback -->
+                        <div class="dz-preview d-none"></div>
+                        <div class="fallback">
+                            <div class="custom-file">
+                                <input type="file" name="file" class="form-control" id="customFileUploadMultiple">
+                                <label class="form-label" for="customFileUploadMultiple">Choose file</label>
+                            </div>
+                        </div>
+                
+                        <!-- Preview -->
+                        <div class="dz-preview-container" id="lang-icon" style="padding: 0;">
+                            {% if object %}
+                            <div class="dz-preview dz-processing dz-complete dz-image-preview d-none">
+                                <div class="dz-image">
+                                    <img data-dz-thumbnail="" src="" alt="">
+                                </div>
+                                <div class="dz-details">
+                                    <div class="dz-filename"><span data-dz-name=""></span></div>
+                                </div>
+                                <a class="dz-remove" data-file="" data-dz-remove>Удалить</a>
+                            </div>
+                            {% if object.image %}
+                            <div class="dz-preview dz-processing dz-complete dz-image-preview" style="position: relative;">
+                                <div class="dz-image">
+                                    <img data-dz-thumbnail="" src="{{ object.image.url }}" alt="{{ object.image }}">
+                                </div>
+                                <div class="dz-details">
+                                    <div class="dz-filename"><span data-dz-name="">{{ object.image }}</span></div>
+                                </div>
+                                <a class="dz-remove" data-file="{{ img.id }}"
+                                    onclick="var result = confirm('Want to delete?');if (result){submit_form('delete-form')}"
+                                    data-dz-remove>Удалить</a>
+                                <div action="{% url 'del_review_image' %}" id="delete-form" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="url" value="{{ request.get_full_path }}">
+                                    <input type="hidden" name="obj_id" value="{{ object.id }}">
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% else %}
+                            {% for img in images %}
+                            <div class="dz-preview dz-processing dz-complete dz-image-preview">
+                                <div class="dz-image">
+                                    <img data-dz-thumbnail="" src="/media/{{ img|get_item:'name' }}" alt="{{ img }}">
+                                </div>
+                                <div class="dz-details">
+                                    <div class="dz-filename"><span data-dz-name="">{{ img.name }}</span></div>
+                                </div>
+                                <a class="dz-remove" data-file="{{ img }}"
+                                    onclick="var result = confirm('Want to delete?');if (result){submit_form('delete-form{{ img.id }}')}"
+                                    data-dz-remove>Удалить</a>
+                                <div action="{% url 'del-img' %}" id="delete-form{{ img.id }}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="url" value="{{ request.get_full_path }}">
+                                    <input type="hidden" name="key" value="{{ dropzone_key }}">
+                                    <input type="hidden" name="file" value="{{ img.name }}">
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                
+                    </div>
+                </div>
                 
                 <div class="row">
                     <div class="col-12 col-xl-2">

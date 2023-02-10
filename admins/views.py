@@ -629,13 +629,8 @@ class TranslationList(ListView):
         context['url'] = search_pagination(self.request)
 
         # pagination
-        page_obj = paginate(self.get_queryset(), self.request, 20)
-        context['page_obj'] = page_obj
-
-        lst_one = page_obj
-        lst_two = range(1, len(self.get_queryset()) + 1)
-
-        context['translations'] = dict(pairs=zip(lst_one, lst_two))
+        context['translations'] = get_lst_data(self.get_queryset(), self.request, 20)
+        context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
 
         return context
 

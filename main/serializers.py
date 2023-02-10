@@ -325,7 +325,10 @@ class ApplicationCreateSerializer(serializers.ModelSerializer):
         validated_data['date'] = lead.date
         validated_data['vehicle_runs'] = lead.vehicle_runs
         validated_data['ship_via_id'] = lead.ship_via_id
-        validated_data['email'] = lead.email
+
+        if not validated_data.get('email'):
+            validated_data['email'] = lead.email
+        
         validated_data['price'] = float(lead.price)
 
         if validated_data['tarif'] == '1':
