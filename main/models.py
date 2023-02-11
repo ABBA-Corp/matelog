@@ -100,22 +100,22 @@ class Applications(models.Model):
     price = models.FloatField('Price', validators=[MinValueValidator(1)], blank=True, null=True)  # it
     tarif = models.CharField('Tarif', max_length=255, choices=TARIFS)
     email = models.EmailField('Email')
-    ship_type = models.CharField(
-        'Ship type', max_length=255, choices=SHIP_TYPES)
+    ship_type = models.CharField('Ship type', max_length=255, choices=SHIP_TYPES)
     first_name = models.CharField('first name', max_length=255)
     last_name = models.CharField('last name', max_length=255)
-    car_year = models.CharField(
-        "Car year", max_length=4, validators=[is_numeric_validator])
-    status = models.CharField("Status", max_length=255,
-                              choices=STATUS, default='Accepted')  # this
+    car_year = models.CharField("Car year", max_length=4, validators=[is_numeric_validator])
+    status = models.CharField("Status", max_length=255, choices=STATUS, default='Accepted')  # this
     adres = models.CharField('Adres', max_length=255)
     deckription = models.TextField('Deskription', blank=True, null=True)
     final_price = models.FloatField('Final Price', validators=[MinValueValidator(1)], blank=True, null=True)
+    contact_me = models.BooleanField('Contact me', default=True)
+    contact_else = models.CharField('Contact else', blank=True, null=True, max_length=10, validators=[is_numeric_validator])
+
 
     def get_full_name(self):
         return self.first_name + ' ' + self.last_name
 
-    def get_format_data(self):
+    def get_format_date(self):
         return str(self.date.year) + '-' + str(self.date.month) + '-' + str(self.date.day)
 
 

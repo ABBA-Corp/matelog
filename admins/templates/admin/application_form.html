@@ -153,7 +153,7 @@
                     </label>
                     <br>
                     <!-- Input -->
-                    <input type="text" name="date" value="{{ object.get_format_data }}" class="form-control" id="date-input" data-flatpickr='{"dateFormat": "Y-m-d"}'>
+                    <input type="text" name="date" value="{{ object.get_format_date }}" class="form-control" id="date-input" data-flatpickr='{"dateFormat": "Y-m-d"}'>
                 </div>
                 <div class="form-group">
                     <!-- Label  -->
@@ -166,6 +166,23 @@
                     <div class="invalid-feedback" style="display: block;">
                         {{ form.errors.status }}
                     </div>
+                </div>
+                <br>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" name="contact_me" type="checkbox" id="flexSwitchCheckDefault" {% if object.contact_me %} checked {% endif %}>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Связаться со мной</label>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Номер контакта
+                    </label>
+                    <br>
+                    <input type="text" name="contact_else" class="form-control" {% if object.contact_else %} value="{{ object.contact_else }}" {% endif %}>
+                    {% if contact_else_error %}
+                    <div class="invalid-feedback" style="display: block;">{{ contact_else_error }}</div>
+                    {% endif %}
                 </div>
 
                 <div class="form-group">

@@ -152,7 +152,7 @@
                     </label>
                     <br>
                     <!-- Input -->
-                    <input type="text" value="{{ object.get_format_data }}" class="form-control" id="date-input"
+                    <input type="text" value="{{ object.get_format_date }}" class="form-control" id="date-input"
                         data-flatpickr='{"dateFormat": "Y-m-d"}' disabled>
                 </div>
                 <div class="form-group">
@@ -186,7 +186,17 @@
                     <!-- Input -->
                     <input type="text" class="form-control" value="{{ object.status }}" disabled>
                 </div>
-
+                {% if object.contact_me == false %}
+                <div class="form-group">
+                    <!-- Label  -->
+                    <label class="form-label">
+                        Контакт
+                    </label>
+                    <br>
+                    <!-- Input -->
+                    <input type="text" class="form-control" value="{{ object.contact_else }}" disabled>
+                </div>
+                {% endif %}
                 <div class="form-group">
                     <!-- Label  -->
                     <label class="form-label">

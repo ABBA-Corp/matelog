@@ -204,8 +204,6 @@ class ApplicationCreateView(generics.CreateAPIView):
             for nbm in nbms:
                 AplicationNbm(application=apl, nbm=nbm).save()
 
-            
-
         return apl
 
 
@@ -215,6 +213,11 @@ class ApplicationCreateView(generics.CreateAPIView):
             Leads.objects.get(id=lead_id)
         except:
             return Response({'error': 'Lead id is invalid'})
+
+        nbms = self.request.data.get('nbms', [])
+
+        if type(nbms) != list:
+            return Response({'TypeError': 'nbms param should be list not {}'.format(type(nbms).__name__)})
 
         return super().post(request, *args, **kwargs)
 

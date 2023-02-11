@@ -288,9 +288,8 @@ def del_article(request):
 
     return redirect(url)
 
+
 # article update
-
-
 class ArticleUpdate(UpdateView):
     model = Articles
     fields = '__all__'
@@ -305,10 +304,8 @@ class ArticleUpdate(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(ArticleUpdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(
-            active=True).order_by("-default")
-        context['lang'] = Languages.objects.filter(
-            active=True).filter(default=True).first()
+        context['langs'] = Languages.objects.filter(active=True).order_by("-default")
+        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
         context['fields'] = get_model_fields(self.model)
         context['categories'] = ArticleCategories.objects.all()
         context['dropzone_key'] = self.model._meta.verbose_name
@@ -2085,7 +2082,29 @@ class ApplicationUpdate(UpdateView):
         elif apl.tarif == '2':
             apl.final_price = float(price_request.get('1', 0)) + 500
 
-        return apl
+        return redirect("appl_list")
+
+
+    def post(self, request, *args, **kwargs):
+        context = super().post(request, *args, **kwargs)
+        data_dict = serialize_request(self.model, self.request)
+        data = self.get_context_data()
+        
+        print(request.POST)
+        cont_me = data_dict.get('contact_me')
+        cont_else = data_dict.get('contact_else')
+
+        print(cont_me, cont_else)
+
+
+        if not cont_me and cont_else is None:
+            data['request_post'] = data_dict
+            data['contact_else_error'] = 'This field is required if contact me is False'
+            return render(request, self.template_name, data)
+
+        
+
+        return super().post(request, *args, **kwargs)
 
 
 def delete_translation_group(request, pk):

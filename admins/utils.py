@@ -33,7 +33,10 @@ def serialize_request(model, request):
             if value and field.get_internal_type() != 'BooleanField':
                 data_dict[str(field.name)] = value
             elif field.get_internal_type() == 'BooleanField':
+                if field.name in request.POST:
                     data_dict[str(field.name)] = True
+                elif field.name not in request.POST:
+                    data_dict[str(field.name)] = False
             
     return data_dict
 

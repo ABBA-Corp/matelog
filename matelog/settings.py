@@ -162,7 +162,7 @@ LOGOUT_REDIRECT_URL = '/admin/login'
 
 
 # date format
-DATE_FORMAT = {'Y.m.d', 'd/m/Y'}
+DATE_FORMAT = {'Y.m.d'}
 
 
 # rest

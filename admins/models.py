@@ -105,7 +105,7 @@ class Articles(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='articles')
     likes = models.IntegerField('Лайки', default=0)
     created_date = models.DateField()
-    active = models.BooleanField(default=True)
+    active = models.BooleanField(default=True, editable=True)
     category = models.ManyToManyField(ArticleCategories, blank=True, null=True, related_name='articles')
     meta = models.ForeignKey(MetaTags, on_delete=models.CASCADE, blank=True, null=True)
 
