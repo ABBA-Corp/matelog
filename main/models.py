@@ -59,7 +59,7 @@ class Leads(models.Model):
     SHIP_VIA_ID = [('1', '1'), ('2', '2')]
 
     uuid = models.UUIDField(editable=False, default=uuid.uuid4, unique=True)
-    distance = models.PositiveIntegerField('Distance', blank=True, null=True)
+    distance = models.CharField('Distance', max_length=255)
     date = models.DateField()
     vehicle = models.ForeignKey(CarsModel, on_delete=models.CASCADE)
     ship_from = models.ForeignKey(City, on_delete=models.CASCADE, related_name='ship_from_order')
@@ -86,7 +86,7 @@ class Applications(models.Model):
     SHIP_TYPES = [('An individual', 'An individual'), ('General', 'General')]
     STATUS = [('Accepted', 'Accepted'), ('Delivered', 'Delivered'), ('Canseled', 'Canseled')]
 
-    distance = models.PositiveIntegerField('Distance', blank=True, null=True)  # imortant
+    distance = models.CharField('Distance', max_length=255, blank=True, null=True)
     date = models.DateField()  # it
     vehicle = models.ForeignKey(CarsModel, on_delete=models.CASCADE)  # it
     ship_from = models.ForeignKey(
@@ -103,7 +103,7 @@ class Applications(models.Model):
     ship_type = models.CharField('Ship type', max_length=255, choices=SHIP_TYPES)
     first_name = models.CharField('first name', max_length=255)
     last_name = models.CharField('last name', max_length=255)
-    car_year = models.CharField("Car year", max_length=4, validators=[is_numeric_validator])
+    car_year = models.CharField("Car year", max_length=4, validators=[is_numeric_validator], blank=True, null=True)
     status = models.CharField("Status", max_length=255, choices=STATUS, default='Accepted')  # this
     adres = models.CharField('Adres', max_length=255)
     deckription = models.TextField('Deskription', blank=True, null=True)

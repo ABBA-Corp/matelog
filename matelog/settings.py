@@ -228,3 +228,7 @@ EMAIL_HOST_PASSWORD = 'scsdtusaadmbkohd'
 
 
 CSRF_TRUSTED_ORIGINS = ['https://ba06-31-148-161-224.eu.ngrok.io']
+
+
+# google api key
+GOOGLE_API_KEY = 'AIzaSyATVm7iC-2sRXyBUerU-LPGOZRHyXsDnvs'

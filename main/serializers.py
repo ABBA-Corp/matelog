@@ -4,6 +4,7 @@ from easy_thumbnails.templatetags.thumbnail import thumbnail_url
 from .models import CarMarks, CarsModel, City, States, Leads, Applications, AplicationNbm, ShortApplication
 from django.conf import settings
 import requests
+from .utils import *
 
 class ThumbnailSerializer(serializers.ImageField):
     def __init__(self, alias, *args, **kwargs):
@@ -163,20 +164,6 @@ class StateSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-# get city coordinates by zip
-def get_coordinates(city):
-    coord_params = {
-        "zip": city.zip,
-        "key": "17o8dysaCDrgvlc"
-    }
-
-    coord_request = requests.get('https://api.promaptools.com/service/us/zip-lat-lng/get/', params=coord_params).json()
-    lat = coord_request.get("output")[0].get('latitude')
-    lon = coord_request.get("output")[0].get("longitude")
-
-    return (lat, lon)
-
-
 # city serializer
 class CitySerializer(serializers.ModelSerializer):
     name = JsonFieldSerializer()
@@ -263,10 +250,11 @@ class LeadsCreateSerialzier(serializers.ModelSerializer):
         lead.price_first_tarif = float(price_request.get('1', 0)) + 200
         lead.price_second_tarif = float(price_request.get('1', 0)) + 500
 
-        point_a = get_coordinates(lead.ship_to)
-        point_b = get_coordinates(lead.ship_from)
-
+        distance = get_distance(lead.ship_to, lead.ship_from)
+        lead.distance = distance
         lead.save()
+
+        print(distance)
         
         return lead
 
@@ -302,7 +290,6 @@ class ApplicationCreateSerializer(serializers.ModelSerializer):
         model = Applications
         fields = '__all__'
         extra_kwargs = {
-            'price': {"required": False},
             'distance': {"required": False},
             'ship_from': {"required": False},
             'ship_to': {"required": False},
@@ -325,6 +312,7 @@ class ApplicationCreateSerializer(serializers.ModelSerializer):
         validated_data['date'] = lead.date
         validated_data['vehicle_runs'] = lead.vehicle_runs
         validated_data['ship_via_id'] = lead.ship_via_id
+        validated_data['car_year'] = lead.car_year
 
         if not validated_data.get('email'):
             validated_data['email'] = lead.email

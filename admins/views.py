@@ -22,6 +22,7 @@ from django.contrib.auth import logout
 import os
 from django.conf import settings
 import requests
+from main.utils import get_distance
 # Create your views here.
 
 # home admin
@@ -2050,8 +2051,7 @@ class ApplicationUpdate(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(ApplicationUpdate, self).get_context_data(**kwargs)
-        context['langs'] = Languages.objects.filter(
-            active=True).order_by('-default')
+        context['langs'] = Languages.objects.filter(active=True).order_by('-default')
         context['lang'] = Languages.objects.filter(default=True).first()
         context['cities'] = City.objects.all()
 
@@ -2082,6 +2082,10 @@ class ApplicationUpdate(UpdateView):
             apl.final_price = float(price_request.get('1', 0)) + 200
         elif apl.tarif == '2':
             apl.final_price = float(price_request.get('1', 0)) + 500
+
+        
+        distance = get_distance(apl.ship_to, apl.ship_from)
+        apl.distance = distance
 
         apl.save()
 
