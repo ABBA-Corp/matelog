@@ -257,7 +257,7 @@ class ArticlesList(ListView):
     template_name = 'admin/articles_list.html'
 
     def get_queryset(self):
-        queryset = Articles.objects.all()
+        queryset = Articles.objects.order_by("-id")
         queryset = search(self.request, queryset, [
                           'title', 'body'], self.model)
         return queryset
@@ -612,7 +612,7 @@ class TranslationList(ListView):
     template_name = 'admin/translation_list.html'
 
     def get_queryset(self):
-        queryset = Translations.objects.all()
+        queryset = Translations.objects.order_by("-id")
         query = self.request.GET.get("q")
         queryset = search_translation(query, queryset)
 
@@ -848,7 +848,7 @@ class ArticleCtgList(ListView):
     template_name = 'admin/article_ctg.lst.html'
 
     def get_queryset(self):
-        queryset = super(ArticleCtgList, self).get_queryset()
+        queryset = super(ArticleCtgList, self).get_queryset().order_by("-id")
         return search(self.request, queryset, ['name'], self.model)
 
     def get_context_data(self, **kwargs):
@@ -1075,7 +1075,7 @@ class EventsList(ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        queryset = super(EventsList, self).get_queryset()
+        queryset = super(EventsList, self).get_queryset().order_by("-id")
         return search(self.request, queryset, ['title'], self.model)
 
     def get_context_data(self, **kwargs):
@@ -1214,7 +1214,7 @@ class ServicesList(ListView):
     template_name = 'admin/services.html'
 
     def get_queryset(self):
-        queryset = Services.objects.all()
+        queryset = Services.objects.order_by("-id")
         queryset = search(self.request, queryset, [
                           'title', 'deckription', 'sub_title'], self.model)
 
@@ -1393,7 +1393,7 @@ class AdminsList(ListView):
     template_name = 'admin/moterators_list.html'
 
     def get_queryset(self):
-        queryset = User.objects.filter(is_superuser=True)
+        queryset = User.objects.filter(is_superuser=True).order_by("-id")
         queryset = search(self.request, queryset, [
                           'username', 'first_name', 'last_name'], self.model)
 
@@ -1491,7 +1491,7 @@ class CarsModelList(ListView):
     template_name = 'admin/car_model_list.html'
 
     def get_queryset(self):
-        queryset = CarsModel.objects.all()
+        queryset = CarsModel.objects.order_by("-id")
         queryset = search(self.request, queryset, ['name'], self.model)
         return queryset
 
@@ -1619,7 +1619,7 @@ class CarMarkList(ListView):
     template_name = 'admin/car_marks_list.html'
 
     def get_queryset(self):
-        queryset = CarMarks.objects.all()
+        queryset = CarMarks.objects.order_by("-id")
         queryset = search(self.request, queryset, ['name'], self.model)
 
         return queryset
@@ -1717,7 +1717,7 @@ class StatesList(ListView):
     template_name = 'admin/states.html'
 
     def get_queryset(self):
-        queryset = States.objects.all()
+        queryset = States.objects.order_by("-id")
         queryset = search(self.request, queryset, ['name', 'code'], self.model)
 
         return queryset
@@ -1840,7 +1840,7 @@ class CityList(ListView):
     template_name = 'admin/city_list.html'
 
     def get_queryset(self):
-        queryset = City.objects.all()
+        queryset = City.objects.order_by("-id")
         queryset = search(self.request, queryset, ['name'], self.model)
 
         return queryset
@@ -1986,7 +1986,7 @@ class LeadsList(ListView):
     model = Leads
 
     def get_queryset(self):
-        queryset = Leads.objects.all()
+        queryset = Leads.objects.order_by("-id")
         queryset = search(self.request, queryset, ['name'], self.model)
 
         return queryset
@@ -2010,7 +2010,7 @@ class ApplicationsList(ListView):
     template_name = 'admin/applications_list.html'
 
     def get_queryset(self):
-        queryset = Applications.objects.all()
+        queryset = Applications.objects.order_by("-id")
         queryset = search(self.request, queryset, ['name'], self.model)
 
         return queryset
@@ -2071,6 +2071,7 @@ class ApplicationUpdate(UpdateView):
             "vehicle_runs": apl.vehicle_runs
         }
         price_request = requests.get(url=url, params=params).json()
+        print(price_request)
 
         if not price_request:
             price_request = {}
@@ -2082,29 +2083,9 @@ class ApplicationUpdate(UpdateView):
         elif apl.tarif == '2':
             apl.final_price = float(price_request.get('1', 0)) + 500
 
+        apl.save()
+
         return redirect("appl_list")
-
-
-    def post(self, request, *args, **kwargs):
-        context = super().post(request, *args, **kwargs)
-        data_dict = serialize_request(self.model, self.request)
-        data = self.get_context_data()
-        
-        print(request.POST)
-        cont_me = data_dict.get('contact_me')
-        cont_else = data_dict.get('contact_else')
-
-        print(cont_me, cont_else)
-
-
-        if not cont_me and cont_else is None:
-            data['request_post'] = data_dict
-            data['contact_else_error'] = 'This field is required if contact me is False'
-            return render(request, self.template_name, data)
-
-        
-
-        return super().post(request, *args, **kwargs)
 
 
 def delete_translation_group(request, pk):
@@ -2161,7 +2142,7 @@ class ReviewsList(ListView):
     template_name = 'admin/reviews_list.html'
 
     def get_queryset(self):
-        queryset = Reviews.objects.all()
+        queryset = Reviews.objects.order_by("-id")
         queryset = search(self.request, queryset, ['title'], self.model)
 
         return queryset
@@ -2297,7 +2278,7 @@ class ShortApplicationList(ListView):
     template_name = 'admin/short_apls.html'
 
     def get_queryset(self):
-        queryset = ShortApplication.objects.all()
+        queryset = ShortApplication.objects.order_by("-id")
         queryset = search(self.request, queryset, ['status'], self.model)
 
         return queryset

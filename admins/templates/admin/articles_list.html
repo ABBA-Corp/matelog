@@ -1,7 +1,7 @@
 {% extends 'admin/base_template.html' %}
 {% load static %}
 {% load get_item %}
-
+{% load cut_text %}
 
 {% block title %} Статьи {% endblock %}
 
@@ -75,8 +75,8 @@
                                 <label class="form-check-label" for="listCheckboxAll"></label>
                             </div>
                         </th>
-                        <th>
-                            <a class="list-sort text-muted" data-sort="item-name">ID</a>
+                        <th style="width: 30px;">
+                            <a class="list-sort text-muted" data-sort="item-name">№</a>
                         </th>
                         <th>
                             <a class="list-sort text-muted" data-sort="item-name" href="#">Заголовок</a>
@@ -109,12 +109,12 @@
                                     <img class="avatar-img rounded-circle" src="{% static 'src/img/default.png' %}" alt="...">
                                     {% endif %}
                                 </div>
-                                {{ obj.title|get_item:lang.code }}
+                                {{ obj.title|get_item:lang.code|cut_text }}
                             </p>
                         </td>
                         <td>
                             <!-- Text -->
-                            <span class="item-title">{{ obj.created_date }}</span>
+                            <span class="item-title">{{ obj.get_dot_date }}</span>
                         </td>
                         <td>
                             <div class="d-flex justify-content-end">

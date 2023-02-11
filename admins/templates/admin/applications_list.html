@@ -30,8 +30,8 @@
         <table class="table table-sm table-hover table-nowrap card-table">
             <thead>
                 <tr>
-                    <th>
-                        <a class="list-sort text-muted">ID</a>
+                    <th style="width: 30px;">
+                        <a class="list-sort text-muted">№</a>
                     </th>
                     <th>
                         <a class="list-sort text-muted">Номер телефона</a>
@@ -107,7 +107,8 @@
                     </td>
                     <td>
                         <div class="d-flex justify-content-end">
-                            <a href="{% url 'apl_edit' obj.id %}" class="btn btn-sm btn-info"><i
+                            <a href="{% url 'apl_view' obj.id %}" class="btn btn-sm btn-primary"><i class="fe fe-info"></i></a>
+                            <a href="{% url 'apl_edit' obj.id %}" class="btn btn-sm btn-info ms-3"><i
                                     class="fe fe-edit-2"></i></a>
                             <a class="btn btn-sm btn-danger ms-3"
                                 onclick="var result = confirm('Want to delete?');if (result){form_submit_in_table('delete-form{{ obj.id }}')}"><i

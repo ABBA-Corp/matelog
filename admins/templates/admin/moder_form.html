@@ -5,7 +5,7 @@
 {% block title %} Новый язык {% endblock %}
 
 
-{% block page_title %} Добавить язык {% endblock %}
+{% block page_title %} Добавить модератора {% endblock %}
 
 
 {% block nav_ol %}
@@ -40,7 +40,7 @@
                 </label>
                 <br>
                 <!-- Input -->
-                <input type="text" name="name" class="form-control" {% if full_name %} value="{{ full_name }}" {% endif %} placeholder="Ф.И.О" maxlength="255" id="id_name">
+                <input type="text" name="name" class="form-control" {% if full_name %} value="{{ full_name }}" {% endif %} placeholder="Ф.И.О" maxlength="255">
                 <div class="invalid-feedback">
                     {{ form.errors.name }}
                 </div>
@@ -55,7 +55,7 @@
                 <br>
                 <!-- Input -->
                 <input type="text" name="username" {% if object.username %} value="{{ object.username }}" {% endif %}
-                    {% if form.errors.username %} class="form-control is-invalid" {% else %} class="form-control" {% endif %}" placeholder="Имя пользователя" maxlength="255" id="id_code" required>
+                    {% if form.errors.username %} class="form-control is-invalid" {% else %} class="form-control" {% endif %}" placeholder="Имя пользователя" maxlength="255" required>
                 <div class="invalid-feedback">
                     {{ form.errors.username }}
                 </div>
@@ -68,9 +68,20 @@
                 </label>
                 <br>
                 <!-- Input -->
-                <input type="password" name="password1" {% if form.errors.password1 %} class="form-control is-invalid" {% else %} class="form-control" {% endif %} placeholder="Пароль" maxlength="255" id="id_code" {% if not object %} required {% endif %}>
-                <div class="invalid-feedback">
-                    {{ form.errors.password1 }}
+                <div class="input-group input-group-merge">
+                
+                    <!-- Input -->
+                    <input type="password" name="password1" {% if form.errors.password1 %} class=" password-inpform-control is-invalid" 
+                    {% else %} class="form-control password-inp" {% endif %} placeholder="Пароль" maxlength="255" {% if not object %} required {% endif %}>
+                    <div class="invalid-feedback">
+                        {{ form.errors.password1 }}
+                    </div>
+                
+                    <!-- Icon -->
+                    <span class="input-group-text password_show" style="cursor: pointer;">
+                        <i class="fe fe-eye" style="pointer-events: none;"></i>
+                    </span>
+                
                 </div>
             </div>
 
@@ -81,9 +92,20 @@
                 </label>
                 <br>
                 <!-- Input -->
-                <input type="password" name="password2" {% if form.errors.password2 %} class="form-control is-invalid" {% else %} class="form-control" {% endif %} placeholder="Подтверждение пароля" maxlength="255" id="id_code" {% if not object %} required {% endif %}>
-                <div class="invalid-feedback">
-                    {{ form.errors.password2 }}
+                <div class="input-group input-group-merge">
+                
+                    <!-- Input -->
+                    <input type="password" name="password2" {% if form.errors.password2 %} class="form-control is-invalid password-inp" {% else %}
+                        class="form-control password-inp" {% endif %} placeholder="Подтверждение пароля" maxlength="255" {% if not object %}
+                        required {% endif %}>
+                    <div class="invalid-feedback">
+                        {{ form.errors.password2 }}
+                    </div>
+                    <!-- Icon -->
+                    <span class="input-group-text password_show" style="cursor: pointer;">
+                        <i class="fe fe-eye" style="pointer-events: none;"></i>
+                    </span>
+                
                 </div>
             </div>
 
@@ -101,5 +123,19 @@
         </form>
     </div>
 </div>
+
+
+<script>
+        $("span.password_show").on("click", (e) => {
+            let inp = $(e.target).parent().find(".password-inp")
+
+            if ($(inp).attr("type") == 'password') {
+                $(inp).attr('type', 'text')
+            } else if ($(inp).attr("type") == 'text') {
+                $(inp).attr('type', 'password')
+            }
+        })
+</script>
+
 <!-- Form -->
 {% endblock %}

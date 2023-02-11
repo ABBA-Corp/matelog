@@ -1,7 +1,7 @@
 {% extends 'admin/base_template.html' %}
 {% load static %}
 {% load get_item %}
-
+{% load cut_text %}
 
 {% block title %} Услуги {% endblock %}
 
@@ -63,8 +63,8 @@
             <table class="table table-sm table-hover table-nowrap card-table">
                 <thead>
                     <tr>
-                        <th>
-                            <a class="list-sort text-muted" data-sort="item-name">ID</a>
+                        <th style="width: 30px;">
+                            <a class="list-sort text-muted" data-sort="item-name">№</a>
                         </th>
                         <th>
                             <a class="list-sort text-muted" data-sort="item-name" href="#">Заголовок</a>
@@ -91,14 +91,14 @@
                                 {% endif %}
                             </div>
                             {% if obj.title %}
-                                {{ obj.title|get_item:lang.code }}
+                                {{ obj.title|get_item:lang.code|cut_text }}
                             {% endif %}
                             </p>
                         </td>
                         <td>
                             <!-- Text -->
                             {% if obj.parent and obj.parent.title %}
-                                <span class="item-title">{{ obj.parent.title|get_item:lang.code }}</span>
+                                <span class="item-title">{{ obj.parent.title|get_item:lang.code|cut_text }}</span>
                             {% endif %}
                         </td>
                         <td>

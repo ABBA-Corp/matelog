@@ -64,8 +64,8 @@
         <table class="table table-sm table-hover table-nowrap card-table">
             <thead>
                 <tr>
-                    <th>
-                        <a class="list-sort text-muted" data-sort="item-name">ID</a>
+                    <th style="width: 30px;">
+                        <a class="list-sort text-muted" data-sort="item-name">№</a>
                     </th>
                     <th>
                         <a class="list-sort text-muted" data-sort="item-name">Заголовок</a>
@@ -91,7 +91,7 @@
                             <img class="avatar-img rounded-circle" src="{% static 'src/img/default.png' %}" alt="...">
                             {% endif %}
                         </div>
-                        {{ obj.title|get_item:lang.code }}
+                        {{ obj.title|get_item:lang.code|cut_text }}
                         </p>
                     </td>
                     <td>

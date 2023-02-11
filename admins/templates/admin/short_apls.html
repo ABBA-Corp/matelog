@@ -3,16 +3,16 @@
 {% load get_item %}
 
 
-{% block title %} Короткие Заявки {% endblock %}
+{% block title %} Заявки с сайта {% endblock %}
 
 
-{% block page_title %} Короткие Заявки {% endblock %}
+{% block page_title %} Заявки с сайта {% endblock %}
 
 {% block nav_ol %}
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
     <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
-        Короткие Заявки
+        Заявки с сайта
     </li>
 </ol>
 {% endblock %}
@@ -30,8 +30,8 @@
         <table class="table table-sm table-hover table-nowrap card-table">
             <thead>
                 <tr>
-                    <th>
-                        <a class="list-sort text-muted">ID</a>
+                    <th style="width: 30px;">
+                        <a class="list-sort text-muted">№</a>
                     </th>
                     <th>
                         <a class="list-sort text-muted">Номер</a>

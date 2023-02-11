@@ -2,17 +2,17 @@
 {% load static %}
 {% load get_item %}
 
-{% block title %} Короткие Заявки {% endblock %}
+{% block title %} Заявки с сайта {% endblock %}
 
 
-{% block page_title %} Короткие Заявки {% endblock %}
+{% block page_title %} Заявки с сайта {% endblock %}
 
 
 {% block nav_ol %}
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
     <li class="breadcrumb-item ">
-        <a href="{% url 'short_aplic_list' %}">Короткие Заявки</a>
+        <a href="{% url 'short_aplic_list' %}">Заявки с сайта</a>
     </li>
     <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
         Создать

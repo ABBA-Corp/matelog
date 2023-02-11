@@ -1,6 +1,7 @@
 {% extends 'admin/base_template.html' %}
 {% load static %}
 {% load get_item %}
+{% load cut_text %}
 
 
 {% block title %} Модели автомобилей {% endblock %}
@@ -61,8 +62,8 @@
         <table class="table table-sm table-hover table-nowrap card-table">
             <thead>
                 <tr>
-                    <th>
-                        <a class="list-sort text-muted" data-sort="item-name">ID</a>
+                    <th style="width: 30px;">
+                        <a class="list-sort text-muted" data-sort="item-name">№</a>
                     </th>
                     <th>
                         <a class="list-sort text-muted" data-sort="item-name" href="#">Название</a>
@@ -85,14 +86,14 @@
                     <td>
                         <p class="item-phone text-reset">
                             {% if obj.name and obj.name|get_item:lang.code %}
-                                {{ obj.name|get_item:lang.code }}
+                                {{ obj.name|get_item:lang.code|cut_text }}
                             {% endif %}
                         </p>
                     </td>
                     <td>
                         <p class="item-phone text-reset">
                             {% if obj.mark.name|get_item:lang.code %}
-                                {{ obj.mark.name|get_item:lang.code }}
+                                {{ obj.mark.name|get_item:lang.code|cut_text }}
                             {% endif %}
                         </p>
                     </td>

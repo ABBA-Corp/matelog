@@ -1,6 +1,7 @@
 {% extends 'admin/base_template.html' %}
 {% load static %}
 {% load get_item %}
+{% load cut_text %}
 
 
 {% block title %} Города {% endblock %}
@@ -60,8 +61,8 @@
         <table class="table table-sm table-hover table-nowrap card-table">
             <thead>
                 <tr>
-                    <th>
-                        <a class="list-sort text-muted" data-sort="item-name">ID</a>
+                    <th style="width: 30px;">
+                        <a class="list-sort text-muted" data-sort="item-name">№</a>
                     </th>
                     <th>
                         <a class="list-sort text-muted" data-sort="item-name" href="#">Название</a>
@@ -83,7 +84,7 @@
                     </td>
                     <td>
                         <p class="item-phone text-reset">
-                            {{ obj.name|get_item:lang.code }}
+                            {{ obj.name|get_item:lang.code|cut_text }}
                         </p>
                     </td>
                     <td>

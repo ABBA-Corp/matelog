@@ -78,7 +78,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link " href="{% url 'short_aplic_list' %}">
-                            <i class="fe fe-clipboard"></i> Короткие Заявки
+                            <i class="fe fe-clipboard"></i> Заявки с сайта
                         </a>
                     </li>
 
@@ -103,46 +103,6 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="#sidebarLocation" data-bs-toggle="collapse" role="button"
-                            aria-expanded="false" aria-controls="sidebarLocation">
-                            <i class="fe fe-map-pin"></i> Локации
-                        </a>
-                        <div class="collapse" id="sidebarLocation">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a href="{% url 'states_list' %}" class="nav-link" role="button"
-                                        aria-expanded="false" aria-controls="sidebarLocation">
-                                        Штаты
-                                    </a>
-                                    <a href="{% url 'city_list' %}" class="nav-link" role="button" aria-expanded="false"
-                                        aria-controls="sidebarLocation">
-                                        Города
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" href="#sidebarVehicle" data-bs-toggle="collapse" role="button"
-                            aria-expanded="false" aria-controls="sidebarVehicle">
-                            <i class="fe fe-truck"></i> Транспорт
-                        </a>
-                        <div class="collapse" id="sidebarVehicle">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a href="{% url 'car_makes_list' %}" class="nav-link" role="button"
-                                        aria-expanded="false" aria-controls="sidebarVehicle">
-                                        Марки
-                                    </a>
-                                    <a href="{% url 'car_models' %}" class="nav-link" role="button"
-                                        aria-expanded="false" aria-controls="sidebarVehicle">
-                                        Модели
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link " href="{% url 'services' %}">
                             <i class="fe fe-grid"></i> Услуги
                         </a>
@@ -156,6 +116,46 @@
                         <a class="nav-link " href="{% url 'review_list' %}">
                             <i class="fe fe-message-circle"></i> Отзывы
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#sidebarLocation" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                            aria-controls="sidebarLocation">
+                            <i class="fe fe-map-pin"></i> Локации
+                        </a>
+                        <div class="collapse" id="sidebarLocation">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{% url 'states_list' %}" class="nav-link" role="button" aria-expanded="false"
+                                        aria-controls="sidebarLocation">
+                                        Штаты
+                                    </a>
+                                    <a href="{% url 'city_list' %}" class="nav-link" role="button" aria-expanded="false"
+                                        aria-controls="sidebarLocation">
+                                        Города
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#sidebarVehicle" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                            aria-controls="sidebarVehicle">
+                            <i class="fe fe-truck"></i> Транспорт
+                        </a>
+                        <div class="collapse" id="sidebarVehicle">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{% url 'car_makes_list' %}" class="nav-link" role="button" aria-expanded="false"
+                                        aria-controls="sidebarVehicle">
+                                        Марки
+                                    </a>
+                                    <a href="{% url 'car_models' %}" class="nav-link" role="button" aria-expanded="false"
+                                        aria-controls="sidebarVehicle">
+                                        Модели
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
                     <!-- Divider -->

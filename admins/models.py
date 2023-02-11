@@ -113,6 +113,18 @@ class Articles(models.Model):
     def get_format_data(self):
         return str(self.created_date.year) + '-' + str(self.created_date.month) + '-' + str(self.created_date.day)
 
+    def get_dot_date(self):
+        m = str(self.created_date.month)
+        if len(m) == 1:
+            m = '0' + m
+
+        d = str(self.created_date.year)
+        if len(d) == 1:
+            d = '0' + d
+
+        return str(self.created_date.day) + '.' + m + '.' + d
+
+
     class Meta:
         verbose_name = 'articles'
 

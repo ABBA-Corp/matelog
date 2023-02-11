@@ -139,6 +139,28 @@
                         <!-- Textarea -->
                         {{ form.email }}
                     </div>
+
+                    <div class="form-group">
+                        <!-- Label -->
+                        <label class="form-label mb-1">
+                            Кометарий клиента
+                        </label>
+                        <br>
+                        <!-- Textarea -->
+                        <textarea class="editor" name="deckription"
+                            placeholder="Text">{% if object and object.deckription %}{{ object.deckription }}{% endif %}</textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <!-- Label -->
+                        <label class="form-label mb-1">
+                            Заметки администратора
+                        </label>
+                        <br>
+                        <!-- Textarea -->
+                        <textarea class="editor" name="admin_notes"
+                            placeholder="Text">{% if object and object.admin_notes %}{{ object.admin_notes }}{% endif %}</textarea>
+                    </div>
                 </div>
             </div>
         </div>
@@ -168,22 +190,6 @@
                     </div>
                 </div>
                 <br>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" name="contact_me" type="checkbox" id="flexSwitchCheckDefault" {% if object.contact_me %} checked {% endif %}>
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Связаться со мной</label>
-                </div>
-                <br>
-
-                <div class="form-group">
-                    <label class="form-label">
-                        Номер контакта
-                    </label>
-                    <br>
-                    <input type="text" name="contact_else" class="form-control" {% if object.contact_else %} value="{{ object.contact_else }}" {% endif %}>
-                    {% if contact_else_error %}
-                    <div class="invalid-feedback" style="display: block;">{{ contact_else_error }}</div>
-                    {% endif %}
-                </div>
 
                 <div class="form-group">
                     <!-- Label  -->

@@ -1,6 +1,7 @@
 {% extends 'admin/base_template.html' %}
 {% load static %}
 {% load get_item %}
+{% load cut_text %}
 
 {% block title %} Категории статей {% endblock %}
 
@@ -74,8 +75,8 @@
                                 <label class="form-check-label" for="listCheckboxAll"></label>
                             </div>
                         </th>
-                        <th>
-                            <a class="list-sort text-muted" data-sort="item-name">ID</a>
+                        <th style="width: 30px;">
+                            <a class="list-sort text-muted" data-sort="item-name">№</a>
                         </th>
                         <th>
                             <a class="list-sort text-muted" data-sort="item-name" href="#">Название</a>
@@ -108,13 +109,13 @@
                                     <img  class="avatar-img rounded-circle" src="{% static 'src/img/default.png' %}" alt="...">
                                     {% endif %}
                                 </div>
-                                <a class="item-name text-reset m-3" href="{% url 'article_ctg_update' obj.id %}">{{ obj.name|get_item:lang.code }}</a>
+                                <a class="item-name text-reset m-3" href="{% url 'article_ctg_update' obj.id %}">{{ obj.name|get_item:lang.code|cut_text }}</a>
                             </div>
                         </td>
                         <td>
                             <!-- Text -->
                             {% if obj.parent %}
-                            <span class="item-title">{{ obj.parent.name|get_item:lang.code }}</span>
+                            <span class="item-title">{{ obj.parent.name|get_item:lang.code|cut_text }}</span>
                             {% endif %}
                         </td>
                         <td>

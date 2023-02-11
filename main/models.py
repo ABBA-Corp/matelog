@@ -107,6 +107,7 @@ class Applications(models.Model):
     status = models.CharField("Status", max_length=255, choices=STATUS, default='Accepted')  # this
     adres = models.CharField('Adres', max_length=255)
     deckription = models.TextField('Deskription', blank=True, null=True)
+    admin_notes = models.TextField('Notes', blank=True, null=True)
     final_price = models.FloatField('Final Price', validators=[MinValueValidator(1)], blank=True, null=True)
     contact_me = models.BooleanField('Contact me', default=True)
     contact_else = models.CharField('Contact else', blank=True, null=True, max_length=10, validators=[is_numeric_validator])
