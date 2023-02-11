@@ -118,11 +118,11 @@ class Articles(models.Model):
         if len(m) == 1:
             m = '0' + m
 
-        d = str(self.created_date.year)
+        d = str(self.created_date.day)
         if len(d) == 1:
             d = '0' + d
 
-        return str(self.created_date.day) + '.' + m + '.' + d
+        return d + '.' + m + '.' + str(self.created_date.year)
 
 
     class Meta:
