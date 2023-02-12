@@ -231,7 +231,6 @@ class ArticleCreateView(CreateView):
                     key) if it['id'] == ''][0]
 
                 article.image = image['name']
-                article.save()
                 request.session.get(key).remove(image)
                 request.session.modified = True
 
@@ -242,9 +241,10 @@ class ArticleCreateView(CreateView):
                 meta.full_clean()
                 meta.save()
                 article.meta = meta
-                article.save()
             except:
                 pass
+
+            article.save()
 
         except ValidationError:
             print(ValidationError)
@@ -354,7 +354,7 @@ class ArticleUpdate(UpdateView):
                             request.session.modified = True
                         except:
                             pass
-                instance.save()
+            instance.save()
 
             meta_dict = serialize_request(MetaTags, request)
             try:
