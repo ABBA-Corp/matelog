@@ -219,6 +219,13 @@ class ApplicationCreateView(generics.CreateAPIView):
         if type(nbms) != list:
             return Response({'TypeError': 'nbms param should be list not {}'.format(type(nbms).__name__)})
 
+        
+        contact_me = request.data.get('contact_me', False)
+        contact_else = request.data.get('contact_else', '')
+
+        if not contact_me and contact_else == '':
+            return Response({'error': 'contact_else is required if contact_me is False'})
+
         return super().post(request, *args, **kwargs)
 
 

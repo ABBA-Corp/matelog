@@ -297,7 +297,8 @@ class ApplicationCreateSerializer(serializers.ModelSerializer):
             'date': {"required": False},
             'vehicle_runs': {"required": False},
             'ship_via_id': {"required": False},
-            'email': {"required": False}
+            'email': {"required": False},
+            'contact_me': {"required": False}
         }
 
     def create(self, validated_data):
