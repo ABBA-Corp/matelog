@@ -85,6 +85,7 @@ class Applications(models.Model):
     TARIFS = [('1', '500$ tarif'), ('2', '200$ tarif')]
     SHIP_TYPES = [('An individual', 'An individual'), ('General', 'General')]
     STATUS = [('Accepted', 'Accepted'), ('Delivered', 'Delivered'), ('Canseled', 'Canseled')]
+    ADRES_TYPES = [('Residentional adress', 'Residentional adress'), ('Business adress', 'Business adress')]
 
     distance = models.CharField('Distance', max_length=255, blank=True, null=True)
     date = models.DateField()  # it
@@ -111,6 +112,7 @@ class Applications(models.Model):
     final_price = models.FloatField('Final Price', validators=[MinValueValidator(1)], blank=True, null=True)
     contact_me = models.BooleanField('Contact me', default=True)
     contact_else = models.CharField('Contact else', blank=True, null=True, max_length=10, validators=[is_numeric_validator])
+    adres_type = models.CharField("Adres type", max_length=255, choices=ADRES_TYPES)
 
 
     def get_full_name(self):

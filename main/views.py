@@ -64,10 +64,10 @@ class AboutUsView(views.APIView):
 # static information
 class StaticInfView(views.APIView):
     def get(self, request, format=None):
-        obj = StaticInformation.objects.first()
-
-        if not obj:
-            return Response({'detail': 'There is no About Us information'})
+        try:
+            obj = StaticInformation.objects.get(id=1)
+        except:
+            obj = StaticInformation.objects.create()
 
         serializer = StaticInformationSerializer(obj, context={'request': request})
 

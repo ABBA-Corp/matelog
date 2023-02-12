@@ -28,7 +28,7 @@ class LngForm(forms.ModelForm):
             }),
             "default": forms.CheckboxInput(attrs={
                 'class': 'form-check-input'
-            }),
+            })
         }
 
 
@@ -119,5 +119,8 @@ class ApplicationForm(forms.ModelForm):
             }),
             'email': forms.EmailInput(attrs={
                 'class': 'form-control'
-            })
+            }),
+            "adres_type": forms.Select(attrs={
+                "class": "form-select mb-3",
+            }),
         }
