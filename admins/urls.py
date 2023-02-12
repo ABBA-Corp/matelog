@@ -53,18 +53,6 @@ urlpatterns = [
          login_url='login_admin')(views.ArticleCtgEdit.as_view()), name='article_ctg_update'),
     path('article_categories/delete', user_passes_test(lambda u: u.is_superuser,
          login_url='login_admin')(views.article_ctg_del), name='del_art_ctg'),
-    path("faq", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(
-        views.FAQlist.as_view()), name='faq_list'),
-    path("faq/create", user_passes_test(lambda u: u.is_superuser,
-         login_url='login_admin')(views.FAQcreate.as_view()), name='faq_create'),
-    path('faq/<int:pk>/edit', user_passes_test(lambda u: u.is_superuser,
-         login_url='login_admin')(views.FAQupdate.as_view()), name='faq_edit'),
-    path("events", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(
-        views.EventsList.as_view()), name='events_list'),
-    path('events/create', user_passes_test(lambda u: u.is_superuser,
-         login_url='login_admin')(views.EventsCreate.as_view()), name="events_create"),
-    path("events/<int:pk>/edit", user_passes_test(lambda u: u.is_superuser,
-         login_url='login_admin')(views.EventsUpdate.as_view()), name='events_update'),
     path("delete", user_passes_test(lambda u: u.is_superuser,
          login_url='login_admin')(views.delete_item), name='delete'),
     path('delete_alot', user_passes_test(lambda u: u.is_superuser,
