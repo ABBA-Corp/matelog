@@ -66,7 +66,7 @@
                             </label>
                             <br>
                             <!-- Input -->
-                            <input type="text" name="title#{{ lang.code }}" class="form-control" {% if object and object.title|get_item:lang.code %} value="{{ object.title|get_item:lang.code }}" {% elif request_post and request_post|get_item:'title' %} value="{{ request_post|get_item:'title'|get_item:lang.code }}" {% endif %} required>
+                            <input type="text" name="title#{{ lang.code }}" class="form-control" {% if object and object.title|get_item:lang.code %} value="{{ object.title|get_item:lang.code }}" {% elif request_post and request_post|get_item:'title' %} value="{{ request_post|get_item:'title'|get_item:lang.code }}" {% endif %} {% if lang.default %} required {% endif %}>
                             {% if title_error %}
                             <div class="invalid-feedback" style="display: block;">
                                 {{ title_error }}

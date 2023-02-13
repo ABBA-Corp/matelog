@@ -69,9 +69,9 @@
                     {% for lang in langs %}
                     <td>
                         {% if item.value|get_item:lang.code %}
-                            <input type="text" name="value[{{ i }}][{{ lang.code }}]" class="form-control" value="{{ item.value|get_item:lang.code }}" placeholder="{{ lang.code }}..." maxlength="255" {% if lang.default %} required {% endif %}>
+                            <input type="text" name="value[{{ i }}][{{ lang.code }}]" class="form-control" value="{{ item.value|get_item:lang.code }}" placeholder="{{ lang.code }}..." {% if lang.default %} required {% endif %}>
                         {% else %}
-                            <input type="text" name="value[{{ i }}][{{ lang.code }}]" class="form-control" placeholder="{{ lang.code }}..." maxlength="255"  {% if lang.default %} required {% endif %}>
+                            <input type="text" name="value[{{ i }}][{{ lang.code }}]" class="form-control" placeholder="{{ lang.code }}..." {% if lang.default %} required {% endif %}>
                         {% endif %}
                     </td>
                     {% endfor %}
