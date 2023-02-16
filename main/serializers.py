@@ -1,29 +1,45 @@
 from rest_framework import serializers
 from admins.models import Services, Articles, ArticleImages, StaticInformation, AboutUs, Languages, Translations, MetaTags, Reviews
-from easy_thumbnails.templatetags.thumbnail import thumbnail_url
+from easy_thumbnails.templatetags.thumbnail import thumbnail_url, get_thumbnailer
 from .models import CarMarks, CarsModel, City, States, Leads, Applications, AplicationNbm, ShortApplication
 from django.conf import settings
+from django.core.files.storage import default_storage
 import requests
 from .utils import *
 
-class ThumbnailSerializer(serializers.ImageField):
-    def __init__(self, alias, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+
+class ThumbnailSerializer(serializers.BaseSerializer):
+    def __init__(self, alias, instance=None, **kwargs):
+        super().__init__(instance, **kwargs)
         self.alias = alias
 
     def to_representation(self, instance):
-        url = thumbnail_url(instance, self.alias)
+        alias = settings.THUMBNAIL_ALIASES.get('').get(self.alias)
+        if alias is None:
+            return None
 
-        if url == '':
+        size = alias.get('size')[0]
+        url = None
+
+        if instance:
+            orig_url = instance.path.split('.')
+            thb_url = '.'.join(orig_url) + f'.{size}x{size}_q85.{orig_url[-1]}'
+            if default_storage.exists(thb_url):
+                print("if")
+                last_url = instance.url.split('.')
+                url = '.'.join(last_url) + f'.{size}x{size}_q85.{last_url[-1]}'
+            else:
+                print('else')
+                url = get_thumbnailer(instance)[self.alias].url
+
+        if url == '' or url is None:
             return None
 
         request = self.context.get('request', None)
         if request is not None:
             return request.build_absolute_uri(url)
 
-
         return url
-
 
 # field lang serializer
 class JsonFieldSerializer(serializers.Serializer): 
