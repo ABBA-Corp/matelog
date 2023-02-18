@@ -1395,8 +1395,11 @@ class AdminsList(ListView):
 
     def get_queryset(self):
         queryset = User.objects.filter(is_superuser=True).order_by("-id")
-        queryset = search(self.request, queryset, [
-                          'username', 'first_name', 'last_name'], self.model)
+        query = self.request.GET.get("q", '')
+
+        if query != '':
+            queryset = queryset.filter(Q(username__iregex=query) | Q(first_name__iregex=query) | Q(last_name__iregex=query))
+        
 
         return queryset
 
