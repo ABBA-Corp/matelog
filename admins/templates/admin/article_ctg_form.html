@@ -141,7 +141,7 @@
                                         {% if object.image %}
                                             <div class="dz-preview dz-processing dz-complete dz-image-preview" style="position: relative;">
                                                 <div class="dz-image">
-                                                    <img data-dz-thumbnail="" src="{{ object.image.ten.url }}" alt="{{ object.image }}">
+                                                    <img data-dz-thumbnail="" src='{% image_thumb object.image alias="ten" request=request %}' alt="{{ object.image }}">
                                                 </div>
                                                 <div class="dz-details">
                                                     <div class="dz-filename"><span data-dz-name="">{{ img }}</span></div>

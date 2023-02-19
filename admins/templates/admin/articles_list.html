@@ -2,6 +2,7 @@
 {% load static %}
 {% load get_item %}
 {% load cut_text %}
+{% load image_thumb %}
 
 {% block title %} Статьи {% endblock %}
 
@@ -104,7 +105,7 @@
                             <p class="item-phone text-reset">
                                 <div class="avatar avatar-lg align-middle me-2">
                                     {% if obj.image %}
-                                    <img class="avatar-img rounded-circle" src="{{ obj.image.url }}" alt="...">
+                                    <img class="avatar-img rounded-circle" src='{% image_thumb obj.image alias="ten" request=request %}' alt="...">
                                     {% else %}
                                     <img class="avatar-img rounded-circle" src="{% static 'src/img/default.png' %}" alt="...">
                                     {% endif %}

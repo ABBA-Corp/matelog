@@ -1,5 +1,6 @@
 {% extends 'admin/base_template.html' %}
 {% load static %}
+{% load image_thumb %}
 
 {% block title %} Новый язык {% endblock %}
 
@@ -128,7 +129,7 @@
                                             <!-- Phone -->
                                             <p class="item-phone text-reset">
                                                 <div class="avatar avatar-xs align-middle me-2">
-                                                    <img class="avatar-img" src="{{ lang.icon.url }}" alt="...">
+                                                    <img class="avatar-img" src='{% image_thumb lang.icon alias="ten" request=request %}' alt="...">
                                                 </div>
                                              </p>
                                              {% endif %}

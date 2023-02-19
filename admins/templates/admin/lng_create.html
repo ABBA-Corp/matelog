@@ -1,6 +1,7 @@
 {% extends 'admin/base_template.html' %}
 {% load static %}
 {% load get_item %}
+{% load image_thumb %}
 
 {% block title %} Новый язык {% endblock %}
 
@@ -94,7 +95,7 @@
                             {% if object.icon %}
                                 <div class="dz-preview dz-processing dz-complete dz-image-preview" style="position: relative;">
                                     <div class="dz-image">
-                                        <img data-dz-thumbnail="" src="{{ object.icon.url }}" alt="{{ object.icon }}">
+                                        <img data-dz-thumbnail="" src='{% image_thumb object.icon alias="ten" request=request %}' alt="{{ object.icon }}">
                                     </div>
                                     <div class="dz-details">
                                         <div class="dz-filename"><span data-dz-name="">{{ object.icon }}</span></div>

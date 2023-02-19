@@ -1,6 +1,7 @@
 {% extends 'admin/base_template.html' %}
 {% load static %}
 {% load get_item %}
+{% load image_thumb %}
 
 {% block title %} Общие данные {% endblock %}
 
@@ -241,7 +242,7 @@
                                     {% if object.logo_first %}
                                     <div class="dz-preview dz-processing dz-complete dz-image-preview" style="position: relative;">
                                         <div class="dz-image">
-                                            <img data-dz-thumbnail="" src="{{ object.logo_first.ten.url }}" alt="{{ object.logo_first }}">
+                                            <img data-dz-thumbnail="" src='{% image_thumb object.logo_first alias="ten" request=request %}' alt="{{ object.logo_first }}">
                                         </div>
                                         <div class="dz-details">
                                             <div class="dz-filename"><span data-dz-name="">{{ object.icon }}</span></div>
@@ -281,7 +282,7 @@
                                     {% if object.logo_second %}
                                         <div class="dz-preview dz-processing dz-complete dz-image-preview" style="position: relative;">
                                             <div class="dz-image">
-                                                <img data-dz-thumbnail="" src="{{ object.logo_second.ten.url }}" alt="{{ object.logo_second }}">
+                                                <img data-dz-thumbnail="" src='{% image_thumb object.logo_second alias="ten" request=request %}' alt="{{ object.logo_second }}">
                                             </div>
                                             <div class="dz-details">
                                                 <div class="dz-filename"><span data-dz-name="">{{ object.icon }}</span></div>
