@@ -50,43 +50,6 @@ class StaticInformation(models.Model):
         return 'Static information'
 
 
-
-# media images
-class ImageGalery(models.Model):
-    title = models.JSONField('Заголовок изображения', blank=True, null=True)
-
-    def __str__(self):
-        return 'Image' + str(self.id)
-    
-    class Meta:
-        verbose_name = 'img_gal'
-
-
-# image gallery images
-class ImageGalleryFiles(models.Model):
-    gallery = models.ForeignKey(ImageGalery, on_delete=models.CASCADE)
-    image = ThumbnailerImageField('Изображение', upload_to='image_gallery')
-
-
-
-# media videos
-class VideoGalery(models.Model):
-    title = models.JSONField('Заголовок видео', blank=True, null=True)
-
-    def __str__(self):
-        return 'Video' + str(self.id)
-
-    class Meta:
-        verbose_name = 'vid_gal'
-
-
-# video gallery videos 
-class VideoGalleryVideos(models.Model):
-    gallery = models.ForeignKey(VideoGalery, on_delete=models.CASCADE)
-    video = models.FileField('Видео', upload_to='videos_gallery', null=True, validators=[FileExtensionValidator(allowed_extensions=['MOV', 'avi', 'mp4', 'webm', 'mkv'])])
-
-
-
 # article categories
 class ArticleCategories(models.Model):
     name = models.JSONField('Заголовок', blank=True, null=True)
@@ -195,18 +158,6 @@ class Translations(models.Model):
 
 
 
-# faq
-class FAQ(models.Model):
-    question = models.JSONField('Вопрос')
-    answer = models.JSONField('Ответ')
-    active = models.BooleanField(default=True, blank=True, null=True)
-
-    
-    class Meta:
-        verbose_name = 'faq'
-
-
-
 # inputs model
 class AdminInputs(models.Model):
     inputs = models.JSONField('Input', blank=True, null=True)
@@ -226,24 +177,6 @@ class AboutUs(models.Model):
 class AboutUsImages(models.Model):
     parent = models.ForeignKey(AboutUs, on_delete=models.CASCADE, related_name='images', blank=True, null=True)
     image = ThumbnailerImageField(upload_to='about_us_images', blank=True, null=True)
-
-
-
-# events
-class Events(models.Model):
-    title = models.JSONField("Заголовок", blank=True, null=True)
-    sub_title = models.JSONField("Подзаголовок", blank=True, null=True)
-    body = models.JSONField('Описание', blank=True, null=True)
-    created_data = models.DateField(auto_now=True)
-    active = models.BooleanField(default=True)
-    order = models.PositiveIntegerField(blank=True, null=True)
-
-
-# event images
-class EventImages(models.Model):
-    event = models.ForeignKey(Events, on_delete=models.CASCADE, related_name='images')
-    image = ThumbnailerImageField(upload_to='event_images')
-
 
 
 # parntners

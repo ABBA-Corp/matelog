@@ -29,8 +29,6 @@ urlpatterns = [
          login_url='login_admin')(views.save_images), name='images_save'),
     path("images/delete", user_passes_test(lambda u: u.is_superuser,
          login_url='login_admin')(views.delete_image), name='del-img'),
-    path("settings", user_passes_test(lambda u: u.is_superuser,
-         login_url='login_admin')(views.FormSettings.as_view())),
     path('translations', user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(
         views.TranslationList.as_view()), name='translation_list'),
     path("translations/<int:pk>", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')
