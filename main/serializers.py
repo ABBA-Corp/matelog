@@ -134,12 +134,7 @@ class TranslationSerializer(serializers.Serializer):
         data = {}
 
         for item in instance:
-            language = self.context['request'].headers.get('Language')
-
-            if not language:
-                language = Languages.objects.filter(default=True).first().code
-            
-            val = item.value.get(language, '')
+            val = JsonFieldSerializer(item.value, context={'request': self.context.get('request')}).data
             key = str(item.group.sub_text) + '.' + str(item.key)
             data[key] = val
 
