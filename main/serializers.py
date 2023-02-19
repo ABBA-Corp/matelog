@@ -42,15 +42,19 @@ class ThumbnailSerializer(serializers.BaseSerializer):
         return url
 
 # field lang serializer
-class JsonFieldSerializer(serializers.Serializer): 
+class JsonFieldSerializer(serializers.BaseSerializer):
     def to_representation(self, instance):
         language = self.context['request'].headers.get('Language')
+        default_lang = Languages.objects.filter(default=True).first().code
 
         if not language:
-            language = Languages.objects.filter(default=True).first().code
+            language = default_lang
 
         data = instance.get(language)
-        
+
+        if data is None or data == '':
+            data = instance.get(default_lang)
+
         return data
 
 
