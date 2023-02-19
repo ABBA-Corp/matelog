@@ -41,8 +41,6 @@ urlpatterns = [
          login_url='login_admin')(views.delete_translation), name='del_transl'),
     path("translation_group/create", user_passes_test(lambda u: u.is_superuser,
          login_url='login_admin')(views.add_trans_group), name='transl_group_create'),
-    path("translation_group/<int:pk>/delete",
-         views.delete_translation_group, name='del_trans_group'),
     path('article_categories', user_passes_test(lambda u: u.is_superuser,
          login_url='login_admin')(views.ArticleCtgList.as_view()), name='article_ctg_list'),
     path('article_categories/create', user_passes_test(lambda u: u.is_superuser,

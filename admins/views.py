@@ -1866,15 +1866,6 @@ class ApplicationUpdate(UpdateView):
         return redirect("appl_list")
 
 
-def delete_translation_group(request, pk):
-    try:
-        TranlsationGroups.objects.get(pk=int(pk)).delete()
-    except:
-        pass
-
-    return redirect('translation_list')
-
-
 # fill db view
 def fill_db_view(request):
     if request.method == 'POST':
