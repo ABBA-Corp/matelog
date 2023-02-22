@@ -223,11 +223,10 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-EMAIL_HOST_USER = 'dadamuhames@gmail.com'
-EMAIL_HOST_PASSWORD = 'scsdtusaadmbkohd'
+EMAIL_HOST_USER = 'matelog13@gmail.com'
+EMAIL_HOST_PASSWORD = 'upixsdugcxubglbp'
 
 
-CSRF_TRUSTED_ORIGINS = ['https://ba06-31-148-161-224.eu.ngrok.io']
 
 
 # google api key
