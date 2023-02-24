@@ -200,7 +200,7 @@ class CitySerializer(serializers.ModelSerializer):
 
         coord_request = get_coordinates(instance)
 
-        iframe = f"""<iframe width="100%" height="300" allowfullscreen="allowfullscreen" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border: 0px;" class="lazyLoad isLoaded" src="https://maps.google.com/maps?q={ coord_request[0] },{ coord_request[1] }&hl=es&z=14&amp;output=embed"></iframe>"""
+        iframe = f"""<iframe width="100%" height="300" allowfullscreen="allowfullscreen" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border: 0px;" class="lazyLoad isLoaded" src="https://maps.google.com/maps?q={ coord_request }&hl=es&z=14&amp;output=embed"></iframe>"""
         data['iframe'] = iframe
 
         return data
