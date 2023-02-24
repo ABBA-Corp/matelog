@@ -167,7 +167,7 @@ class LeadCreate(generics.CreateAPIView):
         try:
             subject = 'hello'
             text_content = 'some'
-            html_content = html_templ.render(context={'uuid': 'some'})
+            html_content = html_templ.render(context={'uuid': lead.uuid})
             msg = EmailMultiAlternatives(subject, text_content, settings.EMAIL_HOST_USER, [lead.email])
             msg.attach_alternative(html_content, "text/html")
             msg.send()
