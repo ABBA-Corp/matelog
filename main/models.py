@@ -70,7 +70,7 @@ class Leads(models.Model):
     price_first_tarif = models.FloatField('Price', validators=[MinValueValidator(1)], blank=True, null=True)
     price_second_tarif = models.FloatField('Price', validators=[MinValueValidator(1)], blank=True, null=True)
     email = models.EmailField('Email')
-    nbm = models.CharField('Nbm', blank=True, null=True, max_length=10, validators=[is_numeric_validator])
+    nbm = models.CharField('Nbm', blank=True, null=True)
     car_year = models.CharField("Car year", max_length=4, validators=[is_numeric_validator])
     #service_type = models.ForeignKey()
 
