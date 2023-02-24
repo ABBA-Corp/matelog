@@ -10,7 +10,7 @@ from .settings import *  # noqa
 import environ
 env = environ.Env()
 env.read_env(str(BASE_DIR / ".env"))
-DEBUG = False
+DEBUG = True
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
