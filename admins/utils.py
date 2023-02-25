@@ -148,18 +148,20 @@ def search(request, queryset, fields: list):
     if query == '':
         return queryset 
 
+    langs = Languages.objects.filter(active=True)
     query_str = ''
-    for lang in Languages.objects.filter(active=True):
+    for lang in langs:
         query_str += f'"$.{lang.code}",'
 
-    end_set = set()
-    for field in fields:
-        qs = queryset.extra(where=[f'lower(JSON_EXTRACT({field}, {query_str[:-1]})) LIKE %s',], params=[f'%{query.lower()}%'])
+    if langs.exists():
+        end_set = set()
+        for field in fields:
+            qs = queryset.extra(where=[f'lower(JSON_EXTRACT({field}, {query_str[:-1]})) LIKE %s',], params=[f'%{query.lower()}%'])
 
-        for item in qs:
-            end_set.add(item)
+            for item in qs:
+                end_set.add(item)
 
-    queryset = list_to_queryset(list(end_set))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        queryset = list_to_queryset(list(end_set))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 
     return queryset
 
