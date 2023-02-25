@@ -142,30 +142,24 @@ def get_lst_data(queryset, request, number):
 
 
 # search
-def search(request, queryset, fields: list, model):
-    query = request.GET.get("q")
+def search(request, queryset, fields: list):
+    query = request.GET.get("q", '')
 
     if query == '':
-        query = None
+        return queryset 
 
+    query_str = ''
+    for lang in Languages.objects.filter(active=True):
+        query_str += f'"$.{lang.code}",'
 
-    langs = Languages.objects.filter(active=True)
-    endlist = list()
-
-    if query is None:
-        return queryset
-
-    queryset = queryset.values()
-    
+    end_set = set()
     for field in fields:
-        for item in queryset:
-            for lang in langs:
-                if query.lower() in str(item.get(field, {}).get(lang.code, '')).lower():
-                    if item['id'] not in [it['id'] for it in endlist]:
-                        endlist.append(item)
-                continue
+        qs = queryset.extra(where=[f'lower(JSON_EXTRACT({field}, {query_str[:-1]})) LIKE %s',], params=[f'%{query.lower()}%'])
 
-    queryset = list_of_dicts_to_queryset(endlist, model)
+        for item in qs:
+            end_set.add(item)
+
+    queryset = list_to_queryset(list(end_set))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 
     return queryset
 

@@ -259,8 +259,7 @@ class ArticlesList(ListView):
 
     def get_queryset(self):
         queryset = Articles.objects.order_by("-id")
-        queryset = search(self.request, queryset, [
-                          'title', 'body'], self.model)
+        queryset = search(self.request, queryset, ['title', 'body'])
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -752,7 +751,7 @@ class ArticleCtgList(ListView):
 
     def get_queryset(self):
         queryset = super(ArticleCtgList, self).get_queryset().order_by("-id")
-        return search(self.request, queryset, ['name'], self.model)
+        return search(self.request, queryset, ['name'])
 
     def get_context_data(self, **kwargs):
         context = super(ArticleCtgList, self).get_context_data(**kwargs)
@@ -987,8 +986,7 @@ class ServicesList(ListView):
 
     def get_queryset(self):
         queryset = Services.objects.order_by("-id")
-        queryset = search(self.request, queryset, [
-                          'title', 'deckription', 'sub_title'], self.model)
+        queryset = search(self.request, queryset, ['title', 'deckription', 'sub_title'])
 
         return queryset
 
@@ -1267,7 +1265,7 @@ class CarsModelList(ListView):
 
     def get_queryset(self):
         queryset = CarsModel.objects.order_by("-id")
-        queryset = search(self.request, queryset, ['name'], self.model)
+        queryset = search(self.request, queryset, ['name'])
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -1395,7 +1393,7 @@ class CarMarkList(ListView):
 
     def get_queryset(self):
         queryset = CarMarks.objects.order_by("-id")
-        queryset = search(self.request, queryset, ['name'], self.model)
+        queryset = search(self.request, queryset, ['name'])
 
         return queryset
 
@@ -1493,7 +1491,21 @@ class StatesList(ListView):
 
     def get_queryset(self):
         queryset = States.objects.order_by("-id")
-        queryset = search(self.request, queryset, ['name', 'code'], self.model)
+        query = self.request.GET.get("q", '')
+
+        if query != '':
+            end_set = set()
+            qs1 = search(self.request, queryset, ['name'])
+            qs2 = queryset.filter(code__iregex=query)
+
+            for it in qs1:
+                end_set.add(it)
+
+            for it in qs2:
+                end_set.add(it)
+
+            queryset = list_to_queryset(list(end_set))
+
 
         return queryset
 
@@ -1616,7 +1628,7 @@ class CityList(ListView):
 
     def get_queryset(self):
         queryset = City.objects.order_by("-id")
-        queryset = search(self.request, queryset, ['name'], self.model)
+        queryset = search(self.request, queryset, ['name'])
 
         return queryset
 
@@ -1762,7 +1774,7 @@ class LeadsList(ListView):
 
     def get_queryset(self):
         queryset = Leads.objects.order_by("-id")
-        queryset = search(self.request, queryset, ['name'], self.model)
+        queryset = search(self.request, queryset, ['name'])
 
         return queryset
 
@@ -1786,7 +1798,7 @@ class ApplicationsList(ListView):
 
     def get_queryset(self):
         queryset = Applications.objects.order_by("-id")
-        queryset = search(self.request, queryset, ['name'], self.model)
+        queryset = search(self.request, queryset, ['name'])
 
         return queryset
 
@@ -1912,7 +1924,7 @@ class ReviewsList(ListView):
 
     def get_queryset(self):
         queryset = Reviews.objects.order_by("-id")
-        queryset = search(self.request, queryset, ['title'], self.model)
+        queryset = search(self.request, queryset, ['title'])
 
         return queryset
 
@@ -2048,7 +2060,7 @@ class ShortApplicationList(ListView):
 
     def get_queryset(self):
         queryset = ShortApplication.objects.order_by("-id")
-        queryset = search(self.request, queryset, ['status'], self.model)
+        queryset = search(self.request, queryset, ['status'])
 
         return queryset
 
