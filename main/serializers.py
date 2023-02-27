@@ -221,8 +221,8 @@ class CitySimpleSerializer(serializers.ModelSerializer):
 
 # lead view serializer
 class LeadsViewSerializer(serializers.ModelSerializer):
-    ship_from = CitySerializer()
-    ship_to = CitySerializer()
+    ship_from = CitySimpleSerializer()
+    ship_to = CitySimpleSerializer()
     vehicle = CarModelSerializer()
     date = serializers.DateField(format="%d/%m/%Y")
 
