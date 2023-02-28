@@ -156,7 +156,7 @@ def search(request, queryset, fields: list):
     if langs.exists():
         end_set = set()
         for field in fields:
-            qs = queryset.extra(where=[f'lower(JSON_EXTRACT({field}, {query_str[:-1]})) LIKE %s',], params=[f'%{query.lower()}%'])
+            qs = queryset.extra(where=[f'LOWER({field} ::varchar) LIKE %s'], params=[f'%{query.lower()}%'])
 
             for item in qs:
                 end_set.add(item)
