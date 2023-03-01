@@ -156,7 +156,7 @@ THUMBNAIL_ALIASES = {
 }
 
 
-LOGIN_REDIRECT_URL = '/admin/'
+LOGIN_REDIRECT_URL = '/admin/quick_applications'
 LOGOUT_REDIRECT_URL = '/admin/login'
 
 
