@@ -71,6 +71,7 @@ $('.dropzone').each((i, e) => {
         url: $(e).attr("data-url"),
         parallelUploads: 1,
         maxFiles: $('.dropzone').attr('data-max'),
+        acceptedFiles: 'image/*',
         params: {
             "csrfmiddlewaretoken": document.querySelector('input[name="csrfmiddlewaretoken"]').value,
             "key": $(e).attr('data-key'),
