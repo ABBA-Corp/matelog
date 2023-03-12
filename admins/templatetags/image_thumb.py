@@ -17,7 +17,7 @@ def image_thumb(image, **kwargs):
     size = alias.get('size')[0]
     url = None
 
-    if image:
+    if image and default_storage.exists(image.path):
         orig_url = image.path.split('.')
         thb_url = '.'.join(orig_url) + f'.{size}x{size}_q85.{orig_url[-1]}'
         if default_storage.exists(thb_url):
