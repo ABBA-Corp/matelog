@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from rest_framework import views, generics
 from .serializers import ArticleSerializer, ServiceSerializer, AboutUsSerializer, StaticInformationSerializer, TranslationSerializer, LangsSerializer
+from .serializers import NewAplSerializer
 from admins.models import Articles, Languages, Translations, Services, AboutUs, StaticInformation, Reviews
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
-from .models import CarMarks, CarsModel, States, City, Leads, Applications, AplicationNbm, ShortApplication
+from .models import CarMarks, CarsModel, States, City, Leads, Applications, AplicationNbm, ShortApplication, SomeAplication
 import requests
 import json
 from django.conf import settings
@@ -244,3 +245,9 @@ class ShortAplicationView(generics.CreateAPIView):
     serializer_class = ShortApplicationSerializer
     fields = '__all__'
 
+
+
+# add amiga ski application (sory if you read this)
+class NewAmgAplication(generics.CreateAPIView):
+    queryset = SomeAplication.objects.all()
+    serializer_class = NewAplSerializer

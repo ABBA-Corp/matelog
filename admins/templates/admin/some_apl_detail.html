@@ -1,0 +1,81 @@
+{% extends 'admin/base_template.html' %}
+{% load static %}
+{% load get_item %}
+
+{% block title %} Заявки с сайта {% endblock %}
+
+
+{% block page_title %} Заявки с сайта {% endblock %}
+
+
+{% block nav_ol %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+    <li class="breadcrumb-item ">
+        <a href="{% url 'contacts_list' %}">Заявки с сайта</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
+        Просмотр
+    </li>
+</ol>
+{% endblock %}
+
+{% block content_width %} class="col-11" {% endblock %}
+
+
+{% block content %}
+<div class="card mt-3">
+    <div class="card-bodyb p-5">
+        {% csrf_token %}
+        <input type="hidden" name="dropzone-key" value="{{ dropzone_key }}">
+        <input type="hidden" name="id" value="{{ object.id }}">
+        <input type="hidden" name="url" value="{{ request.get_full_path }}">
+
+        <div class="form-group">
+            <!-- Label  -->
+            <label class="form-label required">
+                Номер
+            </label>
+            <br>
+            <!-- Input -->
+            <input type="text" name="nbm" disabled class="form-control" value="{{ object.nmb }}" placeholder="Название..." maxlength="255" id="id_name" required>
+            <div class="invalid-feedback" style="display: block;">{{ form.errors.nbm }}</div>
+        </div>
+
+        <div class="form-group">
+            <!-- Label  -->
+            <label class="form-label required">
+                Имя
+            </label>
+            <br>
+            <!-- Input -->
+            <input type="text" name="nbm" disabled class="form-control" value="{{ object.name }}" 
+                placeholder="Название..." maxlength="255" id="id_name" required>
+        </div>
+
+        <div class="form-group">
+            <!-- Label  -->
+            <label class="form-label required">
+                Тема
+            </label>
+            <br>
+            <!-- Input -->
+            <input type="text" name="nbm" class="form-control" disabled value="{{ object.get_subject_display }}" placeholder="Название..."
+                maxlength="255" id="id_name" required>
+        </div>
+
+        <div class="form-group">
+            <!-- Label  -->
+            <label class="form-label required">
+                Сообщение
+            </label>
+            <br>
+            <!-- Input -->
+            <textarea name="" id="" cols="30" rows="10" class="form-control" disabled>{{ object.comment }}</textarea>
+        </div>
+        <!-- Buttons -->
+
+    </div>
+</div>
+<!-- Form -->
+{% endblock %}

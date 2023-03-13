@@ -16,7 +16,7 @@ from .serializers import TranslationSerializer
 from rest_framework.response import Response
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
-from main.models import CarsModel, CarMarks, States, City, Leads, Applications, ShortApplication
+from main.models import CarsModel, CarMarks, States, City, Leads, Applications, ShortApplication, SomeAplication
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth import logout
 import os
@@ -2110,4 +2110,30 @@ def logout_view(request):
     return redirect('login_admin')
 
 
-#
+# new apl list
+class AmigaSkiAplicationList(ListView):
+    model = SomeAplication
+    template_name = 'admin/new_application.html'
+
+    def get_queryset(self):
+        queryset = SomeAplication.objects.order_by("-id")
+        queryset = search(self.request, queryset, ['name', 'subject'])
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(AmigaSkiAplicationList, self).get_context_data(**kwargs)
+
+        context['objects'] = get_lst_data(
+            self.get_queryset(), self.request, 20)
+        context['page_obj'] = paginate(self.get_queryset(), self.request, 20)
+        context['url'] = search_pagination(self.request)
+
+        return context
+
+
+# new aplication detail
+class NewAplDetail(DetailView):
+    model = SomeAplication
+    template_name = 'admin/some_apl_detail.html'
+
+

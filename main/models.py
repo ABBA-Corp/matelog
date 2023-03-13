@@ -136,4 +136,17 @@ class ShortApplication(models.Model):
     nbm = models.CharField('Nbm', max_length=10, validators=[is_numeric_validator])
     status = models.CharField('Status', default='На рассмотрении', max_length=255, choices=STATUS)
 
-    
+
+
+# short apl
+class SomeAplication(models.Model):
+    SUBJECT = [('0', 'I want a free quote'), ('1', 'I have an existing order'),
+               ('2', 'I want to book a shipment'), ('3', 'Other questions')]
+
+    name = models.CharField(max_length=255, blank=True, null=True)
+    email = models.EmailField('Email', blank=True, null=True) 
+    nmb = models.CharField(max_length=255, blank=True, null=True)
+    subject = models.CharField('Subject', max_length=255, choices=SUBJECT, blank=True, null=True)
+    comment = models.TextField(blank=True, null=True)
+
+

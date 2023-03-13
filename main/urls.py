@@ -21,5 +21,6 @@ urlpatterns = [
     path('leads/<uuid:uuid>/edit', views.LeadUpdateView.as_view()),
     path("applications/create", views.ApplicationCreateView.as_view()),
     path('reviews', views.ReviewList.as_view()),
-    path('short_application/create', views.ShortAplicationView.as_view())
+    path('short_application/create', views.ShortAplicationView.as_view()),
+    path('application/create', views.NewAmgAplication.as_view())
 ]

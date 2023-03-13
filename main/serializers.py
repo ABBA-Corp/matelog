@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from admins.models import Services, Articles, ArticleImages, StaticInformation, AboutUs, Languages, Translations, MetaTags, Reviews
 from easy_thumbnails.templatetags.thumbnail import thumbnail_url, get_thumbnailer
-from .models import CarMarks, CarsModel, City, States, Leads, Applications, AplicationNbm, ShortApplication
+from .models import CarMarks, CarsModel, City, States, Leads, Applications, AplicationNbm, ShortApplication, SomeAplication
 from django.conf import settings
 from django.core.files.storage import default_storage
 import requests
@@ -364,3 +364,12 @@ class ShortApplicationSerializer(serializers.ModelSerializer):
     class Meta:
         model = ShortApplication
         fields = '__all__'
+
+
+
+# serializer
+class NewAplSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SomeAplication
+        fields = '__all__'
+
