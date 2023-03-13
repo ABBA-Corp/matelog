@@ -70,7 +70,7 @@ urlpatterns = [
     path('delete_review_image', views.delete_review_image, name='del_review_image'),
     path('quick_applications', views.ShortApplicationList.as_view(), name='short_aplic_list'),
     path('quick_applications/<int:pk>/edit', views.ShortApplicationUpdate.as_view(), name='short_aplic_edit'),
-    path("contacts", views.AmigaSkiAplicationList.as_view(), name='contacts_list'),
+    path("contacts", views.NewAplList.as_view(), name='contacts_list'),
     path("contacts/<int:pk>", views.NewAplDetail.as_view(), name='contacts_detail'),
 
     path("fill_db_qwertyuiop", user_passes_test(lambda u: u.is_superuser, login_url='login_admin')(views.fill_db_view))

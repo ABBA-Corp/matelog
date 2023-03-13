@@ -2111,7 +2111,7 @@ def logout_view(request):
 
 
 # new apl list
-class AmigaSkiAplicationList(ListView):
+class NewAplList(ListView):
     model = SomeAplication
     template_name = 'admin/new_application.html'
 
@@ -2121,7 +2121,7 @@ class AmigaSkiAplicationList(ListView):
         return queryset
 
     def get_context_data(self, **kwargs):
-        context = super(AmigaSkiAplicationList, self).get_context_data(**kwargs)
+        context = super(NewAplList, self).get_context_data(**kwargs)
 
         context['objects'] = get_lst_data(
             self.get_queryset(), self.request, 20)
