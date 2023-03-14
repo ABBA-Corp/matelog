@@ -1882,28 +1882,50 @@ class ApplicationUpdate(UpdateView):
 def fill_db_view(request):
     if request.method == 'POST':
         if 'CITY' in request.POST:
-            file_names = ['new2', 'new3']
-            for name in file_names:
-                f = requests.get(f'https://raw.githubusercontent.com/ABBA-Corp/matelog/master/admins/static/json/{name}.json')
-                j = f.json()
-                #zips = [str(it.zip) for it in City.objects.all()]
+            name = 'new'
+        elif 'CITY2' in request.POST:
+            name = 'new2'
+        elif 'CITY3' in request.POST:
+            name = 'new3'
+        elif 'CITY4' in request.POST:
+            name = 'new4'
+        elif 'CITY5' in request.POST:
+            name = 'new5'
+        elif 'CITY6' in request.POST:
+            name = 'new6'
+        elif 'CITY7' in request.POST:
+            name = 'new7'
+        elif 'CITY8' in request.POST:
+            name = 'new8'
+        elif 'CITY9' in request.POST:
+            name = 'new9'
+        elif 'CITY10' in request.POST:
+            name = 'new10'
+        elif 'CITY11' in request.POST:
+            name = 'new11'
+        elif 'CITY12' in request.POST:
+            name = 'new12'
 
-                for it in j:
-                    try:
-                        state = States.objects.get(code=it['tate'])
-                        city = City.objects.create(
-                            name={"en": it["rimary_city"]},
-                            state = state,
-                            zip=it["ame"]
-                        )
-                        city.save()
-                        print(f'{name}-------✅')
-                    except:
-                        print(f'{name}-------❌')
-                
+        f = requests.get(f'https://raw.githubusercontent.com/ABBA-Corp/matelog/master/admins/static/json/{name}.json')
+        j = f.json()
+        #zips = [str(it.zip) for it in City.objects.all()]
 
-        elif 'STATES' in request.POST:
-            j = requests.get('https://raw.githubusercontent.com/ABBA-Corp/matelog/master/admins/static/json/states_titlecase.json').json()
+        for it in j:
+            try:
+                state = States.objects.get(code=it['tate'])
+                city = City.objects.create(
+                    name={"en": it["rimary_city"]},
+                    state=state,
+                    zip=it["ame"]
+                )
+                city.save()
+                print(f'{name}-------✅')
+            except:
+                print(f'{name}-------❌')
+
+        if 'STATES' in request.POST:
+            j = requests.get(
+                'https://raw.githubusercontent.com/ABBA-Corp/matelog/master/admins/static/json/states_titlecase.json').json()
             codes = [str(it.code).lower() for it in States.objects.all()]
 
             for it in j:
@@ -1916,6 +1938,7 @@ def fill_db_view(request):
                         state.save()
                 except:
                     pass
+
 
     return render(request, 'admin/fiil_db.html')
 
