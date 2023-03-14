@@ -1882,20 +1882,26 @@ class ApplicationUpdate(UpdateView):
 def fill_db_view(request):
     if request.method == 'POST':
         if 'CITY' in request.POST:
-            j = requests.get('https://raw.githubusercontent.com/ABBA-Corp/matelog/master/admins/static/json/cities.json').json()
-            #zips = [str(it.zip) for it in City.objects.all()]
+            file_names = ['new', 'new2', 'new3', 'new4', 'new5',
+                          'new6', 'new7', 'new8', 'new9', 'new10', 'new11', 'new12']
+            for name in file_names:
+                with open(f'./admins/static/json/{name}.json') as f:
+                    j = json.load(f, strict=False)
+                    #zips = [str(it.zip) for it in City.objects.all()]
 
-            for it in j:
-                try:
-                    state = States.objects.get(code=it['tate'])
-                    city = City.objects.create(
-                        name={"en": it["rimary_city"]},
-                        state = state,
-                        zip=it["ame"]
-                    )
-                    city.save()
-                except:
-                    pass
+                    for it in j:
+                        try:
+                            state = States.objects.get(code=it['tate'])
+                            city = City.objects.create(
+                                name={"en": it["rimary_city"]},
+                                state = state,
+                                zip=it["ame"]
+                            )
+                            city.save()
+                            print(f'{name}-------✅')
+                        except:
+                            print(f'{name}-------❌')
+                
 
         elif 'STATES' in request.POST:
             j = requests.get('https://raw.githubusercontent.com/ABBA-Corp/matelog/master/admins/static/json/states_titlecase.json').json()

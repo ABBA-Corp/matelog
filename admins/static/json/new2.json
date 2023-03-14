@@ -1,0 +1,6522 @@
+[
+    {
+        "d": "15acbb0b-2439-9c13-f963-5505740fc2c7",
+        "ame": "67842",
+        "ype": "STANDARD",
+        "rimary_city": "Ford",
+        "tate": "KS",
+        "ounty": "Ford County"
+    },
+    {
+        "d": "15ae1e1a-c499-699a-a029-55057343125d",
+        "ame": "20033",
+        "ype": "PO BOX",
+        "rimary_city": "Washington",
+        "tate": "DC",
+        "ounty": "District of Columbia"
+    },
+    {
+        "d": "15b40a2f-ac28-ad01-a19a-550574d5e1f0",
+        "ame": "89102",
+        "ype": "STANDARD",
+        "rimary_city": "Las Vegas",
+        "tate": "NV",
+        "ounty": "Clark County"
+    },
+    {
+        "d": "15b518a1-48cb-1c44-8562-550574dfc0d3",
+        "ame": "65270",
+        "ype": "STANDARD",
+        "rimary_city": "Moberly",
+        "tate": "MO",
+        "ounty": "Randolph County"
+    },
+    {
+        "d": "15b527c4-3bad-7d5d-2877-550574903afd",
+        "ame": "68939",
+        "ype": "STANDARD",
+        "rimary_city": "Franklin",
+        "tate": "NE",
+        "ounty": "Franklin County"
+    },
+    {
+        "d": "15b6ff72-87ed-4997-3243-550573e50a5a",
+        "ame": "06082",
+        "ype": "STANDARD",
+        "rimary_city": "Enfield",
+        "tate": "CT",
+        "ounty": "Hartford County"
+    },
+    {
+        "d": "15b7a6be-7e4a-6c26-92f5-550574a3b0be",
+        "ame": "73056",
+        "ype": "STANDARD",
+        "rimary_city": "Marshall",
+        "tate": "OK",
+        "ounty": "Logan County"
+    },
+    {
+        "d": "15bab256-eac2-008a-737f-550573ed2635",
+        "ame": "13486",
+        "ype": "STANDARD",
+        "rimary_city": "Westernville",
+        "tate": "NY",
+        "ounty": "Oneida County"
+    },
+    {
+        "d": "15bb027d-9bf5-17d5-9bbf-550573306af6",
+        "ame": "28206",
+        "ype": "STANDARD",
+        "rimary_city": "Charlotte",
+        "tate": "NC",
+        "ounty": "Mecklenburg County"
+    },
+    {
+        "d": "15bb2522-d071-6dc5-04e6-550574460373",
+        "ame": "92090",
+        "ype": "UNIQUE",
+        "rimary_city": "El Cajon",
+        "tate": "CA",
+        "ounty": "San Diego County"
+    },
+    {
+        "d": "15bbe98b-2a69-7e94-3115-550573741e27",
+        "ame": "58847",
+        "ype": "STANDARD",
+        "rimary_city": "Keene",
+        "tate": "ND",
+        "ounty": "McKenzie County"
+    },
+    {
+        "d": "15bd5596-ca18-6dbc-c8f1-550573217cb1",
+        "ame": "29555",
+        "ype": "STANDARD",
+        "rimary_city": "Johnsonville",
+        "tate": "SC",
+        "ounty": "Florence County"
+    },
+    {
+        "d": "15c00322-22bc-a5ce-19b5-550574a3c809",
+        "ame": "73150",
+        "ype": "STANDARD",
+        "rimary_city": "Oklahoma City",
+        "tate": "OK",
+        "ounty": "Oklahoma County"
+    },
+    {
+        "d": "15c07786-218e-e3ef-66cd-550573419ec7",
+        "ame": "09517",
+        "ype": "MILITARY",
+        "rimary_city": "Fpo",
+        "tate": "AE",
+        "ounty": "NULL"
+    },
+    {
+        "d": "15c11d45-8b6a-5fe8-e219-550574e212bc",
+        "ame": "97721",
+        "ype": "STANDARD",
+        "rimary_city": "Princeton",
+        "tate": "OR",
+        "ounty": "Harney County"
+    },
+    {
+        "d": "15c1e8fb-11c7-4003-7af9-55057333471d",
+        "ame": "32185",
+        "ype": "PO BOX",
+        "rimary_city": "Putnam Hall",
+        "tate": "FL",
+        "ounty": "Putnam County"
+    },
+    {
+        "d": "15c30569-a533-6c70-23af-5505733dfd70",
+        "ame": "38041",
+        "ype": "STANDARD",
+        "rimary_city": "Henning",
+        "tate": "TN",
+        "ounty": "Lauderdale County"
+    },
+    {
+        "d": "15c31cee-0760-f176-3284-55057378546b",
+        "ame": "39531",
+        "ype": "STANDARD",
+        "rimary_city": "Biloxi",
+        "tate": "MS",
+        "ounty": "Harrison County"
+    },
+    {
+        "d": "15c4a9e0-e39f-42c7-d0d8-5505738c1f31",
+        "ame": "49406",
+        "ype": "PO BOX",
+        "rimary_city": "Douglas",
+        "tate": "MI",
+        "ounty": "Allegan County"
+    },
+    {
+        "d": "15c5fcea-de92-768c-8672-5505741077ad",
+        "ame": "66622",
+        "ype": "UNIQUE",
+        "rimary_city": "Topeka",
+        "tate": "KS",
+        "ounty": "Shawnee County"
+    },
+    {
+        "d": "15c8552f-1b19-301b-42e6-5505738e98b6",
+        "ame": "56273",
+        "ype": "STANDARD",
+        "rimary_city": "New London",
+        "tate": "MN",
+        "ounty": "Kandiyohi County"
+    },
+    {
+        "d": "15c871a0-26f9-b2d4-a1c6-550573b8b663",
+        "ame": "32352",
+        "ype": "STANDARD",
+        "rimary_city": "Quincy",
+        "tate": "FL",
+        "ounty": "Gadsden County"
+    },
+    {
+        "d": "15caf3cb-934f-cb58-ef83-55057412aa94",
+        "ame": "93628",
+        "ype": "STANDARD",
+        "rimary_city": "Hume",
+        "tate": "CA",
+        "ounty": "Fresno County"
+    },
+    {
+        "d": "15cda700-8de5-b971-32a8-550573d53e0a",
+        "ame": "39061",
+        "ype": "PO BOX",
+        "rimary_city": "Delta City",
+        "tate": "MS",
+        "ounty": "Sharkey County"
+    },
+    {
+        "d": "15cf3419-6f20-4df3-a121-550573989355",
+        "ame": "30063",
+        "ype": "UNIQUE",
+        "rimary_city": "Marietta",
+        "tate": "GA",
+        "ounty": "Cobb County"
+    },
+    {
+        "d": "15cfb782-3cb5-816d-0683-550573ec69b5",
+        "ame": "05826",
+        "ype": "STANDARD",
+        "rimary_city": "Craftsbury",
+        "tate": "VT",
+        "ounty": "Orleans County"
+    },
+    {
+        "d": "15d46f2b-0553-ffd1-f898-550574af29f7",
+        "ame": "72331",
+        "ype": "STANDARD",
+        "rimary_city": "Earle",
+        "tate": "AR",
+        "ounty": "Crittenden County"
+    },
+    {
+        "d": "15d49e43-cace-aa75-c023-5505748b64fc",
+        "ame": "70562",
+        "ype": "PO BOX",
+        "rimary_city": "New Iberia",
+        "tate": "LA",
+        "ounty": "Iberia Parish"
+    },
+    {
+        "d": "15d54092-867e-8fd4-1437-550573521127",
+        "ame": "14206",
+        "ype": "STANDARD",
+        "rimary_city": "Buffalo",
+        "tate": "NY",
+        "ounty": "Erie County"
+    },
+    {
+        "d": "15d60cb1-a023-aa9d-0545-550574fd9d22",
+        "ame": "92226",
+        "ype": "PO BOX",
+        "rimary_city": "Blythe",
+        "tate": "CA",
+        "ounty": "Riverside County"
+    },
+    {
+        "d": "15d76a32-ce00-7cfb-ec42-5505749c3951",
+        "ame": "99115",
+        "ype": "STANDARD",
+        "rimary_city": "Coulee City",
+        "tate": "WA",
+        "ounty": "Grant County"
+    },
+    {
+        "d": "15d88cd9-937e-655d-38b6-55057391096b",
+        "ame": "41046",
+        "ype": "STANDARD",
+        "rimary_city": "Glencoe",
+        "tate": "KY",
+        "ounty": "Gallatin County"
+    },
+    {
+        "d": "15d8d627-0de7-2715-45ae-5505748a8ef9",
+        "ame": "87013",
+        "ype": "STANDARD",
+        "rimary_city": "Cuba",
+        "tate": "NM",
+        "ounty": "Sandoval County"
+    },
+    {
+        "d": "15d92ec3-4857-84bb-2e2a-5505734fce55",
+        "ame": "23308",
+        "ype": "STANDARD",
+        "rimary_city": "Bloxom",
+        "tate": "VA",
+        "ounty": "Accomack County"
+    },
+    {
+        "d": "15da5381-56e8-3d6f-98fc-550574240dbd",
+        "ame": "94137",
+        "ype": "UNIQUE",
+        "rimary_city": "San Francisco",
+        "tate": "CA",
+        "ounty": "San Francisco County"
+    },
+    {
+        "d": "15db95d5-6856-d30a-a433-5505741bc5a3",
+        "ame": "95019",
+        "ype": "STANDARD",
+        "rimary_city": "Freedom",
+        "tate": "CA",
+        "ounty": "Santa Cruz County"
+    },
+    {
+        "d": "15dbb19e-f854-58b2-f742-550573b85fda",
+        "ame": "37328",
+        "ype": "STANDARD",
+        "rimary_city": "Elora",
+        "tate": "TN",
+        "ounty": "Lincoln County"
+    },
+    {
+        "d": "15dd1934-3dd6-6ab9-43d5-550574a5f231",
+        "ame": "71060",
+        "ype": "STANDARD",
+        "rimary_city": "Mooringsport",
+        "tate": "LA",
+        "ounty": "Caddo Parish"
+    },
+    {
+        "d": "15ddd567-1cb0-0187-c6fa-550574b2c24d",
+        "ame": "75689",
+        "ype": "PO BOX",
+        "rimary_city": "Selman City",
+        "tate": "TX",
+        "ounty": "Rusk County"
+    },
+    {
+        "d": "15dde6d3-1ebc-37b8-26f8-550573ab86eb",
+        "ame": "51445",
+        "ype": "STANDARD",
+        "rimary_city": "Ida Grove",
+        "tate": "IA",
+        "ounty": "Ida County"
+    },
+    {
+        "d": "15de1d6f-9628-cb1d-b69c-5505738b47aa",
+        "ame": "58370",
+        "ype": "STANDARD",
+        "rimary_city": "Saint Michael",
+        "tate": "ND",
+        "ounty": "Benson County"
+    },
+    {
+        "d": "15de34f5-2302-0d59-8ee4-55057415d2bf",
+        "ame": "95212",
+        "ype": "STANDARD",
+        "rimary_city": "Stockton",
+        "tate": "CA",
+        "ounty": "San Joaquin County"
+    },
+    {
+        "d": "15df1771-81b8-6cc6-bc34-55057402e6d8",
+        "ame": "95367",
+        "ype": "STANDARD",
+        "rimary_city": "Riverbank",
+        "tate": "CA",
+        "ounty": "Stanislaus County"
+    },
+    {
+        "d": "15e125ae-79f5-0765-0ce9-5505734efd91",
+        "ame": "48856",
+        "ype": "STANDARD",
+        "rimary_city": "Middleton",
+        "tate": "MI",
+        "ounty": "Gratiot County"
+    },
+    {
+        "d": "15e24283-c8f8-dee0-30f6-5505733326e6",
+        "ame": "10969",
+        "ype": "STANDARD",
+        "rimary_city": "Pine Island",
+        "tate": "NY",
+        "ounty": "Orange County"
+    },
+    {
+        "d": "15e72bfd-4161-cc74-cab4-550574497db3",
+        "ame": "72863",
+        "ype": "STANDARD",
+        "rimary_city": "Scranton",
+        "tate": "AR",
+        "ounty": "Logan County"
+    },
+    {
+        "d": "15e97943-bcbd-f719-4504-550574138feb",
+        "ame": "96024",
+        "ype": "STANDARD",
+        "rimary_city": "Douglas City",
+        "tate": "CA",
+        "ounty": "Trinity County"
+    },
+    {
+        "d": "15eb1837-ec26-eebd-3ee6-5505744b77f3",
+        "ame": "62033",
+        "ype": "STANDARD",
+        "rimary_city": "Gillespie",
+        "tate": "IL",
+        "ounty": "Macoupin County"
+    },
+    {
+        "d": "15ecf8fd-0039-0a4a-4c21-550574b453e1",
+        "ame": "93210",
+        "ype": "STANDARD",
+        "rimary_city": "Coalinga",
+        "tate": "CA",
+        "ounty": "Fresno County"
+    },
+    {
+        "d": "15ef3161-4ba3-e126-d816-550573314bb0",
+        "ame": "40161",
+        "ype": "STANDARD",
+        "rimary_city": "Rhodelia",
+        "tate": "KY",
+        "ounty": "Meade County"
+    },
+    {
+        "d": "15f1c065-665a-b0b1-5dd5-550573310901",
+        "ame": "37166",
+        "ype": "STANDARD",
+        "rimary_city": "Smithville",
+        "tate": "TN",
+        "ounty": "De Kalb County"
+    },
+    {
+        "d": "15f203b2-3335-de39-f4cd-5505744664be",
+        "ame": "91761",
+        "ype": "STANDARD",
+        "rimary_city": "Ontario",
+        "tate": "CA",
+        "ounty": "San Bernardino County"
+    },
+    {
+        "d": "15f28dbd-9392-9a2d-6112-550573d13212",
+        "ame": "17934",
+        "ype": "STANDARD",
+        "rimary_city": "Gilberton",
+        "tate": "PA",
+        "ounty": "Schuylkill County"
+    },
+    {
+        "d": "15f295e2-6ca7-eee9-a8c0-550574d1edb3",
+        "ame": "71971",
+        "ype": "STANDARD",
+        "rimary_city": "Umpire",
+        "tate": "AR",
+        "ounty": "Howard County"
+    },
+    {
+        "d": "15f300a5-d910-ac97-0f12-550574b1e214",
+        "ame": "71410",
+        "ype": "PO BOX",
+        "rimary_city": "Calvin",
+        "tate": "LA",
+        "ounty": "Winn Parish"
+    },
+    {
+        "d": "15f30768-fae7-a2c0-069c-550573729e1a",
+        "ame": "36481",
+        "ype": "STANDARD",
+        "rimary_city": "Vredenburgh",
+        "tate": "AL",
+        "ounty": "Monroe County"
+    },
+    {
+        "d": "15f49173-8cd0-5031-7c3d-550573bb8288",
+        "ame": "52533",
+        "ype": "STANDARD",
+        "rimary_city": "Batavia",
+        "tate": "IA",
+        "ounty": "Jefferson County"
+    },
+    {
+        "d": "15f8a373-3dd4-c248-87d8-5505737d6ee5",
+        "ame": "36255",
+        "ype": "STANDARD",
+        "rimary_city": "Cragford",
+        "tate": "AL",
+        "ounty": "Clay County"
+    },
+    {
+        "d": "15fa7d88-3850-2a11-463c-550573e92885",
+        "ame": "04029",
+        "ype": "STANDARD",
+        "rimary_city": "Sebago",
+        "tate": "ME",
+        "ounty": "Cumberland County"
+    },
+    {
+        "d": "15fb1db5-3ac3-40da-895e-550573425ea0",
+        "ame": "17356",
+        "ype": "STANDARD",
+        "rimary_city": "Red Lion",
+        "tate": "PA",
+        "ounty": "York County"
+    },
+    {
+        "d": "15fb6a45-3d67-6613-158b-5505732b6765",
+        "ame": "40376",
+        "ype": "STANDARD",
+        "rimary_city": "Slade",
+        "tate": "KY",
+        "ounty": "Powell County"
+    },
+    {
+        "d": "15fc0056-68fb-fa74-59ad-5505736191a5",
+        "ame": "55126",
+        "ype": "STANDARD",
+        "rimary_city": "Saint Paul",
+        "tate": "MN",
+        "ounty": "Ramsey County"
+    },
+    {
+        "d": "15fc0bfa-a0c1-c5e0-50d8-550573880443",
+        "ame": "59918",
+        "ype": "PO BOX",
+        "rimary_city": "Fortine",
+        "tate": "MT",
+        "ounty": "Lincoln County"
+    },
+    {
+        "d": "15fcd5f9-ee1a-e1ce-fd83-55057332f62c",
+        "ame": "37660",
+        "ype": "STANDARD",
+        "rimary_city": "Kingsport",
+        "tate": "TN",
+        "ounty": "Sullivan County"
+    },
+    {
+        "d": "15fcda75-463e-9d64-d9ef-550573635611",
+        "ame": "44481",
+        "ype": "STANDARD",
+        "rimary_city": "Warren",
+        "tate": "OH",
+        "ounty": "Trumbull County"
+    },
+    {
+        "d": "15ffed73-3c6c-8fd6-fcdd-550573b7c51d",
+        "ame": "29851",
+        "ype": "STANDARD",
+        "rimary_city": "Warrenville",
+        "tate": "SC",
+        "ounty": "Aiken County"
+    },
+    {
+        "d": "1601ca34-5b4e-5ea5-ce18-550573bf0af8",
+        "ame": "38449",
+        "ype": "STANDARD",
+        "rimary_city": "Ardmore",
+        "tate": "TN",
+        "ounty": "Giles County"
+    },
+    {
+        "d": "160210d4-bb56-0310-7813-55057455c299",
+        "ame": "77383",
+        "ype": "PO BOX",
+        "rimary_city": "Spring",
+        "tate": "TX",
+        "ounty": "Harris County"
+    },
+    {
+        "d": "16024cc8-bd94-f345-a9b7-550573adcf83",
+        "ame": "46325",
+        "ype": "PO BOX",
+        "rimary_city": "Hammond",
+        "tate": "IN",
+        "ounty": "Lake County"
+    },
+    {
+        "d": "160253b7-c613-8ae2-2389-550573539d15",
+        "ame": "50217",
+        "ype": "STANDARD",
+        "rimary_city": "Paton",
+        "tate": "IA",
+        "ounty": "Greene County"
+    },
+    {
+        "d": "1604ac87-2652-e2c7-7be4-550574e3d96f",
+        "ame": "96155",
+        "ype": "PO BOX",
+        "rimary_city": "South Lake Tahoe",
+        "tate": "CA",
+        "ounty": "El Dorado County"
+    },
+    {
+        "d": "16058522-1921-b825-f63e-5505746f5aa2",
+        "ame": "83448",
+        "ype": "STANDARD",
+        "rimary_city": "Sugar City",
+        "tate": "ID",
+        "ounty": "Madison County"
+    },
+    {
+        "d": "1606717e-89a1-2b75-7dc8-5505736b3508",
+        "ame": "05486",
+        "ype": "STANDARD",
+        "rimary_city": "South Hero",
+        "tate": "VT",
+        "ounty": "Grand Isle County"
+    },
+    {
+        "d": "160a7712-0973-14a6-ee96-5505731850aa",
+        "ame": "39217",
+        "ype": "UNIQUE",
+        "rimary_city": "Jackson",
+        "tate": "MS",
+        "ounty": "Hinds County"
+    },
+    {
+        "d": "160b46e9-7b24-6d31-ed73-550573908e90",
+        "ame": "15237",
+        "ype": "STANDARD",
+        "rimary_city": "Pittsburgh",
+        "tate": "PA",
+        "ounty": "Allegheny County"
+    },
+    {
+        "d": "160e0e5a-6ec5-68b8-656f-5505742f258d",
+        "ame": "72456",
+        "ype": "STANDARD",
+        "rimary_city": "Pollard",
+        "tate": "AR",
+        "ounty": "Clay County"
+    },
+    {
+        "d": "160ea5e2-d2cc-2ced-5b57-550574e209ac",
+        "ame": "99661",
+        "ype": "PO BOX",
+        "rimary_city": "Sand Point",
+        "tate": "AK",
+        "ounty": "Aleutians East Borough"
+    },
+    {
+        "d": "160eeeb2-d004-688c-3b1b-55057456b0a3",
+        "ame": "98033",
+        "ype": "STANDARD",
+        "rimary_city": "Kirkland",
+        "tate": "WA",
+        "ounty": "King County"
+    },
+    {
+        "d": "160f9627-eefb-e45d-09eb-5505736073b9",
+        "ame": "57540",
+        "ype": "STANDARD",
+        "rimary_city": "Holabird",
+        "tate": "SD",
+        "ounty": "Hyde County"
+    },
+    {
+        "d": "161023b1-e469-dbf7-2548-550573178c3f",
+        "ame": "28609",
+        "ype": "STANDARD",
+        "rimary_city": "Catawba",
+        "tate": "NC",
+        "ounty": "Catawba County"
+    },
+    {
+        "d": "1611e54c-8b05-68bd-d713-550573b6d765",
+        "ame": "30298",
+        "ype": "PO BOX",
+        "rimary_city": "Forest Park",
+        "tate": "GA",
+        "ounty": "Clayton County"
+    },
+    {
+        "d": "1611f808-d810-727f-2dd5-5505730cf8c5",
+        "ame": "18425",
+        "ype": "STANDARD",
+        "rimary_city": "Greeley",
+        "tate": "PA",
+        "ounty": "Pike County"
+    },
+    {
+        "d": "16136351-12c3-9f72-0e7d-5505747d97bb",
+        "ame": "95679",
+        "ype": "PO BOX",
+        "rimary_city": "Rumsey",
+        "tate": "CA",
+        "ounty": "Yolo County"
+    },
+    {
+        "d": "16137969-5ef2-f390-eb2f-5505733272a3",
+        "ame": "16646",
+        "ype": "STANDARD",
+        "rimary_city": "Hastings",
+        "tate": "PA",
+        "ounty": "Cambria County"
+    },
+    {
+        "d": "1614b66e-9d6e-e4ab-c28d-550573aaf3ef",
+        "ame": "12583",
+        "ype": "STANDARD",
+        "rimary_city": "Tivoli",
+        "tate": "NY",
+        "ounty": "Dutchess County"
+    },
+    {
+        "d": "1614e7f0-6e8a-0dc0-e7b3-550574e02adc",
+        "ame": "99821",
+        "ype": "PO BOX",
+        "rimary_city": "Auke Bay",
+        "tate": "AK",
+        "ounty": "City and Borough of Juneau"
+    },
+    {
+        "d": "16162dfb-99ad-81ff-5c54-550573c8f6dc",
+        "ame": "57334",
+        "ype": "STANDARD",
+        "rimary_city": "Ethan",
+        "tate": "SD",
+        "ounty": "Davison County"
+    },
+    {
+        "d": "16177173-eb5b-df6b-529a-55057317d244",
+        "ame": "06804",
+        "ype": "STANDARD",
+        "rimary_city": "Brookfield",
+        "tate": "CT",
+        "ounty": "Fairfield County"
+    },
+    {
+        "d": "1617cd61-2e89-0661-3480-55057357b3bc",
+        "ame": "19495",
+        "ype": "UNIQUE",
+        "rimary_city": "Valley Forge",
+        "tate": "PA",
+        "ounty": "Montgomery County"
+    },
+    {
+        "d": "1619046c-708a-509d-485c-5505737dd549",
+        "ame": "14010",
+        "ype": "PO BOX",
+        "rimary_city": "Athol Springs",
+        "tate": "NY",
+        "ounty": "Erie County"
+    },
+    {
+        "d": "161b02ec-7254-f5cb-765c-5505731caa8a",
+        "ame": "53958",
+        "ype": "UNIQUE",
+        "rimary_city": "Reedsburg",
+        "tate": "WI",
+        "ounty": "Sauk County"
+    },
+    {
+        "d": "161d8787-9cf7-56b2-d501-550573b3f866",
+        "ame": "10185",
+        "ype": "PO BOX",
+        "rimary_city": "New York",
+        "tate": "NY",
+        "ounty": "New York County"
+    },
+    {
+        "d": "162007e2-e679-82df-b12d-550573f33fa0",
+        "ame": "59875",
+        "ype": "STANDARD",
+        "rimary_city": "Victor",
+        "tate": "MT",
+        "ounty": "Ravalli County"
+    },
+    {
+        "d": "1621cfce-3bc7-6e96-7336-550574891058",
+        "ame": "68620",
+        "ype": "STANDARD",
+        "rimary_city": "Albion",
+        "tate": "NE",
+        "ounty": "Boone County"
+    },
+    {
+        "d": "1623d32b-743b-2fe2-5f01-55057353109d",
+        "ame": "36727",
+        "ype": "STANDARD",
+        "rimary_city": "Campbell",
+        "tate": "AL",
+        "ounty": "Clarke County"
+    },
+    {
+        "d": "16259d99-12b1-a9d6-df3a-55057333f012",
+        "ame": "46567",
+        "ype": "STANDARD",
+        "rimary_city": "Syracuse",
+        "tate": "IN",
+        "ounty": "Kosciusko County"
+    },
+    {
+        "d": "1627df62-3234-12fd-f1db-550573a886d7",
+        "ame": "02302",
+        "ype": "STANDARD",
+        "rimary_city": "Brockton",
+        "tate": "MA",
+        "ounty": "Plymouth County"
+    },
+    {
+        "d": "16290120-3769-17d5-0a30-5505748fefe8",
+        "ame": "83861",
+        "ype": "STANDARD",
+        "rimary_city": "Saint Maries",
+        "tate": "ID",
+        "ounty": "Benewah County"
+    },
+    {
+        "d": "162a1a51-345b-2020-5fec-550573b4e748",
+        "ame": "13114",
+        "ype": "STANDARD",
+        "rimary_city": "Mexico",
+        "tate": "NY",
+        "ounty": "Oswego County"
+    },
+    {
+        "d": "162b7496-fa61-d6af-5a1f-55057393995c",
+        "ame": "06280",
+        "ype": "STANDARD",
+        "rimary_city": "Windham",
+        "tate": "CT",
+        "ounty": "Windham County"
+    },
+    {
+        "d": "162e81d3-27d4-ea6b-aaf8-550573eab7aa",
+        "ame": "54001",
+        "ype": "STANDARD",
+        "rimary_city": "Amery",
+        "tate": "WI",
+        "ounty": "Polk County"
+    },
+    {
+        "d": "162f1f95-5e88-cfc6-c179-55057480a510",
+        "ame": "83687",
+        "ype": "STANDARD",
+        "rimary_city": "Nampa",
+        "tate": "ID",
+        "ounty": "Canyon County"
+    },
+    {
+        "d": "162f878e-c445-7668-05a3-550574e7637a",
+        "ame": "65038",
+        "ype": "PO BOX",
+        "rimary_city": "Laurie",
+        "tate": "MO",
+        "ounty": "Morgan County"
+    },
+    {
+        "d": "16316261-514e-c5ab-2bdf-550573d2113b",
+        "ame": "58204",
+        "ype": "STANDARD",
+        "rimary_city": "Grand Forks Afb",
+        "tate": "ND",
+        "ounty": "Grand Forks County"
+    },
+    {
+        "d": "1635c2ad-a86a-afc5-5fee-5505739930a8",
+        "ame": "07656",
+        "ype": "STANDARD",
+        "rimary_city": "Park Ridge",
+        "tate": "NJ",
+        "ounty": "Bergen County"
+    },
+    {
+        "d": "1635d6cf-0343-10a4-1e1d-550574318a94",
+        "ame": "60714",
+        "ype": "STANDARD",
+        "rimary_city": "Niles",
+        "tate": "IL",
+        "ounty": "Cook County"
+    },
+    {
+        "d": "1637119b-04f6-8110-c49c-550574b7f977",
+        "ame": "61613",
+        "ype": "UNIQUE",
+        "rimary_city": "Peoria",
+        "tate": "IL",
+        "ounty": "Peoria County"
+    },
+    {
+        "d": "163784de-6fd4-85e3-e6e1-55057365088b",
+        "ame": "13696",
+        "ype": "STANDARD",
+        "rimary_city": "West Stockholm",
+        "tate": "NY",
+        "ounty": "St Lawrence County"
+    },
+    {
+        "d": "1637fcdb-de22-ecce-0f61-55057352eeb8",
+        "ame": "19096",
+        "ype": "STANDARD",
+        "rimary_city": "Wynnewood",
+        "tate": "PA",
+        "ounty": "Montgomery County"
+    },
+    {
+        "d": "1639eeb7-4c0a-6647-8da4-550573970ee3",
+        "ame": "23503",
+        "ype": "STANDARD",
+        "rimary_city": "Norfolk",
+        "tate": "VA",
+        "ounty": "Norfolk City"
+    },
+    {
+        "d": "163b0f09-00b4-7a64-38d8-5505742a0cb6",
+        "ame": "72089",
+        "ype": "PO BOX",
+        "rimary_city": "Bryant",
+        "tate": "AR",
+        "ounty": "Saline County"
+    },
+    {
+        "d": "163d2a6a-3435-f431-c12d-550574285be1",
+        "ame": "77228",
+        "ype": "PO BOX",
+        "rimary_city": "Houston",
+        "tate": "TX",
+        "ounty": "Harris County"
+    },
+    {
+        "d": "163f1e7b-d788-f45f-d21d-5505738ea5e0",
+        "ame": "04738",
+        "ype": "PO BOX",
+        "rimary_city": "Crouseville",
+        "tate": "ME",
+        "ounty": "Aroostook County"
+    },
+    {
+        "d": "163f629d-7d6d-6fe4-4399-550573b9f7e1",
+        "ame": "28906",
+        "ype": "STANDARD",
+        "rimary_city": "Murphy",
+        "tate": "NC",
+        "ounty": "Cherokee County"
+    },
+    {
+        "d": "163fef9e-892e-8c33-cc78-55057335de41",
+        "ame": "12468",
+        "ype": "STANDARD",
+        "rimary_city": "Prattsville",
+        "tate": "NY",
+        "ounty": "Greene County"
+    },
+    {
+        "d": "1641c774-3819-7196-0923-55057459228e",
+        "ame": "78060",
+        "ype": "STANDARD",
+        "rimary_city": "Oakville",
+        "tate": "TX",
+        "ounty": "Live Oak County"
+    },
+    {
+        "d": "16423caf-a3cb-addf-950f-550573b306a5",
+        "ame": "16830",
+        "ype": "STANDARD",
+        "rimary_city": "Clearfield",
+        "tate": "PA",
+        "ounty": "Clearfield County"
+    },
+    {
+        "d": "16445fd8-240d-645e-68c0-550574a54c9c",
+        "ame": "88102",
+        "ype": "PO BOX",
+        "rimary_city": "Clovis",
+        "tate": "NM",
+        "ounty": "Curry County"
+    },
+    {
+        "d": "1647b5e0-3074-c0cc-2321-5505740825b4",
+        "ame": "96730",
+        "ype": "STANDARD",
+        "rimary_city": "Kaaawa",
+        "tate": "HI",
+        "ounty": "Honolulu County"
+    },
+    {
+        "d": "16480049-b392-b0ef-75de-5505747bfab5",
+        "ame": "76934",
+        "ype": "STANDARD",
+        "rimary_city": "Carlsbad",
+        "tate": "TX",
+        "ounty": "Tom Green County"
+    },
+    {
+        "d": "1649478b-2306-0ead-dd0c-55057337ddb5",
+        "ame": "42732",
+        "ype": "STANDARD",
+        "rimary_city": "Eastview",
+        "tate": "KY",
+        "ounty": "Hardin County"
+    },
+    {
+        "d": "1649e48b-a5e9-313f-7ae3-550573b772aa",
+        "ame": "50367",
+        "ype": "UNIQUE",
+        "rimary_city": "Des Moines",
+        "tate": "IA",
+        "ounty": "Polk County"
+    },
+    {
+        "d": "164b1d07-54b2-a3e4-1eb8-55057454d59c",
+        "ame": "66023",
+        "ype": "STANDARD",
+        "rimary_city": "Effingham",
+        "tate": "KS",
+        "ounty": "Atchison County"
+    },
+    {
+        "d": "1652a29f-9545-ceb6-7c8a-550574f1848f",
+        "ame": "61042",
+        "ype": "STANDARD",
+        "rimary_city": "Harmon",
+        "tate": "IL",
+        "ounty": "Lee County"
+    },
+    {
+        "d": "16536801-a224-5645-d09f-55057451aace",
+        "ame": "78279",
+        "ype": "PO BOX",
+        "rimary_city": "San Antonio",
+        "tate": "TX",
+        "ounty": "Bexar County"
+    },
+    {
+        "d": "165377d4-0ac9-dcde-6b43-55057487f09c",
+        "ame": "83238",
+        "ype": "STANDARD",
+        "rimary_city": "Geneva",
+        "tate": "ID",
+        "ounty": "Bear Lake County"
+    },
+    {
+        "d": "1659589f-700d-c572-c0b1-550574c841f0",
+        "ame": "91778",
+        "ype": "PO BOX",
+        "rimary_city": "San Gabriel",
+        "tate": "CA",
+        "ounty": "Los Angeles County"
+    },
+    {
+        "d": "165c9839-8d79-858a-6338-550574ede917",
+        "ame": "95833",
+        "ype": "STANDARD",
+        "rimary_city": "Sacramento",
+        "tate": "CA",
+        "ounty": "Sacramento County"
+    },
+    {
+        "d": "165d0a38-b141-822a-4dfd-550573043c17",
+        "ame": "46165",
+        "ype": "STANDARD",
+        "rimary_city": "North Salem",
+        "tate": "IN",
+        "ounty": "Hendricks County"
+    },
+    {
+        "d": "165d4a34-cfaf-53df-da22-5505747e529d",
+        "ame": "83874",
+        "ype": "PO BOX",
+        "rimary_city": "Murray",
+        "tate": "ID",
+        "ounty": "Shoshone County"
+    },
+    {
+        "d": "165e0d2f-1318-e516-abeb-550573e21fb1",
+        "ame": "57747",
+        "ype": "STANDARD",
+        "rimary_city": "Hot Springs",
+        "tate": "SD",
+        "ounty": "Fall River County"
+    },
+    {
+        "d": "16624d58-2fea-42b5-5ac1-5505730a1fda",
+        "ame": "12828",
+        "ype": "STANDARD",
+        "rimary_city": "Fort Edward",
+        "tate": "NY",
+        "ounty": "Saratoga County"
+    },
+    {
+        "d": "166589a7-6534-a6c8-40d5-550573df5e13",
+        "ame": "56393",
+        "ype": "UNIQUE",
+        "rimary_city": "Saint Cloud",
+        "tate": "MN",
+        "ounty": "Stearns County"
+    },
+    {
+        "d": "1669dbd4-641d-afe0-39e7-550573e53305",
+        "ame": "17748",
+        "ype": "PO BOX",
+        "rimary_city": "Mc Elhattan",
+        "tate": "PA",
+        "ounty": "Clinton County"
+    },
+    {
+        "d": "166a79ec-74e6-a4b4-9bd2-550573632e79",
+        "ame": "43441",
+        "ype": "PO BOX",
+        "rimary_city": "Lemoyne",
+        "tate": "OH",
+        "ounty": "Wood County"
+    },
+    {
+        "d": "166a9626-aefa-a8f2-54e0-5505738c2e0e",
+        "ame": "14841",
+        "ype": "STANDARD",
+        "rimary_city": "Hector",
+        "tate": "NY",
+        "ounty": "Schuyler County"
+    },
+    {
+        "d": "166b2bc7-a5d5-b87d-28a5-55057371d1ac",
+        "ame": "28349",
+        "ype": "STANDARD",
+        "rimary_city": "Kenansville",
+        "tate": "NC",
+        "ounty": "Duplin County"
+    },
+    {
+        "d": "166b758b-f7c4-4b80-ec9c-550573407454",
+        "ame": "57079",
+        "ype": "UNIQUE",
+        "rimary_city": "Yankton",
+        "tate": "SD",
+        "ounty": "Yankton County"
+    },
+    {
+        "d": "166dee79-b0dc-595f-bbcd-550574a8ecd3",
+        "ame": "75354",
+        "ype": "PO BOX",
+        "rimary_city": "Dallas",
+        "tate": "TX",
+        "ounty": "Dallas County"
+    },
+    {
+        "d": "166df6e7-68df-a5df-13ce-55057304afd2",
+        "ame": "10010",
+        "ype": "STANDARD",
+        "rimary_city": "New York",
+        "tate": "NY",
+        "ounty": "New York County"
+    },
+    {
+        "d": "16722161-2acb-8cf3-cddb-550573420f56",
+        "ame": "16388",
+        "ype": "UNIQUE",
+        "rimary_city": "Meadville",
+        "tate": "PA",
+        "ounty": "Crawford County"
+    },
+    {
+        "d": "16733d80-21d3-a00b-ab8d-5505738ce444",
+        "ame": "43155",
+        "ype": "STANDARD",
+        "rimary_city": "Sugar Grove",
+        "tate": "OH",
+        "ounty": "Fairfield County"
+    },
+    {
+        "d": "167381d7-b960-819e-5376-550573d37b0e",
+        "ame": "09734",
+        "ype": "MILITARY",
+        "rimary_city": "Dpo",
+        "tate": "AE",
+        "ounty": "NULL"
+    },
+    {
+        "d": "167494cc-51e7-6713-b136-55057317cbb7",
+        "ame": "27294",
+        "ype": "UNIQUE",
+        "rimary_city": "Lexington",
+        "tate": "NC",
+        "ounty": "Davidson County"
+    },
+    {
+        "d": "16755dc5-3f8c-94ff-cfe3-5505748ec2a0",
+        "ame": "73569",
+        "ype": "STANDARD",
+        "rimary_city": "Terral",
+        "tate": "OK",
+        "ounty": "Jefferson County"
+    },
+    {
+        "d": "16756502-f1d0-5835-f361-5505737f7ddb",
+        "ame": "09011",
+        "ype": "MILITARY",
+        "rimary_city": "Apo",
+        "tate": "AE",
+        "ounty": "NULL"
+    },
+    {
+        "d": "1675ae9c-b6ed-0afa-e918-5505745bec2e",
+        "ame": "62272",
+        "ype": "STANDARD",
+        "rimary_city": "Percy",
+        "tate": "IL",
+        "ounty": "Randolph County"
+    },
+    {
+        "d": "1676001b-32e4-1390-ab4d-550574259a63",
+        "ame": "63784",
+        "ype": "PO BOX",
+        "rimary_city": "Vanduser",
+        "tate": "MO",
+        "ounty": "Scott County"
+    },
+    {
+        "d": "16772e49-2862-bc7c-108e-550573fa78ad",
+        "ame": "38230",
+        "ype": "STANDARD",
+        "rimary_city": "Greenfield",
+        "tate": "TN",
+        "ounty": "Weakley County"
+    },
+    {
+        "d": "167783a8-2097-fae4-5259-5505744ae4d8",
+        "ame": "72663",
+        "ype": "STANDARD",
+        "rimary_city": "Onia",
+        "tate": "AR",
+        "ounty": "Stone County"
+    },
+    {
+        "d": "1679ab82-66bb-e1c6-a1b6-550574a3a0ac",
+        "ame": "61436",
+        "ype": "STANDARD",
+        "rimary_city": "Gilson",
+        "tate": "IL",
+        "ounty": "Knox County"
+    },
+    {
+        "d": "167abef1-c343-482d-1051-550573ace835",
+        "ame": "16153",
+        "ype": "STANDARD",
+        "rimary_city": "Stoneboro",
+        "tate": "PA",
+        "ounty": "Mercer County"
+    },
+    {
+        "d": "167ac4fb-85eb-bfbb-394f-550573350930",
+        "ame": "19335",
+        "ype": "STANDARD",
+        "rimary_city": "Downingtown",
+        "tate": "PA",
+        "ounty": "Chester County"
+    },
+    {
+        "d": "167b7212-2ef6-1395-27c0-5505744f44f3",
+        "ame": "77003",
+        "ype": "STANDARD",
+        "rimary_city": "Houston",
+        "tate": "TX",
+        "ounty": "Harris County"
+    },
+    {
+        "d": "167c0e2d-84c8-244d-7053-5505733458cb",
+        "ame": "07043",
+        "ype": "STANDARD",
+        "rimary_city": "Montclair",
+        "tate": "NJ",
+        "ounty": "Essex County"
+    },
+    {
+        "d": "167fc0d6-68df-d6da-2da4-550574cf573e",
+        "ame": "65590",
+        "ype": "STANDARD",
+        "rimary_city": "Long Lane",
+        "tate": "MO",
+        "ounty": "Dallas County"
+    },
+    {
+        "d": "16829570-373a-f488-5af0-5505749682d9",
+        "ame": "72114",
+        "ype": "STANDARD",
+        "rimary_city": "North Little Rock",
+        "tate": "AR",
+        "ounty": "Pulaski County"
+    },
+    {
+        "d": "16834c25-51c1-5dfb-4dce-550574027a0b",
+        "ame": "68119",
+        "ype": "PO BOX",
+        "rimary_city": "Omaha",
+        "tate": "NE",
+        "ounty": "Douglas County"
+    },
+    {
+        "d": "168448b2-27a4-32ea-2e46-55057422eb2f",
+        "ame": "85226",
+        "ype": "STANDARD",
+        "rimary_city": "Chandler",
+        "tate": "AZ",
+        "ounty": "Maricopa County"
+    },
+    {
+        "d": "168506e8-bd85-d334-ee42-550573c0a099",
+        "ame": "08605",
+        "ype": "PO BOX",
+        "rimary_city": "Trenton",
+        "tate": "NJ",
+        "ounty": "Mercer County"
+    },
+    {
+        "d": "16850f1e-01ed-d682-6446-5505730121d0",
+        "ame": "43697",
+        "ype": "PO BOX",
+        "rimary_city": "Toledo",
+        "tate": "OH",
+        "ounty": "Lucas County"
+    },
+    {
+        "d": "16868f50-2467-4b5f-6866-55057455a1f0",
+        "ame": "82727",
+        "ype": "STANDARD",
+        "rimary_city": "Rozet",
+        "tate": "WY",
+        "ounty": "Campbell County"
+    },
+    {
+        "d": "16875dff-240a-6e1f-8dee-550573467660",
+        "ame": "12046",
+        "ype": "STANDARD",
+        "rimary_city": "Coeymans Hollow",
+        "tate": "NY",
+        "ounty": "Albany County"
+    },
+    {
+        "d": "168874ba-707a-353b-9b6e-55057438d3e1",
+        "ame": "86033",
+        "ype": "PO BOX",
+        "rimary_city": "Kayenta",
+        "tate": "AZ",
+        "ounty": "Navajo County"
+    },
+    {
+        "d": "168d73e9-73f8-d2d5-78c4-5505736fff6b",
+        "ame": "32580",
+        "ype": "STANDARD",
+        "rimary_city": "Valparaiso",
+        "tate": "FL",
+        "ounty": "Okaloosa County"
+    },
+    {
+        "d": "168fa128-9082-c3ce-3eb7-55057422cb1a",
+        "ame": "81236",
+        "ype": "STANDARD",
+        "rimary_city": "Nathrop",
+        "tate": "CO",
+        "ounty": "Chaffee County"
+    },
+    {
+        "d": "1690641b-416d-7389-9f12-55057384b2c9",
+        "ame": "32013",
+        "ype": "PO BOX",
+        "rimary_city": "Day",
+        "tate": "FL",
+        "ounty": "Lafayette County"
+    },
+    {
+        "d": "169121e7-63b7-9f45-c389-5505731a86a4",
+        "ame": "60417",
+        "ype": "STANDARD",
+        "rimary_city": "Crete",
+        "tate": "IL",
+        "ounty": "Will County"
+    },
+    {
+        "d": "1691b24c-713e-014e-b682-5505734c8597",
+        "ame": "15377",
+        "ype": "STANDARD",
+        "rimary_city": "West Finley",
+        "tate": "PA",
+        "ounty": "Washington County"
+    },
+    {
+        "d": "1691ec72-4775-4b24-3332-550573981e4a",
+        "ame": "59724",
+        "ype": "PO BOX",
+        "rimary_city": "Dell",
+        "tate": "MT",
+        "ounty": "Beaverhead County"
+    },
+    {
+        "d": "16926c28-ff3d-7665-338d-550573a94acb",
+        "ame": "48674",
+        "ype": "UNIQUE",
+        "rimary_city": "Midland",
+        "tate": "MI",
+        "ounty": "Midland County"
+    },
+    {
+        "d": "1693a001-2515-5b7a-b5e6-5505734faab2",
+        "ame": "30161",
+        "ype": "STANDARD",
+        "rimary_city": "Rome",
+        "tate": "GA",
+        "ounty": "Floyd County"
+    },
+    {
+        "d": "1693e91a-33d4-3702-7f57-550574c46a9d",
+        "ame": "85044",
+        "ype": "STANDARD",
+        "rimary_city": "Phoenix",
+        "tate": "AZ",
+        "ounty": "Maricopa County"
+    },
+    {
+        "d": "16952150-2057-1ccc-7a07-550573bbb8db",
+        "ame": "12969",
+        "ype": "STANDARD",
+        "rimary_city": "Owls Head",
+        "tate": "NY",
+        "ounty": "Franklin County"
+    },
+    {
+        "d": "1696f10e-e250-7020-b9cb-5505734d777c",
+        "ame": "50539",
+        "ype": "STANDARD",
+        "rimary_city": "Fenton",
+        "tate": "IA",
+        "ounty": "Kossuth County"
+    },
+    {
+        "d": "169c5eb4-375f-365c-fe9f-5505741bab19",
+        "ame": "74737",
+        "ype": "PO BOX",
+        "rimary_city": "Golden",
+        "tate": "OK",
+        "ounty": "McCurtain County"
+    },
+    {
+        "d": "169e9272-3262-52ca-a31c-55057416c4ac",
+        "ame": "70075",
+        "ype": "STANDARD",
+        "rimary_city": "Meraux",
+        "tate": "LA",
+        "ounty": "St Bernard Parish"
+    },
+    {
+        "d": "16a12289-a0c6-3aa3-962d-5505746520f5",
+        "ame": "65722",
+        "ype": "STANDARD",
+        "rimary_city": "Phillipsburg",
+        "tate": "MO",
+        "ounty": "Laclede County"
+    },
+    {
+        "d": "16a2303a-fe46-1c00-e549-550574035b75",
+        "ame": "82010",
+        "ype": "UNIQUE",
+        "rimary_city": "Cheyenne",
+        "tate": "WY",
+        "ounty": "Laramie County"
+    },
+    {
+        "d": "16a5824a-4baf-e290-d725-550574a380b9",
+        "ame": "66938",
+        "ype": "STANDARD",
+        "rimary_city": "Clyde",
+        "tate": "KS",
+        "ounty": "Cloud County"
+    },
+    {
+        "d": "16a60bfb-db7a-551b-6bd6-5505738cd3bd",
+        "ame": "19478",
+        "ype": "PO BOX",
+        "rimary_city": "Spring Mount",
+        "tate": "PA",
+        "ounty": "Montgomery County"
+    },
+    {
+        "d": "16a69bc0-c697-dad8-0c93-5505742d75d5",
+        "ame": "72473",
+        "ype": "STANDARD",
+        "rimary_city": "Tuckerman",
+        "tate": "AR",
+        "ounty": "Jackson County"
+    },
+    {
+        "d": "16a7dffe-9e52-a4b7-75ef-550574547094",
+        "ame": "80977",
+        "ype": "UNIQUE",
+        "rimary_city": "Colorado Springs",
+        "tate": "CO",
+        "ounty": "El Paso County"
+    },
+    {
+        "d": "16a8cc5f-b6b6-3615-e459-5505741ba80b",
+        "ame": "77833",
+        "ype": "STANDARD",
+        "rimary_city": "Brenham",
+        "tate": "TX",
+        "ounty": "Washington County"
+    },
+    {
+        "d": "16ae034c-a9af-50a2-f5e1-550574fce590",
+        "ame": "91365",
+        "ype": "PO BOX",
+        "rimary_city": "Woodland Hills",
+        "tate": "CA",
+        "ounty": "Los Angeles County"
+    },
+    {
+        "d": "16afa7df-d370-37ce-904c-55057304b77d",
+        "ame": "37030",
+        "ype": "STANDARD",
+        "rimary_city": "Carthage",
+        "tate": "TN",
+        "ounty": "Smith County"
+    },
+    {
+        "d": "16afb2ba-92a9-9da9-eaf7-55057390a0d6",
+        "ame": "54839",
+        "ype": "STANDARD",
+        "rimary_city": "Grand View",
+        "tate": "WI",
+        "ounty": "Bayfield County"
+    },
+    {
+        "d": "16b0b381-9373-b3cc-7979-550574f9f555",
+        "ame": "76664",
+        "ype": "STANDARD",
+        "rimary_city": "Mart",
+        "tate": "TX",
+        "ounty": "McLennan County"
+    },
+    {
+        "d": "16b0c565-6997-c7de-a7b4-5505742a3b5f",
+        "ame": "93432",
+        "ype": "STANDARD",
+        "rimary_city": "Creston",
+        "tate": "CA",
+        "ounty": "San Luis Obispo County"
+    },
+    {
+        "d": "16b211cf-63af-1b8b-3eb8-550574003c84",
+        "ame": "67110",
+        "ype": "STANDARD",
+        "rimary_city": "Mulvane",
+        "tate": "KS",
+        "ounty": "Sedgwick County"
+    },
+    {
+        "d": "16b31025-ad72-611f-fe8e-5505733bfc2c",
+        "ame": "14702",
+        "ype": "PO BOX",
+        "rimary_city": "Jamestown",
+        "tate": "NY",
+        "ounty": "Chautauqua County"
+    },
+    {
+        "d": "16b378de-81ab-0911-b437-55057435c3e2",
+        "ame": "85352",
+        "ype": "PO BOX",
+        "rimary_city": "Tacna",
+        "tate": "AZ",
+        "ounty": "Yuma County"
+    },
+    {
+        "d": "16b3901c-adb4-96a1-64a2-5505733262d5",
+        "ame": "35757",
+        "ype": "STANDARD",
+        "rimary_city": "Madison",
+        "tate": "AL",
+        "ounty": "Madison County"
+    },
+    {
+        "d": "16b4ad8c-d9c5-c4dd-b009-550574b0c1de",
+        "ame": "68770",
+        "ype": "STANDARD",
+        "rimary_city": "Ponca",
+        "tate": "NE",
+        "ounty": "Dixon County"
+    },
+    {
+        "d": "16b88896-d0de-8c3a-220a-550573ae9089",
+        "ame": "29171",
+        "ype": "PO BOX",
+        "rimary_city": "West Columbia",
+        "tate": "SC",
+        "ounty": "Lexington County"
+    },
+    {
+        "d": "16b9d742-02a3-bf12-3bd6-55057394b5b6",
+        "ame": "39828",
+        "ype": "STANDARD",
+        "rimary_city": "Cairo",
+        "tate": "GA",
+        "ounty": "Grady County"
+    },
+    {
+        "d": "16ba2a59-bfbb-8662-b0f5-550573529d0b",
+        "ame": "49042",
+        "ype": "STANDARD",
+        "rimary_city": "Constantine",
+        "tate": "MI",
+        "ounty": "St Joseph County"
+    },
+    {
+        "d": "16bd10b7-4ed3-6987-11ce-5505749f393a",
+        "ame": "61803",
+        "ype": "PO BOX",
+        "rimary_city": "Urbana",
+        "tate": "IL",
+        "ounty": "Champaign County"
+    },
+    {
+        "d": "16bd33ab-18ed-4e1a-d98f-550573949518",
+        "ame": "38803",
+        "ype": "PO BOX",
+        "rimary_city": "Tupelo",
+        "tate": "MS",
+        "ounty": "Lee County"
+    },
+    {
+        "d": "16bff6bf-b87e-c84e-0f90-550574297694",
+        "ame": "88531",
+        "ype": "PO BOX",
+        "rimary_city": "El Paso",
+        "tate": "TX",
+        "ounty": "El Paso County"
+    },
+    {
+        "d": "16c007e4-f50a-1ebe-3e92-55057336a49f",
+        "ame": "10164",
+        "ype": "UNIQUE",
+        "rimary_city": "New York",
+        "tate": "NY",
+        "ounty": "New York County"
+    },
+    {
+        "d": "16c02dd2-099d-b054-93d7-550573e3ab9d",
+        "ame": "28450",
+        "ype": "STANDARD",
+        "rimary_city": "Lake Waccamaw",
+        "tate": "NC",
+        "ounty": "Columbus County"
+    },
+    {
+        "d": "16c2478f-7075-910a-8c4e-550574da571c",
+        "ame": "85671",
+        "ype": "PO BOX",
+        "rimary_city": "Sierra Vista",
+        "tate": "AZ",
+        "ounty": "Cochise County"
+    },
+    {
+        "d": "16c3c9ff-1740-f289-d665-55057399fc5f",
+        "ame": "54982",
+        "ype": "STANDARD",
+        "rimary_city": "Wautoma",
+        "tate": "WI",
+        "ounty": "Waushara County"
+    },
+    {
+        "d": "16c4e4e5-e78c-8e7b-a975-5505744404f5",
+        "ame": "64137",
+        "ype": "STANDARD",
+        "rimary_city": "Kansas City",
+        "tate": "MO",
+        "ounty": "Jackson County"
+    },
+    {
+        "d": "16c4e6fb-b23d-2f5c-bf2f-550573f43089",
+        "ame": "12222",
+        "ype": "UNIQUE",
+        "rimary_city": "Albany",
+        "tate": "NY",
+        "ounty": "Albany County"
+    },
+    {
+        "d": "16c78352-1bab-d12a-156c-550574980fb0",
+        "ame": "75147",
+        "ype": "STANDARD",
+        "rimary_city": "Mabank",
+        "tate": "TX",
+        "ounty": "Kaufman County"
+    },
+    {
+        "d": "16c850e5-bc98-55d6-d23e-5505736100b1",
+        "ame": "31711",
+        "ype": "STANDARD",
+        "rimary_city": "Andersonville",
+        "tate": "GA",
+        "ounty": "Sumter County"
+    },
+    {
+        "d": "16c85e8e-82ca-7614-edf8-5505748e0a35",
+        "ame": "75941",
+        "ype": "STANDARD",
+        "rimary_city": "Diboll",
+        "tate": "TX",
+        "ounty": "Angelina County"
+    },
+    {
+        "d": "16c8bd4c-c50e-3f50-cd7e-5505739ef436",
+        "ame": "55790",
+        "ype": "STANDARD",
+        "rimary_city": "Tower",
+        "tate": "MN",
+        "ounty": "St Louis County"
+    },
+    {
+        "d": "16c990de-7fc1-5b80-06d7-5505735324fd",
+        "ame": "04332",
+        "ype": "PO BOX",
+        "rimary_city": "Augusta",
+        "tate": "ME",
+        "ounty": "Kennebec County"
+    },
+    {
+        "d": "16cc0182-ae0e-f677-047c-55057309a2b7",
+        "ame": "05150",
+        "ype": "STANDARD",
+        "rimary_city": "North Springfield",
+        "tate": "VT",
+        "ounty": "Windsor County"
+    },
+    {
+        "d": "16ce2ea1-c0fe-03b5-1716-55057453dd09",
+        "ame": "68940",
+        "ype": "STANDARD",
+        "rimary_city": "Funk",
+        "tate": "NE",
+        "ounty": "Phelps County"
+    },
+    {
+        "d": "16cea744-912c-b785-afa0-550573310174",
+        "ame": "56142",
+        "ype": "STANDARD",
+        "rimary_city": "Ivanhoe",
+        "tate": "MN",
+        "ounty": "Lincoln County"
+    },
+    {
+        "d": "16cf9458-9e24-cf02-ad7d-550573884054",
+        "ame": "08027",
+        "ype": "STANDARD",
+        "rimary_city": "Gibbstown",
+        "tate": "NJ",
+        "ounty": "Gloucester County"
+    },
+    {
+        "d": "16cfdc9d-07de-7982-3fb5-550573041e9c",
+        "ame": "18947",
+        "ype": "STANDARD",
+        "rimary_city": "Pipersville",
+        "tate": "PA",
+        "ounty": "Bucks County"
+    },
+    {
+        "d": "16d0e361-c70a-96e3-85e7-550573c69d90",
+        "ame": "30428",
+        "ype": "STANDARD",
+        "rimary_city": "Glenwood",
+        "tate": "GA",
+        "ounty": "Wheeler County"
+    },
+    {
+        "d": "16d16e8a-b6a1-6f85-3680-550574bcacfb",
+        "ame": "96515",
+        "ype": "MILITARY",
+        "rimary_city": "Dpo",
+        "tate": "AP",
+        "ounty": "NULL"
+    },
+    {
+        "d": "16d2168b-2ac3-5194-4488-550574a2dce3",
+        "ame": "95514",
+        "ype": "STANDARD",
+        "rimary_city": "Blocksburg",
+        "tate": "CA",
+        "ounty": "Humboldt County"
+    },
+    {
+        "d": "16d60900-8717-b55b-6f1d-550573c84ea6",
+        "ame": "49029",
+        "ype": "STANDARD",
+        "rimary_city": "Burlington",
+        "tate": "MI",
+        "ounty": "Calhoun County"
+    },
+    {
+        "d": "16d634d5-18f1-9364-73dc-550574076a8c",
+        "ame": "67566",
+        "ype": "STANDARD",
+        "rimary_city": "Partridge",
+        "tate": "KS",
+        "ounty": "Reno County"
+    },
+    {
+        "d": "16d75737-8fc8-1b17-31ca-550573c60c46",
+        "ame": "24077",
+        "ype": "STANDARD",
+        "rimary_city": "Cloverdale",
+        "tate": "VA",
+        "ounty": "Botetourt County"
+    },
+    {
+        "d": "16d7827d-e707-cbec-9f6d-5505739e1d1e",
+        "ame": "29402",
+        "ype": "PO BOX",
+        "rimary_city": "Charleston",
+        "tate": "SC",
+        "ounty": "Charleston County"
+    },
+    {
+        "d": "16dd3f0e-709b-b6b0-1803-550573a445ab",
+        "ame": "49628",
+        "ype": "PO BOX",
+        "rimary_city": "Elberta",
+        "tate": "MI",
+        "ounty": "Benzie County"
+    },
+    {
+        "d": "16de3b4f-83f4-101e-b7c5-5505738b5056",
+        "ame": "07875",
+        "ype": "PO BOX",
+        "rimary_city": "Stillwater",
+        "tate": "NJ",
+        "ounty": "Sussex County"
+    },
+    {
+        "d": "16dec79c-a3ee-6dea-a338-550574f5a21b",
+        "ame": "66282",
+        "ype": "PO BOX",
+        "rimary_city": "Overland Park",
+        "tate": "KS",
+        "ounty": "Johnson County"
+    },
+    {
+        "d": "16e03834-f29b-ec18-4fc3-5505730fcc22",
+        "ame": "30808",
+        "ype": "STANDARD",
+        "rimary_city": "Dearing",
+        "tate": "GA",
+        "ounty": "McDuffie County"
+    },
+    {
+        "d": "16e42b29-6a03-4d44-a716-550573cbbcc5",
+        "ame": "06083",
+        "ype": "PO BOX",
+        "rimary_city": "Enfield",
+        "tate": "CT",
+        "ounty": "Hartford County"
+    },
+    {
+        "d": "16e7b4e6-67f5-bb62-8484-550573aa5387",
+        "ame": "11233",
+        "ype": "STANDARD",
+        "rimary_city": "Brooklyn",
+        "tate": "NY",
+        "ounty": "Kings County"
+    },
+    {
+        "d": "16e7f59b-c226-84da-07de-550573233b0c",
+        "ame": "55387",
+        "ype": "STANDARD",
+        "rimary_city": "Waconia",
+        "tate": "MN",
+        "ounty": "Carver County"
+    },
+    {
+        "d": "16e8e6c2-4971-4cd6-820e-5505739448a0",
+        "ame": "04947",
+        "ype": "STANDARD",
+        "rimary_city": "Kingfield",
+        "tate": "ME",
+        "ounty": "Franklin County"
+    },
+    {
+        "d": "16ecde58-3726-3bdf-809c-550574ed59df",
+        "ame": "70563",
+        "ype": "STANDARD",
+        "rimary_city": "New Iberia",
+        "tate": "LA",
+        "ounty": "Iberia Parish"
+    },
+    {
+        "d": "16ed6219-41c0-1c53-f785-55057348be7d",
+        "ame": "04551",
+        "ype": "STANDARD",
+        "rimary_city": "Bremen",
+        "tate": "ME",
+        "ounty": "Lincoln County"
+    },
+    {
+        "d": "16ef7394-d601-347f-930e-550574431a73",
+        "ame": "66624",
+        "ype": "UNIQUE",
+        "rimary_city": "Topeka",
+        "tate": "KS",
+        "ounty": "Shawnee County"
+    },
+    {
+        "d": "16f00a6d-6477-6a1f-b92e-550573e587c1",
+        "ame": "17724",
+        "ype": "STANDARD",
+        "rimary_city": "Canton",
+        "tate": "PA",
+        "ounty": "Bradford County"
+    },
+    {
+        "d": "16f01ee9-2418-83d9-ef03-550574a58f8e",
+        "ame": "87014",
+        "ype": "STANDARD",
+        "rimary_city": "Cubero",
+        "tate": "NM",
+        "ounty": "Cibola County"
+    },
+    {
+        "d": "16f1884d-2b08-9dfe-8516-5505734b8daa",
+        "ame": "37830",
+        "ype": "STANDARD",
+        "rimary_city": "Oak Ridge",
+        "tate": "TN",
+        "ounty": "Anderson County"
+    },
+    {
+        "d": "16f42baa-2361-a318-631e-5505726387ff",
+        "ame": "01238",
+        "ype": "STANDARD",
+        "rimary_city": "Lee",
+        "tate": "MA",
+        "ounty": "Berkshire County"
+    },
+    {
+        "d": "16f533c4-1b25-7168-903d-5505749bdfb3",
+        "ame": "98377",
+        "ype": "STANDARD",
+        "rimary_city": "Randle",
+        "tate": "WA",
+        "ounty": "Lewis County"
+    },
+    {
+        "d": "16f5897e-3558-830b-134d-550574d2dca9",
+        "ame": "84335",
+        "ype": "STANDARD",
+        "rimary_city": "Smithfield",
+        "tate": "UT",
+        "ounty": "Cache County"
+    },
+    {
+        "d": "16f64b26-44e9-02ed-d91f-550573dffba5",
+        "ame": "56735",
+        "ype": "STANDARD",
+        "rimary_city": "Lancaster",
+        "tate": "MN",
+        "ounty": "Kittson County"
+    },
+    {
+        "d": "16f6c8f6-78f9-99f6-affa-5505747217b1",
+        "ame": "92091",
+        "ype": "STANDARD",
+        "rimary_city": "Rancho Santa Fe",
+        "tate": "CA",
+        "ounty": "San Diego County"
+    },
+    {
+        "d": "16f7b287-9757-da5a-1d88-550573401429",
+        "ame": "46702",
+        "ype": "STANDARD",
+        "rimary_city": "Andrews",
+        "tate": "IN",
+        "ounty": "Huntington County"
+    },
+    {
+        "d": "16fb8976-b1f7-6159-e45d-55057474c297",
+        "ame": "84720",
+        "ype": "STANDARD",
+        "rimary_city": "Cedar City",
+        "tate": "UT",
+        "ounty": "Iron County"
+    },
+    {
+        "d": "16fc6d96-f195-db5e-a884-550574623772",
+        "ame": "61277",
+        "ype": "STANDARD",
+        "rimary_city": "Prophetstown",
+        "tate": "IL",
+        "ounty": "Whiteside County"
+    },
+    {
+        "d": "16fc8ab5-4507-bc1b-a99b-550573b23088",
+        "ame": "15066",
+        "ype": "STANDARD",
+        "rimary_city": "New Brighton",
+        "tate": "PA",
+        "ounty": "Beaver County"
+    },
+    {
+        "d": "16fc9295-8098-40d1-ff38-5505741549e4",
+        "ame": "89103",
+        "ype": "STANDARD",
+        "rimary_city": "Las Vegas",
+        "tate": "NV",
+        "ounty": "Clark County"
+    },
+    {
+        "d": "16fd801e-b790-2032-fec2-550573375dce",
+        "ame": "52756",
+        "ype": "STANDARD",
+        "rimary_city": "Long Grove",
+        "tate": "IA",
+        "ounty": "Scott County"
+    },
+    {
+        "d": "16fd9686-46df-43b2-566e-55057478522c",
+        "ame": "71061",
+        "ype": "STANDARD",
+        "rimary_city": "Oil City",
+        "tate": "LA",
+        "ounty": "Caddo Parish"
+    },
+    {
+        "d": "16ff0b1c-2926-b67e-00fd-550573f35df8",
+        "ame": "59707",
+        "ype": "UNIQUE",
+        "rimary_city": "Butte",
+        "tate": "MT",
+        "ounty": "Silver Bow County"
+    },
+    {
+        "d": "16ff6cfa-b56e-3c8e-3f04-550573867351",
+        "ame": "32353",
+        "ype": "PO BOX",
+        "rimary_city": "Quincy",
+        "tate": "FL",
+        "ounty": "Gadsden County"
+    },
+    {
+        "d": "16ff9558-1727-e212-9c6f-550573a72f7d",
+        "ame": "23890",
+        "ype": "STANDARD",
+        "rimary_city": "Waverly",
+        "tate": "VA",
+        "ounty": "Sussex County"
+    },
+    {
+        "d": "17000ab4-f25c-aac8-2138-550574c0605b",
+        "ame": "70544",
+        "ype": "STANDARD",
+        "rimary_city": "Jeanerette",
+        "tate": "LA",
+        "ounty": "Iberia Parish"
+    },
+    {
+        "d": "17002e38-6e81-934b-951a-55057497ad5d",
+        "ame": "99116",
+        "ype": "STANDARD",
+        "rimary_city": "Coulee Dam",
+        "tate": "WA",
+        "ounty": "Okanogan County"
+    },
+    {
+        "d": "17005668-d0f5-23e1-5507-550574dd1d96",
+        "ame": "64468",
+        "ype": "STANDARD",
+        "rimary_city": "Maryville",
+        "tate": "MO",
+        "ounty": "Nodaway County"
+    },
+    {
+        "d": "17015261-2841-3a72-0de8-5505738d6750",
+        "ame": "59214",
+        "ype": "STANDARD",
+        "rimary_city": "Brockway",
+        "tate": "MT",
+        "ounty": "McCone County"
+    },
+    {
+        "d": "17021d6d-a43c-e2d1-9fdd-55057494b734",
+        "ame": "71411",
+        "ype": "STANDARD",
+        "rimary_city": "Campti",
+        "tate": "LA",
+        "ounty": "Natchitoches Parish"
+    },
+    {
+        "d": "17029f08-16a1-64ba-8f71-550573dfc645",
+        "ame": "31081",
+        "ype": "STANDARD",
+        "rimary_city": "Rupert",
+        "tate": "GA",
+        "ounty": "Taylor County"
+    },
+    {
+        "d": "1703d763-3ea2-3b46-a454-550574d518b0",
+        "ame": "94138",
+        "ype": "UNIQUE",
+        "rimary_city": "San Francisco",
+        "tate": "CA",
+        "ounty": "San Francisco County"
+    },
+    {
+        "d": "17056354-aa3f-5a1f-d9ad-55057427ae33",
+        "ame": "94612",
+        "ype": "STANDARD",
+        "rimary_city": "Oakland",
+        "tate": "CA",
+        "ounty": "Alameda County"
+    },
+    {
+        "d": "170656c0-2e52-996b-b954-55057409de9b",
+        "ame": "90853",
+        "ype": "PO BOX",
+        "rimary_city": "Long Beach",
+        "tate": "CA",
+        "ounty": "Los Angeles County"
+    },
+    {
+        "d": "170668e8-bb1e-ca35-f619-550574febd85",
+        "ame": "62034",
+        "ype": "STANDARD",
+        "rimary_city": "Glen Carbon",
+        "tate": "IL",
+        "ounty": "Madison County"
+    },
+    {
+        "d": "17077583-5d50-0e59-d40e-550573990af4",
+        "ame": "09524",
+        "ype": "MILITARY",
+        "rimary_city": "Fpo",
+        "tate": "AE",
+        "ounty": "NULL"
+    },
+    {
+        "d": "1707ce91-f12e-5373-97d3-550574a790aa",
+        "ame": "97722",
+        "ype": "STANDARD",
+        "rimary_city": "Diamond",
+        "tate": "OR",
+        "ounty": "Harney County"
+    },
+    {
+        "d": "1707d7f4-2b01-cfa3-1784-5505737abc61",
+        "ame": "51040",
+        "ype": "STANDARD",
+        "rimary_city": "Onawa",
+        "tate": "IA",
+        "ounty": "Monona County"
+    },
+    {
+        "d": "170a7770-9987-ca42-9190-550573e7e7c0",
+        "ame": "26590",
+        "ype": "STANDARD",
+        "rimary_city": "Wana",
+        "tate": "WV",
+        "ounty": "Monongalia County"
+    },
+    {
+        "d": "170ab894-5fb4-95bf-682d-550573b36a5c",
+        "ame": "52218",
+        "ype": "STANDARD",
+        "rimary_city": "Coggon",
+        "tate": "IA",
+        "ounty": "Linn County"
+    },
+    {
+        "d": "170b903b-a0e9-3ec6-a35a-550573374655",
+        "ame": "52534",
+        "ype": "STANDARD",
+        "rimary_city": "Beacon",
+        "tate": "IA",
+        "ounty": "Mahaska County"
+    },
+    {
+        "d": "170cfac0-85f7-76b6-bdba-5505732fea53",
+        "ame": "31412",
+        "ype": "PO BOX",
+        "rimary_city": "Savannah",
+        "tate": "GA",
+        "ounty": "Chatham County"
+    },
+    {
+        "d": "170e876e-93b8-03a1-dc56-550573b8964c",
+        "ame": "15920",
+        "ype": "STANDARD",
+        "rimary_city": "Armagh",
+        "tate": "PA",
+        "ounty": "Indiana County"
+    },
+    {
+        "d": "170fa9d7-a362-5aed-f925-5505733eeb87",
+        "ame": "13318",
+        "ype": "STANDARD",
+        "rimary_city": "Cassville",
+        "tate": "NY",
+        "ounty": "Oneida County"
+    },
+    {
+        "d": "1710480b-e024-7b54-c726-5505738716e0",
+        "ame": "03301",
+        "ype": "STANDARD",
+        "rimary_city": "Concord",
+        "tate": "NH",
+        "ounty": "Merrimack County"
+    },
+    {
+        "d": "1712b74c-993b-af5f-aaca-550573da83bf",
+        "ame": "56006",
+        "ype": "PO BOX",
+        "rimary_city": "Mankato",
+        "tate": "MN",
+        "ounty": "Blue Earth County"
+    },
+    {
+        "d": "171369c8-d313-8034-8d56-550574db873c",
+        "ame": "71972",
+        "ype": "STANDARD",
+        "rimary_city": "Vandervoort",
+        "tate": "AR",
+        "ounty": "Polk County"
+    },
+    {
+        "d": "1715bf52-32cc-23b1-8a59-550573bce15b",
+        "ame": "55583",
+        "ype": "PO BOX",
+        "rimary_city": "Norwood",
+        "tate": "MN",
+        "ounty": "Carver County"
+    },
+    {
+        "d": "171681f8-9923-9caf-2004-5505734dbfb4",
+        "ame": "58580",
+        "ype": "STANDARD",
+        "rimary_city": "Zap",
+        "tate": "ND",
+        "ounty": "Mercer County"
+    },
+    {
+        "d": "1716f688-1243-3bcd-1dcb-550574c61e4a",
+        "ame": "77384",
+        "ype": "STANDARD",
+        "rimary_city": "Conroe",
+        "tate": "TX",
+        "ounty": "Montgomery County"
+    },
+    {
+        "d": "1717376a-4344-b11d-7337-550573a389ce",
+        "ame": "32187",
+        "ype": "STANDARD",
+        "rimary_city": "San Mateo",
+        "tate": "FL",
+        "ounty": "Putnam County"
+    },
+    {
+        "d": "171842d8-c474-9589-1e9d-550573e3d176",
+        "ame": "14505",
+        "ype": "STANDARD",
+        "rimary_city": "Marion",
+        "tate": "NY",
+        "ounty": "Wayne County"
+    },
+    {
+        "d": "171a008d-9dcf-f22f-b428-55057390abc1",
+        "ame": "46015",
+        "ype": "PO BOX",
+        "rimary_city": "Anderson",
+        "tate": "IN",
+        "ounty": "Madison County"
+    },
+    {
+        "d": "171a076c-46cd-88c2-833a-55057473b2e8",
+        "ame": "93212",
+        "ype": "STANDARD",
+        "rimary_city": "Corcoran",
+        "tate": "CA",
+        "ounty": "Kings County"
+    },
+    {
+        "d": "171a1a15-62f3-9bd4-995c-550573db5cd6",
+        "ame": "56574",
+        "ype": "STANDARD",
+        "rimary_city": "Perley",
+        "tate": "MN",
+        "ounty": "Norman County"
+    },
+    {
+        "d": "171b94e0-075f-1454-3f79-550574d1ca80",
+        "ame": "64011",
+        "ype": "STANDARD",
+        "rimary_city": "Bates City",
+        "tate": "MO",
+        "ounty": "Lafayette County"
+    },
+    {
+        "d": "171d9ab7-0a3c-d081-e910-550573817f57",
+        "ame": "17935",
+        "ype": "STANDARD",
+        "rimary_city": "Girardville",
+        "tate": "PA",
+        "ounty": "Schuylkill County"
+    },
+    {
+        "d": "171ed24c-87cd-1a8d-b15f-550573248aba",
+        "ame": "44482",
+        "ype": "PO BOX",
+        "rimary_city": "Warren",
+        "tate": "OH",
+        "ounty": "Trumbull County"
+    },
+    {
+        "d": "171efc45-c149-0bc3-399e-5505736655cb",
+        "ame": "58849",
+        "ype": "STANDARD",
+        "rimary_city": "Ray",
+        "tate": "ND",
+        "ounty": "Williams County"
+    },
+    {
+        "d": "171f4a28-69a3-3265-0c7e-5505737aa7de",
+        "ame": "28707",
+        "ype": "PO BOX",
+        "rimary_city": "Balsam",
+        "tate": "NC",
+        "ounty": "Jackson County"
+    },
+    {
+        "d": "171fa1b5-6586-b61d-d835-5505733953b8",
+        "ame": "21236",
+        "ype": "STANDARD",
+        "rimary_city": "Nottingham",
+        "tate": "MD",
+        "ounty": "Baltimore County"
+    },
+    {
+        "d": "17201a09-c986-771f-c366-550573cd8e74",
+        "ame": "36038",
+        "ype": "PO BOX",
+        "rimary_city": "Gantt",
+        "tate": "AL",
+        "ounty": "Covington County"
+    },
+    {
+        "d": "1720f454-078a-62d5-6d70-5505748c6570",
+        "ame": "67354",
+        "ype": "STANDARD",
+        "rimary_city": "Mound Valley",
+        "tate": "KS",
+        "ounty": "Labette County"
+    },
+    {
+        "d": "172206ef-c9c8-3805-dede-5505740d7f28",
+        "ame": "96025",
+        "ype": "STANDARD",
+        "rimary_city": "Dunsmuir",
+        "tate": "CA",
+        "ounty": "Siskiyou County"
+    },
+    {
+        "d": "17226376-52e3-fc73-33db-550573df4615",
+        "ame": "38042",
+        "ype": "STANDARD",
+        "rimary_city": "Hickory Valley",
+        "tate": "TN",
+        "ounty": "Hardeman County"
+    },
+    {
+        "d": "1724d7f8-edeb-2a9f-116c-550573aad424",
+        "ame": "15540",
+        "ype": "STANDARD",
+        "rimary_city": "Fort Hill",
+        "tate": "PA",
+        "ounty": "Somerset County"
+    },
+    {
+        "d": "17256f2c-7ec6-dfca-d5e6-550574a5ee84",
+        "ame": "98221",
+        "ype": "STANDARD",
+        "rimary_city": "Anacortes",
+        "tate": "WA",
+        "ounty": "Skagit County"
+    },
+    {
+        "d": "17284f44-31bc-d13a-cb61-5505746785e3",
+        "ame": "75010",
+        "ype": "STANDARD",
+        "rimary_city": "Carrollton",
+        "tate": "TX",
+        "ounty": "Denton County"
+    },
+    {
+        "d": "1728c339-b208-9ef5-3eff-5505739b14a3",
+        "ame": "51651",
+        "ype": "PO BOX",
+        "rimary_city": "Shambaugh",
+        "tate": "IA",
+        "ounty": "Page County"
+    },
+    {
+        "d": "172aeb42-7726-580a-5c8c-5505742cbd9e",
+        "ame": "67843",
+        "ype": "STANDARD",
+        "rimary_city": "Fort Dodge",
+        "tate": "KS",
+        "ounty": "Ford County"
+    },
+    {
+        "d": "172b2bfd-865e-aed5-ed1f-5505747442b2",
+        "ame": "60556",
+        "ype": "STANDARD",
+        "rimary_city": "Waterman",
+        "tate": "IL",
+        "ounty": "Dekalb County"
+    },
+    {
+        "d": "172d05c0-e629-2597-1d18-550574ac3412",
+        "ame": "95204",
+        "ype": "STANDARD",
+        "rimary_city": "Stockton",
+        "tate": "CA",
+        "ounty": "San Joaquin County"
+    },
+    {
+        "d": "172d4cfe-5e54-e46b-0ee1-550573f8cbc4",
+        "ame": "41048",
+        "ype": "STANDARD",
+        "rimary_city": "Hebron",
+        "tate": "KY",
+        "ounty": "Boone County"
+    },
+    {
+        "d": "172d7d99-fe4c-e943-4e43-5505741349eb",
+        "ame": "89460",
+        "ype": "STANDARD",
+        "rimary_city": "Gardnerville",
+        "tate": "NV",
+        "ounty": "Douglas County"
+    },
+    {
+        "d": "17340011-0e2d-5352-1a4b-55057468e5a8",
+        "ame": "96134",
+        "ype": "STANDARD",
+        "rimary_city": "Tulelake",
+        "tate": "CA",
+        "ounty": "Siskiyou County"
+    },
+    {
+        "d": "1735ce50-46e7-c3ef-ad2f-55057306ceb5",
+        "ame": "19098",
+        "ype": "UNIQUE",
+        "rimary_city": "Holmes",
+        "tate": "PA",
+        "ounty": "Delaware County"
+    },
+    {
+        "d": "1735eb06-4ba6-bb04-3393-550573ef1389",
+        "ame": "06494",
+        "ype": "UNIQUE",
+        "rimary_city": "Wallingford",
+        "tate": "CT",
+        "ounty": "New Haven County"
+    },
+    {
+        "d": "17386666-ddca-488e-0c1f-5505732c01df",
+        "ame": "15691",
+        "ype": "PO BOX",
+        "rimary_city": "Wendel",
+        "tate": "PA",
+        "ounty": "Westmoreland County"
+    },
+    {
+        "d": "17410b7f-ce72-e3b1-067e-550573f5621a",
+        "ame": "51637",
+        "ype": "PO BOX",
+        "rimary_city": "College Springs",
+        "tate": "IA",
+        "ounty": "Page County"
+    },
+    {
+        "d": "17418a1c-2e5b-224f-7bbb-550573cd8f98",
+        "ame": "55127",
+        "ype": "STANDARD",
+        "rimary_city": "Saint Paul",
+        "tate": "MN",
+        "ounty": "Ramsey County"
+    },
+    {
+        "d": "174205bb-c500-86da-d747-550574e4da74",
+        "ame": "81650",
+        "ype": "STANDARD",
+        "rimary_city": "Rifle",
+        "tate": "CO",
+        "ounty": "Garfield County"
+    },
+    {
+        "d": "17473da3-c609-d1d4-9ec3-550574b0b9ce",
+        "ame": "95680",
+        "ype": "PO BOX",
+        "rimary_city": "Ryde",
+        "tate": "CA",
+        "ounty": "Sacramento County"
+    },
+    {
+        "d": "174a39b1-ddef-49ce-d16d-5505739fe9f5",
+        "ame": "57761",
+        "ype": "STANDARD",
+        "rimary_city": "New Underwood",
+        "tate": "SD",
+        "ounty": "Pennington County"
+    },
+    {
+        "d": "174ac2d1-b71f-b172-6ed5-5505742964cf",
+        "ame": "68371",
+        "ype": "STANDARD",
+        "rimary_city": "Henderson",
+        "tate": "NE",
+        "ounty": "York County"
+    },
+    {
+        "d": "174d0ea1-8cb9-43e3-eb9e-55057352b27c",
+        "ame": "49240",
+        "ype": "STANDARD",
+        "rimary_city": "Grass Lake",
+        "tate": "MI",
+        "ounty": "Jackson County"
+    },
+    {
+        "d": "174d7e3c-edc0-d7e1-8c9b-550574e1936c",
+        "ame": "70755",
+        "ype": "STANDARD",
+        "rimary_city": "Livonia",
+        "tate": "LA",
+        "ounty": "Pointe Coupee Parish"
+    },
+    {
+        "d": "174e0dd5-196d-c49a-031e-550574d3142b",
+        "ame": "61571",
+        "ype": "STANDARD",
+        "rimary_city": "Washington",
+        "tate": "IL",
+        "ounty": "Tazewell County"
+    },
+    {
+        "d": "1756b61f-de41-8018-7c82-550573d573ae",
+        "ame": "40755",
+        "ype": "PO BOX",
+        "rimary_city": "Pittsburg",
+        "tate": "KY",
+        "ounty": "Laurel County"
+    },
+    {
+        "d": "1756d982-2088-cfac-1e34-5505730d256c",
+        "ame": "08646",
+        "ype": "UNIQUE",
+        "rimary_city": "Trenton",
+        "tate": "NJ",
+        "ounty": "Mercer County"
+    },
+    {
+        "d": "175754ae-9e5a-1ed6-0186-5505741d0397",
+        "ame": "71726",
+        "ype": "STANDARD",
+        "rimary_city": "Chidester",
+        "tate": "AR",
+        "ounty": "Ouachita County"
+    },
+    {
+        "d": "17579bfa-9e92-416e-4269-5505741f2d79",
+        "ame": "99662",
+        "ype": "PO BOX",
+        "rimary_city": "Scammon Bay",
+        "tate": "AK",
+        "ounty": "Wade Hampton Census Area"
+    },
+    {
+        "d": "1757b9ab-dc14-3be4-8220-5505735dc8a5",
+        "ame": "23310",
+        "ype": "STANDARD",
+        "rimary_city": "Cape Charles",
+        "tate": "VA",
+        "ounty": "Northampton County"
+    },
+    {
+        "d": "1761b3de-5d04-693e-2258-55057466cef5",
+        "ame": "96156",
+        "ype": "PO BOX",
+        "rimary_city": "South Lake Tahoe",
+        "tate": "CA",
+        "ounty": "Alpine County"
+    },
+    {
+        "d": "1761bf39-4e61-e592-11b0-5505734788db",
+        "ame": "36513",
+        "ype": "PO BOX",
+        "rimary_city": "Calvert",
+        "tate": "AL",
+        "ounty": "Washington County"
+    },
+    {
+        "d": "17621dae-e529-8ded-0fad-550573c31b0e",
+        "ame": "30581",
+        "ype": "PO BOX",
+        "rimary_city": "Wiley",
+        "tate": "GA",
+        "ounty": "Rabun County"
+    },
+    {
+        "d": "176385b5-003a-6196-65e1-550574114da1",
+        "ame": "99824",
+        "ype": "STANDARD",
+        "rimary_city": "Douglas",
+        "tate": "AK",
+        "ounty": "Juneau Borough"
+    },
+    {
+        "d": "1763b944-ae12-64be-9b14-55057391bda1",
+        "ame": "18654",
+        "ype": "PO BOX",
+        "rimary_city": "Shawanese",
+        "tate": "PA",
+        "ounty": "Luzerne County"
+    },
+    {
+        "d": "1766c12a-e34e-7c91-f344-550574fea4a0",
+        "ame": "78280",
+        "ype": "PO BOX",
+        "rimary_city": "San Antonio",
+        "tate": "TX",
+        "ounty": "Bexar County"
+    },
+    {
+        "d": "17699948-06bd-51cd-c7ea-5505733adbaf",
+        "ame": "06807",
+        "ype": "STANDARD",
+        "rimary_city": "Cos Cob",
+        "tate": "CT",
+        "ounty": "Fairfield County"
+    },
+    {
+        "d": "176bdb32-3a69-53c0-b38f-5505748d833a",
+        "ame": "94302",
+        "ype": "PO BOX",
+        "rimary_city": "Palo Alto",
+        "tate": "CA",
+        "ounty": "Santa Clara County"
+    },
+    {
+        "d": "176d109f-61b8-26f6-077c-5505736756ba",
+        "ame": "57335",
+        "ype": "STANDARD",
+        "rimary_city": "Fairfax",
+        "tate": "SD",
+        "ounty": "Gregory County"
+    },
+    {
+        "d": "176f6c89-fa4b-8c24-8c46-550573a84329",
+        "ame": "10970",
+        "ype": "STANDARD",
+        "rimary_city": "Pomona",
+        "tate": "NY",
+        "ounty": "Rockland County"
+    },
+    {
+        "d": "1770f6b3-32ee-4a8f-fcc4-550573e41b78",
+        "ame": "30064",
+        "ype": "STANDARD",
+        "rimary_city": "Marietta",
+        "tate": "GA",
+        "ounty": "Cobb County"
+    },
+    {
+        "d": "17720a9b-63ce-98b1-aedf-550573e20944",
+        "ame": "07631",
+        "ype": "STANDARD",
+        "rimary_city": "Englewood",
+        "tate": "NJ",
+        "ounty": "Bergen County"
+    },
+    {
+        "d": "17723302-2d3c-ce89-e431-550574066bb9",
+        "ame": "70393",
+        "ype": "STANDARD",
+        "rimary_city": "Plattenville",
+        "tate": "LA",
+        "ounty": "Assumption Parish"
+    },
+    {
+        "d": "1774a1fd-060c-94dc-1be2-5505737163f6",
+        "ame": "40379",
+        "ype": "STANDARD",
+        "rimary_city": "Stamping Ground",
+        "tate": "KY",
+        "ounty": "Scott County"
+    },
+    {
+        "d": "17751b6d-d2e3-2257-eda8-55057345b445",
+        "ame": "09735",
+        "ype": "MILITARY",
+        "rimary_city": "Apo",
+        "tate": "AE",
+        "ounty": "NULL"
+    },
+    {
+        "d": "1775a839-9cf4-48ca-2058-550573006854",
+        "ame": "29669",
+        "ype": "STANDARD",
+        "rimary_city": "Pelzer",
+        "tate": "SC",
+        "ounty": "Greenville County"
+    },
+    {
+        "d": "177785eb-87fd-629d-fcb0-5505730bd49e",
+        "ame": "42733",
+        "ype": "STANDARD",
+        "rimary_city": "Elk Horn",
+        "tate": "KY",
+        "ounty": "Taylor County"
+    },
+    {
+        "d": "17796d86-11f1-9c95-dc4d-550573e44f7e",
+        "ame": "19805",
+        "ype": "STANDARD",
+        "rimary_city": "Wilmington",
+        "tate": "DE",
+        "ounty": "New Castle County"
+    },
+    {
+        "d": "1779c689-4009-a1e8-238a-55057369047b",
+        "ame": "36256",
+        "ype": "STANDARD",
+        "rimary_city": "Daviston",
+        "tate": "AL",
+        "ounty": "Tallapoosa County"
+    },
+    {
+        "d": "177b1580-f56e-f4f2-7700-550574bb30d5",
+        "ame": "75477",
+        "ype": "STANDARD",
+        "rimary_city": "Roxton",
+        "tate": "TX",
+        "ounty": "Lamar County"
+    },
+    {
+        "d": "177d10d9-84fd-7e2e-e065-5505736036b3",
+        "ame": "38450",
+        "ype": "STANDARD",
+        "rimary_city": "Collinwood",
+        "tate": "TN",
+        "ounty": "Wayne County"
+    },
+    {
+        "d": "177e4efd-ced6-1c91-8ccc-5505742f0672",
+        "ame": "73167",
+        "ype": "STANDARD",
+        "rimary_city": "Oklahoma City",
+        "tate": "OK",
+        "ounty": "Oklahoma County"
+    },
+    {
+        "d": "177eb761-29a9-9888-7258-5505730bb5c7",
+        "ame": "35503",
+        "ype": "STANDARD",
+        "rimary_city": "Jasper",
+        "tate": "AL",
+        "ounty": "Walker County"
+    },
+    {
+        "d": "177f0187-74eb-ebc0-b4c8-550573eefb7c",
+        "ame": "38190",
+        "ype": "PO BOX",
+        "rimary_city": "Memphis",
+        "tate": "TN",
+        "ounty": "Shelby County"
+    },
+    {
+        "d": "177f6fb6-b8fd-3fa9-753e-5505738c09bd",
+        "ame": "29556",
+        "ype": "STANDARD",
+        "rimary_city": "Kingstree",
+        "tate": "SC",
+        "ounty": "Williamsburg County"
+    },
+    {
+        "d": "17807a41-e594-01eb-51fb-550573d621ea",
+        "ame": "12584",
+        "ype": "PO BOX",
+        "rimary_city": "Vails Gate",
+        "tate": "NY",
+        "ounty": "Orange County"
+    },
+    {
+        "d": "17817ab8-13fc-6f0d-971a-55057316fc3e",
+        "ame": "18105",
+        "ype": "PO BOX",
+        "rimary_city": "Allentown",
+        "tate": "PA",
+        "ounty": "Lehigh County"
+    },
+    {
+        "d": "1782e57b-0b65-dc48-6b76-5505746bfc6f",
+        "ame": "76105",
+        "ype": "STANDARD",
+        "rimary_city": "Fort Worth",
+        "tate": "TX",
+        "ounty": "Tarrant County"
+    },
+    {
+        "d": "1783ccfe-6b0c-3ed9-a6fd-55057321b20e",
+        "ame": "57541",
+        "ype": "STANDARD",
+        "rimary_city": "Ideal",
+        "tate": "SD",
+        "ounty": "Tripp County"
+    },
+    {
+        "d": "1788042f-272e-ff80-a921-550574c6399b",
+        "ame": "83435",
+        "ype": "STANDARD",
+        "rimary_city": "Monteview",
+        "tate": "ID",
+        "ounty": "Jefferson County"
+    },
+    {
+        "d": "17899f09-d6c2-e45e-8963-55057323ef80",
+        "ame": "37329",
+        "ype": "STANDARD",
+        "rimary_city": "Englewood",
+        "tate": "TN",
+        "ounty": "McMinn County"
+    },
+    {
+        "d": "1789ebdf-3d07-cfab-8d31-550573a7e983",
+        "ame": "51446",
+        "ype": "STANDARD",
+        "rimary_city": "Irwin",
+        "tate": "IA",
+        "ounty": "Shelby County"
+    },
+    {
+        "d": "178d6c84-7a31-9a56-c93a-550574e57edb",
+        "ame": "63536",
+        "ype": "STANDARD",
+        "rimary_city": "Downing",
+        "tate": "MO",
+        "ounty": "Schuyler County"
+    },
+    {
+        "d": "178e8b0a-028b-9bc1-1118-550574d9cead",
+        "ame": "61614",
+        "ype": "STANDARD",
+        "rimary_city": "Peoria",
+        "tate": "IL",
+        "ounty": "Peoria County"
+    },
+    {
+        "d": "178f85e6-3fb3-2fa8-31fa-55057362e70f",
+        "ame": "39062",
+        "ype": "PO BOX",
+        "rimary_city": "D Lo",
+        "tate": "MS",
+        "ounty": "Simpson County"
+    },
+    {
+        "d": "178fd316-9891-4037-c5be-5505734c5954",
+        "ame": "05487",
+        "ype": "STANDARD",
+        "rimary_city": "Starksboro",
+        "tate": "VT",
+        "ounty": "Addison County"
+    },
+    {
+        "d": "17918252-182b-0b5e-2c79-55057359ecc8",
+        "ame": "07399",
+        "ype": "UNIQUE",
+        "rimary_city": "Jersey City",
+        "tate": "NJ",
+        "ounty": "Hudson County"
+    },
+    {
+        "d": "17920cbe-481f-0264-66e1-550574b16d8d",
+        "ame": "84664",
+        "ype": "STANDARD",
+        "rimary_city": "Mapleton",
+        "tate": "UT",
+        "ounty": "Utah County"
+    },
+    {
+        "d": "17921349-9cce-d03b-4c09-55057418fb11",
+        "ame": "82729",
+        "ype": "STANDARD",
+        "rimary_city": "Sundance",
+        "tate": "WY",
+        "ounty": "Crook County"
+    },
+    {
+        "d": "1792fef5-9cb4-7dac-078c-550574b6b262",
+        "ame": "99502",
+        "ype": "STANDARD",
+        "rimary_city": "Anchorage",
+        "tate": "AK",
+        "ounty": "Anchorage Borough"
+    },
+    {
+        "d": "17953269-ca4c-5bfa-b86f-5505730bbba5",
+        "ame": "09012",
+        "ype": "MILITARY",
+        "rimary_city": "Apo",
+        "tate": "AE",
+        "ounty": "NULL"
+    },
+    {
+        "d": "17959c61-9e9c-c0b8-0637-550573b4219a",
+        "ame": "46570",
+        "ype": "STANDARD",
+        "rimary_city": "Tippecanoe",
+        "tate": "IN",
+        "ounty": "Marshall County"
+    },
+    {
+        "d": "1796b544-6460-acb9-50b3-550574fbe402",
+        "ame": "77004",
+        "ype": "STANDARD",
+        "rimary_city": "Houston",
+        "tate": "TX",
+        "ounty": "Harris County"
+    },
+    {
+        "d": "17970036-1c75-540e-2ea6-550574e3d495",
+        "ame": "71245",
+        "ype": "STANDARD",
+        "rimary_city": "Grambling",
+        "tate": "LA",
+        "ounty": "Lincoln Parish"
+    },
+    {
+        "d": "17981279-1548-d92f-d27e-550574a579d6",
+        "ame": "95368",
+        "ype": "STANDARD",
+        "rimary_city": "Salida",
+        "tate": "CA",
+        "ounty": "Stanislaus County"
+    },
+    {
+        "d": "17989a82-a8d8-1b36-6a39-550573dc4079",
+        "ame": "10196",
+        "ype": "UNIQUE",
+        "rimary_city": "New York",
+        "tate": "NY",
+        "ounty": "New York County"
+    },
+    {
+        "d": "179d9638-f76e-5493-9930-550573e74fda",
+        "ame": "14011",
+        "ype": "STANDARD",
+        "rimary_city": "Attica",
+        "tate": "NY",
+        "ounty": "Wyoming County"
+    },
+    {
+        "d": "179ee7bd-0c9a-fc5a-87d4-5505742fe321",
+        "ame": "75691",
+        "ype": "STANDARD",
+        "rimary_city": "Tatum",
+        "tate": "TX",
+        "ounty": "Rusk County"
+    },
+    {
+        "d": "179f31c9-bf6e-082f-3120-5505749848ef",
+        "ame": "65591",
+        "ype": "STANDARD",
+        "rimary_city": "Montreal",
+        "tate": "MO",
+        "ounty": "Camden County"
+    },
+    {
+        "d": "17a03630-d005-780f-e60a-5505737fe27f",
+        "ame": "05827",
+        "ype": "STANDARD",
+        "rimary_city": "Craftsbury Common",
+        "tate": "VT",
+        "ounty": "Orleans County"
+    },
+    {
+        "d": "17a2072c-87a9-2dc9-cabf-550573186f3a",
+        "ame": "40143",
+        "ype": "STANDARD",
+        "rimary_city": "Hardinsburg",
+        "tate": "KY",
+        "ounty": "Breckinridge County"
+    },
+    {
+        "d": "17a20cb3-d700-cf0d-d167-55057324486b",
+        "ame": "57101",
+        "ype": "PO BOX",
+        "rimary_city": "Sioux Falls",
+        "tate": "SD",
+        "ounty": "Minnehaha County"
+    },
+    {
+        "d": "17a26a78-8fad-5727-0612-5505739314cb",
+        "ame": "49408",
+        "ype": "STANDARD",
+        "rimary_city": "Fennville",
+        "tate": "MI",
+        "ounty": "Allegan County"
+    },
+    {
+        "d": "17a2c5d1-b42c-615b-b8c9-55057477c972",
+        "ame": "98034",
+        "ype": "STANDARD",
+        "rimary_city": "Kirkland",
+        "tate": "WA",
+        "ounty": "King County"
+    },
+    {
+        "d": "17a2d39f-59ad-6bc9-3a53-5505737ab1d6",
+        "ame": "59919",
+        "ype": "PO BOX",
+        "rimary_city": "Hungry Horse",
+        "tate": "MT",
+        "ounty": "Flathead County"
+    },
+    {
+        "d": "17a6d4f6-32a6-3107-94ce-55057478cf00",
+        "ame": "68621",
+        "ype": "STANDARD",
+        "rimary_city": "Ames",
+        "tate": "NE",
+        "ounty": "Dodge County"
+    },
+    {
+        "d": "17a74082-c4a5-f1ee-e895-550574fa4d86",
+        "ame": "62273",
+        "ype": "PO BOX",
+        "rimary_city": "Pierron",
+        "tate": "IL",
+        "ounty": "Bond County"
+    },
+    {
+        "d": "17aab4b0-5bc8-a2aa-15e3-550574e3ca70",
+        "ame": "68120",
+        "ype": "PO BOX",
+        "rimary_city": "Omaha",
+        "tate": "NE",
+        "ounty": "Douglas County"
+    },
+    {
+        "d": "17aca2eb-43f2-c6be-56d8-5505736be6a4",
+        "ame": "59725",
+        "ype": "STANDARD",
+        "rimary_city": "Dillon",
+        "tate": "MT",
+        "ounty": "Beaverhead County"
+    },
+    {
+        "d": "17ad15f5-3e6d-0e0c-53e0-550574f409f5",
+        "ame": "95834",
+        "ype": "STANDARD",
+        "rimary_city": "Sacramento",
+        "tate": "CA",
+        "ounty": "Sacramento County"
+    },
+    {
+        "d": "17ad7c13-7432-5705-76ea-5505742c06ec",
+        "ame": "93906",
+        "ype": "STANDARD",
+        "rimary_city": "Salinas",
+        "tate": "CA",
+        "ounty": "Monterey County"
+    },
+    {
+        "d": "17aeda01-ab88-7826-0e9e-550573f6468f",
+        "ame": "43156",
+        "ype": "PO BOX",
+        "rimary_city": "Tarlton",
+        "tate": "OH",
+        "ounty": "Pickaway County"
+    },
+    {
+        "d": "17b06371-da20-7cff-2140-550573d8d87f",
+        "ame": "39218",
+        "ype": "STANDARD",
+        "rimary_city": "Richland",
+        "tate": "MS",
+        "ounty": "Rankin County"
+    },
+    {
+        "d": "17b0f92f-6425-0b2d-35b7-55057344f5e9",
+        "ame": "50368",
+        "ype": "PO BOX",
+        "rimary_city": "Des Moines",
+        "tate": "IA",
+        "ounty": "Polk County"
+    },
+    {
+        "d": "17b1e481-eb1a-9639-99e7-550573655b9e",
+        "ame": "14207",
+        "ype": "STANDARD",
+        "rimary_city": "Buffalo",
+        "tate": "NY",
+        "ounty": "Erie County"
+    },
+    {
+        "d": "17b3acd7-17ea-aa2b-b1b4-550573886de5",
+        "ame": "37031",
+        "ype": "STANDARD",
+        "rimary_city": "Castalian Springs",
+        "tate": "TN",
+        "ounty": "Sumner County"
+    },
+    {
+        "d": "17b40ce2-e78f-6fa4-84d9-550573b182f0",
+        "ame": "32334",
+        "ype": "STANDARD",
+        "rimary_city": "Hosford",
+        "tate": "FL",
+        "ounty": "Liberty County"
+    },
+    {
+        "d": "17b526e2-8d00-e8e5-afac-55057382129f",
+        "ame": "15238",
+        "ype": "STANDARD",
+        "rimary_city": "Pittsburgh",
+        "tate": "PA",
+        "ounty": "Allegheny County"
+    },
+    {
+        "d": "17b538a3-dd2c-73f3-7448-550573df0a81",
+        "ame": "04030",
+        "ype": "STANDARD",
+        "rimary_city": "East Waterboro",
+        "tate": "ME",
+        "ounty": "York County"
+    },
+    {
+        "d": "17b731df-155c-3287-7b46-5505734e3ffa",
+        "ame": "29853",
+        "ype": "STANDARD",
+        "rimary_city": "Williston",
+        "tate": "SC",
+        "ounty": "Barnwell County"
+    },
+    {
+        "d": "17b7cd12-b9bf-0269-c5a9-550574ada35f",
+        "ame": "75355",
+        "ype": "PO BOX",
+        "rimary_city": "Dallas",
+        "tate": "TX",
+        "ounty": "Dallas County"
+    },
+    {
+        "d": "17b86f64-55ab-454b-b122-550573a6fedc",
+        "ame": "07657",
+        "ype": "STANDARD",
+        "rimary_city": "Ridgefield",
+        "tate": "NJ",
+        "ounty": "Bergen County"
+    },
+    {
+        "d": "17b87fbc-8fea-7201-1639-5505740a2a4b",
+        "ame": "73570",
+        "ype": "STANDARD",
+        "rimary_city": "Tipton",
+        "tate": "OK",
+        "ounty": "Tillman County"
+    },
+    {
+        "d": "17b9cfdc-8553-60c7-cf27-5505749c0d73",
+        "ame": "72332",
+        "ype": "PO BOX",
+        "rimary_city": "Edmondson",
+        "tate": "AR",
+        "ounty": "Crittenden County"
+    },
+    {
+        "d": "17bc6af4-b9e6-66e1-309f-550573d252c7",
+        "ame": "46327",
+        "ype": "STANDARD",
+        "rimary_city": "Hammond",
+        "tate": "IN",
+        "ounty": "Lake County"
+    },
+    {
+        "d": "17be6dea-cfca-859f-87fd-550574d98ccd",
+        "ame": "83701",
+        "ype": "PO BOX",
+        "rimary_city": "Boise",
+        "tate": "ID",
+        "ounty": "Ada County"
+    },
+    {
+        "d": "17bee324-70fd-e0ba-cafe-55057402d0f6",
+        "ame": "96731",
+        "ype": "STANDARD",
+        "rimary_city": "Kahuku",
+        "tate": "HI",
+        "ounty": "Honolulu County"
+    },
+    {
+        "d": "17c05c2f-e552-e0ca-251f-5505745503f1",
+        "ame": "64730",
+        "ype": "STANDARD",
+        "rimary_city": "Butler",
+        "tate": "MO",
+        "ounty": "Bates County"
+    },
+    {
+        "d": "17c4a199-2cec-f0b5-f14e-5505736b51fb",
+        "ame": "18426",
+        "ype": "STANDARD",
+        "rimary_city": "Greentown",
+        "tate": "PA",
+        "ounty": "Pike County"
+    },
+    {
+        "d": "17c7106d-8034-2977-bbba-550573d06daa",
+        "ame": "17358",
+        "ype": "PO BOX",
+        "rimary_city": "Rossville",
+        "tate": "PA",
+        "ounty": "York County"
+    },
+    {
+        "d": "17c768e6-b935-e645-2098-550574f3e1fa",
+        "ame": "85045",
+        "ype": "STANDARD",
+        "rimary_city": "Phoenix",
+        "tate": "AZ",
+        "ounty": "Maricopa County"
+    },
+    {
+        "d": "17c80894-8f45-c5bb-cbe0-550574a1fcdf",
+        "ame": "77229",
+        "ype": "PO BOX",
+        "rimary_city": "Houston",
+        "tate": "TX",
+        "ounty": "Harris County"
+    },
+    {
+        "d": "17c85f9e-d74b-fbe3-9657-5505741ce493",
+        "ame": "88103",
+        "ype": "PO BOX",
+        "rimary_city": "Cannon Afb",
+        "tate": "NM",
+        "ounty": "Curry County"
+    },
+    {
+        "d": "17cca6d6-3f34-d30e-a2c2-550573818916",
+        "ame": "37662",
+        "ype": "PO BOX",
+        "rimary_city": "Kingsport",
+        "tate": "TN",
+        "ounty": "Sullivan County"
+    },
+    {
+        "d": "17ce0e40-2c0c-93cf-8e7a-5505749fb9d1",
+        "ame": "75469",
+        "ype": "STANDARD",
+        "rimary_city": "Pecan Gap",
+        "tate": "TX",
+        "ounty": "Delta County"
+    },
+    {
+        "d": "17ce5b89-a2e1-e7d3-93e4-550574dbd38b",
+        "ame": "83239",
+        "ype": "PO BOX",
+        "rimary_city": "Georgetown",
+        "tate": "ID",
+        "ounty": "Bear Lake County"
+    },
+    {
+        "d": "17cf1050-957b-f99b-01d0-550574172bcb",
+        "ame": "70076",
+        "ype": "STANDARD",
+        "rimary_city": "Mount Airy",
+        "tate": "LA",
+        "ounty": "St John the Baptist Parish"
+    },
+    {
+        "d": "17cf60f2-7f10-e419-28a6-55057312ea92",
+        "ame": "60419",
+        "ype": "STANDARD",
+        "rimary_city": "Dolton",
+        "tate": "IL",
+        "ounty": "Cook County"
+    },
+    {
+        "d": "17cf6f7a-675c-08f1-d3a8-550573ffc054",
+        "ame": "58372",
+        "ype": "STANDARD",
+        "rimary_city": "Sarles",
+        "tate": "ND",
+        "ounty": "Cavalier County"
+    },
+    {
+        "d": "17cfe925-023d-1d4c-6bd9-5505736e0e02",
+        "ame": "39532",
+        "ype": "STANDARD",
+        "rimary_city": "Biloxi",
+        "tate": "MS",
+        "ounty": "Harrison County"
+    },
+    {
+        "d": "17d00dfc-8d51-9aad-6a28-5505743ac84c",
+        "ame": "66608",
+        "ype": "STANDARD",
+        "rimary_city": "Topeka",
+        "tate": "KS",
+        "ounty": "Shawnee County"
+    },
+    {
+        "d": "17d12091-be83-3530-0b47-5505732cd9c7",
+        "ame": "04739",
+        "ype": "STANDARD",
+        "rimary_city": "Eagle Lake",
+        "tate": "ME",
+        "ounty": "Aroostook County"
+    },
+    {
+        "d": "17d194e5-d008-e9f7-0073-55057378850d",
+        "ame": "16401",
+        "ype": "STANDARD",
+        "rimary_city": "Albion",
+        "tate": "PA",
+        "ounty": "Erie County"
+    },
+    {
+        "d": "17d1995c-4746-cd6d-c2e8-5505741b5143",
+        "ame": "72474",
+        "ype": "PO BOX",
+        "rimary_city": "Walcott",
+        "tate": "AR",
+        "ounty": "Greene County"
+    },
+    {
+        "d": "17d21875-4c94-18a2-4151-5505730ffb3e",
+        "ame": "16832",
+        "ype": "STANDARD",
+        "rimary_city": "Coburn",
+        "tate": "PA",
+        "ounty": "Centre County"
+    },
+    {
+        "d": "17d34d38-facf-54f7-9726-550573089fc5",
+        "ame": "58205",
+        "ype": "STANDARD",
+        "rimary_city": "Grand Forks Afb",
+        "tate": "ND",
+        "ounty": "Grand Forks County"
+    },
+    {
+        "d": "17d44149-dd32-e19c-a8a9-55057317ac12",
+        "ame": "38804",
+        "ype": "STANDARD",
+        "rimary_city": "Tupelo",
+        "tate": "MS",
+        "ounty": "Lee County"
+    },
+    {
+        "d": "17d47b23-bd38-3971-2a92-550573b4c3f5",
+        "ame": "17749",
+        "ype": "PO BOX",
+        "rimary_city": "Mc Ewensville",
+        "tate": "PA",
+        "ounty": "Northumberland County"
+    },
+    {
+        "d": "17d50215-76f1-c69d-07eb-5505730c02f0",
+        "ame": "14168",
+        "ype": "PO BOX",
+        "rimary_city": "Versailles",
+        "tate": "NY",
+        "ounty": "Cattaraugus County"
+    },
+    {
+        "d": "17d63f67-a07d-12f9-d645-550574236bca",
+        "ame": "80995",
+        "ype": "UNIQUE",
+        "rimary_city": "Colorado Springs",
+        "tate": "CO",
+        "ounty": "El Paso County"
+    },
+    {
+        "d": "17d68f02-cccc-e281-8468-55057303326f",
+        "ame": "35758",
+        "ype": "STANDARD",
+        "rimary_city": "Madison",
+        "tate": "AL",
+        "ounty": "Madison County"
+    },
+    {
+        "d": "17daa5a1-c4f0-eb07-ba82-550573dbabfb",
+        "ame": "32024",
+        "ype": "STANDARD",
+        "rimary_city": "Lake City",
+        "tate": "FL",
+        "ounty": "Columbia County"
+    },
+    {
+        "d": "17dc0943-80a8-db30-5f48-5505742b26c7",
+        "ame": "68522",
+        "ype": "STANDARD",
+        "rimary_city": "Lincoln",
+        "tate": "NE",
+        "ounty": "Lancaster County"
+    },
+    {
+        "d": "17dc6abd-8d2f-d236-576e-550573b488ad",
+        "ame": "59441",
+        "ype": "STANDARD",
+        "rimary_city": "Forest Grove",
+        "tate": "MT",
+        "ounty": "Fergus County"
+    },
+    {
+        "d": "17dd1cb9-0ccd-6a47-8866-55057468208e",
+        "ame": "68771",
+        "ype": "STANDARD",
+        "rimary_city": "Randolph",
+        "tate": "NE",
+        "ounty": "Cedar County"
+    },
+    {
+        "d": "17dd22ac-99a3-7fd6-c50e-550573f25195",
+        "ame": "19339",
+        "ype": "UNIQUE",
+        "rimary_city": "Concordville",
+        "tate": "PA",
+        "ounty": "Delaware County"
+    },
+    {
+        "d": "17dd76c7-5d97-8dd9-47a4-5505739f4b28",
+        "ame": "19496",
+        "ype": "UNIQUE",
+        "rimary_city": "Valley Forge",
+        "tate": "PA",
+        "ounty": "Montgomery County"
+    },
+    {
+        "d": "17df1dee-9ca1-1008-953e-550574a80d1e",
+        "ame": "65039",
+        "ype": "STANDARD",
+        "rimary_city": "Hartsburg",
+        "tate": "MO",
+        "ounty": "Boone County"
+    },
+    {
+        "d": "17e02617-3dd5-f800-948c-550574185704",
+        "ame": "83449",
+        "ype": "STANDARD",
+        "rimary_city": "Swan Valley",
+        "tate": "ID",
+        "ounty": "Bonneville County"
+    },
+    {
+        "d": "17e046f0-3609-a73d-f839-550573bed137",
+        "ame": "07876",
+        "ype": "STANDARD",
+        "rimary_city": "Succasunna",
+        "tate": "NJ",
+        "ounty": "Morris County"
+    },
+    {
+        "d": "17e09929-48c1-a6c0-697a-550574e031dc",
+        "ame": "65723",
+        "ype": "STANDARD",
+        "rimary_city": "Pierce City",
+        "tate": "MO",
+        "ounty": "Lawrence County"
+    },
+    {
+        "d": "17e4075b-4aa6-1db2-7097-550574e19510",
+        "ame": "68753",
+        "ype": "STANDARD",
+        "rimary_city": "Mills",
+        "tate": "NE",
+        "ounty": "Keya Paha County"
+    },
+    {
+        "d": "17e4b9b3-8fb9-46a3-775a-5505741f5360",
+        "ame": "74738",
+        "ype": "STANDARD",
+        "rimary_city": "Grant",
+        "tate": "OK",
+        "ounty": "Choctaw County"
+    },
+    {
+        "d": "17e4c7c5-10f6-cc1b-bd91-55057457f86e",
+        "ame": "72115",
+        "ype": "PO BOX",
+        "rimary_city": "North Little Rock",
+        "tate": "AR",
+        "ounty": "Pulaski County"
+    },
+    {
+        "d": "17e799ce-0107-9c64-bd2e-550573789ef4",
+        "ame": "14706",
+        "ype": "STANDARD",
+        "rimary_city": "Allegany",
+        "tate": "NY",
+        "ounty": "Cattaraugus County"
+    },
+    {
+        "d": "17e9164c-105e-dafc-cef3-5505749ba010",
+        "ame": "68941",
+        "ype": "STANDARD",
+        "rimary_city": "Glenvil",
+        "tate": "NE",
+        "ounty": "Clay County"
+    },
+    {
+        "d": "17e99c30-c3a5-df85-2465-550573f91d96",
+        "ame": "07044",
+        "ype": "STANDARD",
+        "rimary_city": "Verona",
+        "tate": "NJ",
+        "ounty": "Essex County"
+    },
+    {
+        "d": "17ea3acf-dc10-7880-af07-550573ba9b25",
+        "ame": "40162",
+        "ype": "STANDARD",
+        "rimary_city": "Rineyville",
+        "tate": "KY",
+        "ounty": "Hardin County"
+    },
+    {
+        "d": "17ec649a-c434-c8db-3da7-5505739d4e71",
+        "ame": "30301",
+        "ype": "PO BOX",
+        "rimary_city": "Atlanta",
+        "tate": "GA",
+        "ounty": "Fulton County"
+    },
+    {
+        "d": "17eca77b-1d2b-565c-e11c-55057420633f",
+        "ame": "66939",
+        "ype": "STANDARD",
+        "rimary_city": "Courtland",
+        "tate": "KS",
+        "ounty": "Republic County"
+    },
+    {
+        "d": "17ef8871-c98c-6a68-fdb8-5505732ad092",
+        "ame": "13488",
+        "ype": "STANDARD",
+        "rimary_city": "Westford",
+        "tate": "NY",
+        "ounty": "Otsego County"
+    },
+    {
+        "d": "17efeffe-1274-ec7d-9920-5505744435f0",
+        "ame": "60803",
+        "ype": "STANDARD",
+        "rimary_city": "Alsip",
+        "tate": "IL",
+        "ounty": "Cook County"
+    },
+    {
+        "d": "17f00fb2-945b-cdff-42e7-5505744db926",
+        "ame": "61025",
+        "ype": "STANDARD",
+        "rimary_city": "East Dubuque",
+        "tate": "IL",
+        "ounty": "Jo Daviess County"
+    },
+    {
+        "d": "17f13819-1854-a0cb-f3e9-550573042851",
+        "ame": "12970",
+        "ype": "STANDARD",
+        "rimary_city": "Paul Smiths",
+        "tate": "NY",
+        "ounty": "Franklin County"
+    },
+    {
+        "d": "17f4062c-ee27-e58f-1611-5505730f42c2",
+        "ame": "28909",
+        "ype": "STANDARD",
+        "rimary_city": "Warne",
+        "tate": "NC",
+        "ounty": "Clay County"
+    },
+    {
+        "d": "17f41eee-e826-f76b-fd58-550574ee242c",
+        "ame": "95518",
+        "ype": "PO BOX",
+        "rimary_city": "Arcata",
+        "tate": "CA",
+        "ounty": "Humboldt County"
+    },
+    {
+        "d": "17f4939b-cd61-2865-d72c-550573962a0d",
+        "ame": "14842",
+        "ype": "STANDARD",
+        "rimary_city": "Himrod",
+        "tate": "NY",
+        "ounty": "Yates County"
+    },
+    {
+        "d": "17f4d69a-30cd-2a35-1acd-5505737bb074",
+        "ame": "12831",
+        "ype": "STANDARD",
+        "rimary_city": "Gansevoort",
+        "tate": "NY",
+        "ounty": "Saratoga County"
+    },
+    {
+        "d": "17f70b45-e7ef-408a-bd83-5505730becd6",
+        "ame": "48027",
+        "ype": "STANDARD",
+        "rimary_city": "Goodells",
+        "tate": "MI",
+        "ounty": "St Clair County"
+    },
+    {
+        "d": "17fbbfac-a314-a850-5c54-550573327538",
+        "ame": "60103",
+        "ype": "STANDARD",
+        "rimary_city": "Bartlett",
+        "tate": "IL",
+        "ounty": "Dupage County"
+    },
+    {
+        "d": "17fe009e-ce7d-546c-afd8-550574e79560",
+        "ame": "91367",
+        "ype": "STANDARD",
+        "rimary_city": "Woodland Hills",
+        "tate": "CA",
+        "ounty": "Los Angeles County"
+    },
+    {
+        "d": "17fecfd5-a46c-65ef-37b9-550574c379fa",
+        "ame": "93433",
+        "ype": "STANDARD",
+        "rimary_city": "Grover Beach",
+        "tate": "CA",
+        "ounty": "San Luis Obispo County"
+    },
+    {
+        "d": "1800042b-56c9-9ab0-ad1d-550574ded72f",
+        "ame": "99037",
+        "ype": "STANDARD",
+        "rimary_city": "Veradale",
+        "tate": "WA",
+        "ounty": "Spokane County"
+    },
+    {
+        "d": "1800f391-7104-1729-4144-550573c3b72a",
+        "ame": "50218",
+        "ype": "PO BOX",
+        "rimary_city": "Patterson",
+        "tate": "IA",
+        "ounty": "Madison County"
+    },
+    {
+        "d": "1801450c-8982-82f7-54ff-550573dfff1c",
+        "ame": "23504",
+        "ype": "STANDARD",
+        "rimary_city": "Norfolk",
+        "tate": "VA",
+        "ounty": "Norfolk City"
+    },
+    {
+        "d": "1801f281-0a56-4a52-4148-550573d8f801",
+        "ame": "11769",
+        "ype": "STANDARD",
+        "rimary_city": "Oakdale",
+        "tate": "NY",
+        "ounty": "Suffolk County"
+    },
+    {
+        "d": "180279b8-e2ff-c54a-fa9a-550574fbc734",
+        "ame": "71063",
+        "ype": "STANDARD",
+        "rimary_city": "Pelican",
+        "tate": "LA",
+        "ounty": "De Soto Parish"
+    },
+    {
+        "d": "18035040-cf5b-d9d5-7ac6-550574b1c8b1",
+        "ame": "77834",
+        "ype": "PO BOX",
+        "rimary_city": "Brenham",
+        "tate": "TX",
+        "ounty": "Washington County"
+    },
+    {
+        "d": "1803e2e4-7310-30c1-6977-5505732ae5e5",
+        "ame": "31712",
+        "ype": "STANDARD",
+        "rimary_city": "Arabi",
+        "tate": "GA",
+        "ounty": "Crisp County"
+    },
+    {
+        "d": "18040173-a962-e2fc-3a85-5505734e8cc3",
+        "ame": "32562",
+        "ype": "PO BOX",
+        "rimary_city": "Gulf Breeze",
+        "tate": "FL",
+        "ounty": "Santa Rosa County"
+    },
+    {
+        "d": "18047319-bfc8-2306-91a9-55057330cb64",
+        "ame": "16647",
+        "ype": "STANDARD",
+        "rimary_city": "Hesston",
+        "tate": "PA",
+        "ounty": "Huntingdon County"
+    },
+    {
+        "d": "180513a8-3b65-62d2-d9b8-550574264f36",
+        "ame": "71414",
+        "ype": "PO BOX",
+        "rimary_city": "Clarence",
+        "tate": "LA",
+        "ounty": "Natchitoches Parish"
+    },
+    {
+        "d": "180522ff-7668-5423-4ba3-550573780285",
+        "ame": "09324",
+        "ype": "MILITARY",
+        "rimary_city": "Apo",
+        "tate": "AE",
+        "ounty": "NULL"
+    },
+    {
+        "d": "180524ad-18c2-702e-ec32-55057370dc8a",
+        "ame": "54840",
+        "ype": "STANDARD",
+        "rimary_city": "Grantsburg",
+        "tate": "WI",
+        "ounty": "Burnett County"
+    },
+    {
+        "d": "18094d24-92b6-719c-4f4c-550573726269",
+        "ame": "30162",
+        "ype": "PO BOX",
+        "rimary_city": "Rome",
+        "tate": "GA",
+        "ounty": "Floyd County"
+    },
+    {
+        "d": "18094fb7-3e59-dbd2-1883-550573870e0f",
+        "ame": "38231",
+        "ype": "STANDARD",
+        "rimary_city": "Henry",
+        "tate": "TN",
+        "ounty": "Henry County"
+    },
+    {
+        "d": "1809d857-744d-1a6f-ded8-5505740e2c01",
+        "ame": "86034",
+        "ype": "PO BOX",
+        "rimary_city": "Keams Canyon",
+        "tate": "AZ",
+        "ounty": "Navajo County"
+    },
+    {
+        "d": "180b0a75-72ba-082b-76bf-5505738a6852",
+        "ame": "05151",
+        "ype": "STANDARD",
+        "rimary_city": "Perkinsville",
+        "tate": "VT",
+        "ounty": "Windsor County"
+    },
+    {
+        "d": "180b4075-fda9-b3b7-d1c9-5505732be719",
+        "ame": "13697",
+        "ype": "STANDARD",
+        "rimary_city": "Winthrop",
+        "tate": "NY",
+        "ounty": "St Lawrence County"
+    },
+    {
+        "d": "180c0161-f5aa-6224-0084-55057437c625",
+        "ame": "64454",
+        "ype": "STANDARD",
+        "rimary_city": "Gower",
+        "tate": "MO",
+        "ounty": "Clinton County"
+    },
+    {
+        "d": "180c0449-3ae8-7a5b-a521-5505735d3d92",
+        "ame": "18949",
+        "ype": "PO BOX",
+        "rimary_city": "Plumsteadville",
+        "tate": "PA",
+        "ounty": "Bucks County"
+    },
+    {
+        "d": "180c2e50-0d0e-ec08-4164-550573ea16e4",
+        "ame": "06084",
+        "ype": "STANDARD",
+        "rimary_city": "Tolland",
+        "tate": "CT",
+        "ounty": "Tolland County"
+    },
+    {
+        "d": "180f0c1a-a7fa-5abb-dda8-5505732cba77",
+        "ame": "48843",
+        "ype": "STANDARD",
+        "rimary_city": "Howell",
+        "tate": "MI",
+        "ounty": "Livingston County"
+    },
+    {
+        "d": "180fdf39-dda6-b332-6bdf-5505748aa7f4",
+        "ame": "69149",
+        "ype": "STANDARD",
+        "rimary_city": "Lodgepole",
+        "tate": "NE",
+        "ounty": "Cheyenne County"
+    },
+    {
+        "d": "18107c78-3898-57c8-0486-55057382b972",
+        "ame": "48686",
+        "ype": "UNIQUE",
+        "rimary_city": "Midland",
+        "tate": "MI",
+        "ounty": "Midland County"
+    },
+    {
+        "d": "1811502b-78c9-ed5c-1ef2-550574bcdc3b",
+        "ame": "73057",
+        "ype": "STANDARD",
+        "rimary_city": "Maysville",
+        "tate": "OK",
+        "ounty": "Garvin County"
+    },
+    {
+        "d": "1811dbd3-78a3-37ac-3b63-550574709735",
+        "ame": "67567",
+        "ype": "STANDARD",
+        "rimary_city": "Pawnee Rock",
+        "tate": "KS",
+        "ounty": "Barton County"
+    },
+    {
+        "d": "18136559-d357-36ec-28bd-550574f924d4",
+        "ame": "70569",
+        "ype": "PO BOX",
+        "rimary_city": "Lydia",
+        "tate": "LA",
+        "ounty": "Iberia Parish"
+    },
+    {
+        "d": "18137506-70e1-39e0-1c80-550574f0f72e",
+        "ame": "88532",
+        "ype": "PO BOX",
+        "rimary_city": "El Paso",
+        "tate": "TX",
+        "ounty": "El Paso County"
+    },
+    {
+        "d": "18145c6d-7734-7fdb-f197-55057336d1b6",
+        "ame": "29172",
+        "ype": "STANDARD",
+        "rimary_city": "West Columbia",
+        "tate": "SC",
+        "ounty": "Lexington County"
+    },
+    {
+        "d": "1814f4a9-f11e-e071-8ffe-5505733ed554",
+        "ame": "15378",
+        "ype": "PO BOX",
+        "rimary_city": "Westland",
+        "tate": "PA",
+        "ounty": "Washington County"
+    },
+    {
+        "d": "18164b9e-2e4f-df49-3702-550574ff74e4",
+        "ame": "72865",
+        "ype": "STANDARD",
+        "rimary_city": "Subiaco",
+        "tate": "AR",
+        "ounty": "Logan County"
+    },
+    {
+        "d": "1816fbad-6810-abf7-e25b-550574580640",
+        "ame": "75942",
+        "ype": "PO BOX",
+        "rimary_city": "Doucette",
+        "tate": "TX",
+        "ounty": "Tyler County"
+    },
+    {
+        "d": "1817630e-8975-903f-ced3-550574fbfa52",
+        "ame": "81237",
+        "ype": "STANDARD",
+        "rimary_city": "Ohio City",
+        "tate": "CO",
+        "ounty": "Gunnison County"
+    },
+    {
+        "d": "181d3f9c-6406-5cf9-10b8-550574382bd5",
+        "ame": "61810",
+        "ype": "STANDARD",
+        "rimary_city": "Allerton",
+        "tate": "IL",
+        "ounty": "Vermilion County"
+    },
+    {
+        "d": "181d74c8-1af5-b0c3-51f6-5505744ad1c6",
+        "ame": "93630",
+        "ype": "STANDARD",
+        "rimary_city": "Kerman",
+        "tate": "CA",
+        "ounty": "Fresno County"
+    },
+    {
+        "d": "181ee097-1a41-95f7-0a12-55057423847b",
+        "ame": "85353",
+        "ype": "STANDARD",
+        "rimary_city": "Tolleson",
+        "tate": "AZ",
+        "ounty": "Maricopa County"
+    },
+    {
+        "d": "181ee780-0721-39ac-9101-5505730d8029",
+        "ame": "53598",
+        "ype": "STANDARD",
+        "rimary_city": "Windsor",
+        "tate": "WI",
+        "ounty": "Dane County"
+    },
+    {
+        "d": "181fe10a-9054-31e0-537c-55057375ab4c",
+        "ame": "48857",
+        "ype": "STANDARD",
+        "rimary_city": "Morrice",
+        "tate": "MI",
+        "ounty": "Shiawassee County"
+    },
+    {
+        "d": "1821cbef-89e0-927c-684a-5505732b912b",
+        "ame": "54983",
+        "ype": "STANDARD",
+        "rimary_city": "Weyauwega",
+        "tate": "WI",
+        "ounty": "Waupaca County"
+    },
+    {
+        "d": "182356e5-a154-2ff3-dc3f-550574e5d5cf",
+        "ame": "85701",
+        "ype": "STANDARD",
+        "rimary_city": "Tucson",
+        "tate": "AZ",
+        "ounty": "Pima County"
+    },
+    {
+        "d": "18243cc3-1a29-68f6-1cc5-550573bd0cee",
+        "ame": "02303",
+        "ype": "PO BOX",
+        "rimary_city": "Brockton",
+        "tate": "MA",
+        "ounty": "Plymouth County"
+    },
+    {
+        "d": "1825cdfc-067e-d239-2061-5505735892da",
+        "ame": "12047",
+        "ype": "STANDARD",
+        "rimary_city": "Cohoes",
+        "tate": "NY",
+        "ounty": "Albany County"
+    },
+    {
+        "d": "18260d3f-51a7-aed4-a938-550573c287ee",
+        "ame": "04333",
+        "ype": "UNIQUE",
+        "rimary_city": "Augusta",
+        "tate": "ME",
+        "ounty": "Kennebec County"
+    },
+    {
+        "d": "1827463c-6e81-0b11-76d4-55057462e128",
+        "ame": "91780",
+        "ype": "STANDARD",
+        "rimary_city": "Temple City",
+        "tate": "CA",
+        "ounty": "Los Angeles County"
+    },
+    {
+        "d": "182c16e3-9441-8bbc-ad62-55057468831e",
+        "ame": "65274",
+        "ype": "STANDARD",
+        "rimary_city": "New Franklin",
+        "tate": "MO",
+        "ounty": "Howard County"
+    },
+    {
+        "d": "182f4b62-4892-fc71-e097-5505742fad3b",
+        "ame": "78061",
+        "ype": "STANDARD",
+        "rimary_city": "Pearsall",
+        "tate": "TX",
+        "ounty": "Frio County"
+    },
+    {
+        "d": "1830aaa8-19da-5846-87fe-550573afcb86",
+        "ame": "49043",
+        "ype": "STANDARD",
+        "rimary_city": "Covert",
+        "tate": "MI",
+        "ounty": "Van Buren County"
+    },
+    {
+        "d": "18316820-a00b-e93e-e12b-55057314eeb2",
+        "ame": "56395",
+        "ype": "UNIQUE",
+        "rimary_city": "Saint Cloud",
+        "tate": "MN",
+        "ounty": "Stearns County"
+    },
+    {
+        "d": "183471b7-8888-ed0c-e3e1-550573781ee3",
+        "ame": "52757",
+        "ype": "PO BOX",
+        "rimary_city": "Low Moor",
+        "tate": "IA",
+        "ounty": "Clinton County"
+    },
+    {
+        "d": "18391dfa-9ba7-bf92-3308-5505737b610b",
+        "ame": "27295",
+        "ype": "STANDARD",
+        "rimary_city": "Lexington",
+        "tate": "NC",
+        "ounty": "Davidson County"
+    },
+    {
+        "d": "1839f0fb-043a-c256-b348-5505739d39e1",
+        "ame": "20035",
+        "ype": "PO BOX",
+        "rimary_city": "Washington",
+        "tate": "DC",
+        "ounty": "District of Columbia"
+    },
+    {
+        "d": "183c3964-c5bf-f887-7a44-550573bd3823",
+        "ame": "52535",
+        "ype": "STANDARD",
+        "rimary_city": "Birmingham",
+        "tate": "IA",
+        "ounty": "Van Buren County"
+    },
+    {
+        "d": "183cbc9e-2456-2158-1655-550574c272d0",
+        "ame": "97730",
+        "ype": "STANDARD",
+        "rimary_city": "Camp Sherman",
+        "tate": "OR",
+        "ounty": "Jefferson County"
+    },
+    {
+        "d": "183f69ed-8ca8-c285-29f1-550574d896e5",
+        "ame": "76665",
+        "ype": "STANDARD",
+        "rimary_city": "Meridian",
+        "tate": "TX",
+        "ounty": "Bosque County"
+    },
+    {
+        "d": "1840e930-406f-9037-7c15-550574c444a4",
+        "ame": "95020",
+        "ype": "STANDARD",
+        "rimary_city": "Gilroy",
+        "tate": "CA",
+        "ounty": "Santa Clara County"
+    },
+    {
+        "d": "18430323-ee7f-38b2-e409-5505731e1a93",
+        "ame": "46307",
+        "ype": "STANDARD",
+        "rimary_city": "Crown Point",
+        "tate": "IN",
+        "ounty": "Lake County"
+    },
+    {
+        "d": "18446a01-b116-f0be-a461-550573904fb6",
+        "ame": "19099",
+        "ype": "UNIQUE",
+        "rimary_city": "Philadelphia",
+        "tate": "PA",
+        "ounty": "Philadelphia County"
+    },
+    {
+        "d": "1844ba55-804d-fe07-5984-5505748f3434",
+        "ame": "92092",
+        "ype": "UNIQUE",
+        "rimary_city": "La Jolla",
+        "tate": "CA",
+        "ounty": "San Diego County"
+    },
+    {
+        "d": "1847dcd2-65df-8ec9-5cb9-550573683b99",
+        "ame": "32583",
+        "ype": "STANDARD",
+        "rimary_city": "Milton",
+        "tate": "FL",
+        "ounty": "Santa Rosa County"
+    },
+    {
+        "d": "184c0316-e2b3-be34-30c2-5505743d706f",
+        "ame": "99117",
+        "ype": "STANDARD",
+        "rimary_city": "Creston",
+        "tate": "WA",
+        "ounty": "Lincoln County"
+    },
+    {
+        "d": "1850ccd3-89b1-ee50-4fd2-55057320a96b",
+        "ame": "56274",
+        "ype": "STANDARD",
+        "rimary_city": "Norcross",
+        "tate": "MN",
+        "ounty": "Grant County"
+    },
+    {
+        "d": "18530fd3-7ea9-b198-a687-550574fcca1a",
+        "ame": "64126",
+        "ype": "STANDARD",
+        "rimary_city": "Kansas City",
+        "tate": "MO",
+        "ounty": "Jackson County"
+    },
+    {
+        "d": "18546edd-b0bb-96e6-304a-550573c5b8c2",
+        "ame": "09532",
+        "ype": "MILITARY",
+        "rimary_city": "Fpo",
+        "tate": "AE",
+        "ounty": "NULL"
+    },
+    {
+        "d": "1857cfc8-176b-4cd5-9748-550573797049",
+        "ame": "06281",
+        "ype": "STANDARD",
+        "rimary_city": "Woodstock",
+        "tate": "CT",
+        "ounty": "Windham County"
+    },
+    {
+        "d": "1857e976-3bc4-6ce5-0b5b-5505745460d3",
+        "ame": "98802",
+        "ype": "STANDARD",
+        "rimary_city": "East Wenatchee",
+        "tate": "WA",
+        "ounty": "Douglas County"
+    },
+    {
+        "d": "1858bf43-f4be-ce4d-fbd8-55057413c971",
+        "ame": "61278",
+        "ype": "PO BOX",
+        "rimary_city": "Rapids City",
+        "tate": "IL",
+        "ounty": "Rock Island County"
+    },
+    {
+        "d": "185aede8-e9b9-1468-5688-550573647802",
+        "ame": "28610",
+        "ype": "STANDARD",
+        "rimary_city": "Claremont",
+        "tate": "NC",
+        "ounty": "Catawba County"
+    },
+    {
+        "d": "185e2b06-1096-c35e-e8fb-550573ee12ab",
+        "ame": "17936",
+        "ype": "PO BOX",
+        "rimary_city": "Gordon",
+        "tate": "PA",
+        "ounty": "Schuylkill County"
+    },
+    {
+        "d": "185eb427-b856-b180-58a4-550573f1e885",
+        "ame": "26060",
+        "ype": "STANDARD",
+        "rimary_city": "Valley Grove",
+        "tate": "WV",
+        "ounty": "Ohio County"
+    },
+    {
+        "d": "185fd55b-4a0f-ec3d-3aec-5505744612e4",
+        "ame": "66625",
+        "ype": "UNIQUE",
+        "rimary_city": "Topeka",
+        "tate": "KS",
+        "ounty": "Shawnee County"
+    },
+    {
+        "d": "18608a0e-07fd-539c-aab2-550574147e63",
+        "ame": "95213",
+        "ype": "PO BOX",
+        "rimary_city": "Stockton",
+        "tate": "CA",
+        "ounty": "San Joaquin County"
+    },
+    {
+        "d": "18616cb0-40b8-40f4-099e-5505747f938e",
+        "ame": "85227",
+        "ype": "STANDARD",
+        "rimary_city": "Chandler Heights",
+        "tate": "AZ",
+        "ounty": "Maricopa County"
+    },
+    {
+        "d": "1861eb1c-2fe6-ce53-3f5b-55057427bf6a",
+        "ame": "66283",
+        "ype": "PO BOX",
+        "rimary_city": "Overland Park",
+        "tate": "KS",
+        "ounty": "Johnson County"
+    },
+    {
+        "d": "186204fb-8078-7d27-dd1d-550573b3ae8f",
+        "ame": "55128",
+        "ype": "STANDARD",
+        "rimary_city": "Saint Paul",
+        "tate": "MN",
+        "ounty": "Washington County"
+    },
+    {
+        "d": "186464db-255e-23bd-939c-550573463e78",
+        "ame": "23313",
+        "ype": "PO BOX",
+        "rimary_city": "Capeville",
+        "tate": "VA",
+        "ounty": "Northampton County"
+    },
+    {
+        "d": "1868a508-00a2-c258-5168-550573edf251",
+        "ame": "37167",
+        "ype": "STANDARD",
+        "rimary_city": "Smyrna",
+        "tate": "TN",
+        "ounty": "Rutherford County"
+    },
+    {
+        "d": "1869b91d-24a8-b868-e125-55057459125d",
+        "ame": "78283",
+        "ype": "PO BOX",
+        "rimary_city": "San Antonio",
+        "tate": "TX",
+        "ounty": "Bexar County"
+    },
+    {
+        "d": "186aa8bf-f28d-8aea-eeed-5505734ecfe2",
+        "ame": "35205",
+        "ype": "STANDARD",
+        "rimary_city": "Birmingham",
+        "tate": "AL",
+        "ounty": "Jefferson County"
+    },
+    {
+        "d": "186b04f3-23e3-d35d-5b4d-550573a4186e",
+        "ame": "12202",
+        "ype": "STANDARD",
+        "rimary_city": "Albany",
+        "tate": "NY",
+        "ounty": "Albany County"
+    },
+    {
+        "d": "186be738-68bf-c7d2-dff2-550573470e20",
+        "ame": "56736",
+        "ype": "STANDARD",
+        "rimary_city": "Mentor",
+        "tate": "MN",
+        "ounty": "Polk County"
+    },
+    {
+        "d": "186c0ffb-c213-3ae3-3295-5505740ca1f2",
+        "ame": "66010",
+        "ype": "STANDARD",
+        "rimary_city": "Blue Mound",
+        "tate": "KS",
+        "ounty": "Linn County"
+    },
+    {
+        "d": "186c9d5a-e72f-6cfb-d904-550573549999",
+        "ame": "55791",
+        "ype": "PO BOX",
+        "rimary_city": "Twig",
+        "tate": "MN",
+        "ounty": "St Louis County"
+    },
+    {
+        "d": "186d0ba3-b6ee-d9a1-7521-550573811cea",
+        "ame": "09501",
+        "ype": "MILITARY",
+        "rimary_city": "Fpo",
+        "tate": "AE",
+        "ounty": "NULL"
+    },
+    {
+        "d": "186e5047-4a11-0445-eb88-550574e669af",
+        "ame": "62035",
+        "ype": "STANDARD",
+        "rimary_city": "Godfrey",
+        "tate": "IL",
+        "ounty": "Madison County"
+    },
+    {
+        "d": "186f7204-d054-47ec-57b5-55057339c8c1",
+        "ame": "55584",
+        "ype": "PO BOX",
+        "rimary_city": "Monticello",
+        "tate": "MN",
+        "ounty": "Wright County"
+    },
+    {
+        "d": "187241f6-ec49-5796-1593-550573aef261",
+        "ame": "28451",
+        "ype": "STANDARD",
+        "rimary_city": "Leland",
+        "tate": "NC",
+        "ounty": "Brunswick County"
+    },
+    {
+        "d": "18727e94-8d61-8de4-8c89-550574b7a14b",
+        "ame": "87015",
+        "ype": "STANDARD",
+        "rimary_city": "Edgewood",
+        "tate": "NM",
+        "ounty": "Santa Fe County"
+    },
+    {
+        "d": "187489c8-bd97-2eb3-2b80-550574d35439",
+        "ame": "89496",
+        "ype": "UNIQUE",
+        "rimary_city": "Fallon",
+        "tate": "NV",
+        "ounty": "Churchill County"
+    },
+    {
+        "d": "187752d0-8643-ab55-ce27-550573b237b6",
+        "ame": "58581",
+        "ype": "STANDARD",
+        "rimary_city": "Zeeland",
+        "tate": "ND",
+        "ounty": "McIntosh County"
+    },
+    {
+        "d": "1877fda9-efed-898b-b0f1-55057384d29d",
+        "ame": "15541",
+        "ype": "STANDARD",
+        "rimary_city": "Friedens",
+        "tate": "PA",
+        "ounty": "Somerset County"
+    },
+    {
+        "d": "18792505-c699-5c6a-3682-5505735a92a5",
+        "ame": "04553",
+        "ype": "STANDARD",
+        "rimary_city": "Newcastle",
+        "tate": "ME",
+        "ounty": "Lincoln County"
+    },
+    {
+        "d": "187a820e-5fda-4b69-e252-550574d5644c",
+        "ame": "66024",
+        "ype": "PO BOX",
+        "rimary_city": "Elwood",
+        "tate": "KS",
+        "ounty": "Doniphan County"
+    },
+    {
+        "d": "187acf04-f92f-3f9a-0659-55057301c497",
+        "ame": "32355",
+        "ype": "PO BOX",
+        "rimary_city": "Saint Marks",
+        "tate": "FL",
+        "ounty": "Wakulla County"
+    },
+    {
+        "d": "187b182a-4fc3-aeeb-833a-5505733c8ef1",
+        "ame": "09736",
+        "ype": "MILITARY",
+        "rimary_city": "Dpo",
+        "tate": "AE",
+        "ounty": "NULL"
+    },
+    {
+        "d": "187be0a1-2b96-5fcc-0a5d-5505742f45c6",
+        "ame": "61043",
+        "ype": "PO BOX",
+        "rimary_city": "Holcomb",
+        "tate": "IL",
+        "ounty": "Ogle County"
+    },
+    {
+        "d": "187c3967-e539-be13-e81f-5505743781d3",
+        "ame": "71973",
+        "ype": "STANDARD",
+        "rimary_city": "Wickes",
+        "tate": "AR",
+        "ounty": "Polk County"
+    },
+    {
+        "d": "187cfffc-01c1-7517-6986-5505741e0721",
+        "ame": "99825",
+        "ype": "PO BOX",
+        "rimary_city": "Elfin Cove",
+        "tate": "AK",
+        "ounty": "Hoonah-Angoon Borough"
+    },
+    {
+        "d": "187d2f9c-0b38-5893-8531-55057376f146",
+        "ame": "10011",
+        "ype": "STANDARD",
+        "rimary_city": "New York",
+        "tate": "NY",
+        "ounty": "New York County"
+    },
+    {
+        "d": "187dd4ca-2dab-76ad-515b-550574c8f4f2",
+        "ame": "72666",
+        "ype": "STANDARD",
+        "rimary_city": "Parthenon",
+        "tate": "AR",
+        "ounty": "Newton County"
+    },
+    {
+        "d": "187e09c8-8aef-3c90-adeb-55057376bafc",
+        "ame": "45343",
+        "ype": "PO BOX",
+        "rimary_city": "Miamisburg",
+        "tate": "OH",
+        "ounty": "Montgomery County"
+    },
+    {
+        "d": "187ebecc-cd72-f16a-200f-550573668b93",
+        "ame": "44483",
+        "ype": "STANDARD",
+        "rimary_city": "Warren",
+        "tate": "OH",
+        "ounty": "Trumbull County"
+    },
+    {
+        "d": "187ee78a-289b-a056-2324-550573ccf3aa",
+        "ame": "36728",
+        "ype": "STANDARD",
+        "rimary_city": "Catherine",
+        "tate": "AL",
+        "ounty": "Wilcox County"
+    },
+    {
+        "d": "18820a8c-019b-fe0e-b173-55057336605a",
+        "ame": "30410",
+        "ype": "STANDARD",
+        "rimary_city": "Ailey",
+        "tate": "GA",
+        "ounty": "Montgomery County"
+    },
+    {
+        "d": "1882a5cf-698a-f68c-be17-55057478773c",
+        "ame": "75148",
+        "ype": "STANDARD",
+        "rimary_city": "Malakoff",
+        "tate": "TX",
+        "ounty": "Henderson County"
+    },
+    {
+        "d": "18857fbf-01ce-0053-2644-550574903376",
+        "ame": "64138",
+        "ype": "STANDARD",
+        "rimary_city": "Kansas City",
+        "tate": "MO",
+        "ounty": "Jackson County"
+    },
+    {
+        "d": "18870ede-073e-131c-1b10-550573e6ff85",
+        "ame": "58794",
+        "ype": "STANDARD",
+        "rimary_city": "White Earth",
+        "tate": "ND",
+        "ounty": "Mountrail County"
+    },
+    {
+        "d": "18878fc4-56f4-d381-58be-550572b9946f",
+        "ame": "01240",
+        "ype": "STANDARD",
+        "rimary_city": "Lenox",
+        "tate": "MA",
+        "ounty": "Berkshire County"
+    },
+    {
+        "d": "1888c2d4-24f4-405b-d4d1-550573bd954f",
+        "ame": "12223",
+        "ype": "STANDARD",
+        "rimary_city": "Albany",
+        "tate": "NY",
+        "ounty": "Albany County"
+    },
+    {
+        "d": "1889a879-42f0-4d3d-22f1-550573cb646f",
+        "ame": "30429",
+        "ype": "PO BOX",
+        "rimary_city": "Hagan",
+        "tate": "GA",
+        "ounty": "Evans County"
+    },
+    {
+        "d": "188a02a4-acf3-146c-15b6-550574fd4c3c",
+        "ame": "76643",
+        "ype": "STANDARD",
+        "rimary_city": "Hewitt",
+        "tate": "TX",
+        "ounty": "McLennan County"
+    },
+    {
+        "d": "188ac664-c0c3-bf19-a5b2-550573d30778",
+        "ame": "42740",
+        "ype": "STANDARD",
+        "rimary_city": "Glendale",
+        "tate": "KY",
+        "ounty": "Hardin County"
+    },
+    {
+        "d": "188adc29-c294-9357-3525-5505737b8f77",
+        "ame": "36257",
+        "ype": "PO BOX",
+        "rimary_city": "De Armanville",
+        "tate": "AL",
+        "ounty": "Calhoun County"
+    },
+    {
+        "d": "188ba8cf-02c1-797e-db19-550574781426",
+        "ame": "93215",
+        "ype": "STANDARD",
+        "rimary_city": "Delano",
+        "tate": "CA",
+        "ounty": "Kern County"
+    },
+    {
+        "d": "188d778d-d733-ef2c-2ed1-55057305875e",
+        "ame": "16154",
+        "ype": "STANDARD",
+        "rimary_city": "Transfer",
+        "tate": "PA",
+        "ounty": "Mercer County"
+    },
+    {
+        "d": "189013bb-d36a-9d28-eff6-550574a39cfe",
+        "ame": "94139",
+        "ype": "UNIQUE",
+        "rimary_city": "San Francisco",
+        "tate": "CA",
+        "ounty": "San Francisco County"
+    },
+    {
+        "d": "18907607-3177-ad88-5914-550573e47f51",
+        "ame": "13115",
+        "ype": "PO BOX",
+        "rimary_city": "Minetto",
+        "tate": "NY",
+        "ounty": "Oswego County"
+    },
+    {
+        "d": "1890eb1f-d450-8344-d8ff-55057457e566",
+        "ame": "96027",
+        "ype": "STANDARD",
+        "rimary_city": "Etna",
+        "tate": "CA",
+        "ounty": "Siskiyou County"
+    },
+    {
+        "d": "189124f5-c775-8176-5065-5505749af202",
+        "ame": "95681",
+        "ype": "STANDARD",
+        "rimary_city": "Sheridan",
+        "tate": "CA",
+        "ounty": "Placer County"
+    },
+    {
+        "d": "18926ec7-b99c-f7cc-5d65-550573e4e254",
+        "ame": "55388",
+        "ype": "STANDARD",
+        "rimary_city": "Watertown",
+        "tate": "MN",
+        "ounty": "Carver County"
+    },
+    {
+        "d": "18930a82-025b-ef3d-3429-55057302194a",
+        "ame": "54002",
+        "ype": "STANDARD",
+        "rimary_city": "Baldwin",
+        "tate": "WI",
+        "ounty": "St Croix County"
+    },
+    {
+        "d": "18936874-4375-e985-c853-550573cae076",
+        "ame": "39829",
+        "ype": "PO BOX",
+        "rimary_city": "Calvary",
+        "tate": "GA",
+        "ounty": "Grady County"
+    },
+    {
+        "d": "1899c639-3fef-6889-b1e1-55057379e6e9",
+        "ame": "28708",
+        "ype": "STANDARD",
+        "rimary_city": "Balsam Grove",
+        "tate": "NC",
+        "ounty": "Transylvania County"
+    },
+    {
+        "d": "189a7520-f384-9da4-56e4-55057380c249",
+        "ame": "38044",
+        "ype": "STANDARD",
+        "rimary_city": "Hornsby",
+        "tate": "TN",
+        "ounty": "Hardeman County"
+    },
+    {
+        "d": "189b11fb-3caf-59cf-0ce2-550573ced409",
+        "ame": "31082",
+        "ype": "STANDARD",
+        "rimary_city": "Sandersville",
+        "tate": "GA",
+        "ounty": "Washington County"
+    },
+    {
+        "d": "189b48f4-563b-d4a6-b309-550574abc3a9",
+        "ame": "99663",
+        "ype": "PO BOX",
+        "rimary_city": "Seldovia",
+        "tate": "AK",
+        "ounty": "Kenai Peninsula Borough"
+    },
+    {
+        "d": "189fbe33-2b5d-1633-a19c-5505739b41e8",
+        "ame": "46703",
+        "ype": "STANDARD",
+        "rimary_city": "Angola",
+        "tate": "IN",
+        "ounty": "Steuben County"
+    },
+    {
+        "d": "18a4c2e4-bc5c-da1f-b92e-550573b13de9",
+        "ame": "30809",
+        "ype": "STANDARD",
+        "rimary_city": "Evans",
+        "tate": "GA",
+        "ounty": "Columbia County"
+    },
+    {
+        "d": "18a4feca-ebcd-5e04-169e-5505735445c5",
+        "ame": "42301",
+        "ype": "STANDARD",
+        "rimary_city": "Owensboro",
+        "tate": "KY",
+        "ounty": "Daviess County"
+    },
+    {
+        "d": "18a5c28f-d46e-5dda-0285-550574d71ce6",
+        "ame": "64012",
+        "ype": "STANDARD",
+        "rimary_city": "Belton",
+        "tate": "MO",
+        "ounty": "Cass County"
+    },
+    {
+        "d": "18a75f70-8d6b-adab-00da-550574f89e02",
+        "ame": "96157",
+        "ype": "PO BOX",
+        "rimary_city": "South Lake Tahoe",
+        "tate": "CA",
+        "ounty": "El Dorado County"
+    },
+    {
+        "d": "18a91bdf-c272-c0b2-880e-550574921dcc",
+        "ame": "77005",
+        "ype": "STANDARD",
+        "rimary_city": "Houston",
+        "tate": "TX",
+        "ounty": "Harris County"
+    },
+    {
+        "d": "18aa5d24-cf69-8325-deb6-55057494ec5d",
+        "ame": "67111",
+        "ype": "STANDARD",
+        "rimary_city": "Murdock",
+        "tate": "KS",
+        "ounty": "Kingman County"
+    },
+    {
+        "d": "18aa603a-5d31-903d-da83-550573f01488",
+        "ame": "06810",
+        "ype": "STANDARD",
+        "rimary_city": "Danbury",
+        "tate": "CT",
+        "ounty": "Fairfield County"
+    },
+    {
+        "d": "18abf2cd-01ce-2e3d-c10b-5505733d60ca",
+        "ame": "40759",
+        "ype": "STANDARD",
+        "rimary_city": "Rockholds",
+        "tate": "KY",
+        "ounty": "Whitley County"
+    },
+    {
+        "d": "18ace8f3-f759-085f-9a1e-5505733ee05d",
+        "ame": "06495",
+        "ype": "UNIQUE",
+        "rimary_city": "Wallingford",
+        "tate": "CT",
+        "ounty": "New Haven County"
+    },
+    {
+        "d": "18b009da-a9bd-54a4-0076-550573ff965f",
+        "ame": "57520",
+        "ype": "STANDARD",
+        "rimary_city": "Agar",
+        "tate": "SD",
+        "ounty": "Sully County"
+    },
+    {
+        "d": "18b1878a-197a-05d8-6fd9-55057414b83d",
+        "ame": "89104",
+        "ype": "STANDARD",
+        "rimary_city": "Las Vegas",
+        "tate": "NV",
+        "ounty": "Clark County"
+    },
+    {
+        "d": "18b2911a-eddf-03de-23df-550573bba413",
+        "ame": "43442",
+        "ype": "STANDARD",
+        "rimary_city": "Lindsey",
+        "tate": "OH",
+        "ounty": "Sandusky County"
+    },
+    {
+        "d": "18b37ed6-8e57-e6aa-bb9b-5505740f0bcb",
+        "ame": "82050",
+        "ype": "STANDARD",
+        "rimary_city": "Albin",
+        "tate": "WY",
+        "ounty": "Laramie County"
+    },
+    {
+        "d": "18b396d0-0c52-3ad5-8b74-550573ee8568",
+        "ame": "49629",
+        "ype": "STANDARD",
+        "rimary_city": "Elk Rapids",
+        "tate": "MI",
+        "ounty": "Antrim County"
+    },
+    {
+        "d": "18b3c839-6d60-84e2-f2d8-5505738e0540",
+        "ame": "37831",
+        "ype": "PO BOX",
+        "rimary_city": "Oak Ridge",
+        "tate": "TN",
+        "ounty": "Anderson County"
+    },
+    {
+        "d": "18b4fed1-9893-d56f-0572-5505732ec1c6",
+        "ame": "15921",
+        "ype": "PO BOX",
+        "rimary_city": "Beaverdale",
+        "tate": "PA",
+        "ounty": "Cambria County"
+    },
+    {
+        "d": "18b52cc7-d673-0595-f7ec-5505746bec04",
+        "ame": "73169",
+        "ype": "STANDARD",
+        "rimary_city": "Oklahoma City",
+        "tate": "OK",
+        "ounty": "Oklahoma County"
+    },
+    {
+        "d": "18b56c7b-97b1-4e24-ebde-55057452b02e",
+        "ame": "98378",
+        "ype": "PO BOX",
+        "rimary_city": "Retsil",
+        "tate": "WA",
+        "ounty": "Kitsap County"
+    },
+    {
+        "d": "18b61d48-10be-1007-2196-5505741016ea",
+        "ame": "61615",
+        "ype": "STANDARD",
+        "rimary_city": "Peoria",
+        "tate": "IL",
+        "ounty": "Peoria County"
+    },
+    {
+        "d": "18b6c7e2-5827-d2cb-ffd9-55057337a2fc",
+        "ame": "37032",
+        "ype": "STANDARD",
+        "rimary_city": "Cedar Hill",
+        "tate": "TN",
+        "ounty": "Robertson County"
+    },
+    {
+        "d": "18b6f3ec-bef8-6391-f551-550573490642",
+        "ame": "41049",
+        "ype": "STANDARD",
+        "rimary_city": "Hillsboro",
+        "tate": "KY",
+        "ounty": "Fleming County"
+    },
+    {
+        "d": "18ba0fd2-5abc-0d66-378c-550573934d79",
+        "ame": "57337",
+        "ype": "STANDARD",
+        "rimary_city": "Fedora",
+        "tate": "SD",
+        "ounty": "Miner County"
+    },
+    {
+        "d": "18ba4b9a-b2fd-da19-e771-55057451c0a9",
+        "ame": "90888",
+        "ype": "UNIQUE",
+        "rimary_city": "Long Beach",
+        "tate": "CA",
+        "ounty": "Los Angeles County"
+    },
+    {
+        "d": "18bb2663-5835-31dc-76f2-5505736b4745",
+        "ame": "04949",
+        "ype": "STANDARD",
+        "rimary_city": "Liberty",
+        "tate": "ME",
+        "ounty": "Waldo County"
+    },
+    {
+        "d": "18bcc8aa-e121-e0e2-1694-550573c7ef28",
+        "ame": "30065",
+        "ype": "PO BOX",
+        "rimary_city": "Marietta",
+        "tate": "GA",
+        "ounty": "Cobb County"
+    },
+    {
+        "d": "18bd07fe-0182-c5c5-bc70-550573a517b6",
+        "ame": "50331",
+        "ype": "UNIQUE",
+        "rimary_city": "Des Moines",
+        "tate": "IA",
+        "ounty": "Polk County"
+    },
+    {
+        "d": "18bdd637-4c8a-d53c-0f2b-5505748fb78d",
+        "ame": "94613",
+        "ype": "PO BOX",
+        "rimary_city": "Oakland",
+        "tate": "CA",
+        "ounty": "Alameda County"
+    },
+    {
+        "d": "18be3b7e-6db3-39fc-52b0-55057454444c",
+        "ame": "83876",
+        "ype": "STANDARD",
+        "rimary_city": "Worley",
+        "tate": "ID",
+        "ounty": "Kootenai County"
+    },
+    {
+        "d": "18be8d6d-de0c-b62d-8920-550573ef81a5",
+        "ame": "12469",
+        "ype": "STANDARD",
+        "rimary_city": "Preston Hollow",
+        "tate": "NY",
+        "ounty": "Albany County"
+    },
+    {
+        "d": "18c00b43-431c-f6d3-53b7-550573ee6031",
+        "ame": "57762",
+        "ype": "STANDARD",
+        "rimary_city": "Nisland",
+        "tate": "SD",
+        "ounty": "Butte County"
+    },
+    {
+        "d": "18c064bb-df63-95b8-345a-55057328b6c0",
+        "ame": "28350",
+        "ype": "PO BOX",
+        "rimary_city": "Lakeview",
+        "tate": "NC",
+        "ounty": "Moore County"
+    },
+    {
+        "d": "18c11903-e611-792b-6039-550573bd4741",
+        "ame": "12585",
+        "ype": "STANDARD",
+        "rimary_city": "Verbank",
+        "tate": "NY",
+        "ounty": "Dutchess County"
+    },
+    {
+        "d": "18c1ab67-449c-002b-25ec-550573dfbddc",
+        "ame": "23891",
+        "ype": "UNIQUE",
+        "rimary_city": "Waverly",
+        "tate": "VA",
+        "ounty": "Sussex County"
+    },
+    {
+        "d": "18c20dd9-37c6-9dee-5718-5505740c7bb7",
+        "ame": "94126",
+        "ype": "PO BOX",
+        "rimary_city": "San Francisco",
+        "tate": "CA",
+        "ounty": "San Francisco County"
+    },
+    {
+        "d": "18c33a58-26a7-1550-1841-5505735df083",
+        "ame": "51041",
+        "ype": "STANDARD",
+        "rimary_city": "Orange City",
+        "tate": "IA",
+        "ounty": "Sioux County"
+    },
+    {
+        "d": "18c47564-d81c-e6b0-a220-550573b1983a",
+        "ame": "14506",
+        "ype": "STANDARD",
+        "rimary_city": "Mendon",
+        "tate": "NY",
+        "ounty": "Monroe County"
+    },
+    {
+        "d": "18c7810f-19ff-bc0f-6a22-5505731f16cf",
+        "ame": "56575",
+        "ype": "STANDARD",
+        "rimary_city": "Ponsford",
+        "tate": "MN",
+        "ounty": "Becker County"
+    },
+    {
+        "d": "18c7997e-9cda-4704-e3f3-550574d51abd",
+        "ame": "60557",
+        "ype": "PO BOX",
+        "rimary_city": "Wedron",
+        "tate": "IL",
+        "ounty": "La Salle County"
+    },
+    {
+        "d": "18c9ebf8-7228-a8ca-dc5b-5505722a74f9",
+        "ame": "01008",
+        "ype": "STANDARD",
+        "rimary_city": "Blandford",
+        "tate": "MA",
+        "ounty": "Hampden County"
+    },
+    {
+        "d": "18ca871c-f905-d24e-7c2b-55057340f3ff",
+        "ame": "31414",
+        "ype": "PO BOX",
+        "rimary_city": "Savannah",
+        "tate": "GA",
+        "ounty": "Chatham County"
+    },
+    {
+        "d": "18cc0443-21ae-a28e-2627-550573fabe3a",
+        "ame": "24078",
+        "ype": "STANDARD",
+        "rimary_city": "Collinsville",
+        "tate": "VA",
+        "ounty": "Henry County"
+    },
+    {
+        "d": "18cfc113-7e74-a5d2-d465-550573225384",
+        "ame": "38451",
+        "ype": "STANDARD",
+        "rimary_city": "Culleoka",
+        "tate": "TN",
+        "ounty": "Maury County"
+    },
+    {
+        "d": "18d32170-80e5-a383-0ba1-550573ea598c",
+        "ame": "59727",
+        "ype": "STANDARD",
+        "rimary_city": "Divide",
+        "tate": "MT",
+        "ounty": "Silver Bow County"
+    },
+    {
+        "d": "18d34b84-8936-1f9d-e800-550573aa146b",
+        "ame": "50540",
+        "ype": "STANDARD",
+        "rimary_city": "Fonda",
+        "tate": "IA",
+        "ounty": "Pocahontas County"
+    },
+    {
+        "d": "18d56f6e-d33d-f8f3-f3ce-550573c8d878",
+        "ame": "07660",
+        "ype": "STANDARD",
+        "rimary_city": "Ridgefield Park",
+        "tate": "NJ",
+        "ounty": "Bergen County"
+    },
+    {
+        "d": "18d580b3-60eb-029d-97e5-5505739a94f8",
+        "ame": "51447",
+        "ype": "STANDARD",
+        "rimary_city": "Kirkman",
+        "tate": "IA",
+        "ounty": "Shelby County"
+    },
+    {
+        "d": "18d67f89-ca20-d402-d56b-5505736d3e89",
+        "ame": "46571",
+        "ype": "STANDARD",
+        "rimary_city": "Topeka",
+        "tate": "IN",
+        "ounty": "Lagrange County"
+    },
+    {
+        "d": "18d79768-fa9e-4c3e-02c9-550573a57066",
+        "ame": "23114",
+        "ype": "STANDARD",
+        "rimary_city": "Midlothian",
+        "tate": "VA",
+        "ounty": "Chesterfield County"
+    },
+    {
+        "d": "18d7e601-1bb4-b7b5-2212-5505735981ea",
+        "ame": "26591",
+        "ype": "STANDARD",
+        "rimary_city": "Worthington",
+        "tate": "WV",
+        "ounty": "Marion County"
+    },
+    {
+        "d": "18d92e7d-2d4c-68ef-70c8-5505741674df",
+        "ame": "68122",
+        "ype": "STANDARD",
+        "rimary_city": "Omaha",
+        "tate": "NE",
+        "ounty": "Douglas County"
+    },
+    {
+        "d": "18da722b-2996-9cff-4ec6-55057358b168",
+        "ame": "57543",
+        "ype": "STANDARD",
+        "rimary_city": "Kadoka",
+        "tate": "SD",
+        "ounty": "Jackson County"
+    },
+    {
+        "d": "18dbb51b-53fc-c282-615e-5505745f4af6",
+        "ame": "73571",
+        "ype": "STANDARD",
+        "rimary_city": "Vinson",
+        "tate": "OK",
+        "ounty": "Harmon County"
+    },
+    {
+        "d": "18dce124-6985-4458-abdb-5505738fb29d",
+        "ame": "13319",
+        "ype": "STANDARD",
+        "rimary_city": "Chadwicks",
+        "tate": "NY",
+        "ounty": "Oneida County"
+    },
+    {
+        "d": "18dcf6f6-0911-24e5-6e54-550573493b44",
+        "ame": "32189",
+        "ype": "STANDARD",
+        "rimary_city": "Satsuma",
+        "tate": "FL",
+        "ounty": "Putnam County"
+    },
+    {
+        "d": "18de4920-dbfc-9a91-7863-550573c4baab",
+        "ame": "58852",
+        "ype": "STANDARD",
+        "rimary_city": "Tioga",
+        "tate": "ND",
+        "ounty": "Williams County"
+    },
+    {
+        "d": "18e25d16-c0bd-1c95-877a-5505741cb46f",
+        "ame": "93907",
+        "ype": "STANDARD",
+        "rimary_city": "Salinas",
+        "tate": "CA",
+        "ounty": "Monterey County"
+    },
+    {
+        "d": "18e422aa-2a98-a683-7601-550573370262",
+        "ame": "38820",
+        "ype": "PO BOX",
+        "rimary_city": "Algoma",
+        "tate": "MS",
+        "ounty": "Pontotoc County"
+    },
+    {
+        "d": "18e6050d-ce1f-dc5e-4a94-55057353ee8b",
+        "ame": "39773",
+        "ype": "STANDARD",
+        "rimary_city": "West Point",
+        "tate": "MS",
+        "ounty": "Clay County"
+    },
+    {
+        "d": "18e7cbac-95ab-513b-4e72-550574038d91",
+        "ame": "84721",
+        "ype": "STANDARD",
+        "rimary_city": "Cedar City",
+        "tate": "UT",
+        "ounty": "Iron County"
+    },
+    {
+        "d": "18e952da-f0f7-26c5-b02f-5505736c7b79",
+        "ame": "39533",
+        "ype": "PO BOX",
+        "rimary_city": "Biloxi",
+        "tate": "MS",
+        "ounty": "Harrison County"
+    },
+    {
+        "d": "18eb98d8-bf29-0f1c-66d3-5505747cda8b",
+        "ame": "71728",
+        "ype": "PO BOX",
+        "rimary_city": "Curtis",
+        "tate": "AR",
+        "ounty": "Clark County"
+    },
+    {
+        "d": "18ec6db7-6f67-f278-46e5-550573ff1878",
+        "ame": "07877",
+        "ype": "PO BOX",
+        "rimary_city": "Swartswood",
+        "tate": "NJ",
+        "ounty": "Sussex County"
+    },
+    {
+        "d": "18ed32c0-2bee-ae86-4bbd-550573dfa7e6",
+        "ame": "51652",
+        "ype": "STANDARD",
+        "rimary_city": "Sidney",
+        "tate": "IA",
+        "ounty": "Fremont County"
+    },
+    {
+        "d": "18ef423b-df43-f982-01f7-5505749fda90",
+        "ame": "63785",
+        "ype": "STANDARD",
+        "rimary_city": "Whitewater",
+        "tate": "MO",
+        "ounty": "Cape Girardeau County"
+    },
+    {
+        "d": "18f01d17-178a-033d-b11e-550574951a6d",
+        "ame": "68622",
+        "ype": "STANDARD",
+        "rimary_city": "Bartlett",
+        "tate": "NE",
+        "ounty": "Wheeler County"
+    },
+    {
+        "d": "18f174a7-b143-cd3f-721d-550574dca389",
+        "ame": "85046",
+        "ype": "PO BOX",
+        "rimary_city": "Phoenix",
+        "tate": "AZ",
+        "ounty": "Maricopa County"
+    },
+    {
+        "d": "18f1b88d-0b75-6840-f014-550573d32755",
+        "ame": "05488",
+        "ype": "STANDARD",
+        "rimary_city": "Swanton",
+        "tate": "VT",
+        "ounty": "Franklin County"
+    },
+    {
+        "d": "18f404d2-8014-f777-5780-550574f66d8c",
+        "ame": "75925",
+        "ype": "STANDARD",
+        "rimary_city": "Alto",
+        "tate": "TX",
+        "ounty": "Cherokee County"
+    },
+    {
+        "d": "18f5258f-6241-0c36-a2fd-5505749efd78",
+        "ame": "68942",
+        "ype": "STANDARD",
+        "rimary_city": "Guide Rock",
+        "tate": "NE",
+        "ounty": "Webster County"
+    },
+    {
+        "d": "18f56863-32c9-76e6-018b-550573a7136f",
+        "ame": "56143",
+        "ype": "STANDARD",
+        "rimary_city": "Jackson",
+        "tate": "MN",
+        "ounty": "Jackson County"
+    },
+    {
+        "d": "18f73c54-5a7a-6089-ca24-55057464f540",
+        "ame": "76202",
+        "ype": "PO BOX",
+        "rimary_city": "Denton",
+        "tate": "TX",
+        "ounty": "Denton County"
+    },
+    {
+        "d": "18f7897b-7052-189a-a993-550574d5d53d",
+        "ame": "68773",
+        "ype": "STANDARD",
+        "rimary_city": "Royal",
+        "tate": "NE",
+        "ounty": "Antelope County"
+    },
+    {
+        "d": "18f7b2ab-f185-9d8a-2102-55057344c1c2",
+        "ame": "15239",
+        "ype": "STANDARD",
+        "rimary_city": "Pittsburgh",
+        "tate": "PA",
+        "ounty": "Allegheny County"
+    },
+    {
+        "d": "18f8c2c0-91b7-0e03-4849-5505744b9e67",
+        "ame": "62274",
+        "ype": "STANDARD",
+        "rimary_city": "Pinckneyville",
+        "tate": "IL",
+        "ounty": "Perry County"
+    },
+    {
+        "d": "18f95529-bdc9-15b5-3fe0-5505744cd111",
+        "ame": "96516",
+        "ype": "MILITARY",
+        "rimary_city": "Fpo",
+        "tate": "AP",
+        "ounty": "NULL"
+    },
+    {
+        "d": "18fa35ec-6f6e-ed4b-0344-550573128acc",
+        "ame": "37330",
+        "ype": "STANDARD",
+        "rimary_city": "Estill Springs",
+        "tate": "TN",
+        "ounty": "Franklin County"
+    },
+    {
+        "d": "18fb0706-11d6-b1b7-8b97-550574e1b626",
+        "ame": "95822",
+        "ype": "STANDARD",
+        "rimary_city": "Sacramento",
+        "tate": "CA",
+        "ounty": "Sacramento County"
+    },
+    {
+        "d": "18fbbc0e-5778-295f-f160-5505735ba02f",
+        "ame": "50369",
+        "ype": "UNIQUE",
+        "rimary_city": "Des Moines",
+        "tate": "IA",
+        "ounty": "Polk County"
+    },
+    {
+        "d": "18fcabb7-d83c-4266-6f52-55057397c219",
+        "ame": "59215",
+        "ype": "STANDARD",
+        "rimary_city": "Circle",
+        "tate": "MT",
+        "ounty": "McCone County"
+    },
+    {
+        "d": "18fd8809-38b1-1f9d-7218-550573a9986d",
+        "ame": "49241",
+        "ype": "STANDARD",
+        "rimary_city": "Hanover",
+        "tate": "MI",
+        "ounty": "Jackson County"
+    },
+    {
+        "d": "19011874-9fa6-682a-3bdf-5505730dc8bf",
+        "ame": "57103",
+        "ype": "STANDARD",
+        "rimary_city": "Sioux Falls",
+        "tate": "SD",
+        "ounty": "Minnehaha County"
+    },
+    {
+        "d": "19020fe4-7ccf-aac2-96f4-5505737ab992",
+        "ame": "49409",
+        "ype": "PO BOX",
+        "rimary_city": "Ferrysburg",
+        "tate": "MI",
+        "ounty": "Ottawa County"
+    },
+    {
+        "d": "190296df-6e13-00bc-c929-550573509ace",
+        "ame": "40380",
+        "ype": "STANDARD",
+        "rimary_city": "Stanton",
+        "tate": "KY",
+        "ounty": "Powell County"
+    },
+    {
+        "d": "190332f6-2e57-60a5-baea-5505742d2499",
+        "ame": "71415",
+        "ype": "PO BOX",
+        "rimary_city": "Clarks",
+        "tate": "LA",
+        "ounty": "Caldwell Parish"
+    },
+    {
+        "d": "19034fe4-39b0-564e-c2a2-550573f08782",
+        "ame": "59920",
+        "ype": "STANDARD",
+        "rimary_city": "Kila",
+        "tate": "MT",
+        "ounty": "Flathead County"
+    },
+    {
+        "d": "1903c98b-7824-2823-8881-55057467c34d",
+        "ame": "95835",
+        "ype": "STANDARD",
+        "rimary_city": "Sacramento",
+        "tate": "CA",
+        "ounty": "Sacramento County"
+    },
+    {
+        "d": "190533de-cce7-7f62-0232-550573d101ae",
+        "ame": "09013",
+        "ype": "MILITARY",
+        "rimary_city": "Apo",
+        "tate": "AE",
+        "ounty": "NULL"
+    },
+    {
+        "d": "1905d527-8619-7a8c-e12a-5505743dc273",
+        "ame": "70078",
+        "ype": "PO BOX",
+        "rimary_city": "New Sarpy",
+        "tate": "LA",
+        "ounty": "St. Charles Parish"
+    },
+    {
+        "d": "1907e94c-840d-f194-62cd-5505735ad9cf",
+        "ame": "14012",
+        "ype": "STANDARD",
+        "rimary_city": "Barker",
+        "tate": "NY",
+        "ounty": "Niagara County"
+    },
+    {
+        "d": "1908afb3-4a81-10b9-d8bb-550574c9d469",
+        "ame": "67844",
+        "ype": "STANDARD",
+        "rimary_city": "Fowler",
+        "tate": "KS",
+        "ounty": "Meade County"
+    },
+    {
+        "d": "1908dddf-e8cb-1d9f-bc29-550573168b72",
+        "ame": "20146",
+        "ype": "PO BOX",
+        "rimary_city": "Ashburn",
+        "tate": "VA",
+        "ounty": "Loudoun County"
+    },
+    {
+        "d": "1908ee6d-90ce-8b35-542d-55057340d08d",
+        "ame": "29560",
+        "ype": "STANDARD",
+        "rimary_city": "Lake City",
+        "tate": "SC",
+        "ounty": "Florence County"
+    },
+    {
+        "d": "190b33d2-5543-15d7-dba2-550573ada97b",
+        "ame": "19806",
+        "ype": "STANDARD",
+        "rimary_city": "Wilmington",
+        "tate": "DE",
+        "ounty": "New Castle County"
+    },
+    {
+        "d": "190b5655-a5dd-4881-2cb2-55057304d44c",
+        "ame": "33881",
+        "ype": "STANDARD",
+        "rimary_city": "Winter Haven",
+        "tate": "FL",
+        "ounty": "Polk County"
+    },
+    {
+        "d": "190b685e-2fd2-8b85-ee50-5505746fdc25",
+        "ame": "68372",
+        "ype": "STANDARD",
+        "rimary_city": "Hickman",
+        "tate": "NE",
+        "ounty": "Lancaster County"
+    },
+    {
+        "d": "190cbd69-4043-f50b-188d-550574f708c9",
+        "ame": "96732",
+        "ype": "STANDARD",
+        "rimary_city": "Kahului",
+        "tate": "HI",
+        "ounty": "Maui County"
+    },
+    {
+        "d": "190e15e1-d86e-191a-6cf3-550573b37a46",
+        "ame": "39225",
+        "ype": "PO BOX",
+        "rimary_city": "Jackson",
+        "tate": "MS",
+        "ounty": "Hinds County"
+    },
+    {
+        "d": "19112ae6-4399-dba9-9263-55057379a2c0",
+        "ame": "17750",
+        "ype": "PO BOX",
+        "rimary_city": "Mackeyville",
+        "tate": "PA",
+        "ounty": "Clinton County"
+    },
+    {
+        "d": "1911602e-52c9-351a-5823-5505742935a2",
+        "ame": "75356",
+        "ype": "PO BOX",
+        "rimary_city": "Dallas",
+        "tate": "TX",
+        "ounty": "Dallas County"
+    },
+    {
+        "d": "1911fc9f-5126-09ab-240f-550573273ba3",
+        "ame": "10973",
+        "ype": "STANDARD",
+        "rimary_city": "Slate Hill",
+        "tate": "NY",
+        "ounty": "Orange County"
+    },
+    {
+        "d": "19131d66-1130-97f9-0fad-550574c12b50",
+        "ame": "75478",
+        "ype": "STANDARD",
+        "rimary_city": "Saltillo",
+        "tate": "TX",
+        "ounty": "Hopkins County"
+    },
+    {
+        "d": "19140591-25ec-995f-8ae1-5505733dc1b5",
+        "ame": "31066",
+        "ype": "STANDARD",
+        "rimary_city": "Musella",
+        "tate": "GA",
+        "ounty": "Crawford County"
+    },
+    {
+        "d": "1915c100-e081-14af-bc40-5505733af426",
+        "ame": "39063",
+        "ype": "STANDARD",
+        "rimary_city": "Durant",
+        "tate": "MS",
+        "ounty": "Holmes County"
+    },
+    {
+        "d": "1916553f-fd2a-d5c3-04b1-5505742633fb",
+        "ame": "84336",
+        "ype": "STANDARD",
+        "rimary_city": "Snowville",
+        "tate": "UT",
+        "ounty": "Box Elder County"
+    },
+    {
+        "d": "19173896-5686-c24d-a56e-550574a2c74d",
+        "ame": "64469",
+        "ype": "STANDARD",
+        "rimary_city": "Maysville",
+        "tate": "MO",
+        "ounty": "Dekalb County"
+    },
+    {
+        "d": "191745de-cefa-71a5-ae5f-550573da8598",
+        "ame": "32025",
+        "ype": "STANDARD",
+        "rimary_city": "Lake City",
+        "tate": "FL",
+        "ounty": "Columbia County"
+    },
+    {
+        "d": "1917c7eb-15fb-bca2-0bbb-550574a2334f",
+        "ame": "88112",
+        "ype": "STANDARD",
+        "rimary_city": "Broadview",
+        "tate": "NM",
+        "ounty": "Curry County"
+    },
+    {
+        "d": "1919ed51-d690-ba9a-21fa-550574e3da72",
+        "ame": "95369",
+        "ype": "STANDARD",
+        "rimary_city": "Snelling",
+        "tate": "CA",
+        "ounty": "Merced County"
+    },
+    {
+        "d": "191a3650-5505-1fe2-c05f-550573668aa5",
+        "ame": "14208",
+        "ype": "STANDARD",
+        "rimary_city": "Buffalo",
+        "tate": "NY",
+        "ounty": "Erie County"
+    },
+    {
+        "d": "191c1b77-1d68-4e96-0d7c-550573d745ba",
+        "ame": "15692",
+        "ype": "STANDARD",
+        "rimary_city": "Westmoreland City",
+        "tate": "PA",
+        "ounty": "Westmoreland County"
+    },
+    {
+        "d": "191ca0f1-ae2d-d186-3274-550573929727",
+        "ame": "43157",
+        "ype": "PO BOX",
+        "rimary_city": "Thurston",
+        "tate": "OH",
+        "ounty": "Fairfield County"
+    },
+    {
+        "d": "191cdbd7-09d8-80ae-1a2d-550574742ffb",
+        "ame": "63537",
+        "ype": "STANDARD",
+        "rimary_city": "Edina",
+        "tate": "MO",
+        "ounty": "Knox County"
+    },
+    {
+        "d": "1921c7a6-ac9b-01d9-e865-5505731815a3",
+        "ame": "04032",
+        "ype": "STANDARD",
+        "rimary_city": "Freeport",
+        "tate": "ME",
+        "ounty": "Cumberland County"
+    },
+    {
+        "d": "1923d442-252b-27f9-86d2-5505740e28db",
+        "ame": "70394",
+        "ype": "STANDARD",
+        "rimary_city": "Raceland",
+        "tate": "LA",
+        "ounty": "Lafourche Parish"
+    },
+    {
+        "d": "192402af-334e-7024-4a56-5505742c5697",
+        "ame": "77230",
+        "ype": "PO BOX",
+        "rimary_city": "Houston",
+        "tate": "TX",
+        "ounty": "Harris County"
+    },
+    {
+        "d": "1925d2ea-5138-cfee-d35f-55057364c32e",
+        "ame": "56007",
+        "ype": "STANDARD",
+        "rimary_city": "Albert Lea",
+        "tate": "MN",
+        "ounty": "Freeborn County"
+    },
+    {
+        "d": "192863f2-dfdc-5d30-53c4-550574ce43ce",
+        "ame": "98222",
+        "ype": "STANDARD",
+        "rimary_city": "Blakely Island",
+        "tate": "WA",
+        "ounty": "San Juan County"
+    },
+    {
+        "d": "1928ab52-7883-a3e9-de97-5505730ed4d9",
+        "ame": "36515",
+        "ype": "STANDARD",
+        "rimary_city": "Carlton",
+        "tate": "AL",
+        "ounty": "Clarke County"
+    },
+    {
+        "d": "19291f3b-ef10-70fe-e557-550573ab60d7",
+        "ame": "18655",
+        "ype": "STANDARD",
+        "rimary_city": "Shickshinny",
+        "tate": "PA",
+        "ounty": "Luzerne County"
+    },
+    {
+        "d": "192b8ae1-d890-24c5-9a86-5505731fc288",
+        "ame": "12972",
+        "ype": "STANDARD",
+        "rimary_city": "Peru",
+        "tate": "NY",
+        "ounty": "Clinton County"
+    },
+    {
+        "d": "192bc820-776d-643b-df79-550573de79bc",
+        "ame": "52219",
+        "ype": "STANDARD",
+        "rimary_city": "Prairieburg",
+        "tate": "IA",
+        "ounty": "Linn County"
+    },
+    {
+        "d": "192e0f45-d80e-1dcf-2f3a-550573d82ada",
+        "ame": "18106",
+        "ype": "STANDARD",
+        "rimary_city": "Allentown",
+        "tate": "PA",
+        "ounty": "Lehigh County"
+    },
+    {
+        "d": "192e93fe-a599-eefb-d20a-55057499990a",
+        "ame": "75011",
+        "ype": "PO BOX",
+        "rimary_city": "Carrollton",
+        "tate": "TX",
+        "ounty": "Dallas County"
+    },
+    {
+        "d": "19379197-527e-abf4-ebbc-550574b908a9",
+        "ame": "83702",
+        "ype": "STANDARD",
+        "rimary_city": "Boise",
+        "tate": "ID",
+        "ounty": "Ada County"
+    },
+    {
+        "d": "1937e0f5-f00c-46e0-95cd-55057368deeb",
+        "ame": "19340",
+        "ype": "UNIQUE",
+        "rimary_city": "Concordville",
+        "tate": "PA",
+        "ounty": "Delaware County"
+    },
+    {
+        "d": "193da249-6c9b-52da-891e-55057421abcb",
+        "ame": "75692",
+        "ype": "STANDARD",
+        "rimary_city": "Waskom",
+        "tate": "TX",
+        "ounty": "Harrison County"
+    },
+    {
+        "d": "193ee394-7140-7082-5194-550573f790aa",
+        "ame": "06085",
+        "ype": "STANDARD",
+        "rimary_city": "Unionville",
+        "tate": "CT",
+        "ounty": "Hartford County"
+    },
+    {
+        "d": "194000d9-467b-0a89-f59f-5505741539e9",
+        "ame": "81220",
+        "ype": "STANDARD",
+        "rimary_city": "Cimarron",
+        "tate": "CO",
+        "ounty": "Gunnison County"
+    },
+    {
+        "d": "1941bd6b-bc72-acc1-1572-5505732e5a01",
+        "ame": "36039",
+        "ype": "STANDARD",
+        "rimary_city": "Hardaway",
+        "tate": "AL",
+        "ounty": "Macon County"
+    },
+    {
+        "d": "194302ca-e0bd-be57-20ad-55057410c761",
+        "ame": "75669",
+        "ype": "STANDARD",
+        "rimary_city": "Long Branch",
+        "tate": "TX",
+        "ounty": "Panola County"
+    },
+    {
+        "d": "19490672-2e8e-06e0-939b-550573cd8c79",
+        "ame": "30286",
+        "ype": "STANDARD",
+        "rimary_city": "Thomaston",
+        "tate": "GA",
+        "ounty": "Upson County"
+    },
+    {
+        "d": "19497662-ca54-defe-81fc-550573f07b5f",
+        "ame": "52536",
+        "ype": "STANDARD",
+        "rimary_city": "Blakesburg",
+        "tate": "IA",
+        "ounty": "Wapello County"
+    },
+    {
+        "d": "194d0ebf-ea76-dc1f-be6d-550573785726",
+        "ame": "17360",
+        "ype": "STANDARD",
+        "rimary_city": "Seven Valleys",
+        "tate": "PA",
+        "ounty": "York County"
+    },
+    {
+        "d": "1951bdf9-0089-a773-f9c6-550573800bd0",
+        "ame": "30582",
+        "ype": "STANDARD",
+        "rimary_city": "Young Harris",
+        "tate": "GA",
+        "ounty": "Towns County"
+    },
+    {
+        "d": "1951e7de-c879-afdf-83f6-5505731d8d56",
+        "ame": "19101",
+        "ype": "PO BOX",
+        "rimary_city": "Philadelphia",
+        "tate": "PA",
+        "ounty": "Philadelphia County"
+    },
+    {
+        "d": "19530a4c-3be9-0317-34bc-5505730d0560",
+        "ame": "16833",
+        "ype": "STANDARD",
+        "rimary_city": "Curwensville",
+        "tate": "PA",
+        "ounty": "Clearfield County"
+    },
+    {
+        "d": "195437c9-d6d3-af63-d72e-5505747dd86a",
+        "ame": "65601",
+        "ype": "STANDARD",
+        "rimary_city": "Aldrich",
+        "tate": "MO",
+        "ounty": "Polk County"
+    },
+    {
+        "d": "195853dc-c44d-ca09-25df-55057360d0d6",
+        "ame": "60420",
+        "ype": "STANDARD",
+        "rimary_city": "Dwight",
+        "tate": "IL",
+        "ounty": "Livingston County"
+    },
+    {
+        "d": "19589ad5-b28d-e650-b05a-5505738b8c5b",
+        "ame": "07401",
+        "ype": "STANDARD",
+        "rimary_city": "Allendale",
+        "tate": "NJ",
+        "ounty": "Bergen County"
+    },
+    {
+        "d": "195ce48d-7819-660f-7b52-5505744b27db",
+        "ame": "72475",
+        "ype": "PO BOX",
+        "rimary_city": "Waldenburg",
+        "tate": "AR",
+        "ounty": "Poinsett County"
+    },
+    {
+        "d": "1961294f-28f7-40a3-58a1-55057490d990",
+        "ame": "67355",
+        "ype": "STANDARD",
+        "rimary_city": "Niotaze",
+        "tate": "KS",
+        "ounty": "Chautauqua County"
+    },
+    {
+        "d": "1961a5b9-fa40-fb86-d1e7-5505737a1453",
+        "ame": "52758",
+        "ype": "PO BOX",
+        "rimary_city": "Mc Causland",
+        "tate": "IA",
+        "ounty": "Scott County"
+    },
+    {
+        "d": "19635b1c-823e-84cc-4989-55057381efc6",
+        "ame": "35504",
+        "ype": "STANDARD",
+        "rimary_city": "Jasper",
+        "tate": "AL",
+        "ounty": "Walker County"
+    },
+    {
+        "d": "1963d7e1-24e9-4196-2b44-550574f15ca2",
+        "ame": "93434",
+        "ype": "STANDARD",
+        "rimary_city": "Guadalupe",
+        "tate": "CA",
+        "ounty": "Santa Barbara County"
+    },
+    {
+        "d": "19657616-51da-070c-be35-550573bff32d",
+        "ame": "58206",
+        "ype": "PO BOX",
+        "rimary_city": "Grand Forks",
+        "tate": "ND",
+        "ounty": "Grand Forks County"
+    },
+    {
+        "d": "196d9883-2ff5-e52b-d281-550574e08fe0",
+        "ame": "95519",
+        "ype": "STANDARD",
+        "rimary_city": "Mckinleyville",
+        "tate": "CA",
+        "ounty": "Humboldt County"
+    },
+    {
+        "d": "19740e40-4e6f-3ee1-23ec-55057357bd65",
+        "ame": "05828",
+        "ype": "STANDARD",
+        "rimary_city": "Danville",
+        "tate": "VT",
+        "ounty": "Caledonia County"
+    },
+    {
+        "d": "19747308-9e90-fe79-ee3b-550574bf2d40",
+        "ame": "80997",
+        "ype": "UNIQUE",
+        "rimary_city": "Colorado Springs",
+        "tate": "CO",
+        "ounty": "El Paso County"
+    },
+    {
+        "d": "1974d5c3-6dcf-2d22-3156-550574ac96d3",
+        "ame": "92093",
+        "ype": "UNIQUE",
+        "rimary_city": "La Jolla",
+        "tate": "CA",
+        "ounty": "San Diego County"
+    },
+    {
+        "d": "19760570-4984-1d65-d58c-550574797575",
+        "ame": "77835",
+        "ype": "STANDARD",
+        "rimary_city": "Burton",
+        "tate": "TX",
+        "ounty": "Washington County"
+    },
+    {
+        "d": "19768237-8704-46fa-c097-550573955a26",
+        "ame": "04336",
+        "ype": "UNIQUE",
+        "rimary_city": "Augusta",
+        "tate": "ME",
+        "ounty": "Kennebec County"
+    },
+    {
+        "d": "197a187a-842e-422c-0583-5505743e70e2",
+        "ame": "65040",
+        "ype": "STANDARD",
+        "rimary_city": "Henley",
+        "tate": "MO",
+        "ounty": "Cole County"
+    },
+    {
+        "d": "197aae0c-0f36-f7eb-5d44-550574d319c4",
+        "ame": "70570",
+        "ype": "STANDARD",
+        "rimary_city": "Opelousas",
+        "tate": "LA",
+        "ounty": "St Landry Parish"
+    },
+    {
+        "d": "197bc498-962f-8386-3fd8-55057497887d",
+        "ame": "78284",
+        "ype": "STANDARD",
+        "rimary_city": "San Antonio",
+        "tate": "TX",
+        "ounty": "Bexar County"
+    },
+    {
+        "d": "197bdf9f-2a64-8b6c-23f4-550573b7c549",
+        "ame": "18950",
+        "ype": "PO BOX",
+        "rimary_city": "Point Pleasant",
+        "tate": "PA",
+        "ounty": "Bucks County"
+    },
+    {
+        "d": "197d5de5-fdb2-4bd1-4b4a-550573b384e7",
+        "ame": "15067",
+        "ype": "STANDARD",
+        "rimary_city": "New Eagle",
+        "tate": "PA",
+        "ounty": "Washington County"
+    },
+    {
+        "d": "19809b79-62d1-7516-6e27-550573d7c8d3",
+        "ame": "16402",
+        "ype": "STANDARD",
+        "rimary_city": "Bear Lake",
+        "tate": "PA",
+        "ounty": "Warren County"
+    },
+    {
+        "d": "1981e850-ff39-c322-b215-55057416e8a7",
+        "ame": "99826",
+        "ype": "PO BOX",
+        "rimary_city": "Gustavus",
+        "tate": "AK",
+        "ounty": "Hoonah-Angoon Borough"
+    },
+    {
+        "d": "1982016e-4bf3-b21b-fdcf-550574475c19",
+        "ame": "78042",
+        "ype": "PO BOX",
+        "rimary_city": "Laredo",
+        "tate": "TX",
+        "ounty": "Webb County"
+    },
+    {
+        "d": "19820dfa-3fbc-35eb-48e6-550574e8e961",
+        "ame": "73901",
+        "ype": "PO BOX",
+        "rimary_city": "Adams",
+        "tate": "OK",
+        "ounty": "Texas County"
+    },
+    {
+        "d": "1982c3dc-059b-dde6-30dc-550573660567",
+        "ame": "17938",
+        "ype": "STANDARD",
+        "rimary_city": "Hegins",
+        "tate": "PA",
+        "ounty": "Schuylkill County"
+    },
+    {
+        "d": "19846d91-088b-42f9-8da0-5505732aa051",
+        "ame": "29001",
+        "ype": "STANDARD",
+        "rimary_city": "Alcolu",
+        "tate": "SC",
+        "ounty": "Clarendon County"
+    },
+    {
+        "d": "1985e15f-d435-7f1a-1ec1-550574e32c7d",
+        "ame": "66626",
+        "ype": "UNIQUE",
+        "rimary_city": "Topeka",
+        "tate": "KS",
+        "ounty": "Shawnee County"
+    },
+    {
+        "d": "19898251-62e3-91b1-9d2c-550573704176",
+        "ame": "55129",
+        "ype": "STANDARD",
+        "rimary_city": "Saint Paul",
+        "tate": "MN",
+        "ounty": "Washington County"
+    },
+    {
+        "d": "198a04f9-151d-9c05-c705-550574fd3fa5",
+        "ame": "61260",
+        "ype": "STANDARD",
+        "rimary_city": "Joy",
+        "tate": "IL",
+        "ounty": "Mercer County"
+    },
+    {
+        "d": "198b60d6-3748-73a6-2c88-550574834ef2",
+        "ame": "72333",
+        "ype": "STANDARD",
+        "rimary_city": "Elaine",
+        "tate": "AR",
+        "ounty": "Phillips County"
+    },
+    {
+        "d": "198c0da1-e5ef-c092-e5e7-5505743f37bc",
+        "ame": "84320",
+        "ype": "STANDARD",
+        "rimary_city": "Lewiston",
+        "tate": "UT",
+        "ounty": "Cache County"
+    },
+    {
+        "d": "198c6524-1267-6e0e-7c85-5505744dd8a1",
+        "ame": "70756",
+        "ype": "STANDARD",
+        "rimary_city": "Lottie",
+        "tate": "LA",
+        "ounty": "Pointe Coupee Parish"
+    },
+    {
+        "d": "198cda55-3760-70ba-c2bd-5505736070be",
+        "ame": "23314",
+        "ype": "STANDARD",
+        "rimary_city": "Carrollton",
+        "tate": "VA",
+        "ounty": "Isle of Wight County"
+    },
+    {
+        "d": "198dd6ca-e386-f990-db4e-550573348b50",
+        "ame": "06282",
+        "ype": "STANDARD",
+        "rimary_city": "Woodstock Valley",
+        "tate": "CT",
+        "ounty": "Windham County"
+    },
+    {
+        "d": "198f0049-7bd6-35e0-aff2-550573348200",
+        "ame": "35759",
+        "ype": "STANDARD",
+        "rimary_city": "Meridianville",
+        "tate": "AL",
+        "ounty": "Madison County"
+    },
+    {
+        "d": "1990091a-39db-6bcc-b045-550574e76fec",
+        "ame": "99644",
+        "ype": "PO BOX",
+        "rimary_city": "Ouzinkie",
+        "tate": "AK",
+        "ounty": "Kodiak Island Borough"
+    },
+    {
+        "d": "19908f75-5e9a-71f1-1fcb-5505731f6e76",
+        "ame": "29403",
+        "ype": "STANDARD",
+        "rimary_city": "Charleston",
+        "tate": "SC",
+        "ounty": "Charleston County"
+    },
+    {
+        "d": "1990f0d6-ce01-e191-6be0-550574c8ccae",
+        "ame": "71064",
+        "ype": "STANDARD",
+        "rimary_city": "Plain Dealing",
+        "tate": "LA",
+        "ounty": "Bossier Parish"
+    },
+    {
+        "d": "1993bdc1-b8f5-79e9-1c24-55057325dc20",
+        "ame": "58374",
+        "ype": "STANDARD",
+        "rimary_city": "Sheyenne",
+        "tate": "ND",
+        "ounty": "Eddy County"
+    },
+    {
+        "d": "1993c68a-6c86-f0f6-ed3e-550574fc5f7a",
+        "ame": "72116",
+        "ype": "STANDARD",
+        "rimary_city": "North Little Rock",
+        "tate": "AR",
+        "ounty": "Pulaski County"
+    },
+    {
+        "d": "19977dfa-4cf5-f8f7-67ab-550574607bb7",
+        "ame": "71998",
+        "ype": "UNIQUE",
+        "rimary_city": "Arkadelphia",
+        "tate": "AR",
+        "ounty": "Clark County"
+    },
+    {
+        "d": "1997ad50-060c-aeb9-b519-550574d72093",
+        "ame": "75943",
+        "ype": "STANDARD",
+        "rimary_city": "Douglass",
+        "tate": "TX",
+        "ounty": "Nacogdoches County"
+    },
+    {
+        "d": "199bf8a6-6027-0f4f-dfdb-550573733991",
+        "ame": "30163",
+        "ype": "PO BOX",
+        "rimary_city": "Rome",
+        "tate": "GA",
+        "ounty": "Floyd County"
+    },
+    {
+        "d": "199e9dc6-daca-7f26-d235-550574921172",
+        "ame": "65724",
+        "ype": "STANDARD",
+        "rimary_city": "Pittsburg",
+        "tate": "MO",
+        "ounty": "Hickory County"
+    },
+    {
+        "d": "199f1951-59fe-3b4a-5491-5505739b0bf4",
+        "ame": "12832",
+        "ype": "STANDARD",
+        "rimary_city": "Granville",
+        "tate": "NY",
+        "ounty": "Washington County"
+    },
+    {
+        "d": "199fe194-6be6-98f6-1da5-550573af15bf",
+        "ame": "15379",
+        "ype": "PO BOX",
+        "rimary_city": "West Middletown",
+        "tate": "PA",
+        "ounty": "Washington County"
+    },
+    {
+        "d": "19a0ad2d-9b3e-468b-78d3-550574bf0bf3",
+        "ame": "74740",
+        "ype": "STANDARD",
+        "rimary_city": "Haworth",
+        "tate": "OK",
+        "ounty": "McCurtain County"
+    },
+    {
+        "d": "19a0b2f6-f91c-081c-8897-550574a40c74",
+        "ame": "66940",
+        "ype": "STANDARD",
+        "rimary_city": "Cuba",
+        "tate": "KS",
+        "ounty": "Republic County"
+    },
+    {
+        "d": "19a3c0a8-0e32-815f-81ee-5505749e1286",
+        "ame": "88533",
+        "ype": "PO BOX",
+        "rimary_city": "El Paso",
+        "tate": "TX",
+        "ounty": "El Paso County"
+    },
+    {
+        "d": "19a466a0-e580-3da1-f71c-550573d868a0",
+        "ame": "55792",
+        "ype": "STANDARD",
+        "rimary_city": "Virginia",
+        "tate": "MN",
+        "ounty": "St Louis County"
+    },
+    {
+        "d": "19a4b74a-9895-c436-22c6-550573bbf4d1",
+        "ame": "54841",
+        "ype": "STANDARD",
+        "rimary_city": "Haugen",
+        "tate": "WI",
+        "ounty": "Barron County"
+    },
+    {
+        "d": "19a50da3-05fb-664e-3dc7-55057402ee32",
+        "ame": "72645",
+        "ype": "STANDARD",
+        "rimary_city": "Leslie",
+        "tate": "AR",
+        "ounty": "Searcy County"
+    },
+    {
+        "d": "19a6c882-a611-23a7-3559-550573c34301",
+        "ame": "07045",
+        "ype": "STANDARD",
+        "rimary_city": "Montville",
+        "tate": "NJ",
+        "ounty": "Morris County"
+    },
+    {
+        "d": "19a93075-7f03-b9ee-f742-550574e4916e",
+        "ame": "64733",
+        "ype": "STANDARD",
+        "rimary_city": "Chilhowee",
+        "tate": "MO",
+        "ounty": "Johnson County"
+    },
+    {
+        "d": "19a93434-00f0-877e-4764-550573f7dc39",
+        "ame": "19501",
+        "ype": "PO BOX",
+        "rimary_city": "Adamstown",
+        "tate": "PA",
+        "ounty": "Lancaster County"
+    },
+    {
+        "d": "19ac28c3-6cb5-d5af-f88c-550574808792",
+        "ame": "67568",
+        "ype": "STANDARD",
+        "rimary_city": "Plevna",
+        "tate": "KS",
+        "ounty": "Reno County"
+    },
+    {
+        "d": "19aca103-c174-f94f-4a43-550573a3180f",
+        "ame": "29175",
+        "ype": "STANDARD",
+        "rimary_city": "Westville",
+        "tate": "SC",
+        "ounty": "Kershaw County"
+    },
+    {
+        "d": "19af36b5-76e3-56c0-0bc4-550573397d1b",
+        "ame": "58601",
+        "ype": "STANDARD",
+        "rimary_city": "Dickinson",
+        "tate": "ND",
+        "ounty": "Stark County"
+    },
+    {
+        "d": "19b00082-0bfd-9017-41d0-55057471f2e8",
+        "ame": "83241",
+        "ype": "STANDARD",
+        "rimary_city": "Grace",
+        "tate": "ID",
+        "ounty": "Caribou County"
+    },
+    {
+        "d": "19b0ce45-1efc-8c03-5287-5505744a5062",
+        "ame": "62036",
+        "ype": "STANDARD",
+        "rimary_city": "Golden Eagle",
+        "tate": "IL",
+        "ounty": "Calhoun County"
+    },
+    {
+        "d": "19b24b24-b51d-cd92-1bc4-550573bd388d",
+        "ame": "05152",
+        "ype": "STANDARD",
+        "rimary_city": "Peru",
+        "tate": "VT",
+        "ounty": "Bennington County"
+    },
+    {
+        "d": "19b2f83f-c7c9-dac1-c7ee-5505741ba594",
+        "ame": "85228",
+        "ype": "STANDARD",
+        "rimary_city": "Coolidge",
+        "tate": "AZ",
+        "ounty": "Pinal County"
+    },
+    {
+        "d": "19b30896-2acd-51ba-ff5c-55057431da0e",
+        "ame": "61437",
+        "ype": "STANDARD",
+        "rimary_city": "Gladstone",
+        "tate": "IL",
+        "ounty": "Henderson County"
+    },
+    {
+        "d": "19b30988-69a2-d9ff-35d5-550573ceb2b2",
+        "ame": "07851",
+        "ype": "STANDARD",
+        "rimary_city": "Layton",
+        "tate": "NJ",
+        "ounty": "Sussex County"
+    },
+    {
+        "d": "19b38838-0b0c-e410-717d-550573bddb7e",
+        "ame": "21237",
+        "ype": "STANDARD",
+        "rimary_city": "Rosedale",
+        "tate": "MD",
+        "ounty": "Baltimore County"
+    },
+    {
+        "d": "19b439c3-28bd-e63d-0474-550574123599",
+        "ame": "96028",
+        "ype": "STANDARD",
+        "rimary_city": "Fall River Mills",
+        "tate": "CA",
+        "ounty": "Shasta County"
+    },
+    {
+        "d": "19b46685-e623-a282-52cb-55057371e5b4",
+        "ame": "15542",
+        "ype": "STANDARD",
+        "rimary_city": "Garrett",
+        "tate": "PA",
+        "ounty": "Somerset County"
+    },
+    {
+        "d": "19b4bc8c-4798-ba87-c366-55057350fca4",
+        "ame": "13699",
+        "ype": "UNIQUE",
+        "rimary_city": "Potsdam",
+        "tate": "NY",
+        "ounty": "St Lawrence County"
+    },
+    {
+        "d": "19b50ddc-342c-2fec-6ac5-550574255ac5",
+        "ame": "95021",
+        "ype": "PO BOX",
+        "rimary_city": "Gilroy",
+        "tate": "CA",
+        "ounty": "Santa Clara County"
+    },
+    {
+        "d": "19b5d664-f940-a515-432a-550574afbdba",
+        "ame": "94303",
+        "ype": "STANDARD",
+        "rimary_city": "Palo Alto",
+        "tate": "CA",
+        "ounty": "Santa Clara County"
+    },
+    {
+        "d": "19b63aac-b6ee-70c0-1b83-5505734a94af",
+        "ame": "31714",
+        "ype": "STANDARD",
+        "rimary_city": "Ashburn",
+        "tate": "GA",
+        "ounty": "Turner County"
+    },
+    {
+        "d": "19b69461-eb58-4114-b03c-550573fd5688",
+        "ame": "29856",
+        "ype": "STANDARD",
+        "rimary_city": "Windsor",
+        "tate": "SC",
+        "ounty": "Aiken County"
+    },
+    {
+        "d": "19b83d33-043c-59d3-45fe-550574a724dc",
+        "ame": "66285",
+        "ype": "PO BOX",
+        "rimary_city": "Lenexa",
+        "tate": "KS",
+        "ounty": "Johnson County"
+    },
+    {
+        "d": "19b99200-1a24-e7ce-0070-55057359e2c5",
+        "ame": "08647",
+        "ype": "UNIQUE",
+        "rimary_city": "Trenton",
+        "tate": "NJ",
+        "ounty": "Mercer County"
+    },
+    {
+        "d": "19ba111e-d4fe-b212-29e0-550573ef26d4",
+        "ame": "14843",
+        "ype": "STANDARD",
+        "rimary_city": "Hornell",
+        "tate": "NY",
+        "ounty": "Steuben County"
+    },
+    {
+        "d": "19bad1c3-40d3-d278-c397-5505733765f2",
+        "ame": "06811",
+        "ype": "STANDARD",
+        "rimary_city": "Danbury",
+        "tate": "CT",
+        "ounty": "Fairfield County"
+    },
+    {
+        "d": "19bc7428-4210-2b08-d935-550573f1f5e5",
+        "ame": "14707",
+        "ype": "PO BOX",
+        "rimary_city": "Allentown",
+        "tate": "NY",
+        "ounty": "Allegany County"
+    },
+    {
+        "d": "19bc9e44-8013-9ca8-27ce-550573baaf2b",
+        "ame": "04740",
+        "ype": "STANDARD",
+        "rimary_city": "Easton",
+        "tate": "ME",
+        "ounty": "Aroostook County"
+    },
+    {
+        "d": "19bd595d-6d9a-ad73-ceac-550573f30581",
+        "ame": "42741",
+        "ype": "STANDARD",
+        "rimary_city": "Glens Fork",
+        "tate": "KY",
+        "ounty": "Adair County"
+    },
+    {
+        "d": "19c13633-4109-9859-cf76-550573c499d1",
+        "ame": "36258",
+        "ype": "STANDARD",
+        "rimary_city": "Delta",
+        "tate": "AL",
+        "ounty": "Clay County"
+    },
+    {
+        "d": "19c1b4be-4448-efbc-ad27-550573a57662",
+        "ame": "29670",
+        "ype": "STANDARD",
+        "rimary_city": "Pendleton",
+        "tate": "SC",
+        "ounty": "Anderson County"
+    },
+    {
+        "d": "19c23e03-5605-8bf9-ab0a-550574321e6a",
+        "ame": "61279",
+        "ype": "STANDARD",
+        "rimary_city": "Reynolds",
+        "tate": "IL",
+        "ounty": "Mercer County"
+    },
+    {
+        "d": "19c2b710-38c1-2423-8d32-550573de5cc9",
+        "ame": "48701",
+        "ype": "STANDARD",
+        "rimary_city": "Akron",
+        "tate": "MI",
+        "ounty": "Tuscola County"
+    },
+    {
+        "d": "19c5088a-4d5e-6851-0031-550574f3f9d7",
+        "ame": "99779",
+        "ype": "STANDARD",
+        "rimary_city": "Tok",
+        "tate": "AK",
+        "ounty": "Southeast Fairbanks Census Area"
+    },
+    {
+        "d": "19c539cf-5f3d-d274-c497-550574f5eb4b",
+        "ame": "77006",
+        "ype": "STANDARD",
+        "rimary_city": "Houston",
+        "tate": "TX",
+        "ounty": "Harris County"
+    },
+    {
+        "d": "19c82ef8-d473-de27-d67c-55057412e0ec",
+        "ame": "95682",
+        "ype": "STANDARD",
+        "rimary_city": "Shingle Springs",
+        "tate": "CA",
+        "ounty": "El Dorado County"
+    },
+    {
+        "d": "19c90ebf-d383-2ee5-2fe7-55057464077f",
+        "ame": "69150",
+        "ype": "STANDARD",
+        "rimary_city": "Madrid",
+        "tate": "NE",
+        "ounty": "Perkins County"
+    },
+    {
+        "d": "19c9fe91-7e6e-6fc6-3df0-550572500feb",
+        "ame": "01242",
+        "ype": "PO BOX",
+        "rimary_city": "Lenox Dale",
+        "tate": "MA",
+        "ounty": "Berkshire County"
+    },
+    {
+        "d": "19ca00d4-be75-738b-8f5b-55057372d814",
+        "ame": "46340",
+        "ype": "STANDARD",
+        "rimary_city": "Hanna",
+        "tate": "IN",
+        "ounty": "La Porte County"
+    },
+    {
+        "d": "19ca513c-90c8-a034-0bf8-5505731349e7",
+        "ame": "37033",
+        "ype": "STANDARD",
+        "rimary_city": "Centerville",
+        "tate": "TN",
+        "ounty": "Hickman County"
+    },
+    {
+        "d": "19cb9c36-0a1d-2d16-6670-550574b0ddc2",
+        "ame": "61811",
+        "ype": "STANDARD",
+        "rimary_city": "Alvin",
+        "tate": "IL",
+        "ounty": "Vermilion County"
+    },
+    {
+        "d": "19cc9289-4030-0c61-9a3d-5505742f3b4d",
+        "ame": "89501",
+        "ype": "STANDARD",
+        "rimary_city": "Reno",
+        "tate": "NV",
+        "ounty": "Washoe County"
+    },
+    {
+        "d": "19cd5e69-be02-8cac-5795-5505734a1da6",
+        "ame": "43443",
+        "ype": "STANDARD",
+        "rimary_city": "Luckey",
+        "tate": "OH",
+        "ounty": "Wood County"
+    },
+    {
+        "d": "19cf9ade-1873-1669-7344-5505732fba90",
+        "ame": "56396",
+        "ype": "UNIQUE",
+        "rimary_city": "Saint Cloud",
+        "tate": "MN",
+        "ounty": "Stearns County"
+    },
+    {
+        "d": "19d0b0e0-6ac1-5046-6c4c-550573d219c3",
+        "ame": "48858",
+        "ype": "STANDARD",
+        "rimary_city": "Mount Pleasant",
+        "tate": "MI",
+        "ounty": "Isabella County"
+    },
+    {
+        "d": "19d20fd5-43c2-f6d9-0cc7-550573437340",
+        "ame": "08018",
+        "ype": "PO BOX",
+        "rimary_city": "Cedar Brook",
+        "tate": "NJ",
+        "ounty": "Camden County"
+    },
+    {
+        "d": "19d28185-8608-e818-022b-5505743d9349",
+        "ame": "85354",
+        "ype": "STANDARD",
+        "rimary_city": "Tonopah",
+        "tate": "AZ",
+        "ounty": "Maricopa County"
+    },
+    {
+        "d": "19d4eabb-a43c-caea-9aae-5505745415a6",
+        "ame": "96158",
+        "ype": "PO BOX",
+        "rimary_city": "South Lake Tahoe",
+        "tate": "CA",
+        "ounty": "El Dorado County"
+    },
+    {
+        "d": "19d575eb-292f-a030-a2b5-5505748eed14",
+        "ame": "85702",
+        "ype": "PO BOX",
+        "rimary_city": "Tucson",
+        "tate": "AZ",
+        "ounty": "Pima County"
+    },
+    {
+        "d": "19d65d2e-9b50-2b91-1e1e-550573fb5880",
+        "ame": "06497",
+        "ype": "STANDARD",
+        "rimary_city": "Stratford",
+        "tate": "CT",
+        "ounty": "Fairfield County"
+    },
+    {
+        "d": "19d680f3-b2a0-1636-c8c8-550574c6c95a",
+        "ame": "87016",
+        "ype": "STANDARD",
+        "rimary_city": "Estancia",
+        "tate": "NM",
+        "ounty": "Torrance County"
+    },
+    {
+        "d": "19da5fb4-8bc9-d2cc-3e63-5505738a79fd",
+        "ame": "30302",
+        "ype": "PO BOX",
+        "rimary_city": "Atlanta",
+        "tate": "GA",
+        "ounty": "Fulton County"
+    },
+    {
+        "d": "19db247b-11e8-8be0-f2b5-55057342f995",
+        "ame": "28709",
+        "ype": "STANDARD",
+        "rimary_city": "Barnardsville",
+        "tate": "NC",
+        "ounty": "Buncombe County"
+    }
+]
