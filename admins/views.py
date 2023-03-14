@@ -1885,22 +1885,23 @@ def fill_db_view(request):
             file_names = ['new', 'new2', 'new3', 'new4', 'new5',
                           'new6', 'new7', 'new8', 'new9', 'new10', 'new11', 'new12']
             for name in file_names:
-                with open(f'./admins/static/json/{name}.json') as f:
-                    j = json.load(f, strict=False)
-                    #zips = [str(it.zip) for it in City.objects.all()]
+                f = requests.get(f'https://raw.githubusercontent.com/ABBA-Corp/matelog/master/admins/static/json/{name}.json')
+                j = f.json()
+                #zips = [str(it.zip) for it in City.objects.all()]
 
-                    for it in j:
-                        try:
-                            state = States.objects.get(code=it['tate'])
-                            city = City.objects.create(
-                                name={"en": it["rimary_city"]},
-                                state = state,
-                                zip=it["ame"]
-                            )
-                            city.save()
-                            print(f'{name}-------✅')
-                        except:
-                            print(f'{name}-------❌')
+                for it in j:
+                    try:
+                        state = States.objects.get(code=it['tate'])
+                        city = City.objects.create(
+                            name={"en": it["rimary_city"]},
+                            state = state,
+                            zip=it["ame"]
+                        )
+                        city.save()
+                        print(f'{name}-------✅')
+                    except ValidationError as e:
+                        print(e.message_dict)
+                        print(f'{name}-------❌')
                 
 
         elif 'STATES' in request.POST:
