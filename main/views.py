@@ -135,6 +135,7 @@ class CityList(generics.ListAPIView):
     def get_queryset(self):
         queryset = City.objects.all()
         state_id = self.request.GET.get('state', '')
+        query = self.request.GET.get("q", '')
 
         if state_id != '':
             try:
@@ -142,6 +143,11 @@ class CityList(generics.ListAPIView):
                 queryset = queryset.filter(state=state)
             except:
                 pass
+
+        
+        if query != '':
+            queryset = queryset.extra(where=[f'LOWER(name ::varchar) LIKE %s'], params=[f'%{query.lower()}%'])
+
         
         return queryset
 
