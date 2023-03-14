@@ -247,7 +247,7 @@ class ShortAplicationView(generics.CreateAPIView):
 
 
 
-# add amiga ski application (sory if you read this)
+# add application (sory if you read this)
 class NewAmgAplication(generics.CreateAPIView):
     queryset = SomeAplication.objects.all()
     serializer_class = NewAplSerializer
