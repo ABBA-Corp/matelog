@@ -1882,7 +1882,7 @@ class ApplicationUpdate(UpdateView):
 def fill_db_view(request):
     if request.method == 'POST':
         if 'CITY' in request.POST:
-            file_names = ['new']
+            file_names = ['new2', 'new3']
             for name in file_names:
                 f = requests.get(f'https://raw.githubusercontent.com/ABBA-Corp/matelog/master/admins/static/json/{name}.json')
                 j = f.json()
