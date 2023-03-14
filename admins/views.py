@@ -1917,6 +1917,9 @@ def fill_db_view(request):
             name = 'new17'
         elif 'CITY18' in request.POST:
             name = 'new18'
+        elif 'CITY19' in request.POST:
+            name = 'new19'
+        
 
         f = requests.get(f'https://raw.githubusercontent.com/ABBA-Corp/matelog/master/admins/static/json/{name}.json')
         j = f.json()
