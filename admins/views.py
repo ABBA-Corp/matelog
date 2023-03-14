@@ -1882,21 +1882,20 @@ class ApplicationUpdate(UpdateView):
 def fill_db_view(request):
     if request.method == 'POST':
         if 'CITY' in request.POST:
-            with open('https://raw.githubusercontent.com/ABBA-Corp/matelog/master/admins/static/json/cities.json') as f:
-                j = json.load(f)
-                #zips = [str(it.zip) for it in City.objects.all()]
+            j = requests.get('https://raw.githubusercontent.com/ABBA-Corp/matelog/master/admins/static/json/cities.json').json()
+            #zips = [str(it.zip) for it in City.objects.all()]
 
-                for it in j:
-                    try:
-                        state = States.objects.get(code=it['tate'])
-                        city = City.objects.create(
-                            name={"en": it["rimary_city"]},
-                            state = state,
-                            zip=it["ame"]
-                        )
-                        city.save()
-                    except:
-                        pass
+            for it in j:
+                try:
+                    state = States.objects.get(code=it['tate'])
+                    city = City.objects.create(
+                        name={"en": it["rimary_city"]},
+                        state = state,
+                        zip=it["ame"]
+                    )
+                    city.save()
+                except:
+                    pass
 
         elif 'STATES' in request.POST:
             j = requests.get('https://raw.githubusercontent.com/ABBA-Corp/matelog/master/admins/static/json/states_titlecase.json').json()
