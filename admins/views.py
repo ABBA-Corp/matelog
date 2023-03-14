@@ -1899,8 +1899,7 @@ def fill_db_view(request):
                         )
                         city.save()
                         print(f'{name}-------✅')
-                    except ValidationError as e:
-                        print(e.message_dict)
+                    except:
                         print(f'{name}-------❌')
                 
 
