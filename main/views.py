@@ -127,6 +127,15 @@ class StatesList(generics.ListAPIView):
     pagination_class = BasePagination
 
 
+    def get_queryset(self):
+        queryset = self.queryset
+        query = self.request.GET.get("q", '')
+
+        if query != '':
+            queryset = queryset.extra(where=[f'LOWER(name ::varchar) LIKE %s'], params=[f'%{query.lower()}%'])
+
+        return queryset
+
 # city list
 class CityList(generics.ListAPIView):
     serializer_class  = CitySimpleSerializer
