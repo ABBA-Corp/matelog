@@ -12,6 +12,7 @@ from django.conf import settings
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from .serializers import CarMarkSerializer, CarModelSerializer, CitySimpleSerializer, CitySerializer, StateSerializer, LeadsCreateSerialzier, LeadsViewSerializer, ApplicationCreateSerializer, ReviewSerializer, ShortApplicationSerializer
 from django.template.loader import get_template
+from django.db.models import Q
 # Create your views here.
 
 # pagination
@@ -157,7 +158,7 @@ class CityList(generics.ListAPIView):
 
         
         if query != '':
-            queryset = queryset.extra(where=[f'LOWER(name ::varchar) LIKE %s OR zip LIKE $s'], params=[f'%{query.lower()}%'])
+            queryset = queryset.filter(Q(name__iregex=query) | Q(zip__iregex=query))
 
         
         return queryset
