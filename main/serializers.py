@@ -25,11 +25,9 @@ class ThumbnailSerializer(serializers.BaseSerializer):
             orig_url = instance.path.split('.')
             thb_url = '.'.join(orig_url) + f'.{size}x{size}_q85.{orig_url[-1]}'
             if default_storage.exists(thb_url):
-                print("if")
                 last_url = instance.url.split('.')
                 url = '.'.join(last_url) + f'.{size}x{size}_q85.{last_url[-1]}'
             else:
-                print('else')
                 url = get_thumbnailer(instance)[self.alias].url
 
         if url == '' or url is None:
@@ -269,8 +267,6 @@ class LeadsCreateSerialzier(serializers.ModelSerializer):
         lead.distance = distance
         lead.save()
 
-        print(distance)
-        
         return lead
 
     def to_representation(self, instance):

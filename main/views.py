@@ -37,7 +37,7 @@ class ArticlesDetail(generics.RetrieveAPIView):
 
 # service view
 class ServicesListView(generics.ListAPIView):
-    queryset = Services.objects.all()
+    queryset = Services.objects.order_by("order")
     serializer_class = ServiceSerializer
     pagination_class = BasePagination
 

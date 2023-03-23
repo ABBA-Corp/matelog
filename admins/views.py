@@ -52,17 +52,12 @@ def delete_alot(request):
     model_name = request.POST.get("model_name")
     app_name = request.POST.get('app_name')
     id_list = request.POST.getlist('id')
-
-    print(id_list)
-    print(app_name, model_name)
     url = request.POST.get('url')
 
     #try:
     model = apps.get_model(model_name=model_name, app_label=app_name)
     for item in id_list:
-        print(item)
         if f'id[{item}]' in request.POST:
-            print('yes')
             model.objects.get(id=int(item)).delete()
     #except:
     #    pass
@@ -72,7 +67,6 @@ def delete_alot(request):
 
 # save images
 def save_images(request):
-    print(request.FILES)
     if request.method == 'POST':
         key = request.POST.get("key")
         file = request.FILES.get('file')
@@ -121,8 +115,6 @@ def add_static_image(request):
     url = request.POST.get('url')
     key = request.POST.get("key")
     file = request.FILES.get('file')
-
-    print(file)
 
     try:
         model = StaticInformation.objects.get(id=1)
@@ -236,7 +228,6 @@ class ArticleCreateView(CreateView):
 
             meta_dict = serialize_request(MetaTags, request)
             try:
-                print(meta_dict)
                 meta = MetaTags(**meta_dict)
                 meta.full_clean()
                 meta.save()
@@ -488,7 +479,6 @@ class StaticUpdate(UpdateView):
         context = super().post(request, *args, **kwargs)
         data_dict = serialize_request(StaticInformation, request)
         instance = self.get_object()
-        print(instance)
 
         data = self.get_context_data()
         if is_valid_field(data_dict, 'title') == False:
@@ -621,8 +611,6 @@ def add_trans_group(request):
     if request.method == 'POST':
         data_dict = serialize_request(TranlsationGroups, request)
 
-        print(TranlsationGroups.objects.values_list('sub_text'))
-
         if data_dict.get('sub_text', '') == '':
             return JsonResponse({'key_error': 'Sub text is required'})
         elif (data_dict.get('sub_text'), ) in TranlsationGroups.objects.values_list('sub_text'):
@@ -686,8 +674,6 @@ class TranslationGroupUdpate(UpdateView):
                     {'key': f'value[{l}][{lng.code}]', 'value': request.POST[f'value[{l}][{lng.code}]'], 'def_lang': lang.code, 'lng': lng.code})
 
             data.append(new_data)
-
-        print(data)
 
         objects = dict(pairs=zip(data, list(range(1, int(items_count) + 1))))
 
@@ -1035,6 +1021,11 @@ class ServicesUpdate(UpdateView):
             data['error'] = 'This field is required.'
             return render(request, self.template_name, data)
 
+        if int(data_dict.get("order", 1)) <= 0:
+            data['request_post'] = data_dict
+            data['order_error'] = 'This field should be greater than 0.'
+            return render(request, self.template_name, data)
+
         try:
             data_dict['parent'] = Services.objects.get(id=int(parent_id))
         except:
@@ -1109,9 +1100,13 @@ class ServiceCreate(CreateView):
         data = self.get_context_data()
 
         if is_valid_field(data_dict, 'title') == False:
-            print("if1")
             data['error'] = 'This field is required.'
             data['request_post'] = data_dict
+            return render(request, self.template_name, data)
+
+        if int(data_dict.get("order", 1)) <= 0:
+            data['request_post'] = data_dict
+            data['order_error'] = 'This field should be greater than 0.'
             return render(request, self.template_name, data)
 
         parent_id = request.POST.get('parent')
@@ -1119,7 +1114,6 @@ class ServiceCreate(CreateView):
             data_dict['parent'] = Services.objects.get(id=int(parent_id))
         except:
             pass
-        print('else1')
         instance = Services(**data_dict)
         instance.full_clean()
         instance.save()
@@ -1857,7 +1851,6 @@ class ApplicationUpdate(UpdateView):
             "vehicle_runs": apl.vehicle_runs
         }
         price_request = requests.get(url=url, params=params).json()
-        print(price_request)
 
         if not price_request:
             price_request = {}

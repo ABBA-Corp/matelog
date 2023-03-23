@@ -65,13 +65,16 @@
                 <thead>
                     <tr>
                         <th style="width: 30px;">
-                            <a class="list-sort text-muted" data-sort="item-name">№</a>
+                            <a class="list-sort text-muted">№</a>
                         </th>
                         <th>
-                            <a class="list-sort text-muted" data-sort="item-name" href="#">Заголовок</a>
+                            <a class="list-sort text-muted" href="#">Заголовок</a>
                         </th>
                         <th>
-                            <span class="text-muted" data-sort="item-title">Родительская услуга</span>
+                            <span class="text-muted">Родительская услуга</span>
+                        </th>
+                        <th>
+                            <span class="text-muted">Порядок</span>
                         </th>
                         <th style="width: 200px;"></th>
                     </tr>
@@ -101,6 +104,10 @@
                             {% if obj.parent and obj.parent.title %}
                                 <span class="item-title">{{ obj.parent.title|get_item:lang.code|cut_text }}</span>
                             {% endif %}
+                        </td>
+                        <td>
+                            <!-- Text -->
+                            {{ obj.order }}
                         </td>
                         <td>
                             <div class="d-flex justify-content-end">

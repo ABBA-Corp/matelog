@@ -164,6 +164,27 @@
                     </div>
 
 
+                    <div class="form-group">
+                        <!-- Label  -->
+                        <label class="form-label">
+                            Порядок
+                        </label>
+                        <br>
+                        <!-- Input -->
+                        <input type="number" min="1" name="order" id="" class="form-control"  
+                            {% if object and object.order %} 
+                                value="{{ object.order }}" 
+                            {% elif request_post and request_post|get_item:'order' %} 
+                                value="{{ request_post|get_item:'order' }}" 
+                            {% endif %}>
+                        <div class="invalid-feedback" style="display: block;">
+                            {% if order_error %}
+                            {{ order_error }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+
                     <!-- Project cover -->
                     <div class="form-group">
 
