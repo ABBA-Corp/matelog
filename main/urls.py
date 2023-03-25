@@ -22,5 +22,6 @@ urlpatterns = [
     path("applications/create", views.ApplicationCreateView.as_view()),
     path('reviews', views.ReviewList.as_view()),
     path('short_application/create', views.ShortAplicationView.as_view()),
-    path('application/create', views.NewAmgAplication.as_view())
+    path('application/create', views.NewAmgAplication.as_view()),
+    path("get_order_status", views.GetOrderStatus.as_view())
 ]

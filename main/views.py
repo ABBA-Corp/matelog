@@ -269,3 +269,51 @@ class ShortAplicationView(generics.CreateAPIView):
 class NewAmgAplication(generics.CreateAPIView):
     queryset = SomeAplication.objects.all()
     serializer_class = NewAplSerializer
+
+
+
+# get order status
+class GetOrderStatus(views.APIView):
+    def get(self, request, format=None):
+
+        data = {
+            'api_key': settings.SRM_API_KEY
+        }
+
+        data['record'] = request.GET.get("record", '')
+
+        response = requests.get(url='https://ml.msgplane.com/api/rest/get/status/', params=data)
+        response_data = response.json()
+
+        if 'result' in response_data and response_data['result'] == 'failed':
+            return Response(status=403, data=response.json())
+
+        status_dict = {
+            '100': 'new',
+            '1': 'follow-up',
+            '2': 'cancelled',
+            '20': 'on-hold-lead',
+            '21': 'on-hold-quote',
+            '3': 'quote',
+            '4': 'order',
+            '5': 'signed',
+            '30': 'on-hold-quote',
+            '60': 'ready',
+            '61': 'bounced',
+            '7': 'posted-cd',
+            '8': 'dispatched',
+            '80': 'not-signed',
+            '81': 'picked-up',
+            '9': 'on-hold-order',
+            '10': 'completed',
+            '11': 'incomplete',
+            '12': 'lost',
+            '13': 'cancelled',
+            '999': 'archived',
+            '888': 'bad',
+
+        }
+
+        response_data['status'] = status_dict.get(response_data['lead_status'], 'ERROR')
+
+        return Response(response_data)
