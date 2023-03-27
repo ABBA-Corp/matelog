@@ -1,0 +1,171 @@
+{% extends 'admin/base_template.html' %}
+{% load static %}
+{% load get_item %}
+
+{% block title %} Leads {% endblock %}
+
+
+{% block page_title %} Leads {% endblock %}
+
+
+{% block nav_ol %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+    <li class="breadcrumb-item ">
+        <a href="{% url 'leads_list' %}">Leads</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="&quot;page&quot;">
+        Просмотр
+    </li>
+</ol>
+{% endblock %}
+
+{% block content_width %} class="col-11" {% endblock %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-12 col-xl-8">
+        <div class="card mt-3">
+            <div class="card-bodyb p-5">
+                {% csrf_token %}
+                <input type="hidden" name="dropzone-key" value="{{ dropzone_key }}">
+                <input type="hidden" name="id" value="{{ object.id }}">
+                <input type="hidden" name="url" value="{{ request.get_full_path }}">
+
+                <div class="form-group">
+                    <!-- Label  -->
+                    <label class="form-label required">
+                        Email
+                    </label>
+                    <br>
+                    <!-- Input -->
+                    <input type="text" name="nbm" disabled class="form-control" value="{{ object.email }}"
+                        placeholder="Название..." id="id_name">
+                </div>
+
+                <div class="form-group">
+                    <!-- Label  -->
+                    <label class="form-label required">
+                        Number
+                    </label>
+                    <br>
+                    <!-- Input -->
+                    <input type="text" name="nbm" disabled class="form-control" value="{{ object.nbm }}" placeholder="Номер...">
+                </div>
+
+                <div class="form-group">
+                    <!-- Label  -->
+                    <label class="form-label required">
+                        Расстояние
+                    </label>
+                    <br>
+                    <!-- Input -->
+                    <input type="text" name="nbm" disabled class="form-control" value="{{ object.distance }}">
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-6">
+                        <!-- Label  -->
+                        <label class="form-label">
+                            Точка A
+                        </label>
+                        <br>
+                        <!-- Input -->
+                        <input type="text" class="form-control"
+                            value="{{ object.ship_from.name|get_item:lang.code }} {{ object.ship_from.state.code }} {{ object.ship_from.zip }}"
+                            disabled>
+                    </div>
+                    <div class="form-group col-6">
+                        <!-- Label  -->
+                        <label class="form-label">
+                            Точка B
+                        </label>
+                        <br>
+                        <!-- Input -->
+                        <input type="text" class="form-control"
+                            value="{{ object.ship_to.name|get_item:lang.code }} {{ object.ship_to.state.code }} {{ object.ship_to.zip }}"
+                            disabled>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <!-- Label  -->
+                    <label class="form-label required">
+                        Транспорт
+                    </label>
+                    <br>
+                    <!-- Input -->
+                    <input type="text" name="nbm" class="form-control" disabled value="{{ object.vehicle.name|get_item:lang.code }} {{ object.car_year }}" required>
+                </div>
+
+                <div class="form-group">
+                    <!-- Label  -->
+                    <label class="form-label required">
+                        Vehicle runs
+                    </label>
+                    <br>
+                    <!-- Input -->
+                    <input type="text" class="form-control" disabled value="{{ object.get_vehicle_runs_display }}">
+                </div>
+                <!-- Buttons -->
+
+            </div>
+        </div>        
+    </div>
+    <div class="col-12 col-xl-4">
+        <div class="card mt-3">
+            <div class="card-body p-4">
+                <div class="form-group">
+                    <!-- Label  -->
+                    <label class="form-label">
+                        Дата
+                    </label>
+                    <br>
+                    <!-- Input -->
+                    <input type="text" value="{{ object.date|date:'Y-m-d' }}" class="form-control" id="date-input"
+                        data-flatpickr='{"dateFormat": "Y-m-d"}' disabled>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">
+                        Цена
+                    </label>
+                    <br>
+                    <input type="text" class="form-control" value="{{ object.price }}" disabled>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">
+                        Цена по первому тарифу
+                    </label>
+                    <br>
+                    <input type="text" class="form-control" value="{{ object.price_first_tarif }}" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Цена по второму тарифу
+                    </label>
+                    <br>
+                    <input type="text" class="form-control" value="{{ object.price_second_tarif }}" disabled>
+                </div>
+                
+                <div class="form-group">
+                    <!-- Label  -->
+                    <label class="form-label">
+                        Ship type
+                    </label>
+                    <br>
+                    <!-- Input -->
+                    {% if object.ship_via_id == '1' %}
+                    <input type="text" class="form-control" value="Open" disabled>
+                    {% elif object.ship_via_id == '1' %}
+                    <input type="text" class="form-control" value="Enclosed" disabled>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Form -->
+{% endblock %}

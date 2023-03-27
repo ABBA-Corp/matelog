@@ -29,7 +29,7 @@
 
     <style>
         .pagination.pagination-tabs.card-pagination.pages {
-            overflow-x: scroll;
+            overflow-x: auto;
         }
     </style>
 
@@ -70,6 +70,12 @@
                     <li class="nav-item">
                         <a class="nav-link " href="{% url 'appl_list' %}">
                             <i class="fe fe-clipboard"></i> Заявки
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="{% url 'leads_list' %}">
+                            <i class="fe fe-clipboard"></i> Leads
                         </a>
                     </li>
 

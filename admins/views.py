@@ -1765,6 +1765,7 @@ class CityEdit(UpdateView):
 # leads list
 class LeadsList(ListView):
     model = Leads
+    template_name = 'admin/leads.html'
 
     def get_queryset(self):
         queryset = Leads.objects.order_by("-id")
@@ -1783,6 +1784,19 @@ class LeadsList(ListView):
         context['url'] = search_pagination(self.request)
 
         return context
+    
+
+# lead detail view
+class LeadDetailView(DetailView):
+    model = Leads
+    template_name = 'admin/lead_view.html'
+
+
+    def get_context_data(self, **kwargs):
+        context = super(LeadDetailView, self).get_context_data(**kwargs)
+        context['lang'] = Languages.objects.filter(active=True).filter(default=True).first()
+        return context
+
 
 
 # applicatins list
