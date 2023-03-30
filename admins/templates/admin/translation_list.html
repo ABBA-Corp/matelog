@@ -66,20 +66,6 @@
                             class="fe fe-edit-2 d-flex align-items-center justify-content-center"
                             style="width: 20px;height:20px"></i> редактировать</a>
                 </div>
-                <div class="col-6">
-                    <a class="d-flex p-1 mt-4"
-                        onclick="var result = confirm('Want to delete?'); if (result){event.preventDefault();document.getElementById('delete-group-form').submit();}"
-                        style="width: max-content;text-decoration: underline;color: red;cursor:pointer;"><i
-                            class="fe fe-trash-2 d-flex align-items-center justify-content-center" style="width: 20px;height:20px;"></i>
-                        удалить</a>
-                    <form action="{% url 'delete' %}" id="delete-group-form" style="display: none;" method="post">
-                        {% csrf_token %}
-                        <input type="hidden" name="item_id" value="{{ object.id }}">
-                        <input type="hidden" name="model_name_del" value="TranlsationGroups">
-                        <input type="hidden" name="app_name_del" value="admins">
-                        <input type="hidden" name="url" value="{% url 'translation_list' %}">
-                    </form>
-                </div>
             </div>
             {% endif %}
         </div>
