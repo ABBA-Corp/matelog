@@ -1,0 +1,60 @@
+{% load get_item %}
+
+<style>
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+</style>
+
+<div>
+    <h4>Request details:</h4>
+
+    <ul>
+        <li>
+            Price: {{ apl.final_price }}
+        </li>
+        <li>
+            distance: {{ apl.distance }}
+        </li>
+        <li>
+            First name: {{ apl.first_name }}
+        </li>
+        <li>
+            Last name: {{ apl.last_name }}
+        </li>
+        <li>
+            Transport car FROM: {{ apl.ship_from.name|get_item:lang.code }}
+        </li>
+        <li>
+            Transport car TO: {{ apl.ship_to.name|get_item:lang.code }}
+        </li>
+        <li>
+            Transport type: {% if apl.ship_via_id == '1' %} Open {% else %} Enclosed {% endif %}
+        </li>
+        <li>
+            Adress: {{ apl.adres }}
+        </li>
+        <li>
+            Vehicle_year: {{ apl.car_year }}
+        </li>
+        <li>
+            Vehicle_make: {{ apl.vehicle.mark.name|get_item:lang.code }}
+        </li>
+        <li>
+            Vehicle_model: {{ apl.vehicle.name|get_item:lang.code }}
+        </li>
+        <li>
+            Vehicle runs: {{ apl.get_vehicle_runs_display }}
+        </li>
+        <li>
+            Email: {{ apl.email }}
+        </li>
+        <li>
+            Phone: {{ apl.nbm }}
+        </li>
+        <li>
+            First available date: {{ apl.date|date:'Y.m.d' }}
+        </li>
+    </ul>
+</div>

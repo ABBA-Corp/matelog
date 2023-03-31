@@ -194,7 +194,6 @@ class LeadCreate(generics.CreateAPIView):
         except:
             pass
 
-
         return lead
 
 
@@ -225,6 +224,19 @@ class ApplicationCreateView(generics.CreateAPIView):
 
             for nbm in nbms:
                 AplicationNbm(application=apl, nbm=nbm).save()
+
+            html_templ = get_template('application_email.html')
+            lang = Languages.objects.filter(default=True).first()
+
+            try:
+                subject = 'Your application'
+                text_content = 'some'
+                html_content = html_templ.render(context={'apl': apl, 'lang': lang})
+                msg = EmailMultiAlternatives(subject, text_content, settings.EMAIL_HOST_USER, [apl.email])
+                msg.attach_alternative(html_content, "text/html")
+                msg.send()
+            except:
+                pass
 
         return apl
 
