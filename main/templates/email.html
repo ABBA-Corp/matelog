@@ -1,3 +1,46 @@
+{% load get_item %}
+
+<style>
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+</style>
+
 <div>
-    <a href="https://matetransport.com/calculator/choice-tarif/{{ uuid }}">Link to your lead</a>
+    <h4>Request details:</h4>
+
+    <ul>
+        <li>
+            Transport_car_FROM: {{ lead.ship_from.name|get_item:lang.code }}
+        </li>
+        <li>
+            Transport_car_TO: {{ lead.ship_to.name|get_item:lang.code }}
+        </li>
+        <li>
+            Transport_type: {% if lead.ship_via_id == '1' %} Open {% else %} Enclosed {% endif %}
+        </li>
+        <li>
+            Vehicle_year: {{ lead.car_year }}
+        </li>
+        <li>
+            Vehicle_make: {{ lead.vehicle.mark.name|get_item:lang.code }}
+        </li>
+        <li>
+            Vehicle_model: {{ lead.vehicle.name|get_item:lang.code }}
+        </li>
+        <li>
+            Vehicle runs: {{ lead.get_vehicle_runs_display }}
+        </li>
+        <li>
+            Email: {{ lead.email }}
+        </li>
+        <li>
+            Phone: {{ lead.nbm }}
+        </li>
+        <li>
+            First available date: {{ lead.date|date:'Y.m.d' }}
+        </li>
+    </ul>
+    <a href="https://matetransport.com/calculator/choice-tarif/{{ lead.uuid }}">Link to your lead</a>
 </div>

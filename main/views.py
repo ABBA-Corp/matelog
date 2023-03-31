@@ -182,11 +182,12 @@ class LeadCreate(generics.CreateAPIView):
         lead = serializer.save()
 
         html_templ = get_template('email.html')
+        lang = Languages.objects.filter(default=True).first()
 
         try:
             subject = 'hello'
             text_content = 'some'
-            html_content = html_templ.render(context={'uuid': lead.uuid})
+            html_content = html_templ.render(context={'lead': lead, 'lang': lang})
             msg = EmailMultiAlternatives(subject, text_content, settings.EMAIL_HOST_USER, [lead.email])
             msg.attach_alternative(html_content, "text/html")
             msg.send()
