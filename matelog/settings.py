@@ -224,8 +224,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-EMAIL_HOST_USER = 'matelog13@gmail.com'
-EMAIL_HOST_PASSWORD = 'upixsdugcxubglbp'
+EMAIL_HOST_USER = 'leads@matelogisticss.com'
+EMAIL_HOST_PASSWORD = 'papzxominwbtlnzh'
 
 
 
