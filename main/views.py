@@ -232,12 +232,14 @@ class ApplicationCreateView(generics.CreateAPIView):
                 subject = 'Your application'
                 text_content = 'some'
                 html_content = html_templ.render(context={'apl': apl, 'lang': lang})
-                msg = EmailMultiAlternatives(subject, text_content, settings.EMAIL_HOST_USER, [apl.email])
-                msg.attach_alternative(html_content, "text/html")
-                msg.send()
+
+                for email in [apl.email, settings.EMAIL_HOST_USER]:
+                    msg = EmailMultiAlternatives(subject, text_content, settings.EMAIL_HOST_USER, [email])
+                    msg.attach_alternative(html_content, "text/html")
+                    msg.send()
+                    
             except:
                 pass
-
         return apl
 
 
